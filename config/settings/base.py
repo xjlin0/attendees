@@ -70,10 +70,12 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "rest_framework",
     "django_celery_beat",
+    "django_summernote",
 ]
 
 LOCAL_APPS = [
     "attendees.users.apps.UsersConfig",
+    "attendees.whereabouts.apps.WhereaboutsConfig"
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
