@@ -75,7 +75,9 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "attendees.users.apps.UsersConfig",
-    "attendees.whereabouts.apps.WhereaboutsConfig"
+    "attendees.whereabouts.apps.WhereaboutsConfig",
+    "attendees.persons.apps.PersonsConfig",
+    "attendees.occasions.apps.OccasionsConfig",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

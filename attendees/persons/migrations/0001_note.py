@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('contenttypes', '0002_remove_content_type_name'),
-        ('whereabouts', '0000_initial'),
+        ('persons', '0000_initial'),
     ]
 
     operations = [
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('content_type', models.ForeignKey(on_delete=models.SET(0), to='contenttypes.ContentType')),
             ],
             options={
-                'db_table': 'whereabouts_notes',
+                'db_table': 'persons_notes',
                 'ordering': ('-modified',),
             },
         ),

@@ -16,7 +16,7 @@ class Note(TimeStampedModel, SoftDeletableModel):
         return '%s %s %s' % (self.content_type, self.content_object, self.note_text)
 
     class Meta:
-        db_table = 'whereabouts_notes'
+        db_table = 'persons_notes'
         ordering = ('-modified',)
 
     @property
