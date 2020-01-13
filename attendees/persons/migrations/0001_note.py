@@ -7,8 +7,6 @@ import model_utils.fields
 
 class Migration(migrations.Migration):
 
-    initial = False
-
     dependencies = [
         ('contenttypes', '0002_remove_content_type_name'),
         ('persons', '0000_initial'),
