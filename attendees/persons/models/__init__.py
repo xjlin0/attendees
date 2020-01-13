@@ -3,7 +3,7 @@ from .utility import Utility
 from .note import Note
 from .attendee import Attendee
 from .relationship import Relationship
-# from .address import Address
+
 
 # from .event import Event
 # from .event_address import EventAddress

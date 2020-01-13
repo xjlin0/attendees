@@ -7,7 +7,7 @@ class Utility:
     #     return self.updated.isoformat()
 
     @property
-    def notes(self):
+    def all_notes(self):
         return self.notes.all()
 
     # @property
