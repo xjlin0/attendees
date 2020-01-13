@@ -5,8 +5,6 @@ from .attendee import Attendee
 from .relationship import Relationship
 
 
-# from .event import Event
-# from .event_address import EventAddress
 # from .price import Price
 # from .registration import Registration
 # from .attending import Attending
