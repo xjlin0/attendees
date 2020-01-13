@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.contenttypes.fields import GenericRelation
 from model_utils.models import TimeStampedModel, SoftDeletableModel
-from . import Utility, Attendee
+from . import Utility, Note, Attendee
 
 
 class Relationship(TimeStampedModel, SoftDeletableModel, Utility):
-    link_notes = GenericRelation('Note')
+    notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     from_attendee = models.ForeignKey(Attendee, related_name='from_attendee', on_delete=models.SET(0))
     to_attendee = models.ForeignKey(Attendee, related_name='to_attendee', on_delete=models.SET(0))

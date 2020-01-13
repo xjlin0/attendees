@@ -4,11 +4,11 @@ from django.contrib.contenttypes.fields import GenericRelation
 
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
-from . import GenderEnum, Utility
+from . import GenderEnum, Note, Utility
 
 
 class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
-    notes = GenericRelation('Note')
+    notes = GenericRelation(Note)
     relations = models.ManyToManyField('self', through='Relationship', symmetrical=True, related_name='related_to+')
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     first_name = models.CharField(max_length=25, db_index=True, null=True, blank=True)

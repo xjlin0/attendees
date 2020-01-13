@@ -1,11 +1,10 @@
 from .enum import GenderEnum
 from .utility import Utility
-# from .division import Division
 from .note import Note
 from .attendee import Attendee
 from .relationship import Relationship
 # from .address import Address
-# from .organization import Organization
+
 # from .event import Event
 # from .event_address import EventAddress
 # from .price import Price

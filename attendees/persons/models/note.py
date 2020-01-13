@@ -19,6 +19,6 @@ class Note(TimeStampedModel, SoftDeletableModel):
         db_table = 'persons_notes'
         ordering = ('-modified',)
 
-    @property
-    def iso_updated_at(self):
-        return self.modified.isoformat()
+    # @property
+    # def iso_updated_at(self):
+    #     return self.modified.isoformat()
