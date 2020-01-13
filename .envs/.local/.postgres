@@ -2,6 +2,6 @@
 # ------------------------------------------------------------------------------
 POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
-POSTGRES_DB=attendees
+POSTGRES_DB=attendees_development
 POSTGRES_USER=YBIJMKerEaNYKqzfvMxOlBAesdyiahxk
 POSTGRES_PASSWORD=HA3NevuIzxuWZ6UMjs8S3DMyhnLeAZT9JpFuxXCfbHReKgYDvF19pLFTqEE2UgXU
