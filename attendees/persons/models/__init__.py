@@ -1,8 +1,9 @@
-# from .enum import RecordStatusEnum, GenderEnum
-# from .utility import Utility
+from .enum import GenderEnum
+from .utility import Utility
 # from .division import Division
 from .note import Note
-# from .attendee import Attendee
+from .attendee import Attendee
+from .relationship import Relationship
 # from .address import Address
 # from .organization import Organization
 # from .event import Event
@@ -20,7 +21,6 @@ from .note import Note
 # from .suite import Suite
 # from .room import Room
 # from .program_session import ProgramSession
-# from .relationship import Relationship
 # from .program_team import ProgramTeam
 # from .program_participation import ProgramParticipation
 # from .program_group_setting import ProgramGroupSetting
