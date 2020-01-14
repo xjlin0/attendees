@@ -5,16 +5,16 @@ from django.contrib.contenttypes.fields import GenericRelation
 from model_utils.models import TimeStampedModel, SoftDeletableModel, TimeFramedModel
 
 from attendees.persons.models import Utility, Note
-from attendees.whereabouts.models import Division, Address
+# from attendees.whereabouts.models import Division
 
 
 class Event(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    addresses = models.ManyToManyField(Address, through='EventAddress')
+    addresses = models.ManyToManyField('whereabouts.Address', through='EventAddress')
     display_name = models.CharField(max_length=50, blank=False, null=False)
     key = models.CharField(max_length=50, blank=False, null=False, unique=True)
-    division = models.ForeignKey(Division, null=False, blank=False, on_delete=models.SET(0))
+    division = models.ForeignKey('whereabouts.Division', null=False, blank=False, on_delete=models.SET(0))
 
     def get_absolute_url(self):
         return reverse('event_detail', args=[str(self.id)])

@@ -6,12 +6,13 @@ from django.contrib.postgres.fields import JSONField
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
 from attendees.persons.models import Utility, Note
+from attendees.occasions.models import Event, EventAddress
 
 
 class Address(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    # events = models.ManyToManyField('Event', through='EventAddress')
+    events = models.ManyToManyField(Event, through=EventAddress)
     # attendings = models.ManyToManyField('Attending', through='AttendingAddress')
     email1 = models.EmailField(blank=True, null=True, max_length=191, db_index=True)
     email2 = models.EmailField(blank=True, null=True, max_length=191)
