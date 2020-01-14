@@ -8,7 +8,6 @@ from .registration import Registration
 # from .attending_division import AttendingDivision
 # from .attending_address import AttendingAddress
 # from .program_progression import ProgramProgression
-# from .program_group import ProgramGroup
 # from .campus import Campus
 # from .property import Property
 # from .suite import Suite
