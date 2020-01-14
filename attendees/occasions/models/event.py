@@ -5,7 +5,6 @@ from django.contrib.contenttypes.fields import GenericRelation
 from model_utils.models import TimeStampedModel, SoftDeletableModel, TimeFramedModel
 
 from attendees.persons.models import Utility, Note
-# from attendees.whereabouts.models import Division
 
 
 class Event(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
