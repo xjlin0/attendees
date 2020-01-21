@@ -13,7 +13,7 @@ class Address(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     events = models.ManyToManyField(Event, through=EventAddress)
-    # attendings = models.ManyToManyField('Attending', through='AttendingAddress')
+    attendings = models.ManyToManyField('persons.Attending', through='persons.AttendingAddress')
     email1 = models.EmailField(blank=True, null=True, max_length=191, db_index=True)
     email2 = models.EmailField(blank=True, null=True, max_length=191)
     phone1 = models.CharField(max_length=15, blank=True, null=True, db_index=True)

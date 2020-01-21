@@ -15,7 +15,7 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     registration = models.ForeignKey(Registration, null=True, on_delete=models.SET_NULL)
     attendee = models.ForeignKey(Attendee, null=True, on_delete=models.SET_NULL)
-    # addresses = models.ManyToManyField('Address', through='AttendingAddress')
+    addresses = models.ManyToManyField('whereabouts.Address', through='AttendingAddress')
     # program_sessions = models.ManyToManyField('ProgramSession', through='ProgramParticipation')
     price = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])
     age = models.IntegerField(null=True, blank=True)
@@ -41,13 +41,13 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     def main_contact(self):
         return self.registration.main_attendee
 
-    # @cached_property
-    # def division_names(self):
-    #     return ",".join([d.name for d in self.divisions.all()])
+    @cached_property
+    def division_names(self):
+        return ",".join([d.name for d in self.divisions.all()])
 
-    # @cached_property
-    # def all_addresses(self):
-    #     return ",".join([str(a) for a in self.addresses.all()])
+    @cached_property
+    def all_addresses(self):
+        return ",".join([str(a) for a in self.addresses.all()])
 
-    # def __str__(self):
-    #     return '%s %s %s' % (self.attendee, self.division_names, self.bed_needs)
+    def __str__(self):
+        return '%s %s %s' % (self.attendee, self.division_names, self.bed_needs)
