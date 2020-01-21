@@ -4,11 +4,12 @@ from django.contrib.contenttypes.fields import GenericRelation
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
 from attendees.persons.models import Utility, Note
+from attendees.occasions.models import Session
 
 
 class Property(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
-    # program_session = GenericRelation('ProgramSession')
+    session = GenericRelation(Session)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     display_name = models.CharField(max_length=50, blank=False, null=False, db_index=True)
     key = models.CharField(max_length=50, blank=False, null=False, unique=True)
