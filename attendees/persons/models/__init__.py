@@ -7,8 +7,3 @@ from .registration import Registration
 # from .attending import Attending
 # from .attending_division import AttendingDivision
 # from .attending_address import AttendingAddress
-
-# from .program_session import ProgramSession
-# from .program_team import ProgramTeam
-# from .program_participation import ProgramParticipation
-# from .program_group_setting import ProgramGroupSetting
