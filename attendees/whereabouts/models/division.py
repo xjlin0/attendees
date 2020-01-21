@@ -12,9 +12,7 @@ class Division(TimeStampedModel, SoftDeletableModel, Utility):
     organization = models.ForeignKey(Organization, null=False, blank=False, on_delete=models.SET(0))
     display_name = models.CharField(max_length=50, blank=False, null=False)
     key = models.CharField(max_length=50, blank=False, null=False, unique=True)
-    # attendees = models.ManyToManyField('Attendee', through='AttendeeDivision')
-
-
+    attendings = models.ManyToManyField('persons.Attending', through='persons.AttendingDivision')
 
     class Meta:
         db_table = 'whereabouts_divisions'
