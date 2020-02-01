@@ -1,5 +1,5 @@
-from .event import Event
-from .event_address import EventAddress
+from .meet import Meet
+from .meet_address import MeetAddress
 from .price import Price
 from .character import Character
 from .group import Group
