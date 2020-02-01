@@ -10,9 +10,9 @@ from attendees.persons.models import Utility, Note
 class Session(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    group = models.ForeignKey('Group', null=True, on_delete=models.SET_NULL)
-    # attendings = models.ManyToManyField('Attending', through='ProgramParticipation')
-    display_name = models.CharField(max_length=50, blank=True)
+    group = models.ForeignKey('Group', on_delete=models.SET(0), null=False, blank=False)
+    attendings = models.ManyToManyField('persons.Attending', through='Participation')
+    display_name = models.CharField(max_length=50, blank=True, help_text="The Rock, Little Foot, singspiration, etc")
     link = models.CharField(max_length=254, blank=True)
     site_type = models.ForeignKey(ContentType, on_delete=models.SET(0), help_text='location: django_content_type id for table name')
     site_id = models.BigIntegerField()
