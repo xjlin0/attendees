@@ -28,6 +28,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'whereabouts_properties',
+                'verbose_name_plural': 'Properties',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),

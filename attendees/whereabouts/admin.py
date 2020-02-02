@@ -11,7 +11,8 @@ class MeetAddressInline(admin.TabularInline):
 
 class AddressAdmin(admin.ModelAdmin):
     inlines = (MeetAddressInline,)
-    list_display = ('address_type', 'street', 'city', 'zip_code', 'phone1', 'email1')
+    list_display_links = ('street',)
+    list_display = ('display_name', 'street', 'city', 'zip_code', 'phone1', 'email1')
 
 
 class DivisionAdmin(admin.ModelAdmin):
@@ -19,15 +20,15 @@ class DivisionAdmin(admin.ModelAdmin):
 
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ('display_name', 'campus', 'modified')
+    list_display = ('display_name', 'key', 'campus', 'modified')
 
 
 class CampusAdmin(admin.ModelAdmin):
-    list_display = ('display_name', 'address','modified')
+    list_display = ('display_name', 'key', 'address', 'modified')
 
 
 class SuiteAdmin(admin.ModelAdmin):
-    list_display = ('display_name', 'site', 'modified')
+    list_display = ('display_name', 'key',  'site', 'modified')
 
 
 class RoomAdmin(admin.ModelAdmin):
@@ -35,7 +36,7 @@ class RoomAdmin(admin.ModelAdmin):
 
 
 class OrganizationAdmin(admin.ModelAdmin):
-    list_display = ('display_name', 'modified')
+    list_display = ('display_name', 'key', 'modified')
 
 
 admin.site.register(Address, AddressAdmin)

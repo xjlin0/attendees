@@ -27,6 +27,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'occasions_meet_addresses',
+                'verbose_name_plural': 'Meet Addresses',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),

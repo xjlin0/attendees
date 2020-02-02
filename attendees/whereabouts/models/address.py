@@ -12,6 +12,7 @@ from attendees.occasions.models import Meet, MeetAddress
 class Address(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
+    display_name = models.CharField(max_length=50, blank=True, null=True, db_index=True)
     meets = models.ManyToManyField(Meet, through=MeetAddress)
     attendees = models.ManyToManyField('persons.Attendee', through='persons.AttendeeAddress')
     email1 = models.EmailField(blank=True, null=True, max_length=254, db_index=True)
@@ -38,4 +39,4 @@ class Address(TimeStampedModel, SoftDeletableModel, Utility):
         return ('{street1} {street2}').format(street1=self.street1, street2=self.street2 or '').strip()
 
     def __str__(self):
-        return '%s, %s, %s. %s %s' % (self.street, self.city, self.zip_code, self.phone1 or '', self.email1 or '')
+        return '%s, %s, %s. %s %s' % (self.display_name or self.attendees[0], self.street, self.city, self.zip_code, self.phone1)

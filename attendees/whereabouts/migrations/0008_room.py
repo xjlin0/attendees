@@ -22,6 +22,7 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(db_index=True, max_length=50)),
+                ('key', models.CharField(max_length=50, unique=True)),
                 ('label', models.CharField(blank=True, max_length=20)),
                 ('accessibility', models.IntegerField(default=0)),
                 ('suite', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='whereabouts.Suite')),

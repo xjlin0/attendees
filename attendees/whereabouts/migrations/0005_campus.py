@@ -27,6 +27,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'whereabouts_campus',
+                'verbose_name_plural': 'Campuses',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),

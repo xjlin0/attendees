@@ -21,6 +21,7 @@ class Migration(migrations.Migration):
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
+                ('display_name', models.CharField(blank=True, null=True, db_index=True, max_length=50)),
                 ('email1', models.EmailField(blank=True, db_index=True, max_length=254, null=True)),
                 ('email2', models.EmailField(blank=True, max_length=254, null=True)),
                 ('phone1', models.CharField(blank=True, db_index=True, max_length=15, null=True)),
@@ -35,6 +36,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'whereabouts_addresses',
+                'verbose_name_plural': 'Addresses',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),
