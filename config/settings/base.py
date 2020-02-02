@@ -287,6 +287,9 @@ ACCOUNT_ADAPTER = "attendees.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "attendees.users.adapters.SocialAccountAdapter"
 
+# Summernote
+# ------------------------------------------------------------------------------
+SUMMERNOTE_THEME = 'bs4'
 
 # Your stuff...
 # ------------------------------------------------------------------------------

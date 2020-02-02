@@ -17,6 +17,7 @@ class MeetAddress(TimeStampedModel, SoftDeletableModel, Utility):
 
     class Meta:
         db_table = 'occasions_meet_addresses'
+        verbose_name_plural = 'Meet Addresses'
         constraints = [
             models.UniqueConstraint(fields=['meet', 'address'], name="meet_address")
         ]

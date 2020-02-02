@@ -31,7 +31,7 @@ class Address(TimeStampedModel, SoftDeletableModel, Utility):
 
     class Meta:
         db_table = 'whereabouts_addresses'
-        verbose_name_plural = "Addresses"
+        verbose_name_plural = 'Addresses'
 
     @property
     def street(self):

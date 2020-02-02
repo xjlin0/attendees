@@ -25,8 +25,8 @@ class Meet(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     def __str__(self):
         return '%s' % self.display_name
 
-    # def get_addresses(self):
-    #     return "\n".join([a.street1 + a.city for a in self.addresses.all()])
+    def get_addresses(self):
+        return "\n".join([a.street1 + a.city for a in self.addresses.all()])
 
 
 # from rest_framework import serializers
