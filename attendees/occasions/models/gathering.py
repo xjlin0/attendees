@@ -8,7 +8,7 @@ from schedule.models import Event, Calendar, Rule
 from attendees.persons.models import Utility, Note
 
 
-class Group(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
+class Gathering(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     division = models.ForeignKey('whereabouts.Division', null=True, blank=True, on_delete=models.SET_NULL)
@@ -28,7 +28,7 @@ class Group(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
         return reverse('character_detail', args=[str(self.id)])
 
     class Meta:
-        db_table = 'occasions_groups'
+        db_table = 'occasions_gatherings'
 
     def __str__(self):
         return '%s %s %s' % (self.display_name, self.info or '', self.url)

@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('contenttypes', '0002_remove_content_type_name'),
-        ('occasions', '0005_group'),
+        ('occasions', '0005_gathering'),
     ]
 
     operations = [
@@ -28,12 +28,12 @@ class Migration(migrations.Migration):
                 ('display_name', models.CharField(blank=True, max_length=50, help_text="The Rock, Little Foot, singspiration, etc")),
                 ('link', models.CharField(blank=True, max_length=254)),
                 ('site_id', models.BigIntegerField()),
-                ('group', models.ForeignKey(on_delete=models.SET(0), to='occasions.Group')),
+                ('gathering', models.ForeignKey(on_delete=models.SET(0), to='occasions.Gathering')),
                 ('site_type', models.ForeignKey(help_text='location: django_content_type id for table name', on_delete=models.SET(0), to='contenttypes.ContentType')),
             ],
             options={
                 'db_table': 'occasions_sessions',
-                'ordering': ['group', 'start'],
+                'ordering': ['gathering', 'start'],
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
             managers=[
@@ -42,6 +42,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddConstraint(
             model_name='session',
-            constraint=models.UniqueConstraint(fields=('group_id', 'site_type_id', 'site_id', 'start'), name='uniq_group_location_time'),
+            constraint=models.UniqueConstraint(fields=('gathering_id', 'site_type_id', 'site_id', 'start'), name='uniq_gathering_location_time'),
         ),
     ]

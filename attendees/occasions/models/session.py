@@ -10,7 +10,7 @@ from attendees.persons.models import Utility, Note
 class Session(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    group = models.ForeignKey('Group', on_delete=models.SET(0), null=False, blank=False)
+    gathering = models.ForeignKey('Gathering', on_delete=models.SET(0), null=False, blank=False)
     attendings = models.ManyToManyField('persons.Attending', through='Participation')
     display_name = models.CharField(max_length=50, blank=True, help_text="The Rock, Little Foot, singspiration, etc")
     link = models.CharField(max_length=254, blank=True)
@@ -32,10 +32,10 @@ class Session(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
 
     class Meta:
         db_table = 'occasions_sessions'
-        ordering = ['group', 'start']
+        ordering = ['gathering', 'start']
         constraints = [
-            models.UniqueConstraint(fields=['group_id', 'site_type_id', 'site_id', 'start'], name='uniq_group_location_time')
+            models.UniqueConstraint(fields=['gathering_id', 'site_type_id', 'site_id', 'start'], name='uniq_gathering_location_time')
         ]
 
     def __str__(self):
-        return '%s %s %s %s' % (self.group, self.start, self.display_name or '', self.location or '')
+        return '%s %s %s %s' % (self.gathering, self.start, self.display_name or '', self.location or '')
