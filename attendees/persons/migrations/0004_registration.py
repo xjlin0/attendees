@@ -3,7 +3,6 @@
 import attendees.persons.models.utility
 import django.core.validators
 from django.db import migrations, models
-import django.db.models.deletion
 import django.utils.timezone
 import model_utils.fields
 
@@ -26,8 +25,9 @@ class Migration(migrations.Migration):
                 ('apply_type', models.CharField(help_text='online or paper', max_length=20, null=True)),
                 ('apply_key', models.CharField(help_text='E1T1F1 or #001', max_length=50, null=True)),
                 ('donation', models.DecimalField(decimal_places=2, default=999999, max_digits=8, validators=[django.core.validators.MinValueValidator(0)])),
-                ('meet', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Meet')),
-                ('main_attendee', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='persons.Attendee')),
+                ('price', models.DecimalField(decimal_places=2, default=999999, max_digits=8, validators=[django.core.validators.MinValueValidator(0)])),
+                ('meet', models.ForeignKey(null=True, on_delete=models.deletion.SET_NULL, to='occasions.Meet')),
+                ('main_attendee', models.ForeignKey(null=True, on_delete=models.deletion.SET_NULL, to='persons.Attendee')),
             ],
             options={
                 'db_table': 'persons_registrations',

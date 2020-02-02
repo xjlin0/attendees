@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.core.validators import MinValueValidator
 from django.urls import reverse
 from django.contrib.contenttypes.fields import GenericRelation
 from django.utils.functional import cached_property
@@ -14,10 +13,10 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     link_notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     registration = models.ForeignKey(Registration, null=True, on_delete=models.SET_NULL)
-    attendee = models.ForeignKey(Attendee, null=True, on_delete=models.SET_NULL)
+    attendee = models.ForeignKey(Attendee, null=False, blank=False, on_delete=models.SET(0))
     # addresses = models.ManyToManyField('whereabouts.Address', through='AttendingAddress')
     sessions = models.ManyToManyField('occasions.Session', through='occasions.Participation')
-    price = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])
+    # price = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])
     age = models.IntegerField(null=True, blank=True)
     attending_type = models.CharField(max_length=20, null=True)
     divisions = models.ManyToManyField('whereabouts.Division', through='AttendingDivision')
