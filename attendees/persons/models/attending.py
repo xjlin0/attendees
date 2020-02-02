@@ -15,7 +15,7 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     registration = models.ForeignKey(Registration, null=True, on_delete=models.SET_NULL)
     attendee = models.ForeignKey(Attendee, null=True, on_delete=models.SET_NULL)
-    addresses = models.ManyToManyField('whereabouts.Address', through='AttendingAddress')
+    # addresses = models.ManyToManyField('whereabouts.Address', through='AttendingAddress')
     sessions = models.ManyToManyField('occasions.Session', through='occasions.Participation')
     price = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])
     age = models.IntegerField(null=True, blank=True)
@@ -32,7 +32,6 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     def get_absolute_url(self):
         return reverse('attending_detail', args=[str(self.id)])
 
-
     class Meta:
         db_table = 'persons_attendings'
         ordering = ['registration']
@@ -47,7 +46,7 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
 
     @cached_property
     def all_addresses(self):
-        return ",".join([str(a) for a in self.addresses.all()])
+        return ",".join([str(a) for a in self.attendee.addresses.all()])
 
     def __str__(self):
         return '%s %s %s' % (self.attendee, self.division_names, self.bed_needs)

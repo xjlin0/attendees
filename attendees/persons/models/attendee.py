@@ -10,6 +10,7 @@ from . import GenderEnum, Note, Utility
 class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     notes = GenericRelation(Note)
     relations = models.ManyToManyField('self', through='Relationship', symmetrical=True, related_name='related_to+')
+    addresses = models.ManyToManyField('whereabouts.Address', through='AttendeeAddress')
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     first_name = models.CharField(max_length=25, db_index=True, null=True, blank=True)
     last_name = models.CharField(max_length=25, db_index=True, null=True, blank=True)

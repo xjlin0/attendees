@@ -11,7 +11,7 @@ import model_utils.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('persons', '0007_attending_address'),
+        ('persons', '0007_attendee_address'),
         ('occasions', '0007_team'),
     ]
 

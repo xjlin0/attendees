@@ -6,4 +6,4 @@ from .relationship import Relationship
 from .registration import Registration
 from .attending import Attending
 from .attending_division import AttendingDivision
-from .attending_address import AttendingAddress
+from .attendee_address import AttendeeAddress

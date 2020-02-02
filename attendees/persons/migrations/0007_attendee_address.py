@@ -15,27 +15,27 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='AttendingAddress',
+            name='AttendeeAddress',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('address', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Address')),
-                ('attending', models.ForeignKey(on_delete=models.SET(0), to='persons.Attending')),
+                ('attendee', models.ForeignKey(on_delete=models.SET(0), to='persons.Attendee')),
             ],
             options={
-                'db_table': 'persons_attending_addresses',
+                'db_table': 'persons_attendee_addresses',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),
         migrations.AddField(
-            model_name='attending',
+            model_name='attendee',
             name='addresses',
-            field=models.ManyToManyField(through='persons.AttendingAddress', to='whereabouts.Address'),
+            field=models.ManyToManyField(through='persons.AttendeeAddress', to='whereabouts.Address'),
         ),
         migrations.AddConstraint(
-            model_name='attendingaddress',
-            constraint=models.UniqueConstraint(fields=('attending', 'address'), name='attending_address'),
+            model_name='attendeeaddress',
+            constraint=models.UniqueConstraint(fields=('attendee', 'address'), name='attendee_address'),
         ),
     ]
