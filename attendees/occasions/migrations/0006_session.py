@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('end', models.DateTimeField(blank=True, null=True, verbose_name='end')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(blank=True, max_length=50, help_text="The Rock, Little Foot, singspiration, etc")),
-                ('link', models.CharField(blank=True, max_length=254)),
+                ('link', models.URLField(blank=True, null=True, max_length=254)),
                 ('site_id', models.BigIntegerField()),
                 ('gathering', models.ForeignKey(on_delete=models.SET(0), to='occasions.Gathering')),
                 ('site_type', models.ForeignKey(help_text='location: django_content_type id for table name', on_delete=models.SET(0), to='contenttypes.ContentType')),

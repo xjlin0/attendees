@@ -15,7 +15,7 @@ class Gathering(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     display_name = models.CharField(max_length=50, blank=True, null=False, db_index=True, help_text="The Rock, Little Foot, singspiration, A/V control, etc.")
     key = models.CharField(max_length=50, blank=False, null=False, unique=True)
     info = models.CharField(max_length=255, blank=True, null=True)
-    url = models.CharField(max_length=255, blank=True, null=False)
+    url = models.URLField(max_length=255, blank=True, null=True)
     event = models.ForeignKey(Event, blank=True, null=True, on_delete=models.SET_NULL)
     site_type = models.ForeignKey(ContentType, on_delete=models.SET(0), help_text='location: django_content_type id for table name')
     site_id = models.BigIntegerField()

@@ -23,9 +23,10 @@ class Address(TimeStampedModel, SoftDeletableModel, Utility):
     street1 = models.CharField(max_length=50, blank=True, null=True)
     street2 = models.CharField(max_length=50, blank=True, null=True)
     city = models.CharField(max_length=50, null=True)
-    state = models.CharField(max_length=10, default='CA')
+    state = models.CharField(max_length=10, default='CA', blank=True, null=True)
     zip_code = models.CharField(max_length=10, null=True)
-    fields = JSONField(default=dict)
+    url = models.URLField(max_length=255, blank=True, null=True)
+    fields = JSONField(default=dict, null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('address_detail', args=[str(self.id)])

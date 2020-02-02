@@ -30,9 +30,10 @@ class Migration(migrations.Migration):
                 ('street1', models.CharField(blank=True, max_length=50, null=True)),
                 ('street2', models.CharField(blank=True, max_length=50, null=True)),
                 ('city', models.CharField(max_length=50, null=True)),
-                ('state', models.CharField(default='CA', max_length=10)),
+                ('state', models.CharField(default='CA', max_length=10, blank=True, null=True)),
                 ('zip_code', models.CharField(max_length=10, null=True)),
-                ('fields', django.contrib.postgres.fields.jsonb.JSONField(default=dict)),
+                ('url', models.URLField(blank=True, null=True, max_length=255)),
+                ('fields', django.contrib.postgres.fields.jsonb.JSONField(default=dict, null=True, blank=True)),
             ],
             options={
                 'db_table': 'whereabouts_addresses',

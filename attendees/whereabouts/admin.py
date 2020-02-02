@@ -16,6 +16,7 @@ class AddressAdmin(admin.ModelAdmin):
 
 
 class DivisionAdmin(admin.ModelAdmin):
+    list_display_links = ('display_name',)
     list_display = ('organization', 'display_name', 'key', 'modified')
 
 

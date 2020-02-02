@@ -13,7 +13,7 @@ class Session(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     gathering = models.ForeignKey('Gathering', on_delete=models.SET(0), null=False, blank=False)
     attendings = models.ManyToManyField('persons.Attending', through='Participation')
     display_name = models.CharField(max_length=50, blank=True, help_text="The Rock, Little Foot, singspiration, etc")
-    link = models.CharField(max_length=254, blank=True)
+    link = models.URLField(max_length=254, blank=True, null=True)
     site_type = models.ForeignKey(ContentType, on_delete=models.SET(0), help_text='location: django_content_type id for table name')
     site_id = models.BigIntegerField()
     location = GenericForeignKey('site_type', 'site_id')
