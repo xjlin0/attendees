@@ -1,3 +1,4 @@
+from django_summernote.admin import SummernoteModelAdmin
 from django.contrib import admin
 from attendees.occasions.models import *
 from attendees.whereabouts.models import *
@@ -81,7 +82,8 @@ class AttendingAdmin(admin.ModelAdmin):
 #     list_display = ('name', 'group', 'display_order', 'modified')
 
 
-class NoteAdmin(admin.ModelAdmin):
+class NoteAdmin(SummernoteModelAdmin):
+    summernote_fields = ('note_text',)
     list_display = ('note_text', 'content_type', 'object_id', 'content_object', 'modified')
 
 
