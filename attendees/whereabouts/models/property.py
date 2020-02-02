@@ -18,6 +18,7 @@ class Property(TimeStampedModel, SoftDeletableModel, Utility):
 
     class Meta:
         db_table = 'whereabouts_properties'
+        verbose_name_plural = "Properties"
 
     def get_absolute_url(self):
         return reverse('property_detail', args=[str(self.id)])

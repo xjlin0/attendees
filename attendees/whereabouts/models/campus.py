@@ -17,6 +17,7 @@ class Campus(TimeStampedModel, SoftDeletableModel, Utility):
 
     class Meta:
         db_table = 'whereabouts_campus'
+        verbose_name_plural = "Campuses"
 
     def get_absolute_url(self):
         return reverse('campus_detail', args=[str(self.id)])
