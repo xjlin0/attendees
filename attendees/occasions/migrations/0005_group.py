@@ -11,6 +11,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('whereabouts', '0004_address_meets'),
+        ('schedule', '0012_auto_20191025_1852'),
         ('occasions', '0004_character'),
     ]
 
@@ -21,16 +22,24 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
+                ('start', models.DateTimeField(blank=True, null=True, verbose_name='start')),
+                ('end', models.DateTimeField(blank=True, null=True, verbose_name='end')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(blank=True, db_index=True, help_text='The Rock, Little Foot, singspiration, A/V control, etc.', max_length=50)),
                 ('key', models.CharField(max_length=50, unique=True)),
                 ('info', models.CharField(blank=True, max_length=255, null=True)),
                 ('url', models.CharField(blank=True, max_length=255)),
+                ('site_type', models.ForeignKey(help_text='location: django_content_type id for table name', on_delete=models.SET(0), to='contenttypes.ContentType')),
+                ('site_id', models.BigIntegerField()),
+                ('event', models.ForeignKey(blank=True, null=True, on_delete=models.deletion.SET_NULL, to='schedule.Event')),
                 ('division', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='whereabouts.Division')),
             ],
             options={
                 'db_table': 'occasions_groups',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
+            managers=[
+                ('timeframed', django.db.models.manager.Manager()),
+            ],
         ),
     ]
