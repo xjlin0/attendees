@@ -43,6 +43,7 @@ class NoteAdmin(SummernoteModelAdmin):
 
 
 class RelationshipAdmin(admin.ModelAdmin):
+    list_display_links = ('relation',)
     list_display = ('from_attendee', 'to_attendee', 'relation', 'modified')
 
 

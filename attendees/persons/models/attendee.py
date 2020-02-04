@@ -26,6 +26,9 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     def __str__(self):
         return '%s %s %s %s' % (self.first_name or '', self.last_name or '', self.last_name2 or '', self.first_name2 or '')
 
+    # def all_relations(self):
+    #     return self.relations.all() |
+
     def clean(self):
         if not (self.last_name or self.last_name2):
             raise ValidationError("You must specify a last_name")

@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('is_removed', models.BooleanField(default=False)),
                 ('address', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Address')),
                 ('attendee', models.ForeignKey(on_delete=models.SET(0), to='persons.Attendee')),
+                ('dwelling_type', models.CharField(max_length=20, default='main', blank=False, null=False, help_text='main, resident, etc (main will be displayed first)')),
             ],
             options={
                 'db_table': 'persons_attendee_addresses',
