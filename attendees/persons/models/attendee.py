@@ -1,7 +1,8 @@
 from django.db import models
-from django.db.models import Q
+
 from django.core.exceptions import ValidationError
 from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.postgres.fields.jsonb import JSONField
 
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
@@ -22,7 +23,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     gender = models.CharField(max_length=11, blank=False, null=False, default=GenderEnum.UNSPECIFIED, choices=GenderEnum.choices())
     actual_birthday = models.DateTimeField(blank=True, null=True)
     estimated_birthday = models.DateTimeField(blank=True, null=True)
-    medical_concern = models.CharField(max_length=50, null=False, blank=False, default="Food allergy: nothing")
+    concerns = JSONField(null=True, blank=True, default=dict, help_text='Example: {"food allergy": "peanuts"}. Please keep {} here even no data')
 
     def __str__(self):
         return '%s %s %s %s' % (self.first_name or '', self.last_name or '', self.last_name2 or '', self.first_name2 or '')

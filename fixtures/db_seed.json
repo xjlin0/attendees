@@ -2425,7 +2425,7 @@
       "created": "2020-02-04T15:52:11.163Z",
       "modified": "2020-02-04T15:52:11.163Z",
       "is_removed": false,
-      "user": 1,
+      "user": null,
       "first_name": "jack",
       "last_name": "lin",
       "first_name2": null,
@@ -2434,7 +2434,7 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "medical_concern": "Food allergy: nothing"
+      "concerns": {}
     }
   },
   {
@@ -2453,7 +2453,7 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "medical_concern": "Food allergy: nothing"
+      "concerns": {}
     }
   },
   {
@@ -2472,7 +2472,7 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": "2010-02-04T17:07:51Z",
-      "medical_concern": "Food allergy: nothing"
+      "concerns": {}
     }
   },
   {
@@ -2491,7 +2491,7 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "medical_concern": "Food allergy: nothing"
+      "concerns": {}
     }
   },
   {
@@ -2510,7 +2510,7 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "medical_concern": "Food allergy: nothing"
+      "concerns": {}
     }
   },
   {
@@ -2529,7 +2529,7 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "medical_concern": "Food allergy: nothing"
+      "concerns": {}
     }
   },
   {
@@ -2548,7 +2548,7 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "medical_concern": "Food allergy: nothing"
+      "concerns": {}
     }
   },
   {
@@ -2567,7 +2567,7 @@
       "gender": "UNSPECIFIED",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "medical_concern": "Food allergy: nothing"
+      "concerns": {}
     }
   },
   {
@@ -2586,7 +2586,7 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "medical_concern": "Food allergy: nothing"
+      "concerns": {}
     }
   },
   {
@@ -2605,472 +2605,7 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "medical_concern": "Food allergy: nothing"
-    }
-  },
-  {
-    "model": "account.emailaddress",
-    "pk": 1,
-    "fields": {
-      "user": 1,
-      "email": "xjlin0@gmail.com",
-      "verified": true,
-      "primary": true
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 1,
-    "fields": {
-      "action_time": "2020-02-04T15:46:43.259Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "1",
-      "object_repr": "cfcc_hayward_main, 22416 Meekland Ave,, CA, Hayward. 94541 510-581-1630",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 2,
-    "fields": {
-      "action_time": "2020-02-04T15:46:53.676Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "1",
-      "object_repr": "cfcc_hayward_main, 22416 Meekland Ave., Hayward. 94541 510-581-1630",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Street1\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 3,
-    "fields": {
-      "action_time": "2020-02-04T15:48:07.634Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "2",
-      "object_repr": "Burbank Elementary School, 222 Burbank St., Hayward. 94541 None",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 4,
-    "fields": {
-      "action_time": "2020-02-04T15:48:40.762Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "3",
-      "object_repr": ", 1 pretty st., pretty place. 11111 None",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 5,
-    "fields": {
-      "action_time": "2020-02-04T15:49:13.695Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "4",
-      "object_repr": ", 2 good street, god town. 22222 None",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 6,
-    "fields": {
-      "action_time": "2020-02-04T15:49:45.030Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "4",
-      "object_repr": "patty's place, 2 good street, god town. 22222 None",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Display name\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 7,
-    "fields": {
-      "action_time": "2020-02-04T15:50:30.266Z",
-      "user": 1,
-      "content_type": 26,
-      "object_id": "1",
-      "object_repr": "Chinese for Christ Church of Hayward",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 8,
-    "fields": {
-      "action_time": "2020-02-04T15:51:19.931Z",
-      "user": 1,
-      "content_type": 27,
-      "object_id": "1",
-      "object_repr": "\u4e2d\u6587\u90e8",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 9,
-    "fields": {
-      "action_time": "2020-02-04T15:52:11.176Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "1",
-      "object_repr": "jack lin  ",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"attendee address\", \"object\": \"jack lin   patty's place, 2 good street, god town. 22222 None\"}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 10,
-    "fields": {
-      "action_time": "2020-02-04T15:52:25.659Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "4",
-      "object_repr": "jack lin  , 2 good street, god town. 22222 None",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Display name\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 11,
-    "fields": {
-      "action_time": "2020-02-04T15:52:29.772Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "3",
-      "object_repr": "patty's place, 1 pretty st., pretty place. 11111 None",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Display name\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 12,
-    "fields": {
-      "action_time": "2020-02-04T15:54:39.021Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "2",
-      "object_repr": "Patty Li  ",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"attendee address\", \"object\": \"Patty Li   patty's place, 1 pretty st., pretty place. 11111 None\"}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 13,
-    "fields": {
-      "action_time": "2020-02-04T15:55:13.025Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "3",
-      "object_repr": "Michael li \u674e \u9ea5\u53ef",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 14,
-    "fields": {
-      "action_time": "2020-02-04T15:55:24.672Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "3",
-      "object_repr": "Michael li \u674e \u9ea5\u53ef",
-      "action_flag": 2,
-      "change_message": "[{\"added\": {\"name\": \"attendee address\", \"object\": \"Michael li \\u674e \\u9ea5\\u53ef patty's place, 1 pretty st., pretty place. 11111 None\"}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 15,
-    "fields": {
-      "action_time": "2020-02-04T15:56:00.909Z",
-      "user": 1,
-      "content_type": 35,
-      "object_id": "1",
-      "object_repr": "Patty Li   Michael li \u674e \u9ea5\u53ef mother - son",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 16,
-    "fields": {
-      "action_time": "2020-02-05T05:12:38.444Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "5",
-      "object_repr": ", 3 great rd, great town. 44444 None",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 17,
-    "fields": {
-      "action_time": "2020-02-05T05:12:49.617Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "5",
-      "object_repr": ", 3 great rd, great town. 33333 None",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Zip code\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 18,
-    "fields": {
-      "action_time": "2020-02-05T05:13:21.633Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "6",
-      "object_repr": ", 4 cool lane, cool city. 44444 None",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 19,
-    "fields": {
-      "action_time": "2020-02-05T05:13:59.631Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "7",
-      "object_repr": ", 5 excellent ct, excellent village. 55555 None",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 20,
-    "fields": {
-      "action_time": "2020-02-05T05:15:14.976Z",
-      "user": 1,
-      "content_type": 28,
-      "object_id": "8",
-      "object_repr": ", 6 beautiful dr, beautiful view. 66666 None",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 21,
-    "fields": {
-      "action_time": "2020-02-05T05:25:13.261Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "4",
-      "object_repr": "John ll  ",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 22,
-    "fields": {
-      "action_time": "2020-02-05T05:25:33.501Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "5",
-      "object_repr": "Susan ll  \u8607\u73ca",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 23,
-    "fields": {
-      "action_time": "2020-02-05T05:25:40.343Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "5",
-      "object_repr": "Susan ll  \u8607\u73ca",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Gender\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 24,
-    "fields": {
-      "action_time": "2020-02-05T05:26:23.066Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "6",
-      "object_repr": "Linda rr  \u7433\u9054",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 25,
-    "fields": {
-      "action_time": "2020-02-05T05:26:50.156Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "7",
-      "object_repr": "Elizabeth tt  ",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 26,
-    "fields": {
-      "action_time": "2020-02-05T05:27:08.835Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "8",
-      "object_repr": " yy  ",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 27,
-    "fields": {
-      "action_time": "2020-02-05T05:28:47.614Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "9",
-      "object_repr": "Evon Chung  \u4f9d\u82b3",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 28,
-    "fields": {
-      "action_time": "2020-02-05T05:29:13.584Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "10",
-      "object_repr": "Henry ee  \u4ea8\u5229",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 29,
-    "fields": {
-      "action_time": "2020-02-05T05:30:24.182Z",
-      "user": 1,
-      "content_type": 34,
-      "object_id": "10",
-      "object_repr": "Henry ee  \u4ea8\u5229",
-      "action_flag": 2,
-      "change_message": "[]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 30,
-    "fields": {
-      "action_time": "2020-02-05T05:33:18.579Z",
-      "user": 1,
-      "content_type": 27,
-      "object_id": "2",
-      "object_repr": "Crossing Ministry",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 31,
-    "fields": {
-      "action_time": "2020-02-05T05:33:36.356Z",
-      "user": 1,
-      "content_type": 27,
-      "object_id": "3",
-      "object_repr": "Children Ministry",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 32,
-    "fields": {
-      "action_time": "2020-02-05T05:33:52.420Z",
-      "user": 1,
-      "content_type": 27,
-      "object_id": "3",
-      "object_repr": "\u5152\u7ae5\u4e8b\u5de5",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Display name\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 33,
-    "fields": {
-      "action_time": "2020-02-05T05:36:21.065Z",
-      "user": 1,
-      "content_type": 40,
-      "object_id": "1",
-      "object_repr": "2020 Spring \u5152\u7ae5\u4e3b\u65e5\u5b78",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"meet address\", \"object\": \"2020 Spring \\u5152\\u7ae5\\u4e3b\\u65e5\\u5b78 cfcc_hayward_main, 22416 Meekland Ave., Hayward. 94541 510-581-1630\"}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 34,
-    "fields": {
-      "action_time": "2020-02-05T05:36:44.363Z",
-      "user": 1,
-      "content_type": 27,
-      "object_id": "3",
-      "object_repr": "Children Ministry",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Display name\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 35,
-    "fields": {
-      "action_time": "2020-02-05T05:37:38.518Z",
-      "user": 1,
-      "content_type": 40,
-      "object_id": "1",
-      "object_repr": "2020 Spring \u5152\u7ae5\u4e3b\u65e5\u5b78",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"name\": \"meet address\", \"object\": \"2020 Spring \\u5152\\u7ae5\\u4e3b\\u65e5\\u5b78 cfcc_hayward_main, 22416 Meekland Ave., Hayward. 94541 510-581-1630\", \"fields\": [\"Category\"]}}]"
+      "concerns": {}
     }
   }
 ]

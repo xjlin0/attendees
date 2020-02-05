@@ -4,8 +4,11 @@ import attendees.persons.models.enum
 import attendees.persons.models.utility
 from django.conf import settings
 from django.db import migrations, models
+from django.contrib.postgres.fields.jsonb import JSONField
 import django.utils.timezone
 import model_utils.fields
+
+from attendees.persons.models.enum import GenderEnum
 
 
 class Migration(migrations.Migration):
@@ -29,10 +32,10 @@ class Migration(migrations.Migration):
                 ('first_name2', models.CharField(blank=True, db_index=True, max_length=12, null=True)),
                 ('last_name2', models.CharField(blank=True, db_index=True, max_length=8, null=True)),
                 ('other_name', models.CharField(blank=True, db_index=True, max_length=20, null=True)),
-                ('gender', models.CharField(choices=[('MALE', 'male'), ('FEMALE', 'female'), ('UNSPECIFIED', 'unspecified')], default=attendees.persons.models.enum.GenderEnum['UNSPECIFIED'], max_length=11)),
+                ('gender', models.CharField(choices=GenderEnum.choices(), default=GenderEnum.UNSPECIFIED, max_length=11)),
                 ('actual_birthday', models.DateTimeField(blank=True, null=True)),
                 ('estimated_birthday', models.DateTimeField(blank=True, null=True)),
-                ('medical_concern', models.CharField(default='Food allergy: nothing', max_length=50)),
+                ('concerns', JSONField(blank=True, default=dict, help_text='Example: {"food allergy": "peanuts"}. Please keep {} here even no data', null=True)),
             ],
             options={
                 'db_table': 'persons_attendees',
