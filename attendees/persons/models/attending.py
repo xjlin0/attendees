@@ -10,7 +10,7 @@ from . import Note, Utility, Attendee, Registration
 
 
 class Attending(TimeStampedModel, SoftDeletableModel, Utility):
-    link_notes = GenericRelation(Note)
+    notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     registration = models.ForeignKey(Registration, null=True, on_delete=models.SET_NULL)
     attendee = models.ForeignKey(Attendee, null=False, blank=False, on_delete=models.SET(0))
@@ -18,11 +18,11 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     sessions = models.ManyToManyField('occasions.Session', through='occasions.Participation')
     # price = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])
     age = models.IntegerField(null=True, blank=True)
-    attending_type = models.CharField(max_length=20, null=True)
+    category = models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, staff, etc")
     divisions = models.ManyToManyField('whereabouts.Division', through='AttendingDivision')
-    belief = models.CharField(max_length=20, null=True)
-    bed_needs = models.IntegerField(default=1)
-    mobility = models.IntegerField(default=0)
+    belief = models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")
+    bed_needs = models.IntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")
+    mobility = models.IntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")
 
     def clean(self):
         if self.bed_needs < 1 and self.age is None:
