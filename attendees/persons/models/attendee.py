@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.core.exceptions import ValidationError
 from django.contrib.contenttypes.fields import GenericRelation
 
@@ -26,8 +27,8 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     def __str__(self):
         return '%s %s %s %s' % (self.first_name or '', self.last_name or '', self.last_name2 or '', self.first_name2 or '')
 
-    # def all_relations(self):
-    #     return self.relations.all() |
+    # def all_relations(self): #cannot import Relationship, probably needs native query
+    #     return dict(((r.from_attendee, r.relation) if r.to_attendee == self else (r.to_attendee, r.relation) for r in Relationship.objects.filter(Q(from_attendee=self.id) | Q(to_attendee=self.id))))
 
     def clean(self):
         if not (self.last_name or self.last_name2):

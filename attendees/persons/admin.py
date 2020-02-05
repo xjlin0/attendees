@@ -19,6 +19,7 @@ class AttendingDivisionInline(admin.StackedInline):
 class AttendeeAdmin(admin.ModelAdmin):
     search_fields = ('first_name', 'last_name', 'last_name2', 'first_name2')
     inlines = (AttendeeAddressInline,)
+    list_display_links = ('last_name',)
     list_display = ('first_name', 'last_name', 'last_name2', 'first_name2', 'modified')
 
 
