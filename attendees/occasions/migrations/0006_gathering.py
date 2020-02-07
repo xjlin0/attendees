@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Session',
+            name='Gathering',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('site_type', models.ForeignKey(help_text='location: django_content_type id for table name', on_delete=models.SET(0), to='contenttypes.ContentType')),
             ],
             options={
-                'db_table': 'occasions_sessions',
+                'db_table': 'occasions_gatherings',
                 'ordering': ['meet', 'start'],
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddConstraint(
-            model_name='session',
+            model_name='gathering',
             constraint=models.UniqueConstraint(fields=('meet_id', 'site_type_id', 'site_id', 'start'), name='uniq_meet_location_time'),
         ),
     ]

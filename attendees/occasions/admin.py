@@ -25,7 +25,7 @@ class PriceAdmin(admin.ModelAdmin):
 
 
 class ParticipationAdmin(admin.ModelAdmin):
-    list_filter = ('session', 'attending', 'character', 'team')
+    list_filter = ('gathering', 'attending', 'character', 'team')
     list_display = ('brief_program_session', 'attending', 'character', 'team', 'modified')
 
 
@@ -47,7 +47,7 @@ class MeetAdmin(admin.ModelAdmin):
     list_display = ('display_name', 'key', 'info', 'url', 'modified')
 
 
-class SessionAdmin(admin.ModelAdmin):
+class GatheringAdmin(admin.ModelAdmin):
     inlines = (ParticipationInline,)
     search_fields = ('meet__display_name', 'display_name')
     list_filter = ('meet',)
@@ -59,6 +59,6 @@ admin.site.register(Assembly, AssemblyAdmin)
 admin.site.register(Price, PriceAdmin)
 admin.site.register(Character, CharacterAdmin)
 admin.site.register(Meet, MeetAdmin)
-admin.site.register(Session, SessionAdmin)
+admin.site.register(Gathering, GatheringAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Participation, ParticipationAdmin)

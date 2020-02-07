@@ -7,7 +7,7 @@ from model_utils.models import TimeStampedModel, SoftDeletableModel, TimeFramedM
 from attendees.persons.models import Utility, Note
 
 
-class Session(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
+class Gathering(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     meet = models.ForeignKey('Meet', on_delete=models.SET(0), null=False, blank=False)
@@ -28,10 +28,10 @@ class Session(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     # } #=> {<ProgramGroup: The Rock  >: [<ProgramSession: The Rock #1...>, <ProgramSession: The Rock #2...>]}
 
     def get_absolute_url(self):
-        return reverse('session_detail', args=[str(self.id)])
+        return reverse('gathering_detail', args=[str(self.id)])
 
     class Meta:
-        db_table = 'occasions_sessions'
+        db_table = 'occasions_gatherings'
         ordering = ['meet', 'start']
         constraints = [
             models.UniqueConstraint(fields=['meet_id', 'site_type_id', 'site_id', 'start'], name='uniq_meet_location_time')

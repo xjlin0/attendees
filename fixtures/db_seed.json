@@ -356,7 +356,7 @@
     "pk": 45,
     "fields": {
       "app_label": "occasions",
-      "model": "session"
+      "model": "gathering"
     }
   },
   {
@@ -2314,36 +2314,36 @@
     "model": "auth.permission",
     "pk": 177,
     "fields": {
-      "name": "Can add session",
+      "name": "Can add gathering",
       "content_type": 45,
-      "codename": "add_session"
+      "codename": "add_gathering"
     }
   },
   {
     "model": "auth.permission",
     "pk": 178,
     "fields": {
-      "name": "Can change session",
+      "name": "Can change gathering",
       "content_type": 45,
-      "codename": "change_session"
+      "codename": "change_gathering"
     }
   },
   {
     "model": "auth.permission",
     "pk": 179,
     "fields": {
-      "name": "Can delete session",
+      "name": "Can delete gathering",
       "content_type": 45,
-      "codename": "delete_session"
+      "codename": "delete_gathering"
     }
   },
   {
     "model": "auth.permission",
     "pk": 180,
     "fields": {
-      "name": "Can view session",
+      "name": "Can view gathering",
       "content_type": 45,
-      "codename": "view_session"
+      "codename": "view_gathering"
     }
   },
   {

@@ -25,10 +25,10 @@ class Migration(migrations.Migration):
                 ('start', models.DateTimeField(blank=True, null=True, verbose_name='start')),
                 ('end', models.DateTimeField(blank=True, null=True, verbose_name='end')),
                 ('is_removed', models.BooleanField(default=False)),
-                ('free', models.IntegerField(blank=True, default=0, help_text='multitasking: the person cannot join other sessions if negative', null=True)),
+                ('free', models.IntegerField(blank=True, default=0, help_text='multitasking: the person cannot join other gatherings if negative', null=True)),
                 ('attending', models.ForeignKey(on_delete=models.SET(0), to='persons.Attending')),
                 ('character', models.ForeignKey(on_delete=models.SET(0), to='occasions.Character')),
-                ('session', models.ForeignKey(on_delete=models.SET(0), to='occasions.Session')),
+                ('gathering', models.ForeignKey(on_delete=models.SET(0), to='occasions.Gathering')),
                 ('team', models.ForeignKey(blank=True, default=None, help_text='empty for main meet', null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Team')),
             ],
             options={
@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddField(
-            model_name='session',
+            model_name='gathering',
             name='attendings',
             field=models.ManyToManyField(through='occasions.Participation', to='persons.Attending'),
         ),

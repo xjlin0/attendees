@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='attending',
-            name='sessions',
-            field=models.ManyToManyField(through='occasions.Participation', to='occasions.Session'),
+            name='gatherings',
+            field=models.ManyToManyField(through='occasions.Participation', to='occasions.Gathering'),
         ),
     ]
