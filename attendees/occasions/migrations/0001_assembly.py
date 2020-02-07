@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Meet',
+            name='Assembly',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('division', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Division')),
             ],
             options={
-                'db_table': 'occasions_meets',
+                'db_table': 'occasions_assemblies',
                 'ordering': ('-start',),
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),

@@ -12,7 +12,7 @@ import model_utils.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('occasions', '0002_meet_address_m2m'),
+        ('occasions', '0002_assembly_address'),
     ]
 
     operations = [
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('display_name', models.CharField(max_length=50)),
                 ('price_type', models.CharField(db_index=True, max_length=20)),
                 ('price_value', models.DecimalField(decimal_places=2, default=999999, max_digits=8, validators=[django.core.validators.MinValueValidator(0)])),
-                ('meet', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Meet')),
+                ('assembly', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Assembly')),
             ],
             options={
                 'db_table': 'occasions_prices',

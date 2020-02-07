@@ -10,12 +10,12 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('whereabouts', '0003_address'),
-        ('occasions', '0001_meet'),
+        ('occasions', '0001_assembly'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='MeetAddress',
+            name='AssemblyAddress',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
@@ -23,21 +23,21 @@ class Migration(migrations.Migration):
                 ('is_removed', models.BooleanField(default=False)),
                 ('category', models.CharField(help_text='primary, backup, etc', max_length=20, null=True)),
                 ('address', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Address')),
-                ('meet', models.ForeignKey(on_delete=models.SET(0), to='occasions.Meet')),
+                ('assembly', models.ForeignKey(on_delete=models.SET(0), to='occasions.Assembly')),
             ],
             options={
-                'db_table': 'occasions_meet_addresses',
-                'verbose_name_plural': 'Meet Addresses',
+                'db_table': 'occasions_assembly_addresses',
+                'verbose_name_plural': 'Assembly Addresses',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),
         migrations.AddField(
-            model_name='meet',
+            model_name='assembly',
             name='addresses',
-            field=models.ManyToManyField(through='occasions.MeetAddress', to='whereabouts.Address'),
+            field=models.ManyToManyField(through='occasions.AssemblyAddress', to='whereabouts.Address'),
         ),
         migrations.AddConstraint(
-            model_name='meetaddress',
-            constraint=models.UniqueConstraint(fields=('meet', 'address'), name='meet_address'),
+            model_name='assemblyaddress',
+            constraint=models.UniqueConstraint(fields=('assembly', 'address'), name='assembly_address'),
         ),
     ]

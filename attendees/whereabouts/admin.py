@@ -4,13 +4,13 @@ from attendees.persons.models import *
 from .models import *
 
 
-class MeetAddressInline(admin.TabularInline):
-    model = MeetAddress
+class AssemblyAddressInline(admin.TabularInline):
+    model = AssemblyAddress
     extra = 0
 
 
 class AddressAdmin(admin.ModelAdmin):
-    inlines = (MeetAddressInline,)
+    inlines = (AssemblyAddressInline,)
     list_display_links = ('street',)
     list_display = ('display_name', 'street', 'city', 'zip_code', 'phone1', 'email1')
 

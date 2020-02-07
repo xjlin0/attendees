@@ -316,7 +316,7 @@
     "pk": 40,
     "fields": {
       "app_label": "occasions",
-      "model": "meet"
+      "model": "assembly"
     }
   },
   {
@@ -324,7 +324,7 @@
     "pk": 41,
     "fields": {
       "app_label": "occasions",
-      "model": "meetaddress"
+      "model": "assemblyaddress"
     }
   },
   {
@@ -701,7 +701,7 @@
     }
   },
   {
-    "model": "occasions.meet",
+    "model": "occasions.assembly",
     "pk": 1,
     "fields": {
       "created": "2020-02-05T05:36:21.043Z",
@@ -715,13 +715,13 @@
     }
   },
   {
-    "model": "occasions.meetaddress",
+    "model": "occasions.assemblyaddress",
     "pk": 1,
     "fields": {
       "created": "2020-02-05T05:36:21.059Z",
       "modified": "2020-02-05T05:37:38.517Z",
       "is_removed": false,
-      "meet": 1,
+      "assembly": 1,
       "address": 1,
       "category": "primary"
     }
@@ -2134,72 +2134,72 @@
     "model": "auth.permission",
     "pk": 157,
     "fields": {
-      "name": "Can add meet",
+      "name": "Can add assembly",
       "content_type": 40,
-      "codename": "add_meet"
+      "codename": "add_assembly"
     }
   },
   {
     "model": "auth.permission",
     "pk": 158,
     "fields": {
-      "name": "Can change meet",
+      "name": "Can change assembly",
       "content_type": 40,
-      "codename": "change_meet"
+      "codename": "change_assembly"
     }
   },
   {
     "model": "auth.permission",
     "pk": 159,
     "fields": {
-      "name": "Can delete meet",
+      "name": "Can delete assembly",
       "content_type": 40,
-      "codename": "delete_meet"
+      "codename": "delete_assembly"
     }
   },
   {
     "model": "auth.permission",
     "pk": 160,
     "fields": {
-      "name": "Can view meet",
+      "name": "Can view assembly",
       "content_type": 40,
-      "codename": "view_meet"
+      "codename": "view_assembly"
     }
   },
   {
     "model": "auth.permission",
     "pk": 161,
     "fields": {
-      "name": "Can add meet address",
+      "name": "Can add assembly address",
       "content_type": 41,
-      "codename": "add_meetaddress"
+      "codename": "add_assemblyaddress"
     }
   },
   {
     "model": "auth.permission",
     "pk": 162,
     "fields": {
-      "name": "Can change meet address",
+      "name": "Can change assembly address",
       "content_type": 41,
-      "codename": "change_meetaddress"
+      "codename": "change_assemblyaddress"
     }
   },
   {
     "model": "auth.permission",
     "pk": 163,
     "fields": {
-      "name": "Can delete meet address",
+      "name": "Can delete assembly address",
       "content_type": 41,
-      "codename": "delete_meetaddress"
+      "codename": "delete_assemblyaddress"
     }
   },
   {
     "model": "auth.permission",
     "pk": 164,
     "fields": {
-      "name": "Can view meet address",
+      "name": "Can view assembly address",
       "content_type": 41,
-      "codename": "view_meetaddress"
+      "codename": "view_assemblyaddress"
     }
   },
   {

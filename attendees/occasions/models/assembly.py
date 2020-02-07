@@ -7,19 +7,19 @@ from model_utils.models import TimeStampedModel, SoftDeletableModel, TimeFramedM
 from attendees.persons.models import Utility, Note
 
 
-class Meet(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
+class Assembly(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    addresses = models.ManyToManyField('whereabouts.Address', through='MeetAddress')
+    addresses = models.ManyToManyField('whereabouts.Address', through='AssemblyAddress')
     display_name = models.CharField(max_length=50, blank=False, null=False)
     key = models.CharField(max_length=50, blank=False, null=False, unique=True)
     division = models.ForeignKey('whereabouts.Division', null=False, blank=False, on_delete=models.SET(0))
 
     def get_absolute_url(self):
-        return reverse('meet_detail', args=[str(self.id)])
+        return reverse('assembly_detail', args=[str(self.id)])
 
     class Meta:
-        db_table = 'occasions_meets'
+        db_table = 'occasions_assemblies'
         ordering = ('-start',)
 
     def __str__(self):
@@ -32,13 +32,13 @@ class Meet(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
 # from rest_framework import serializers
 #
 #
-# class MeetSerializer(serializers.ModelSerializer):
+# class AssemblySerializer(serializers.ModelSerializer):
 #     class Meta:
-#         model = Meet
+#         model = Assembly
 #         fields = ['id', 'name', 'division', 'ttttt']
 
-# from mainsite.models.meet import MeetSerializer
-# k2=Meet.objects.get(pk=2)
-# serializer=MeetSerializer(k2)
+# from mainsite.models.assembly import AssemblySerializer
+# k2=Assembly.objects.get(pk=2)
+# serializer=AssemblySerializer(k2)
 # serializer.data
 # #=> {'id': 2, 'name': '2019 Fall kid programs', 'division': 'none', 'ttttt': 'ttttt'}

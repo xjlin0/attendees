@@ -7,14 +7,14 @@ from django.contrib.postgres.fields import JSONField
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
 from attendees.persons.models import Utility, Note
-from attendees.occasions.models import Meet, MeetAddress
+from attendees.occasions.models import Assembly, AssemblyAddress
 
 
 class Address(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     display_name = models.CharField(max_length=50, blank=True, null=True, db_index=True, help_text='optional label')
-    meets = models.ManyToManyField(Meet, through=MeetAddress)
+    assemblies = models.ManyToManyField(Assembly, through=AssemblyAddress)
     attendees = models.ManyToManyField('persons.Attendee', through='persons.AttendeeAddress')
     email1 = models.EmailField(blank=True, null=True, max_length=254, db_index=True)
     email2 = models.EmailField(blank=True, null=True, max_length=254)

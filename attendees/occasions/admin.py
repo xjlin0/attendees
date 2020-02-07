@@ -6,17 +6,17 @@ from .models import *
 # Register your models here.
 
 
-class MeetAddressAdmin(admin.ModelAdmin):
-    list_display = ('meet', 'address', 'modified')
+class AssemblyAddressAdmin(admin.ModelAdmin):
+    list_display = ('assembly', 'address', 'modified')
 
 
-class MeetAddressInline(admin.TabularInline):
-    model = MeetAddress
+class AssemblyAddressInline(admin.TabularInline):
+    model = AssemblyAddress
     extra = 0
 
 
-class MeetAdmin(admin.ModelAdmin):
-    inlines = (MeetAddressInline,)
+class AssemblyAdmin(admin.ModelAdmin):
+    inlines = (AssemblyAddressInline,)
     list_display = ('display_name', 'get_addresses', 'modified')
 
 
@@ -54,8 +54,8 @@ class SessionAdmin(admin.ModelAdmin):
     list_display = ('gathering', 'start', 'display_name', 'location', 'modified')
 
 
-admin.site.register(MeetAddress, MeetAddressAdmin)
-admin.site.register(Meet, MeetAdmin)
+admin.site.register(AssemblyAddress, AssemblyAddressAdmin)
+admin.site.register(Assembly, AssemblyAdmin)
 admin.site.register(Price, PriceAdmin)
 admin.site.register(Character, CharacterAdmin)
 admin.site.register(Gathering, GatheringAdmin)

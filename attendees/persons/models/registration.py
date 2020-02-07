@@ -3,7 +3,6 @@ from django.core.validators import MinValueValidator
 from django.contrib.contenttypes.fields import GenericRelation
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
-from attendees.occasions.models import Meet
 
 from . import Utility, Note, Attendee
 
@@ -11,7 +10,7 @@ from . import Utility, Note, Attendee
 class Registration(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    meet = models.ForeignKey('occasions.Meet', null=True, on_delete=models.SET_NULL)
+    assembly = models.ForeignKey('occasions.Assembly', null=True, on_delete=models.SET_NULL)
     main_attendee = models.ForeignKey(Attendee, null=True, on_delete=models.SET_NULL)
     apply_type = models.CharField(max_length=20, null=True, help_text="online or paper")
     apply_key = models.CharField(max_length=50, null=True, help_text="E1T1F1 or #001")

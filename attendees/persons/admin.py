@@ -30,7 +30,7 @@ class AttendeeAdmin(admin.ModelAdmin):
 
 
 class RegistrationAdmin(admin.ModelAdmin):
-    list_display = ('main_attendee', 'apply_type', 'apply_key', 'meet', 'modified')
+    list_display = ('main_attendee', 'apply_type', 'apply_key', 'assembly', 'modified')
 
 
 class ParticipationInline(admin.StackedInline):
@@ -39,7 +39,7 @@ class ParticipationInline(admin.StackedInline):
 
 
 class AttendingAdmin(admin.ModelAdmin):
-    search_fields = ('attendee__first_name', 'attendee__last_name', 'attendee__first_name2', 'attendee__first_name2')
+    search_fields = ('attendee__first_name', 'attendee__last_name', 'attendee__first_name2', 'attendee__last_name2')
     inlines = (AttendingDivisionInline, ParticipationInline,)
     list_display = ('registration', 'attendee', 'division_names', 'bed_needs', 'all_addresses')
 
