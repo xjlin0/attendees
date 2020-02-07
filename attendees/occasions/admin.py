@@ -39,26 +39,26 @@ class CharacterAdmin(admin.ModelAdmin):
 
 
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('display_name', 'key', 'gathering', 'display_order', 'modified')
+    list_display = ('display_name', 'key', 'meet', 'display_order', 'modified')
 
 
-class GatheringAdmin(admin.ModelAdmin):
+class MeetAdmin(admin.ModelAdmin):
     search_fields = ('display_name',)
     list_display = ('display_name', 'key', 'info', 'url', 'modified')
 
 
 class SessionAdmin(admin.ModelAdmin):
     inlines = (ParticipationInline,)
-    search_fields = ('gathering__display_name', 'display_name')
-    list_filter = ('gathering',)
-    list_display = ('gathering', 'start', 'display_name', 'location', 'modified')
+    search_fields = ('meet__display_name', 'display_name')
+    list_filter = ('meet',)
+    list_display = ('meet', 'start', 'display_name', 'location', 'modified')
 
 
 admin.site.register(AssemblyAddress, AssemblyAddressAdmin)
 admin.site.register(Assembly, AssemblyAdmin)
 admin.site.register(Price, PriceAdmin)
 admin.site.register(Character, CharacterAdmin)
-admin.site.register(Gathering, GatheringAdmin)
+admin.site.register(Meet, MeetAdmin)
 admin.site.register(Session, SessionAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Participation, ParticipationAdmin)

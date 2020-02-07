@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('key', models.CharField(max_length=50, unique=True)),
                 ('display_name', models.CharField(blank=True, max_length=50, null=True)),
                 ('display_order', models.IntegerField(blank=True, default=0, null=True)),
-                ('gathering', models.ForeignKey(on_delete=models.SET(0), to='occasions.Gathering')),
+                ('meet', models.ForeignKey(on_delete=models.SET(0), to='occasions.Meet')),
             ],
             options={
                 'db_table': 'occasions_teams',

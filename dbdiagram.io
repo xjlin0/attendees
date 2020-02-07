@@ -103,7 +103,7 @@ Table registrations {
   donation decimal
   price decimal
   credit decimal [note: "some staff don't have to pay"]
-  event_id int [ref: > events.id]
+  assembly_id int [ref: > assemblies.id]
   main_attendee_id int [ref: > attendees.id]
   created datetime
   modified datetime
@@ -153,11 +153,11 @@ Table attendee_address {
   }
 }
 
-/// for events ///
+/// for events (name collision: event, period, session, group) ///
 
-Table events {
+Table assemblies {
   id int [pk]
-  name varchar
+  display_name varchar
   registration_start datetime
   registration_end datetime
   division_id int [ref: > divisions.id]
@@ -168,16 +168,16 @@ Table events {
   is_removed boolean
 }
 
-Table event_address {
+Table assembly_address {
   id int [pk]
-  event_id int [ref: > events.id]
+  assembly_id int [ref: > assemblies.id]
   address_id int [ref: > addresses.id]
   created datetime
   modified datetime
   is_removed boolean
 
   indexes {
-    (event_id, address_id) [unique]
+    (assembly_id, address_id) [unique]
   }
 } // different programs maybe at different bldg/address
 
@@ -281,7 +281,7 @@ Table character_preferences {
 
 Table residences {
   id int [pk]
-  event_id int [ref: > events.id]
+  assembly_id int [ref: > assemblies.id]
   bed_id int [ref: > beds.id]
   attending_id int [ref: > attendings.id]
   flexibility int [note: "to label if we can change or lock the assignment"]
@@ -306,7 +306,7 @@ Table riders {
 
 Table rides {
   id int [pk]
-  event_id int [ref: > events.id]
+  assembly_id int [ref: > assemblies.id]
   driver_attending_id int [ref: > attendings.id]
   passenger_attending_id int [ref: > attendings.id]
   address_id int [ref: > addresses.id]
@@ -331,7 +331,7 @@ Table characters {
 Table discussion_sessions {
   id int [pk]
   name varchar [note: "Saturday session I / II"]
-  event_id int [ref: > events.id]
+  assembly_id int [ref: > assemblies.id]
   created datetime
   modified datetime
   is_removed boolean
@@ -341,7 +341,7 @@ Table discussion_groups {
   id int [pk]
   name varchar [note: "example: group I"]
   suite_id int [ref: > suites.id, note: "null able"]
-  event_id int [ref: > events.id]
+  assembly_id int [ref: > assemblies.id]
   created datetime
   modified datetime
   is_removed boolean
@@ -350,7 +350,7 @@ Table discussion_groups {
 Table discussion_participations {
   id int [pk]
   name varchar
-  event_id int [ref: > events.id]
+  // assembly_id int [ref: > assemblies.id]  // should it be denormalized?
   discussion_group_id int [ref: > discussion_groups.id]
   discussion_session_id int [ref: > discussion_sessions.id]
   attending_id int [ref: > attendings.id]
@@ -364,17 +364,17 @@ Table discussion_participations {
 
 // kid or other programs
 
-Table program_progressions {
-  id int [pk]
-  name varchar [note: "2020q4 kid programs, 2020 retreat"]
-  display_order int
-  event_id int [ref: > events.id]
-  start_at datetime
-  end_at datetime
-  created datetime
-  modified datetime
-  is_removed boolean
-}
+//Table program_progressions {
+//  id int [pk]
+//  name varchar [note: "2020q4 kid programs, 2020 retreat"]
+//  display_order int
+//  assembly_id int [ref: > assemblies.id]
+//  start datetime
+//  end datetime
+//  created datetime
+//  modified datetime
+//  is_removed boolean
+//} // deprecated by start and end of assembly
 
 Table program_groups {
   id int [pk]
@@ -429,11 +429,11 @@ Table program_participations {
   is_removed boolean
 } // denormalize and add program_session_id here since program_team_id is nullable
 
-// Table 'event' provides division for creating program_progression
+// Table 'assembly' provides division for creating program_progression
 //
 // Table program_progressions example:
 // +-------------------+----+-------------+
-// |       event       |name|display_order|
+// |    assembly       |name|display_order|
 // +-------------------+----+-------------+
 // |2019-20 kid program| Q4 |     4       |
 // +-------------------+----+-------------+

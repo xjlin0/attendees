@@ -11,7 +11,7 @@ class Participation(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utili
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     session = models.ForeignKey('Session', null=False, blank=False, on_delete=models.SET(0))
-    team = models.ForeignKey('Team', default=None, null=True, blank=True, on_delete=models.SET_NULL, help_text="empty for main gathering")
+    team = models.ForeignKey('Team', default=None, null=True, blank=True, on_delete=models.SET_NULL, help_text="empty for main meet")
     attending = models.ForeignKey('persons.Attending', null=False, blank=False, on_delete=models.SET(0))
     character = models.ForeignKey('Character', null=False, blank=False, on_delete=models.SET(0))
     free = models.IntegerField(default=0, blank=True, null=True, help_text="multitasking: the person cannot join other sessions if negative")
@@ -19,7 +19,7 @@ class Participation(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utili
     @cached_property
     def brief_program_session(self):
         session = self.session
-        return session.gathering.name + session.start.strftime(" @ %b.%d'%y")
+        return session.meet.name + session.start.strftime(" @ %b.%d'%y")
 
     def get_absolute_url(self):
         return reverse('participation_detail', args=[str(self.id)])

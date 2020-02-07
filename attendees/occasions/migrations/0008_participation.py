@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('attending', models.ForeignKey(on_delete=models.SET(0), to='persons.Attending')),
                 ('character', models.ForeignKey(on_delete=models.SET(0), to='occasions.Character')),
                 ('session', models.ForeignKey(on_delete=models.SET(0), to='occasions.Session')),
-                ('team', models.ForeignKey(blank=True, default=None, help_text='empty for main gathering', null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Team')),
+                ('team', models.ForeignKey(blank=True, default=None, help_text='empty for main meet', null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Team')),
             ],
             options={
                 'db_table': 'occasions_participations',
