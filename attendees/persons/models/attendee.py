@@ -11,7 +11,7 @@ from . import GenderEnum, Note, Utility
 
 class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     notes = GenericRelation(Note)
-    relations = models.ManyToManyField('self', through='Relationship', symmetrical=True, related_name='related_to+')
+    relations = models.ManyToManyField('self', through='Relationship', symmetrical=False, related_name='related_to+')
     addresses = models.ManyToManyField('whereabouts.Address', through='AttendeeAddress')
     user = models.ForeignKey('users.User', default=None, null=True, blank=True, on_delete=models.SET_NULL)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
@@ -30,6 +30,8 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
 
     # def all_relations(self): #cannot import Relationship, probably needs native query
     #     return dict(((r.from_attendee, r.relation) if r.to_attendee == self else (r.to_attendee, r.relation) for r in Relationship.objects.filter(Q(from_attendee=self.id) | Q(to_attendee=self.id))))
+    # switching to symmetrical False with Facebook model (but add relationship both ways and need add/remove_relationship methods) http://charlesleifer.com/blog/self-referencing-many-many-through/
+    # also attendee.relations will return deleted relationship, so extra filter is required (.filter(relationship__is_removed = False))
 
     def clean(self):
         if not (self.last_name or self.last_name2):
