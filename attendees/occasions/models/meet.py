@@ -31,4 +31,4 @@ class Meet(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
         db_table = 'occasions_meets'
 
     def __str__(self):
-        return '%s %s %s' % (self.display_name, self.info or '', self.url)
+        return '%s %s %s' % (self.display_name or '', self.info or '', self.url or '')

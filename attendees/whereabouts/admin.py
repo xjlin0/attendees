@@ -16,27 +16,33 @@ class AddressAdmin(admin.ModelAdmin):
 
 
 class DivisionAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"key": ("display_name",)}
     list_display_links = ('display_name',)
     list_display = ('organization', 'display_name', 'key', 'modified')
 
 
 class PropertyAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"key": ("display_name",)}
     list_display = ('display_name', 'key', 'campus', 'modified')
 
 
 class CampusAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"key": ("display_name",)}
     list_display = ('display_name', 'key', 'address', 'modified')
 
 
 class SuiteAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"key": ("display_name",)}
     list_display = ('display_name', 'key',  'site', 'modified')
 
 
 class RoomAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"key": ("display_name",)}
     list_display = ('display_name', 'label', 'suite', 'modified')
 
 
 class OrganizationAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"key": ("display_name",)}
     list_display = ('display_name', 'key', 'modified')
 
 
