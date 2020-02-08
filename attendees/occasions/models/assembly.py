@@ -2,14 +2,16 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.contenttypes.fields import GenericRelation
 
-from model_utils.models import TimeStampedModel, SoftDeletableModel, TimeFramedModel
+from model_utils.models import TimeStampedModel, SoftDeletableModel
 
 from attendees.persons.models import Utility, Note
 
 
-class Assembly(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
+class Assembly(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
+    start = models.DateTimeField(null=True, blank=True, help_text='optional')
+    finish = models.DateTimeField(null=True, blank=True, help_text='optional')
     addresses = models.ManyToManyField('whereabouts.Address', through='AssemblyAddress')
     display_name = models.CharField(max_length=50, blank=False, null=False)
     key = models.CharField(max_length=50, blank=False, null=False, unique=True)
@@ -20,7 +22,7 @@ class Assembly(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
 
     class Meta:
         db_table = 'occasions_assemblies'
-        ordering = ('-start',)
+        ordering = ('display_name',)
 
     def __str__(self):
         return '%s' % self.display_name

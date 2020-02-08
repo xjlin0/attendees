@@ -22,8 +22,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
-                ('start', models.DateTimeField(blank=True, null=True, verbose_name='start')),
-                ('end', models.DateTimeField(blank=True, null=True, verbose_name='end')),
+                ('start', models.DateTimeField(blank=False, null=False)),
+                ('finish', models.DateTimeField(blank=True, null=True)),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(blank=True, null=True, max_length=50, help_text="02/09/2020, etc")),
                 ('link', models.URLField(blank=True, null=True, max_length=254)),
@@ -36,9 +36,6 @@ class Migration(migrations.Migration):
                 'ordering': ['meet', 'start'],
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
-            managers=[
-                ('timeframed', django.db.models.manager.Manager()),
-            ],
         ),
         migrations.AddConstraint(
             model_name='gathering',

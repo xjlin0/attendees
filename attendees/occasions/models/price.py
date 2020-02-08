@@ -1,17 +1,19 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.contrib.contenttypes.fields import GenericRelation
-from model_utils.models import TimeStampedModel, SoftDeletableModel, TimeFramedModel
+from model_utils.models import TimeStampedModel, SoftDeletableModel
 
 from attendees.persons.models import Utility, Note
 
 from . import Assembly
 
 
-class Price(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
+class Price(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     assembly = models.ForeignKey(Assembly, null=True, on_delete=models.SET_NULL)
+    start = models.DateTimeField(null=False, blank=False)
+    finish = models.DateTimeField(null=False, blank=False)
     display_name = models.CharField(max_length=50)
     price_type = models.CharField(max_length=20, db_index=True)
     price_value = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])

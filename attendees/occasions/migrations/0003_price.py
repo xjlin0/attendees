@@ -22,8 +22,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
-                ('start', models.DateTimeField(blank=True, null=True, verbose_name='start')),
-                ('end', models.DateTimeField(blank=True, null=True, verbose_name='end')),
+                ('start', models.DateTimeField(blank=False, null=False)),
+                ('finish', models.DateTimeField(blank=False, null=False)),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(max_length=50)),
                 ('price_type', models.CharField(db_index=True, max_length=20)),
@@ -34,8 +34,5 @@ class Migration(migrations.Migration):
                 'db_table': 'occasions_prices',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
-            managers=[
-                ('timeframed', django.db.models.manager.Manager()),
-            ],
         ),
     ]

@@ -2,15 +2,17 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.contenttypes.fields import GenericRelation, GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from model_utils.models import TimeStampedModel, SoftDeletableModel, TimeFramedModel
+from model_utils.models import TimeStampedModel, SoftDeletableModel
 
 from attendees.persons.models import Utility, Note
 
 
-class Gathering(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
+class Gathering(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     meet = models.ForeignKey('Meet', on_delete=models.SET(0), null=False, blank=False)
+    start = models.DateTimeField(null=False, blank=False)
+    finish = models.DateTimeField(null=True, blank=True)
     attendings = models.ManyToManyField('persons.Attending', through='Participation')
     display_name = models.CharField(max_length=50, blank=True, null=True, help_text="02/09/2020, etc")
     link = models.URLField(max_length=254, blank=True, null=True)

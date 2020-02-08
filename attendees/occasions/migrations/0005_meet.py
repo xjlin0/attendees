@@ -22,8 +22,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
-                ('start', models.DateTimeField(blank=True, null=True, verbose_name='start')),
-                ('end', models.DateTimeField(blank=True, null=True, verbose_name='end')),
+                ('start', models.DateTimeField(blank=True, null=True, help_text='optional')),
+                ('finish', models.DateTimeField(blank=True, null=True, help_text='optional')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(blank=True, null=True, db_index=True, help_text='The Rock, Little Foot, singspiration, A/V control, etc.', max_length=50)),
                 ('key', models.CharField(max_length=50, unique=True)),
@@ -38,8 +38,5 @@ class Migration(migrations.Migration):
                 'db_table': 'occasions_meets',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
-            managers=[
-                ('timeframed', django.db.models.manager.Manager()),
-            ],
         ),
     ]
