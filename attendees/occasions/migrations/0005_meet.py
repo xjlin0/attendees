@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('start', models.DateTimeField(blank=True, null=True, verbose_name='start')),
                 ('end', models.DateTimeField(blank=True, null=True, verbose_name='end')),
                 ('is_removed', models.BooleanField(default=False)),
-                ('display_name', models.CharField(blank=True, db_index=True, help_text='The Rock, Little Foot, singspiration, A/V control, etc.', max_length=50)),
+                ('display_name', models.CharField(blank=True, null=True, db_index=True, help_text='The Rock, Little Foot, singspiration, A/V control, etc.', max_length=50)),
                 ('key', models.CharField(max_length=50, unique=True)),
                 ('info', models.CharField(blank=True, max_length=255, null=True)),
                 ('url', models.URLField(blank=True, null=True, max_length=255)),

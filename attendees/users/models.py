@@ -12,3 +12,6 @@ class User(AbstractUser):
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
+
+    def among_group_of(self, group_names):
+        return True

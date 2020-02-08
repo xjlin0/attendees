@@ -12,7 +12,7 @@ class Gathering(TimeStampedModel, SoftDeletableModel, TimeFramedModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     meet = models.ForeignKey('Meet', on_delete=models.SET(0), null=False, blank=False)
     attendings = models.ManyToManyField('persons.Attending', through='Participation')
-    display_name = models.CharField(max_length=50, blank=True, help_text="The Rock, Little Foot, singspiration, etc")
+    display_name = models.CharField(max_length=50, blank=True, null=True, help_text="02/09/2020, etc")
     link = models.URLField(max_length=254, blank=True, null=True)
     site_type = models.ForeignKey(ContentType, on_delete=models.SET(0), help_text='location: django_content_type id for table name')
     site_id = models.BigIntegerField()

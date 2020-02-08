@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('start', models.DateTimeField(blank=True, null=True, verbose_name='start')),
                 ('end', models.DateTimeField(blank=True, null=True, verbose_name='end')),
                 ('is_removed', models.BooleanField(default=False)),
-                ('display_name', models.CharField(blank=True, max_length=50, help_text="The Rock, Little Foot, singspiration, etc")),
+                ('display_name', models.CharField(blank=True, null=True, max_length=50, help_text="02/09/2020, etc")),
                 ('link', models.URLField(blank=True, null=True, max_length=254)),
                 ('site_id', models.BigIntegerField()),
                 ('meet', models.ForeignKey(on_delete=models.SET(0), to='occasions.Meet')),
