@@ -11,7 +11,7 @@ class Division(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     organization = models.ForeignKey(Organization, null=False, blank=False, on_delete=models.SET(0))
     display_name = models.CharField(max_length=50, blank=False, null=False)
-    key = models.CharField(max_length=50, blank=False, null=False, unique=True)
+    slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
     attendings = models.ManyToManyField('persons.Attending', through='persons.AttendingDivision')
 
     class Meta:

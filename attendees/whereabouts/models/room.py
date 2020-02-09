@@ -12,7 +12,7 @@ class Room(TimeStampedModel, SoftDeletableModel, Utility):
     gathering = GenericRelation(Gathering)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     display_name = models.CharField(max_length=50, blank=False, null=False, db_index=True)
-    key = models.CharField(max_length=50, blank=False, null=False, unique=True)
+    slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
     suite = models.ForeignKey('Suite', null=True, on_delete=models.SET_NULL)
     label = models.CharField(max_length=20, blank=True)
     accessibility = models.IntegerField(default=0, blank=False, null=False)

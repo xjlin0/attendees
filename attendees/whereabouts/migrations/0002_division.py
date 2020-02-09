@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(max_length=50)),
-                ('key', models.CharField(max_length=50, unique=True)),
+                ('slug', models.SlugField(max_length=50, unique=True)),
                 ('organization', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Organization')),
             ],
             options={

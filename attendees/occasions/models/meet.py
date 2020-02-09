@@ -15,7 +15,7 @@ class Meet(TimeStampedModel, SoftDeletableModel, Utility):
     start = models.DateTimeField(null=True, blank=True, help_text='optional')
     finish = models.DateTimeField(null=True, blank=True, help_text='optional')
     display_name = models.CharField(max_length=50, blank=True, null=True, db_index=True, help_text="The Rock, Little Foot, singspiration, A/V control, etc.")
-    key = models.CharField(max_length=50, blank=False, null=False, unique=True)
+    slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
     info = models.CharField(max_length=255, blank=True, null=True)
     url = models.URLField(max_length=255, blank=True, null=True)
     event = models.ForeignKey(Event, blank=True, null=True, on_delete=models.SET_NULL)

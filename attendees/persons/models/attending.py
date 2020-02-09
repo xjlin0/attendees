@@ -41,7 +41,7 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
 
     @cached_property
     def division_names(self):
-        return ",".join([d.name for d in self.divisions.all()])
+        return ",".join([d.display_name for d in self.divisions.all()])
 
     @cached_property
     def all_addresses(self):

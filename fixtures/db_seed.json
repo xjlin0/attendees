@@ -436,7 +436,7 @@
       "created": "2020-02-04T15:50:30.262Z",
       "modified": "2020-02-04T15:50:30.262Z",
       "is_removed": false,
-      "key": "cfcc_hayward",
+      "slug": "cfcc_hayward",
       "display_name": "Chinese for Christ Church of Hayward"
     }
   },
@@ -449,7 +449,7 @@
       "is_removed": false,
       "organization": 1,
       "display_name": "\u4e2d\u6587\u90e8",
-      "key": "chinese_ministry"
+      "slug": "chinese_ministry"
     }
   },
   {
@@ -461,7 +461,7 @@
       "is_removed": false,
       "organization": 1,
       "display_name": "Crossing Ministry",
-      "key": "cross_ministry"
+      "slug": "cross_ministry"
     }
   },
   {
@@ -473,7 +473,7 @@
       "is_removed": false,
       "organization": 1,
       "display_name": "Children Ministry",
-      "key": "children_ministry"
+      "slug": "children_ministry"
     }
   },
   {
@@ -710,7 +710,7 @@
       "finish": "2020-06-25T05:34:26Z",
       "is_removed": false,
       "display_name": "2020 Spring \u5152\u7ae5\u4e3b\u65e5\u5b78",
-      "key": "2020_spring_kid_sunday_school",
+      "slug": "2020_spring_kid_sunday_school",
       "division": 3
     }
   },

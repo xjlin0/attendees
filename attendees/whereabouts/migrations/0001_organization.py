@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
-                ('key', models.CharField(help_text='alphanumeric only', max_length=50, unique=True)),
+                ('slug', models.SlugField(help_text='alphanumeric only', max_length=50, unique=True)),
                 ('display_name', models.CharField(max_length=50)),
             ],
             options={

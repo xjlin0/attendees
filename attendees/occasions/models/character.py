@@ -12,7 +12,7 @@ class Character(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     display_name = models.CharField(max_length=50, blank=True, null=False, db_index=True)
     display_order = models.IntegerField(default=0, blank=True, null=True)
-    key = models.CharField(max_length=50, blank=False, null=False, unique=True)
+    slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
     info = models.CharField(max_length=255, blank=True, null=True)
     type = models.CharField(max_length=50, null=False, default='normal', db_index=True)
 

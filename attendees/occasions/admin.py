@@ -16,7 +16,7 @@ class AssemblyAddressInline(admin.TabularInline):
 
 
 class AssemblyAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"key": ("display_name",)}
+    prepopulated_fields = {"slug": ("display_name",)}
     inlines = (AssemblyAddressInline,)
     list_display = ('display_name', 'get_addresses', 'modified')
 
@@ -36,19 +36,19 @@ class ParticipationInline(admin.StackedInline):
 
 
 class CharacterAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"key": ("display_name",)}
-    list_display = ('display_name', 'key', 'info', 'modified')
+    prepopulated_fields = {"slug": ("display_name",)}
+    list_display = ('display_name', 'slug', 'info', 'modified')
 
 
 class TeamAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"key": ("display_name",)}
-    list_display = ('display_name', 'key', 'meet', 'display_order', 'modified')
+    prepopulated_fields = {"slug": ("display_name",)}
+    list_display = ('display_name', 'slug', 'meet', 'display_order', 'modified')
 
 
 class MeetAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"key": ("display_name",)}
+    prepopulated_fields = {"slug": ("display_name",)}
     search_fields = ('display_name',)
-    list_display = ('display_name', 'key', 'info', 'url', 'modified')
+    list_display = ('display_name', 'slug', 'info', 'url', 'modified')
 
 
 class GatheringAdmin(admin.ModelAdmin):

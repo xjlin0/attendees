@@ -12,7 +12,7 @@ class Suite(TimeStampedModel, SoftDeletableModel, Utility):
     gathering = GenericRelation(Gathering)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     display_name = models.CharField(max_length=50, blank=False, null=False, db_index=True)
-    key = models.CharField(max_length=50, blank=False, null=False, unique=True)
+    slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
     property = models.ForeignKey('Property', null=True, on_delete=models.SET_NULL)
     site = models.CharField(max_length=50, blank=True, help_text='2F floor, etc')
 
