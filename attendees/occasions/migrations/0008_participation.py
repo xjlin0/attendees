@@ -22,8 +22,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
-                ('start', models.DateTimeField(blank=True, null=True, verbose_name='start')),
-                ('end', models.DateTimeField(blank=True, null=True, verbose_name='end')),
+                ('start', models.DateTimeField(blank=True, null=True, help_text='optional')),
+                ('finish', models.DateTimeField(blank=True, null=True, help_text='optional')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('free', models.IntegerField(blank=True, default=0, help_text='multitasking: the person cannot join other gatherings if negative', null=True)),
                 ('attending', models.ForeignKey(on_delete=models.SET(0), to='persons.Attending')),
@@ -35,9 +35,6 @@ class Migration(migrations.Migration):
                 'db_table': 'occasions_participations',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
-            managers=[
-                ('timeframed', django.db.models.manager.Manager()),
-            ],
         ),
         migrations.AddField(
             model_name='gathering',

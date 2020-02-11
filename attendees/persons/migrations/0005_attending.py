@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('age', models.IntegerField(blank=True, null=True)),
-                ('category', models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, staff, etc")),
+                ('category', models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")),
                 ('belief', models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")),
                 ('bed_needs', models.IntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")),
                 ('mobility', models.IntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")),
