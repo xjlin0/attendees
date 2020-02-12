@@ -9,9 +9,10 @@ class User(AbstractUser):
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = CharField(_("Name of User"), blank=True, max_length=255)
+    default_route = CharField(max_length=50, null=False, blank=False, default='occasions:occasions.urls.some_view', help_text='default route upon successful login') #needs to make it ENUM later
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
 
-    def among_group_of(self, group_names):
+    def among_group_of(self, auth_group_names):
         return True

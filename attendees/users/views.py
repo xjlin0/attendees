@@ -24,7 +24,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     fields = ["name"]
 
     def get_success_url(self):
-        #this is the page user will be redirect after successfully login
+        #this is the page user will be redirect after successfully login https://stackoverflow.com/a/56189596
         return reverse("users:detail", kwargs={"username": self.request.user.username})
 
     def get_object(self):
