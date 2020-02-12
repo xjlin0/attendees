@@ -954,6 +954,7 @@
       "finish": "2020-02-09T20:00:00Z",
       "display_name": "02/09/2020",
       "link": null,
+      "occurrence": null,
       "site_type": 31,
       "site_id": 1
     }

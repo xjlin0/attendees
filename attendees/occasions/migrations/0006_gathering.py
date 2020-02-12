@@ -12,6 +12,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('contenttypes', '0002_remove_content_type_name'),
+        ('schedule', '0012_auto_20191025_1852'),
         ('occasions', '0005_meet'),
     ]
 
@@ -27,6 +28,7 @@ class Migration(migrations.Migration):
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(blank=True, null=True, max_length=50, help_text="02/09/2020, etc")),
                 ('link', models.URLField(blank=True, null=True, max_length=254)),
+                ('occurrence', models.ForeignKey(blank=True, null=True, on_delete=models.deletion.SET_NULL, to='schedule.Occurrence')),
                 ('site_id', models.BigIntegerField()),
                 ('meet', models.ForeignKey(on_delete=models.SET(0), to='occasions.Meet')),
                 ('site_type', models.ForeignKey(help_text='location: django_content_type id for table name', on_delete=models.SET(0), to='contenttypes.ContentType')),

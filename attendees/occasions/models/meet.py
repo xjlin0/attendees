@@ -3,7 +3,6 @@ from django.urls import reverse
 from django.contrib.contenttypes.fields import GenericRelation, GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from model_utils.models import TimeStampedModel, SoftDeletableModel
-from schedule.models import Event
 
 from attendees.persons.models import Utility, Note
 

@@ -11,7 +11,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('whereabouts', '0004_assembly_address_m2m'),
-        ('schedule', '0012_auto_20191025_1852'),
         ('occasions', '0004_character'),
     ]
 

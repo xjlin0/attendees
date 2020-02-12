@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.contenttypes.fields import GenericRelation, GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from model_utils.models import TimeStampedModel, SoftDeletableModel
+from schedule.models import Occurrence
 
 from attendees.persons.models import Utility, Note
 
@@ -16,6 +17,7 @@ class Gathering(TimeStampedModel, SoftDeletableModel, Utility):
     attendings = models.ManyToManyField('persons.Attending', through='Participation')
     display_name = models.CharField(max_length=50, blank=True, null=True, help_text="02/09/2020, etc")
     link = models.URLField(max_length=254, blank=True, null=True)
+    occurrence = models.ForeignKey(Occurrence, blank=True, null=True, on_delete=models.SET_NULL)
     site_type = models.ForeignKey(ContentType, on_delete=models.SET(0), help_text='location: django_content_type id for table name')
     site_id = models.BigIntegerField()
     location = GenericForeignKey('site_type', 'site_id')
