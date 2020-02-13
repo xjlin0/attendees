@@ -17,7 +17,7 @@ django-crispy-forms==1.8.1  # https://github.com/django-crispy-forms/django-cris
 django-redis==4.11.0  # https://github.com/niwinz/django-redis
 django-model-utils==4.0.0 # https://github.com/jazzband/django-model-utils
 django-summernote==0.8.11.6 # https://github.com/summernote/django-summernote
-django-scheduler==0.9.3 # https://github.com/llazzaro/django-scheduler
+-e git+https://github.com/xjlin0/django-scheduler.git@develop#egg=django-scheduler
 
 # Django REST Framework
 djangorestframework==3.11.0  # https://github.com/encode/django-rest-framework
