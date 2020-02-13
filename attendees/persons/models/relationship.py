@@ -10,7 +10,7 @@ class Relationship(TimeStampedModel, SoftDeletableModel, Utility):
     from_attendee = models.ForeignKey(Attendee, related_name='from_attendee', on_delete=models.SET(0))
     to_attendee = models.ForeignKey(Attendee, related_name='to_attendee', on_delete=models.SET(0))
     relation = models.CharField(max_length=32, null=False, blank=False, default="relation", db_index=True, help_text="example: father - son, husband - wife, etc")
-    category = models.CharField(max_length=20, null=False, blank=False, db_index=True, default="relatives", help_text="relatives, SMS_kid_class, emergency_contact, etc")
+    category = models.CharField(max_length=32, null=False, blank=False, db_index=True, default="relatives", help_text="relatives, SMS_kid_class, emergency_contact, etc")
 
     class Meta:
         db_table = 'persons_relationships'
