@@ -4,6 +4,9 @@
 
 ## User stories
 
+<details>
+  <summary>Click to expand all meeting discussions</summary>
+
 ### Epic user
 - As a user, I can login and use the app
 - As an administrator, I can assign/update all users to different characters, such as teacher/helper/students, etc.
@@ -36,7 +39,28 @@
 - As a non-parent registering kids, I have to enter kid parent info.
 - As a coworker I need to register withOUT kids
 - As a staff/organizer, when I click each session's class title, I will be linked to google drive for course materials.
-- Last, probably  redesign a non row-based listing for staff/organizer's day view or student roaster view (mobil phone friendly)
+- Last, probably redesign a non row-based listing for staff/organizer's day view or student roaster view (mobil phone friendly)
+
+### 20200213 meeting notes
+- As a parent I can be notified for the incoming classes, so that I can respond with RSVP or take absent for my kids.
+- As a parent I can be notified to update contact info/address for my kids.
+- As a coworker I can be notified for the incoming classes, so that I can respond with RSVP or take leave.
+- As a organizer(coworkers?) I can be notified early when coworkers take leaves on the incoming class.
+- As a organizer(coworkers?) I can assign students to different class, maybe or maybe not from student roaster.
+- As a coworker I can take/retract the students attendance anytime in the class or check students attendance after classes.
+- As a secretary I can receive all class attendance counts summary periodically.
+- As a coworker, I can check or update BOTH age and grade of a student (age and grade of the same student may vary a lot).
+- As a coworker, I can see both age and grade of a student (age and grade may vary a lot) periodically advanced automatically.
+  
+#### page priority 
+- student roasters (with their medical concerns, parent contact, and possibly other participations) for the incoming classes
+- leader/coworker list for the incoming classes (for teacher availability and arrangement)
+
+#### how to direct parents/coworker to use app (my own thoughts)
+- Need to have some real data (secretary address database in MS Access)
+- Initial registration by invite to parents/coworkers email/phone (combine with yearly contact update page)
+
+</details>
 
 ## mockup
 https://marvelapp.com/9dj5heb
