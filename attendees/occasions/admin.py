@@ -27,7 +27,7 @@ class PriceAdmin(admin.ModelAdmin):
 
 class ParticipationAdmin(admin.ModelAdmin):
     list_filter = ('gathering', 'attending', 'character', 'team')
-    list_display = ('brief_program_session', 'attending', 'character', 'team', 'modified')
+    list_display = ('participation_info', 'attending', 'character', 'team', 'modified')
 
 
 class ParticipationInline(admin.StackedInline):

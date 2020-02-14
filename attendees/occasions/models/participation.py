@@ -17,9 +17,10 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
     attending = models.ForeignKey('persons.Attending', null=False, blank=False, on_delete=models.SET(0))
     character = models.ForeignKey('Character', null=False, blank=False, on_delete=models.SET(0))
     free = models.IntegerField(default=0, blank=True, null=True, help_text="multitasking: the person cannot join other gatherings if negative")
+    category = models.CharField(max_length=20, null=False, blank=False, db_index=True, default="normal", help_text="normal, leave, remote, etc")
 
     @cached_property
-    def brief_program_session(self):
+    def participation_info(self):
         gathering = self.gathering
         return gathering.meet.display_name + gathering.start.strftime(" @ %b.%d'%y")
 

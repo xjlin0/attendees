@@ -30,6 +30,7 @@ class Migration(migrations.Migration):
                 ('character', models.ForeignKey(on_delete=models.SET(0), to='occasions.Character')),
                 ('gathering', models.ForeignKey(on_delete=models.SET(0), to='occasions.Gathering')),
                 ('team', models.ForeignKey(blank=True, default=None, help_text='empty for main meet', null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Team')),
+                ('category', models.CharField(max_length=20, null=False, blank=False, default="normal", db_index=True, help_text="normal, leave, remote, etc")),
             ],
             options={
                 'db_table': 'occasions_participations',

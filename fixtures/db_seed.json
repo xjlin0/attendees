@@ -985,7 +985,8 @@
       "team": 1,
       "attending": 1,
       "character": 1,
-      "free": 0
+      "free": 0,
+      "category": "normal"
     }
   },
   {
