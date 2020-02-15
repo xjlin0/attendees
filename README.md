@@ -68,11 +68,11 @@ https://marvelapp.com/9dj5heb
 ## data models
 https://dbdiagram.io/d/5d5ff66eced98361d6dddc48
 
-## How to start dev env on Linux
+## How to start dev env
 
 * clone the repo, for example, `git clone https://github.com/xjlin0/attendees.git`
 * check local python version, Django coockie cutter is developed with Python 3
-* There is no need to have local Django or Postgres running, but you need Virtualbox from https://www.virtualbox.org
+* There is no need to have local Django or Postgres running, but on MacOS you will need Virtualbox from https://www.virtualbox.org
 * This is docker machine based CentOS, please install docker by `wget -qO- https://get.docker.com/ | sh && sudo usermod -aG docker centos`.
 * Install docker compose by `sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose`
 * start the local docker machine by `sudo systemctl start docker`

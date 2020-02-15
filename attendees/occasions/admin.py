@@ -33,7 +33,11 @@ class ParticipationAdmin(admin.ModelAdmin):
 class ParticipationInline(admin.StackedInline):
     model = Participation
     extra = 0
-
+    fieldsets = (
+        (None, {"fields": (tuple(['start', 'finish', 'free', 'category']),
+                           tuple(['gathering', 'team', 'attending', 'character'])
+                           ), }),
+    )
 
 class CharacterAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
