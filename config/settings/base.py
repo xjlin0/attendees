@@ -135,6 +135,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "attendees.middleware.TimezoneMiddleware",
 ]
 
 # STATIC
@@ -293,3 +294,4 @@ SUMMERNOTE_THEME = 'bs4'
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+CLIENT_DEFAULT_TIME_ZONE = 'America/Los_Angeles'
