@@ -1,6 +1,25 @@
 {% load static i18n %}<!DOCTYPE html>
 <html lang="en">
   <head>
+    {% block css %}
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="preload"
+          as="style"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          onload="this.rel='stylesheet'">
+
+    <!-- Your stuff: Third-party CSS libraries go here -->
+
+    <!-- This file stores project-specific CSS -->
+
+    <!--    <link href="{% static 'css/project.css' %}" rel="stylesheet">-->
+    <link rel="preload"
+          as="style"
+          href="{% static 'css/project.css' %}"
+          onload="this.rel='stylesheet'">
+
+    {% endblock css%}
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}Attendees{% endblock title %}</title>
@@ -10,7 +29,7 @@
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
 
     <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
@@ -45,23 +64,6 @@
 
 
     {% endblock javascript %}
-
-    {% block css %}
-    
-    <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="preload"
-          as="style"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          onload="this.rel='stylesheet'">
-
-    <!-- Your stuff: Third-party CSS libraries go here -->
-    
-    <!-- This file stores project-specific CSS -->
-    
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    
-    
-    {% endblock css%}
 
     {% block extra_head %}
     {% endblock extra_head %}
