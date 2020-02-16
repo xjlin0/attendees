@@ -28,6 +28,14 @@ class PriceAdmin(admin.ModelAdmin):
 class ParticipationAdmin(admin.ModelAdmin):
     list_filter = ('gathering', 'attending', 'character', 'team')
     list_display = ('participation_info', 'attending', 'character', 'team', 'modified')
+    fieldsets = (
+        (None, {"fields": (tuple(['start', 'finish']),
+                           tuple(['gathering', 'team']),
+                           tuple(['attending', 'character']),
+                           tuple(['free', 'display_order', 'category']),
+                           ), }),
+    )
+
 
 
 class ParticipationInline(admin.StackedInline):
@@ -38,6 +46,7 @@ class ParticipationInline(admin.StackedInline):
                            tuple(['gathering', 'team', 'attending', 'character'])
                            ), }),
     )
+
 
 class CharacterAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
@@ -59,6 +68,7 @@ class MeetAdmin(admin.ModelAdmin):
                            tuple(['site_type', 'info', 'division', 'site_id']),
                            ), }),
     )
+
 
 class GatheringAdmin(admin.ModelAdmin):
     inlines = (ParticipationInline,)
