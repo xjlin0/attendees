@@ -14,5 +14,5 @@ class User(AbstractUser):
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
 
-    def among_group_of(self, auth_group_names):
-        return True
+    def in_groups_of(self, auth_group_names): #.in_bulk() might take more memory
+        return self.groups.filter(name__in=auth_group_names).exists()
