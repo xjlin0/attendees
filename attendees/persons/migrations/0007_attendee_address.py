@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='attendee',
             name='addresses',
-            field=models.ManyToManyField(through='persons.AttendeeAddress', to='whereabouts.Address'),
+            field=models.ManyToManyField(through='persons.AttendeeAddress', to='whereabouts.Address', related_name='addresses'),
         ),
         migrations.AddConstraint(
             model_name='attendeeaddress',

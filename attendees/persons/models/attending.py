@@ -19,7 +19,7 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     # price = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])
     age = models.IntegerField(null=True, blank=True)
     category = models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")
-    divisions = models.ManyToManyField('whereabouts.Division', through='AttendingDivision')
+    divisions = models.ManyToManyField('whereabouts.Division', through='AttendingDivision', related_name="divisions")
     belief = models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")
     bed_needs = models.IntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")
     mobility = models.IntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")

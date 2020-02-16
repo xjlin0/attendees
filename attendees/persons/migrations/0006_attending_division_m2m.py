@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='attending',
             name='divisions',
-            field=models.ManyToManyField(through='persons.AttendingDivision', to='whereabouts.Division'),
+            field=models.ManyToManyField(through='persons.AttendingDivision', to='whereabouts.Division', related_name="divisions"),
         ),
         migrations.AddConstraint(
             model_name='attendingdivision',
