@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(blank=True, db_index=True, max_length=50)),
-                ('display_order', models.IntegerField(blank=True, default=0, null=True)),
+                ('display_order', models.IntegerField(blank=False, default=0, null=False)),
                 ('slug', models.SlugField(max_length=50, unique=True)),
                 ('info', models.CharField(blank=True, max_length=255, null=True)),
                 ('type', models.CharField(db_index=True, default='normal', max_length=50)),

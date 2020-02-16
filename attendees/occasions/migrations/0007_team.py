@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('is_removed', models.BooleanField(default=False)),
                 ('slug', models.SlugField(max_length=50, unique=True)),
                 ('display_name', models.CharField(blank=True, max_length=50, null=True)),
-                ('display_order', models.IntegerField(blank=True, default=0, null=True)),
+                ('display_order', models.IntegerField(blank=False, default=0, null=False)),
                 ('meet', models.ForeignKey(on_delete=models.SET(0), to='occasions.Meet')),
             ],
             options={

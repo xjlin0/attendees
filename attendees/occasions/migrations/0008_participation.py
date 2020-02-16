@@ -31,6 +31,7 @@ class Migration(migrations.Migration):
                 ('gathering', models.ForeignKey(on_delete=models.SET(0), to='occasions.Gathering')),
                 ('team', models.ForeignKey(blank=True, default=None, help_text='empty for main meet', null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Team')),
                 ('category', models.CharField(max_length=20, null=False, blank=False, default="scheduled", db_index=True, help_text="RSVPed, leave, remote, etc")),
+                ('display_order', models.IntegerField(blank=False, default=0, null=False)),
             ],
             options={
                 'db_table': 'occasions_participations',
