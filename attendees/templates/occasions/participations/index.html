@@ -5,5 +5,24 @@
 {% endblock title %}
 
 {% block content %}
-  test
+
+{% regroup participation_list by gathering as participations_by_gathering %}
+
+<h3>
+  Current time range (All time) contains {{participation_list.count}} participants in {{participations_by_gathering|length}} gatherings
+</h3>
+
+<ul>
+    {% for participations in participations_by_gathering %}
+        <li>{{ participations.grouper }}
+            <ul>
+            {% for participation in participations.list %}
+                <li>{{ participation.attending.attendee }}: {{participation.character.display_name}} ({{participation.category}})</li>
+            {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+
 {% endblock content %}
