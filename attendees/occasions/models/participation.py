@@ -32,5 +32,5 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
         db_table = 'occasions_participations'
 
     def __str__(self):
-        return '%s %s %s' % (self.gathering, self.character, self.team or '')
+        return '%s %s %s %s' % (self.gathering, self.character, self.attending, self.team or '')
 
