@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-  participations index
+  leader list
 {% endblock title %}
 
 {% block content %}
@@ -9,7 +9,7 @@
 {% regroup participation_list by gathering as participations_by_gathering %}
 
 <h3>
-  Current time range (All time) contains {{participation_list.count}} participants in {{participations_by_gathering|length}} gatherings
+  Current time range (All time) contains {{participation_list.count}} leaders in {{participations_by_gathering|length}} gatherings
 </h3>
 
 <ul>

@@ -4,4 +4,5 @@
 # from .events import EventListView, EventDetailView, EventCreateView, EventUpdateView
 # from .program_participations import ProgramParticipationListView, ProgramParticipationDetailView, ProgramParticipationCreateView, ProgramParticipationUpdateView
 # from .link_note import LinkNoteDetailView
-from .participations import participation_list_view
+from .participations_leaders import participation_leader_list_view
+from .participations_students import participation_student_list_view
