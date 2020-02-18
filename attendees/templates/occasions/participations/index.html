@@ -13,10 +13,10 @@
 </h3>
 
 <ul>
-    {% for participations in participations_by_gathering %}
-        <li>{{ participations.grouper }}
+    {% for gathering, participations in participations_by_gathering %}
+        <li>{{ gathering }}
             <ul>
-            {% for participation in participations.list %}
+            {% for participation in participations %}
                 <li>{{ participation.attending.attendee }}: {{participation.character.display_name}} ({{participation.category}})</li>
             {% endfor %}
             </ul>

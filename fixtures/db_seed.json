@@ -423,9 +423,9 @@
       "one_off": false,
       "start_time": null,
       "enabled": true,
-      "last_run_at": "2020-02-17T04:00:00.004Z",
-      "total_run_count": 3,
-      "date_changed": "2020-02-17T04:03:00.488Z",
+      "last_run_at": "2020-02-18T04:08:16.341Z",
+      "total_run_count": 4,
+      "date_changed": "2020-02-18T04:10:51.761Z",
       "description": ""
     }
   },
@@ -469,6 +469,17 @@
     }
   },
   {
+    "model": "whereabouts.organization",
+    "pk": 2,
+    "fields": {
+      "created": "2020-02-18T02:14:56.915Z",
+      "modified": "2020-02-18T02:14:56.915Z",
+      "is_removed": false,
+      "slug": "heaven",
+      "display_name": "\u5929\u5802"
+    }
+  },
+  {
     "model": "whereabouts.division",
     "pk": 1,
     "fields": {
@@ -502,6 +513,18 @@
       "organization": 1,
       "display_name": "Children Ministry",
       "slug": "children_ministry"
+    }
+  },
+  {
+    "model": "whereabouts.division",
+    "pk": 4,
+    "fields": {
+      "created": "2020-02-18T02:20:07.431Z",
+      "modified": "2020-02-18T02:21:12.212Z",
+      "is_removed": false,
+      "organization": 2,
+      "display_name": "\u6c38\u6046\u5d07\u62dc\u90e8",
+      "slug": "ever-worship"
     }
   },
   {
@@ -681,6 +704,28 @@
     }
   },
   {
+    "model": "whereabouts.address",
+    "pk": 9,
+    "fields": {
+      "created": "2020-02-18T02:29:25.368Z",
+      "modified": "2020-02-18T02:29:25.368Z",
+      "is_removed": false,
+      "display_name": "\u65b0\u5929\u65b0\u5730",
+      "email1": null,
+      "email2": null,
+      "phone1": null,
+      "phone2": null,
+      "address_type": "street",
+      "street1": "7 throne way",
+      "street2": null,
+      "city": "heaven",
+      "state": "GG",
+      "zip_code": "99999",
+      "url": null,
+      "fields": {}
+    }
+  },
+  {
     "model": "whereabouts.campus",
     "pk": 1,
     "fields": {
@@ -690,6 +735,18 @@
       "display_name": "Main",
       "slug": "main",
       "address": 1
+    }
+  },
+  {
+    "model": "whereabouts.campus",
+    "pk": 2,
+    "fields": {
+      "created": "2020-02-18T02:30:29.898Z",
+      "modified": "2020-02-18T02:30:29.898Z",
+      "is_removed": false,
+      "display_name": "\u5929\u4e0a",
+      "slug": "sky",
+      "address": 9
     }
   },
   {
@@ -804,6 +861,21 @@
     }
   },
   {
+    "model": "persons.registration",
+    "pk": 4,
+    "fields": {
+      "created": "2020-02-18T02:34:10.108Z",
+      "modified": "2020-02-18T02:34:10.108Z",
+      "is_removed": false,
+      "assembly": 4,
+      "main_attendee": 7,
+      "apply_type": "sky",
+      "apply_key": "001",
+      "donation": "0.00",
+      "price": "0.00"
+    }
+  },
+  {
     "model": "persons.attending",
     "pk": 1,
     "fields": {
@@ -884,6 +956,22 @@
     }
   },
   {
+    "model": "persons.attending",
+    "pk": 6,
+    "fields": {
+      "created": "2020-02-18T02:35:42.705Z",
+      "modified": "2020-02-18T02:35:42.705Z",
+      "is_removed": false,
+      "registration": 4,
+      "attendee": 7,
+      "age": 5000,
+      "category": "kingdom",
+      "belief": "judge",
+      "bed_needs": 0,
+      "mobility": 2000
+    }
+  },
+  {
     "model": "persons.attendingdivision",
     "pk": 3,
     "fields": {
@@ -936,6 +1024,17 @@
       "is_removed": false,
       "attending": 5,
       "division": 3
+    }
+  },
+  {
+    "model": "persons.attendingdivision",
+    "pk": 8,
+    "fields": {
+      "created": "2020-02-18T02:35:42.720Z",
+      "modified": "2020-02-18T02:35:42.720Z",
+      "is_removed": false,
+      "attending": 6,
+      "division": 4
     }
   },
   {
@@ -1026,6 +1125,20 @@
       "display_name": "\u5152\u7ae5\u7279\u5225\u6d3b\u52d5",
       "slug": "kid-special-activity",
       "division": 3
+    }
+  },
+  {
+    "model": "occasions.assembly",
+    "pk": 4,
+    "fields": {
+      "created": "2020-02-18T02:23:31.110Z",
+      "modified": "2020-02-18T02:23:31.110Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "display_name": "\u5bf6\u5ea7\u656c\u62dc",
+      "slug": "throne-worship",
+      "division": 4
     }
   },
   {
@@ -1189,6 +1302,24 @@
     }
   },
   {
+    "model": "occasions.meet",
+    "pk": 4,
+    "fields": {
+      "created": "2020-02-18T02:26:10.941Z",
+      "modified": "2020-02-18T02:30:47.273Z",
+      "is_removed": false,
+      "division": 4,
+      "start": null,
+      "finish": null,
+      "display_name": "\u73bb\u7483\u6d77\u5929\u4f7f\u8a69\u73ed",
+      "slug": "see-of-glass-angel-choir",
+      "info": null,
+      "url": null,
+      "site_type": 29,
+      "site_id": 2
+    }
+  },
+  {
     "model": "occasions.gathering",
     "pk": 1,
     "fields": {
@@ -1257,6 +1388,23 @@
     }
   },
   {
+    "model": "occasions.gathering",
+    "pk": 5,
+    "fields": {
+      "created": "2020-02-18T02:32:54.537Z",
+      "modified": "2020-02-18T02:37:42.317Z",
+      "is_removed": false,
+      "meet": 4,
+      "start": "2020-02-17T08:00:00Z",
+      "finish": "2020-02-17T08:00:01Z",
+      "display_name": "forever",
+      "link": null,
+      "occurrence": null,
+      "site_type": 29,
+      "site_id": 2
+    }
+  },
+  {
     "model": "occasions.team",
     "pk": 1,
     "fields": {
@@ -1275,9 +1423,9 @@
     "fields": {
       "created": "2020-02-08T23:31:34.933Z",
       "modified": "2020-02-08T23:31:34.933Z",
+      "is_removed": false,
       "start": null,
       "finish": null,
-      "is_removed": false,
       "gathering": 1,
       "team": 1,
       "attending": 1,
@@ -1373,6 +1521,24 @@
       "attending": 5,
       "character": 4,
       "free": 1,
+      "category": "scheduled",
+      "display_order": 0
+    }
+  },
+  {
+    "model": "occasions.participation",
+    "pk": 7,
+    "fields": {
+      "created": "2020-02-18T02:35:42.724Z",
+      "modified": "2020-02-18T02:35:42.724Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 5,
+      "team": null,
+      "attending": 6,
+      "character": 3,
+      "free": 0,
       "category": "scheduled",
       "display_order": 0
     }
