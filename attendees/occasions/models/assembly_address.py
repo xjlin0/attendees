@@ -13,7 +13,7 @@ class AssemblyAddress(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     assembly = models.ForeignKey(Assembly, on_delete=models.SET(0), null=False, blank=False)
     address = models.ForeignKey('whereabouts.Address', on_delete=models.SET(0), null=False, blank=False)
-    category = models.CharField(max_length=20, null=True, help_text="primary, backup, etc")
+    category = models.CharField(max_length=20, default='normal', null=True, help_text="primary, backup, etc")
 
     class Meta:
         db_table = 'occasions_assembly_addresses'

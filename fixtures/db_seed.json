@@ -399,7 +399,7 @@
     "model": "django_celery_beat.periodictasks",
     "pk": 1,
     "fields": {
-      "last_update": "2020-02-08T23:15:49.564Z"
+      "last_update": "2020-02-16T16:41:48.874Z"
     }
   },
   {
@@ -423,9 +423,9 @@
       "one_off": false,
       "start_time": null,
       "enabled": true,
-      "last_run_at": "2020-02-05T04:45:32.425Z",
-      "total_run_count": 1,
-      "date_changed": "2020-02-05T05:10:20.169Z",
+      "last_run_at": "2020-02-17T04:00:00.004Z",
+      "total_run_count": 3,
+      "date_changed": "2020-02-17T04:03:00.488Z",
       "description": ""
     }
   },
@@ -445,6 +445,16 @@
       "description": "Weekly",
       "frequency": "WEEKLY",
       "params": ""
+    }
+  },
+  {
+    "model": "schedule.eventrelation",
+    "pk": 1,
+    "fields": {
+      "event": 1,
+      "content_type": 44,
+      "object_id": 1,
+      "distinction": "normal"
     }
   },
   {
@@ -696,6 +706,19 @@
     }
   },
   {
+    "model": "whereabouts.property",
+    "pk": 2,
+    "fields": {
+      "created": "2020-02-17T14:53:23.604Z",
+      "modified": "2020-02-17T14:53:23.604Z",
+      "is_removed": false,
+      "display_name": "\u820a\u4e3b\u5802",
+      "slug": "old-main-sanctuary",
+      "address": 1,
+      "campus": 1
+    }
+  },
+  {
     "model": "whereabouts.suite",
     "pk": 1,
     "fields": {
@@ -731,8 +754,8 @@
       "is_removed": false,
       "from_attendee": 2,
       "to_attendee": 3,
-      "category": "relatives",
-      "relation": "mother - son"
+      "relation": "mother - son",
+      "category": "relatives"
     }
   },
   {
@@ -761,6 +784,21 @@
       "main_attendee": 11,
       "apply_type": "admin",
       "apply_key": "000",
+      "donation": "0.00",
+      "price": "0.00"
+    }
+  },
+  {
+    "model": "persons.registration",
+    "pk": 3,
+    "fields": {
+      "created": "2020-02-17T14:58:01.595Z",
+      "modified": "2020-02-17T14:58:01.595Z",
+      "is_removed": false,
+      "assembly": 2,
+      "main_attendee": 1,
+      "apply_type": "system",
+      "apply_key": "001",
       "donation": "0.00",
       "price": "0.00"
     }
@@ -814,6 +852,38 @@
     }
   },
   {
+    "model": "persons.attending",
+    "pk": 4,
+    "fields": {
+      "created": "2020-02-17T14:59:10.907Z",
+      "modified": "2020-02-17T14:59:10.907Z",
+      "is_removed": false,
+      "registration": 3,
+      "attendee": 1,
+      "age": 500,
+      "category": "normal",
+      "belief": "believer",
+      "bed_needs": 0,
+      "mobility": 300
+    }
+  },
+  {
+    "model": "persons.attending",
+    "pk": 5,
+    "fields": {
+      "created": "2020-02-18T02:04:51.096Z",
+      "modified": "2020-02-18T02:04:51.096Z",
+      "is_removed": false,
+      "registration": 2,
+      "attendee": 4,
+      "age": 500,
+      "category": "normal",
+      "belief": null,
+      "bed_needs": 0,
+      "mobility": 200
+    }
+  },
+  {
     "model": "persons.attendingdivision",
     "pk": 3,
     "fields": {
@@ -843,6 +913,28 @@
       "modified": "2020-02-16T06:20:48.479Z",
       "is_removed": false,
       "attending": 3,
+      "division": 3
+    }
+  },
+  {
+    "model": "persons.attendingdivision",
+    "pk": 6,
+    "fields": {
+      "created": "2020-02-17T14:59:10.928Z",
+      "modified": "2020-02-17T14:59:10.928Z",
+      "is_removed": false,
+      "attending": 4,
+      "division": 1
+    }
+  },
+  {
+    "model": "persons.attendingdivision",
+    "pk": 7,
+    "fields": {
+      "created": "2020-02-18T02:04:51.107Z",
+      "modified": "2020-02-18T02:04:51.107Z",
+      "is_removed": false,
+      "attending": 5,
       "division": 3
     }
   },
@@ -883,16 +975,56 @@
     }
   },
   {
+    "model": "persons.attendeeaddress",
+    "pk": 4,
+    "fields": {
+      "created": "2020-02-17T03:03:31.789Z",
+      "modified": "2020-02-17T03:03:31.789Z",
+      "is_removed": false,
+      "attendee": 11,
+      "address": 5,
+      "category": "main"
+    }
+  },
+  {
     "model": "occasions.assembly",
     "pk": 1,
     "fields": {
       "created": "2020-02-05T05:36:21.043Z",
-      "modified": "2020-02-08T23:21:17.808Z",
+      "modified": "2020-02-17T14:48:20.569Z",
       "is_removed": false,
       "start": null,
       "finish": null,
-      "display_name": "\u5152\u7ae5\u4e3b\u65e5\u5b78",
-      "slug": "kid_sunday_school",
+      "display_name": "\u5152\u7ae5\u5e38\u898f\u6559\u5b78",
+      "slug": "kid_regular_school",
+      "division": 3
+    }
+  },
+  {
+    "model": "occasions.assembly",
+    "pk": 2,
+    "fields": {
+      "created": "2020-02-17T14:40:20.653Z",
+      "modified": "2020-02-17T14:48:52.753Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "display_name": "\u6210\u4eba\u4e3b\u65e5\u5d07\u62dc",
+      "slug": "adult-sunday-worship",
+      "division": 1
+    }
+  },
+  {
+    "model": "occasions.assembly",
+    "pk": 3,
+    "fields": {
+      "created": "2020-02-17T14:50:07.535Z",
+      "modified": "2020-02-17T14:50:07.535Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "display_name": "\u5152\u7ae5\u7279\u5225\u6d3b\u52d5",
+      "slug": "kid-special-activity",
       "division": 3
     }
   },
@@ -906,6 +1038,30 @@
       "assembly": 1,
       "address": 1,
       "category": "primary"
+    }
+  },
+  {
+    "model": "occasions.assemblyaddress",
+    "pk": 2,
+    "fields": {
+      "created": "2020-02-17T14:41:56.554Z",
+      "modified": "2020-02-17T14:41:56.554Z",
+      "is_removed": false,
+      "assembly": 2,
+      "address": 1,
+      "category": "normal"
+    }
+  },
+  {
+    "model": "occasions.assemblyaddress",
+    "pk": 3,
+    "fields": {
+      "created": "2020-02-17T14:50:07.542Z",
+      "modified": "2020-02-17T14:50:07.542Z",
+      "is_removed": false,
+      "assembly": 3,
+      "address": 1,
+      "category": "normal"
     }
   },
   {
@@ -997,6 +1153,42 @@
     }
   },
   {
+    "model": "occasions.meet",
+    "pk": 2,
+    "fields": {
+      "created": "2020-02-17T14:36:30.261Z",
+      "modified": "2020-02-17T14:36:30.261Z",
+      "is_removed": false,
+      "division": 3,
+      "start": null,
+      "finish": null,
+      "display_name": "Little foot",
+      "slug": "little-foot",
+      "info": null,
+      "url": null,
+      "site_type": 32,
+      "site_id": 1
+    }
+  },
+  {
+    "model": "occasions.meet",
+    "pk": 3,
+    "fields": {
+      "created": "2020-02-17T14:52:03.903Z",
+      "modified": "2020-02-17T14:52:03.903Z",
+      "is_removed": false,
+      "division": 1,
+      "start": null,
+      "finish": null,
+      "display_name": "\u5f71\u97f3\u4e2d\u63a7",
+      "slug": "recording-av-control",
+      "info": null,
+      "url": null,
+      "site_type": 30,
+      "site_id": 2
+    }
+  },
+  {
     "model": "occasions.gathering",
     "pk": 1,
     "fields": {
@@ -1010,6 +1202,57 @@
       "link": null,
       "occurrence": null,
       "site_type": 31,
+      "site_id": 1
+    }
+  },
+  {
+    "model": "occasions.gathering",
+    "pk": 2,
+    "fields": {
+      "created": "2020-02-17T04:01:15.902Z",
+      "modified": "2020-02-17T04:01:15.902Z",
+      "is_removed": false,
+      "meet": 1,
+      "start": "2020-02-16T18:00:00Z",
+      "finish": "2020-02-16T20:00:00Z",
+      "display_name": "02/16/2020",
+      "link": null,
+      "occurrence": null,
+      "site_type": 32,
+      "site_id": 1
+    }
+  },
+  {
+    "model": "occasions.gathering",
+    "pk": 3,
+    "fields": {
+      "created": "2020-02-17T15:01:37.575Z",
+      "modified": "2020-02-17T15:01:37.575Z",
+      "is_removed": false,
+      "meet": 3,
+      "start": "2020-01-10T17:00:00Z",
+      "finish": "2020-01-10T20:00:00Z",
+      "display_name": "01/10/2020",
+      "link": null,
+      "occurrence": null,
+      "site_type": 30,
+      "site_id": 2
+    }
+  },
+  {
+    "model": "occasions.gathering",
+    "pk": 4,
+    "fields": {
+      "created": "2020-02-17T15:09:03.335Z",
+      "modified": "2020-02-17T15:09:03.335Z",
+      "is_removed": false,
+      "meet": 2,
+      "start": "2020-02-09T18:00:00Z",
+      "finish": "2020-02-09T20:00:00Z",
+      "display_name": "02/09/2020",
+      "link": null,
+      "occurrence": null,
+      "site_type": 30,
       "site_id": 1
     }
   },
@@ -1040,8 +1283,98 @@
       "attending": 1,
       "character": 1,
       "free": 0,
-      "display_order": 0,
-      "category": "scheduled"
+      "category": "scheduled",
+      "display_order": 0
+    }
+  },
+  {
+    "model": "occasions.participation",
+    "pk": 2,
+    "fields": {
+      "created": "2020-02-17T03:01:06.755Z",
+      "modified": "2020-02-17T03:01:06.755Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 1,
+      "team": null,
+      "attending": 2,
+      "character": 2,
+      "free": -1,
+      "category": "scheduled",
+      "display_order": 0
+    }
+  },
+  {
+    "model": "occasions.participation",
+    "pk": 3,
+    "fields": {
+      "created": "2020-02-17T03:01:19.905Z",
+      "modified": "2020-02-17T06:16:51.087Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 1,
+      "team": 1,
+      "attending": 3,
+      "character": 4,
+      "free": 0,
+      "category": "confirmed",
+      "display_order": 0
+    }
+  },
+  {
+    "model": "occasions.participation",
+    "pk": 4,
+    "fields": {
+      "created": "2020-02-17T04:01:15.918Z",
+      "modified": "2020-02-17T04:01:15.918Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 2,
+      "team": null,
+      "attending": 3,
+      "character": 5,
+      "free": 0,
+      "category": "scheduled",
+      "display_order": 0
+    }
+  },
+  {
+    "model": "occasions.participation",
+    "pk": 5,
+    "fields": {
+      "created": "2020-02-17T15:01:37.586Z",
+      "modified": "2020-02-17T15:01:37.586Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 3,
+      "team": null,
+      "attending": 4,
+      "character": 4,
+      "free": 0,
+      "category": "scheduled",
+      "display_order": 0
+    }
+  },
+  {
+    "model": "occasions.participation",
+    "pk": 6,
+    "fields": {
+      "created": "2020-02-17T15:12:35.463Z",
+      "modified": "2020-02-18T02:05:31.653Z",
+      "is_removed": false,
+      "start": "2020-02-09T17:00:00Z",
+      "finish": "2020-02-09T19:00:00Z",
+      "gathering": 4,
+      "team": null,
+      "attending": 5,
+      "character": 4,
+      "free": 1,
+      "category": "scheduled",
+      "display_order": 0
     }
   },
   {
@@ -2965,15 +3298,15 @@
     "pk": 1,
     "fields": {
       "created": "2020-02-04T15:52:11.163Z",
-      "modified": "2020-02-04T15:52:11.163Z",
+      "modified": "2020-02-17T16:07:35.999Z",
       "is_removed": false,
-      "user": null,
-      "first_name": "jack",
-      "last_name": "lin",
+      "user": 1,
+      "first_name": "superuser1",
+      "last_name": "system admin1",
       "first_name2": null,
       "last_name2": null,
       "other_name": null,
-      "public_name": null,
+      "public_name": "root",
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
@@ -2985,11 +3318,11 @@
     "pk": 2,
     "fields": {
       "created": "2020-02-04T15:54:39.007Z",
-      "modified": "2020-02-04T15:54:39.007Z",
+      "modified": "2020-02-17T15:32:39.586Z",
       "is_removed": false,
       "user": null,
-      "first_name": "Patty",
-      "last_name": "Li",
+      "first_name": "\u590f\u7532",
+      "last_name": "Hagar",
       "first_name2": null,
       "last_name2": null,
       "other_name": null,
@@ -3005,14 +3338,14 @@
     "pk": 3,
     "fields": {
       "created": "2020-02-04T15:55:13.017Z",
-      "modified": "2020-02-04T15:55:24.670Z",
+      "modified": "2020-02-17T15:34:19.319Z",
       "is_removed": false,
       "user": null,
-      "first_name": "Michael",
-      "last_name": "li",
-      "first_name2": "\u9ea5\u53ef",
-      "last_name2": "\u674e",
-      "other_name": "mike",
+      "first_name": "\u4ee5\u5be6\u746a\u5229",
+      "last_name": "Ishmael",
+      "first_name2": null,
+      "last_name2": null,
+      "other_name": null,
       "public_name": "\u5927\u5bf6",
       "gender": "MALE",
       "actual_birthday": null,
@@ -3025,15 +3358,15 @@
     "pk": 4,
     "fields": {
       "created": "2020-02-05T05:25:13.253Z",
-      "modified": "2020-02-05T05:25:13.253Z",
+      "modified": "2020-02-17T16:06:33.700Z",
       "is_removed": false,
       "user": null,
       "first_name": "John",
-      "last_name": "ll",
+      "last_name": "\u7d04\u7ff0",
       "first_name2": null,
       "last_name2": null,
       "other_name": null,
-      "public_name": null,
+      "public_name": "\u4f7f\u5f92\u7d04\u7ff0",
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
@@ -3045,12 +3378,12 @@
     "pk": 5,
     "fields": {
       "created": "2020-02-05T05:25:33.450Z",
-      "modified": "2020-02-05T05:25:40.342Z",
+      "modified": "2020-02-17T17:38:12.853Z",
       "is_removed": false,
       "user": null,
-      "first_name": "Susan",
-      "last_name": "ll",
-      "first_name2": "\u8607\u73ca",
+      "first_name": "\u4e9e\u6bd4\u8a72",
+      "last_name": "Abigail",
+      "first_name2": "\u4e9e\u6bd4\u8a72",
       "last_name2": null,
       "other_name": null,
       "public_name": "\u8001\u59ca",
@@ -3065,15 +3398,15 @@
     "pk": 6,
     "fields": {
       "created": "2020-02-05T05:26:23.058Z",
-      "modified": "2020-02-05T05:26:23.058Z",
+      "modified": "2020-02-17T17:40:02.252Z",
       "is_removed": false,
       "user": null,
-      "first_name": "Linda",
-      "last_name": "rr",
-      "first_name2": "\u7433\u9054",
+      "first_name": "\u5e95\u6ce2\u62c9",
+      "last_name": "Deborah",
+      "first_name2": "\u5e95\u6ce2\u62c9",
       "last_name2": null,
       "other_name": null,
-      "public_name": "\u4e48\u4e48",
+      "public_name": "\u6230\u795e\u4e48\u4e48",
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
@@ -3085,11 +3418,11 @@
     "pk": 7,
     "fields": {
       "created": "2020-02-05T05:26:50.151Z",
-      "modified": "2020-02-05T05:26:50.151Z",
+      "modified": "2020-02-17T17:35:59.129Z",
       "is_removed": false,
       "user": null,
       "first_name": "Elizabeth",
-      "last_name": "tt",
+      "last_name": "\u4ee5\u5229\u6c99\u4f2f",
       "first_name2": null,
       "last_name2": null,
       "other_name": null,
@@ -3105,11 +3438,11 @@
     "pk": 8,
     "fields": {
       "created": "2020-02-05T05:27:08.830Z",
-      "modified": "2020-02-05T05:27:08.830Z",
+      "modified": "2020-02-17T17:39:05.213Z",
       "is_removed": false,
       "user": null,
       "first_name": null,
-      "last_name": "yy",
+      "last_name": "\u9a62\u5b50",
       "first_name2": null,
       "last_name2": null,
       "other_name": null,
@@ -3125,15 +3458,15 @@
     "pk": 9,
     "fields": {
       "created": "2020-02-05T05:28:47.609Z",
-      "modified": "2020-02-05T05:28:47.609Z",
+      "modified": "2020-02-17T15:39:33.438Z",
       "is_removed": false,
       "user": null,
-      "first_name": "Evon",
-      "last_name": "Chung",
-      "first_name2": "\u4f9d\u82b3",
+      "first_name": "\u4ee5\u65af\u5e16",
+      "last_name": "Esther",
+      "first_name2": null,
       "last_name2": null,
       "other_name": null,
-      "public_name": null,
+      "public_name": "\u7687\u540e",
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
@@ -3145,12 +3478,12 @@
     "pk": 10,
     "fields": {
       "created": "2020-02-05T05:29:13.579Z",
-      "modified": "2020-02-05T05:30:24.180Z",
+      "modified": "2020-02-17T17:33:59.578Z",
       "is_removed": false,
       "user": null,
-      "first_name": "Henry",
-      "last_name": "ee",
-      "first_name2": "\u4ea8\u5229",
+      "first_name": "\u53c3\u5b6b",
+      "last_name": "Samson",
+      "first_name2": "\u53c3\u5b6b",
       "last_name2": null,
       "other_name": null,
       "public_name": "\u5f1f\u5144",
@@ -3165,14 +3498,15 @@
     "pk": 11,
     "fields": {
       "created": "2020-02-09T03:35:25.372Z",
-      "modified": "2020-02-09T03:35:25.372Z",
+      "modified": "2020-02-17T17:34:46.980Z",
       "is_removed": false,
       "user": null,
-      "first_name": "Lisa",
-      "last_name": "ll",
-      "first_name2": "ll",
-      "last_name2": "ll",
-      "other_name": "ll",
+      "first_name": "Lydia",
+      "last_name": "\u5442\u5e95\u4e9e",
+      "first_name2": null,
+      "last_name2": null,
+      "other_name": "\u63a8\u96c5\u63a8\u5587\u7684\u5442\u5e95\u4e9e",
+      "public_name": null,
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,

@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
-                ('category', models.CharField(help_text='primary, backup, etc', max_length=20, null=True)),
+                ('category', models.CharField(default='normal', help_text='primary, backup, etc', max_length=20, null=True)),
                 ('address', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Address')),
                 ('assembly', models.ForeignKey(on_delete=models.SET(0), to='occasions.Assembly')),
             ],
