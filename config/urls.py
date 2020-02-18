@@ -17,9 +17,9 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path('summernote/', include('django_summernote.urls')),
-    path("occasions/", include("attendees.occasions.urls", namespace="occasions")),
-    path("whereabouts/", include("attendees.whereabouts.urls", namespace="whereabouts")),
-    path("persons/", include("attendees.persons.urls", namespace="persons")),
+    path("<slug:organization_slug>/occasions/", include("attendees.occasions.urls", namespace="occasions")),
+    path("<slug:organization_slug>/whereabouts/", include("attendees.whereabouts.urls", namespace="whereabouts")),
+    path("<slug:organization_slug>/persons/", include("attendees.persons.urls", namespace="persons")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

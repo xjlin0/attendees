@@ -464,7 +464,7 @@
       "created": "2020-02-04T15:50:30.262Z",
       "modified": "2020-02-04T15:50:30.262Z",
       "is_removed": false,
-      "slug": "cfcc_hayward",
+      "slug": "1_cfcc-hayward",
       "display_name": "Chinese for Christ Church of Hayward"
     }
   },
@@ -475,7 +475,7 @@
       "created": "2020-02-18T02:14:56.915Z",
       "modified": "2020-02-18T02:14:56.915Z",
       "is_removed": false,
-      "slug": "heaven",
+      "slug": "2_heaven",
       "display_name": "\u5929\u5802"
     }
   },
@@ -1402,7 +1402,7 @@
       "is_removed": false,
       "meet": 4,
       "start": "2020-02-17T08:00:00Z",
-      "finish": "2020-02-17T08:00:01Z",
+      "finish": "9999-12-29T08:00:01Z",
       "display_name": "forever",
       "link": null,
       "occurrence": null,

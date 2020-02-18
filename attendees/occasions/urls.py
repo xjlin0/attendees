@@ -8,7 +8,7 @@ from attendees.occasions.views import (
 
 app_name = "occasions"
 urlpatterns = [
-    path("participations/leaders", view=participation_leader_list_view, name="participations_leaders"),
-    path("participations/students", view=participation_student_list_view, name="participations_students"),
+    path("participations/leaders/", view=participation_leader_list_view, name="participations_leaders"),
+    path("participations/students/", view=participation_student_list_view, name="participations_students"),
 
 ]
