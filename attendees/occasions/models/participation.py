@@ -18,7 +18,7 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
     character = models.ForeignKey('Character', null=False, blank=False, on_delete=models.SET(0))
     free = models.IntegerField(default=0, blank=True, null=True, help_text="multitasking: the person cannot join other gatherings if negative")
     category = models.CharField(max_length=20, null=False, blank=False, db_index=True, default="scheduled", help_text="RSVPed, leave, remote, etc")
-    display_order = models.IntegerField(default=0, blank=False, null=False)
+    display_order = models.SmallIntegerField(default=0, blank=False, null=False)
 
     @cached_property
     def participation_info(self):

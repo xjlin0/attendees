@@ -11,7 +11,7 @@ class Team(TimeStampedModel, SoftDeletableModel, Utility):
     meet = models.ForeignKey('Meet', null=False, blank=False, on_delete=models.SET(0))
     slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
     display_name = models.CharField(max_length=50, blank=True, null=True)
-    display_order = models.IntegerField(default=0, blank=False, null=False)
+    display_order = models.SmallIntegerField(default=0, blank=False, null=False)
 
     class Meta:
         db_table = 'occasions_teams'
