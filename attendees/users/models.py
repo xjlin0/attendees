@@ -23,4 +23,7 @@ class User(AbstractUser):
         return self.attendee.attending_set.filter(divisions__slug__in=division_slugs).exists()
 
     def attended_divisions_slugs(self):
-        return self.attendee.attending_set.values_list('division__slug')
+        if self.attendee:
+            return self.attendee.attending_set.values_list('division__slug')
+        else:
+            return []
