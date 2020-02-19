@@ -186,6 +186,7 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "attendees.utils.context_processors.settings_context",
+                "attendees.context_processors.common_variables",
             ],
         },
     }

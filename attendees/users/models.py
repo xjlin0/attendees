@@ -1,7 +1,9 @@
 from django.contrib.auth.models import AbstractUser
 from django.db.models import CharField
+from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from attendees.whereabouts.models import Organization
 
 
 class User(AbstractUser):
@@ -9,7 +11,7 @@ class User(AbstractUser):
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = CharField(_("Name of User"), blank=True, max_length=255)
-    default_route = CharField(max_length=50, null=False, blank=False, default='occasions:occasions.urls.some_view', help_text='default route upon successful login') #needs to make it ENUM later
+    organization = models.ForeignKey(Organization, null=True, blank=True, default=None, on_delete=models.SET_NULL, help_text='Primary organization of the user')
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
