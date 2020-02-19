@@ -2,7 +2,7 @@ from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.utils import timezone
-
+from django.shortcuts import get_object_or_404
 from datetime import timedelta
 
 from attendees.occasions.models import Participation

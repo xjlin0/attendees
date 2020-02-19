@@ -2,10 +2,9 @@ from pytz import timezone
 from datetime import datetime
 from django.conf import settings
 from urllib import parse
-from attendees.whereabouts.models import Division
 
 
-def common_variables(request):
+def common_variables(request): #TODO move organization info to view
     tzname = request.COOKIES.get('timezone') or settings.CLIENT_DEFAULT_TIME_ZONE
     user_organization_name = settings.PROJECT_NAME
     user_organization_name_slug = '0_organization_slug'
