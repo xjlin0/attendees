@@ -2,12 +2,19 @@ from pytz import timezone
 from datetime import datetime
 from django.conf import settings
 from urllib import parse
+from attendees.whereabouts.models import Division
 
 
 def common_variables(request):
     tzname = request.COOKIES.get('timezone') or settings.CLIENT_DEFAULT_TIME_ZONE
+    user_organization_name = settings.PROJECT_NAME
+    user_organization_name_slug = '0_organization_slug'
+    user_organization = request.user.organization
+    if user_organization:
+        user_organization_name = user_organization.display_name
+        user_organization_name_slug = user_organization.slug
     return {
         'timezone_name': datetime.now(timezone(parse.unquote(tzname))).tzname(),
-        'user_organization_name': request.user.organization.display_name if request.user.organization else '',
-        'user_organization_name_slug': request.user.organization.slug if request.user.organization else '0_organization_slug',
+        'user_organization_name': user_organization_name,
+        'user_organization_name_slug': user_organization_name_slug,
     }

@@ -50,7 +50,7 @@ DATABASES["default"]["ATOMIC_REQUESTS"] = True
 ROOT_URLCONF = "config.urls"
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = "config.wsgi.application"
-
+PROJECT_NAME = "Attendees"
 # APPS
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
