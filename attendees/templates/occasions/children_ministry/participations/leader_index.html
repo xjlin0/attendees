@@ -12,13 +12,18 @@
 
 {% block content %}
 
+  <button class="btn btn-primary load-participations">
+    load data
+  </button>
+
+<h4>
+  {{var1}}
+</h4>
+
   <div class="participations">
     {% include 'occasions/children_ministry/participations/_grouped_list.html' %}
   </div>
 
-  <button class="btn btn-primary">
-    load data
-  </button>
 
 
 {% endblock content %}

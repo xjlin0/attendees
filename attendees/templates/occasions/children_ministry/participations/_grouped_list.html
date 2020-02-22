@@ -1,12 +1,11 @@
 {% regroup filtered_participations by gathering as participations_by_gathering %}
 
+{% if filtered_participations %}
 <h3>
   Current time range (All time) contains {{filtered_participations.count}} leaders in {{participations_by_gathering|length}} gatherings
 </h3>
+{% endif %}
 
-<h4>
-  {{var1}}
-</h4>
 <ul>
     {% for gathering, participations in participations_by_gathering %}
         <li>{{ gathering }}
