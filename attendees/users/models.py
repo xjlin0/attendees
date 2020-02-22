@@ -22,8 +22,11 @@ class User(AbstractUser):
     def attend_divisions_of(self, division_slugs):
         return self.attendee.attending_set.filter(divisions__slug__in=division_slugs).exists()
 
+    def belongs_to_divisions_of(self, division_slugs):
+        return self.organization.division_set.filter(slug__in=division_slugs).exists()
+
     def attended_divisions_slugs(self):
         if self.attendee:
-            return self.attendee.attending_set.values_list('division__slug')
+            return self.attendee.attending_set.values_list('division__slug', flat=True)
         else:
             return []

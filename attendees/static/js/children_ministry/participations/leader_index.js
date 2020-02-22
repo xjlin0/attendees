@@ -3,10 +3,13 @@ Attendees.leaderIndex = {
     console.log("attendees/static/js/children_ministry/participations/leader_index.js");
     Attendees.leaderIndex.set_defaults();
     $('button.load-participations').on('click', Attendees.leaderIndex.fetch_participations)
+    $('.js-example-basic-multiple').select2({
+      placeholder: "Nothing selected",
+    });
   },
 
-  fetch_participations: () => {
-    console.log("loading participations button clicked");
+  fetch_participations: (event) => {
+    console.log("loading participations button clicked, here is event: ", event);
 
     $.ajax
     ({
