@@ -26,11 +26,11 @@ class ParticipationJSONResponseMixin:
         filter(attending__divisions__id__in=[3]) needs to be replaced with request.user.attended_divisions_slugs, and also need .filter(gathering__start__gte=timezone.now(),)
         """
         participations = Participation.objects.select_related('character', 'team', 'attending', 'gathering', 'attending__attendee').filter(attending__divisions__slug__in=['children_ministry']).exclude(character__slug='student').order_by('gathering__meet', '-gathering__start', 'character__display_order')
-        # logger.info("27 The value of context is %s", context)
-        # logger.info("28 The value of response_kwargs is %s", response_kwargs)
-        # logger.info("29 The value of params is %s", path_params)
-        logger.info("30 The value of self.request.GET.get('hi') (search params) is %s", self.request.GET.get('hi'))
-        logger.info("31 The value of self.kwargs (url params) is %s", self.kwargs)
+        logger.info("29 The value of context is %s", context)
+        # logger.info("30 The value of response_kwargs is %s", response_kwargs)
+        # logger.info("31 The value of params is %s", path_params)
+        logger.info("32 The value of self.request.GET.get('hi') (search params) is %s", self.request.GET.get('hi'))
+        logger.info("33 The value of self.kwargs (url params) is %s", self.kwargs)
         return JsonResponse(
             serializers.serialize('json', participations),
             safe=False,
@@ -43,11 +43,16 @@ class ChildrenMinistryParticipationLeaderListView(ListView, ParticipationJSONRes
     queryset = []
     template_name = 'occasions/children_ministry/participations/leader_index.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({'var1': 'hello'})
+        return context
+
     def render_to_response(self, context, **kwargs):
-        # logger.info("45 The value of kwargs is %s", kwargs)
-        # logger.info("46 The value of self.request is %s", self.request)
-        # logger.info("47 The value of self.kwargs is %s", self.kwargs)
-        # logger.info("48 The value of self.request.GET.get('hi', '') is %s", self.request.GET.get('hi', ''))
+        # logger.info("52 The value of kwargs is %s", kwargs)
+        # logger.info("53 The value of self.request is %s", self.request)
+        # logger.info("54 The value of self.kwargs is %s", self.kwargs)
+        # logger.info("55 The value of self.request.GET.get('hi', '') is %s", self.request.GET.get('hi', ''))
         if self.request.is_ajax():
             return self.render_to_json_response(context, **kwargs)
         else:
