@@ -1,8 +1,14 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
   leader list
 {% endblock title %}
+
+{% block extra_head %}
+  <script defer
+          src="{% static 'js/children_ministry/participations/leader_index.js' %}">
+  </script>
+{% endblock extra_head %}
 
 {% block content %}
 
