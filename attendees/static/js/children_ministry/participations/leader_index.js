@@ -1,6 +1,7 @@
 Attendees.leaderIndex = {
   init: () => {
     console.log("attendees/static/js/children_ministry/participations/leader_index.js");
+    Attendees.leaderIndex.set_defaults();
     $('button.load-participations').on('click', Attendees.leaderIndex.fetch_participations)
   },
 
@@ -14,8 +15,18 @@ Attendees.leaderIndex = {
         console.log('hi here is success response: ', response);
         $("div.participations").html(response)
         },
-      error  : function(response){console.log('hi jack here is error response: ', response) }
+      error  : function(response){console.log('hi here is error response: ', response) }
     });
+  },
+
+  set_defaults: () => {
+    const defaultFilterStartDate = new Date();
+    const defaultFilterFinishDate = new Date();
+    defaultFilterStartDate.setMonth(defaultFilterStartDate.getMonth() - 3);
+    defaultFilterFinishDate.setMonth(defaultFilterFinishDate.getMonth() + 6);
+    document.getElementById('filter-start-date').value = defaultFilterStartDate.toISOString().substring(0, 10);
+    document.getElementById('filter-finish-date').value = defaultFilterFinishDate.toISOString().substring(0, 10);
+
   },
 }
 

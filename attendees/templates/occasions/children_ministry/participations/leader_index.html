@@ -12,14 +12,45 @@
 
 {% block content %}
 
+  <h4>
+    {{var1}} Select any group to list participants
+  </h4>
+
   <button class="btn btn-primary load-participations">
     load data
   </button>
 
-<h4>
-  {{var1}}
-</h4>
-{{request.get_full_path}}
+
+  <form class="form-row"
+        data-url="{{request.get_full_path}}">
+    <div class="form-group col-3">
+      <label class="control-label"
+             for="filter-start-date">
+        Filter from:
+      </label>
+      <input class="form-control"
+             id="filter-start-date"
+             name="start"
+             type="date"/>
+    </div>
+    <div class="form-group col-3">
+      <label class="control-label"
+             for="filter-finish-date">
+        Filter till:
+      </label>
+      <input class="form-control"
+             id="filter-finish-date"
+             name="finish"
+             type="date"/>
+    </div>
+
+
+
+
+
+
+  </form>
+
   <div class="participations">
     {% include 'occasions/children_ministry/participations/_grouped_list.html' %}
   </div>
