@@ -47,7 +47,6 @@ class ChildrenMinistryParticipationLeaderListView(ListView, ParticipationJSONRes
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Todo include user divisions and meets slugs in context
-        # current_user = self.request.user
         current_division_slug = self.kwargs.get('division_slug', None)
         current_organization_slug = self.kwargs.get('organization_slug', None)
         available_meets = Meet.objects.filter(division__slug=current_division_slug).in_bulk(field_name='slug')
@@ -59,9 +58,11 @@ class ChildrenMinistryParticipationLeaderListView(ListView, ParticipationJSONRes
         return context
 
     def render_to_response(self, context, **kwargs):
-        # logger.info("61 The value of self.get_template_names()[0] is %s", self.get_template_names()[0])
-        # logger.info("62 The value of self.kwargs is %s", kwargs)
-        # logger.info("63 The value of context['available_meets'] is %s", context['available_meets'])
+        logger.info("61 The value of self.request.GET is %s", self.request.GET)
+        logger.info("62 The value of self.kwargs is %s", self.kwargs)
+        logger.info("63 The value of context is %s", context)
+        chosen_meet_slugs = self.request.GET.get('meets', '')
+
 
         if self.request.user.belongs_to_organization_and_division(context['current_organization_slug'], context['current_division_slug']):
             if self.request.is_ajax():

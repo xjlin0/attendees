@@ -29,19 +29,16 @@
     Select any group to list participants
   </h4>
 
-  <button class="btn btn-primary load-participations">
-    load data
-  </button>
 
 
-  <form class="form-row"
+ <form class="form-row participations-filter"
         data-url="{{request.get_full_path}}">
     <div class="form-group col-3">
       <label class="control-label"
              for="filter-start-date">
         Filter from:
       </label>
-      <input class="form-control"
+      <input class="form-control filter-start-date"
              id="filter-start-date"
              name="start"
              type="date"/>
@@ -49,9 +46,9 @@
     <div class="form-group col-3">
       <label class="control-label"
              for="filter-finish-date">
-        Filter till:
+        Filter till (excluded):
       </label>
-      <input class="form-control"
+      <input class="form-control filter-finish-date"
              id="filter-finish-date"
              name="finish"
              type="date"/>
@@ -62,9 +59,9 @@
     <label for="filter-meets">
       Select groups:
     </label>
-      <select class="js-example-basic-multiple form-control"
+      <select class="js-example-basic-multiple form-control filter-meets"
               id="filter-meets"
-              name="meets[]"
+              name="meets"
               multiple="multiple">
         {% for slug, meet in available_meets.items %}
           <option value="{{slug}}">{{meet.display_name}}</option>

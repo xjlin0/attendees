@@ -1,19 +1,26 @@
 Attendees.leaderIndex = {
   init: () => {
-    console.log("attendees/static/js/children_ministry/participations/leader_index.js");
     Attendees.leaderIndex.set_defaults();
-    $('button.load-participations').on('click', Attendees.leaderIndex.fetch_participations)
+
     $('.js-example-basic-multiple').select2({
       placeholder: "Nothing selected",
     });
+
+    $('form.participations-filter').on('change', 'input, select', Attendees.leaderIndex.fetch_participations);
   },
 
   fetch_participations: (event) => {
-    console.log("loading participations button clicked, here is event: ", event);
+    const $optionForm=$(event.delegateTarget);
+    const chosenOptions={
+      start: $optionForm.find('input.filter-start-date').val(),
+      finish: $optionForm.find('input.filter-finish-date').val(),
+      meets: $optionForm.find('select.filter-meets').val(),
+    };
 
     $.ajax
     ({
-      url      : "/1_cfcc-hayward/occasions/children_ministry/participations/leaders/?hi=5",
+      url      : $optionForm.data('url'),
+      data     : chosenOptions,
       success  : function(response){
         console.log('hi here is success response: ', response);
         $("div.participations").html(response)
@@ -29,7 +36,6 @@ Attendees.leaderIndex = {
     defaultFilterFinishDate.setMonth(defaultFilterFinishDate.getMonth() + 6);
     document.getElementById('filter-start-date').value = defaultFilterStartDate.toISOString().substring(0, 10);
     document.getElementById('filter-finish-date').value = defaultFilterFinishDate.toISOString().substring(0, 10);
-
   },
 }
 
