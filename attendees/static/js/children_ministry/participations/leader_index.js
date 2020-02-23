@@ -6,26 +6,32 @@ Attendees.leaderIndex = {
       placeholder: "Nothing selected",
     });
 
-    $('form.participations-filter').on('change', 'input, select', Attendees.leaderIndex.fetch_participations);
+    $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetch_participations));
   },
 
   fetch_participations: (event) => {
     const $optionForm=$(event.delegateTarget);
+    const $resultElement=$('div.participations');
     const chosenOptions={
       start: $optionForm.find('input.filter-start-date').val(),
       finish: $optionForm.find('input.filter-finish-date').val(),
       meets: $optionForm.find('select.filter-meets').val(),
     };
 
-    $.ajax
-    ({
-      url      : $optionForm.data('url'),
-      data     : chosenOptions,
-      success  : function(response){
-                   $("div.participations").html(response)
-                 },
-      error  : function(response){console.log('hi here is error response: ', response) }
-    });
+    if (chosenOptions.meets) {
+    $resultElement.html('<h3> Fetching data .... </h3>');
+      $.ajax
+      ({
+        url      : $optionForm.data('url'),
+        data     : chosenOptions,
+        success  : (response) => {
+                     $resultElement.html(response)
+                   },
+        error    : (response) => {
+                     $resultElement.html('There are some errors: ', response);
+                   },
+      });
+    }
   },
 
   set_defaults: () => {
