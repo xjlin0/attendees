@@ -1,12 +1,11 @@
 from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.http import JsonResponse, Http404
-from django.core import serializers
+from django.http import Http404
 from django.shortcuts import render
 from attendees.occasions.models import Meet
 from django.utils import timezone
-from datetime import timedelta
+
 import logging
 
 
@@ -15,26 +14,8 @@ from attendees.occasions.models import Participation
 logger = logging.getLogger(__name__)
 
 
-class ParticipationJSONResponseMixin:
-
-    """
-    A mixin that can be used to render a JSON response.
-    https://docs.djangoproject.com/en/3.0/topics/class-based-views/mixins/#more-than-just-html
-    """
-    def render_to_json_response(self, context, **response_kwargs):
-        """
-        Returns a JSON response, transforming 'context' to make the payload.
-        """
-        participations = Participation.objects.select_related('character', 'team', 'attending', 'gathering', 'attending__attendee').filter(attending__divisions__slug__in=['children_ministry']).exclude(character__slug='student').order_by('gathering__meet', '-gathering__start', 'character__display_order')
-        return JsonResponse(
-            serializers.serialize('json', participations),
-            safe=False,
-            **response_kwargs
-        )
-
-
 @method_decorator([login_required], name='dispatch')
-class ChildrenMinistryParticipationLeaderListView(ListView, ParticipationJSONResponseMixin):
+class ChildrenMinistryParticipationLeaderListView(ListView):
     queryset = []
     template_name = 'occasions/children_ministry/participations/leader_index.html'
 
