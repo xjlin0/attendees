@@ -22,9 +22,8 @@ Attendees.leaderIndex = {
       url      : $optionForm.data('url'),
       data     : chosenOptions,
       success  : function(response){
-        console.log('hi here is success response: ', response);
-        $("div.participations").html(response)
-        },
+                   $("div.participations").html(response)
+                 },
       error  : function(response){console.log('hi here is error response: ', response) }
     });
   },

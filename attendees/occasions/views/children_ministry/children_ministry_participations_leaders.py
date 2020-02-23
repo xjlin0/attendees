@@ -24,14 +24,8 @@ class ParticipationJSONResponseMixin:
     def render_to_json_response(self, context, **response_kwargs):
         """
         Returns a JSON response, transforming 'context' to make the payload.
-        filter(attending__divisions__id__in=[3]) needs to be replaced with request.user.attended_divisions_slugs, and also need .filter(gathering__start__gte=timezone.now(),)
         """
         participations = Participation.objects.select_related('character', 'team', 'attending', 'gathering', 'attending__attendee').filter(attending__divisions__slug__in=['children_ministry']).exclude(character__slug='student').order_by('gathering__meet', '-gathering__start', 'character__display_order')
-        # logger.info("29 The value of context is %s", context)
-        # logger.info("30 The value of self.request.user is %s", self.request.user)
-        # logger.info("31 The value of params is %s", path_params)
-        # logger.info("32 The value of self.request.GET.get('hi') (search params) is %s", self.request.GET.get('hi'))
-        # logger.info("33 The value of self.kwargs (url params) is %s", self.kwargs)
         return JsonResponse(
             serializers.serialize('json', participations),
             safe=False,
@@ -58,16 +52,13 @@ class ChildrenMinistryParticipationLeaderListView(ListView, ParticipationJSONRes
         return context
 
     def render_to_response(self, context, **kwargs):
-        logger.info("61 The value of self.request.GET is %s", self.request.GET)
-        logger.info("62 The value of self.kwargs is %s", self.kwargs)
-        logger.info("63 The value of context is %s", context)
-        chosen_meet_slugs = self.request.GET.get('meets', '')
-
-
         if self.request.user.belongs_to_organization_and_division(context['current_organization_slug'], context['current_division_slug']):
             if self.request.is_ajax():
+                chosen_meet_slugs = self.request.GET.getlist('meets[]', [])
+                chosen_start = self.request.GET.get('start', timezone.now())
+                chosen_finish = self.request.GET.get('finish', timezone.now())
                 partial_template = 'occasions/children_ministry/participations/_grouped_list.html'
-                filtered_participations = Participation.objects.select_related('character', 'team', 'attending', 'gathering','attending__attendee').filter(attending__divisions__slug__in=['children_ministry']).exclude(character__slug='student').order_by('gathering__meet', '-gathering__start', 'character__display_order')
+                filtered_participations = Participation.objects.select_related('character', 'team', 'attending', 'gathering','attending__attendee').filter(attending__divisions__slug=context['current_division_slug'], gathering__meet__slug__in=chosen_meet_slugs, gathering__start__gte=chosen_start, gathering__finish__lte=chosen_finish).exclude(character__slug='student').order_by('gathering__meet', '-gathering__start', 'character__display_order')
                 return render(self.request, partial_template, {'filtered_participations': filtered_participations})
             else:
                 context.update({'filtered_participations': []})
