@@ -25,6 +25,12 @@ class User(AbstractUser):
     def belongs_to_divisions_of(self, division_slugs):
         return self.organization.division_set.filter(slug__in=division_slugs).exists()
 
+    def belongs_to_organization_and_division(self, organization_slug, division_slug):
+        if self.is_superuser:
+            return True
+        else:
+            return self.organization.slug == organization_slug and self.organization.division_set.filter(slug=division_slug).exists()
+
     def attended_divisions_slugs(self):
         if self.attendee:
             return self.attendee.attending_set.values_list('division__slug', flat=True)
