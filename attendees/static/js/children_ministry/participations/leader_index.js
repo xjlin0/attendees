@@ -31,6 +31,8 @@ Attendees.leaderIndex = {
                      $resultElement.html('There are some errors: ', response);
                    },
       });
+    } else {
+      $resultElement.html('<h3>Select any groups to list participants</h3>');
     }
   },
 
