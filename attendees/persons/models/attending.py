@@ -20,8 +20,8 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     category = models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")
     divisions = models.ManyToManyField('whereabouts.Division', through='AttendingDivision', related_name="divisions")
     belief = models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")
-    bed_needs = models.IntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")
-    mobility = models.IntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")
+    bed_needs = models.PositiveSmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")
+    mobility = models.SmallIntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")
 
     def clean(self):
         if self.bed_needs < 1 and self.age is None:
