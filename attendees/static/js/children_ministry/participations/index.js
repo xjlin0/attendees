@@ -2,7 +2,7 @@ Attendees.leaderIndex = {
   init: () => {
     Attendees.leaderIndex.set_defaults();
 
-    $('.js-example-basic-multiple').select2({
+    $('.basic-multiple').select2({
       placeholder: "Nothing selected",
     });
 

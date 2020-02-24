@@ -25,9 +25,9 @@
 
 {% block content %}
 
- <form class="form-row participations-filter"
+ <form class="d-flex flex-wrap participations-filter"
         data-url="{{request.get_full_path}}">
-    <div class="form-group col-3">
+    <div class="form-group">
       <label class="control-label"
              for="filter-start-date">
         Filter from:
@@ -37,7 +37,8 @@
              name="start"
              type="date"/>
     </div>
-    <div class="form-group col-3">
+
+    <div class="form-group">
       <label class="control-label"
              for="filter-finish-date">
         Filter till (excluded):
@@ -48,11 +49,12 @@
              type="date"/>
     </div>
 
-    <div class="form-group col-5">
-    <label for="filter-meets">
-      Select groups:
-    </label>
-      <select class="js-example-basic-multiple form-control filter-meets"
+    <div class="form-group d-flex flex-column col-5">
+      <label class="control-label"
+             for="filter-meets">
+        Select groups:
+      </label>
+      <select class="basic-multiple form-control filter-meets"
               id="filter-meets"
               name="meets"
               multiple="multiple">
