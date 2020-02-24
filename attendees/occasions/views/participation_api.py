@@ -1,0 +1,14 @@
+from rest_framework import viewsets
+from attendees.occasions.models import Participation
+from attendees.occasions.serializers import ParticipationSerializer
+
+
+class ParticipationViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Participations to be viewed or edited.
+    """
+    queryset = Participation.objects.select_related('character', 'team', 'attending', 'gathering', 'attending__attendee').filter(attending__divisions__slug__in=['children_ministry']).order_by('gathering__meet', '-gathering__start', 'character__display_order')
+    serializer_class = ParticipationSerializer
+
+
+participation_viewset = ParticipationViewSet

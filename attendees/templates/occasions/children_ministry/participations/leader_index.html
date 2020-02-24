@@ -9,6 +9,11 @@
         as="style"
         href="{% static 'select2/select2.min.css' %}"
         onload="this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.2.6/css/dx.common.css">
+<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.2.6/css/dx.light.css">
+
+
 {% endblock extra_css %}
 
 {% block extra_head %}
@@ -21,6 +26,9 @@
   <script defer
           src="{% static 'js/children_ministry/participations/index.js' %}">
   </script>
+
+<script defer type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.2.6/js/dx.all.js"></script>
+
 {% endblock extra_head %}
 
 {% block content %}
@@ -63,6 +71,8 @@
         {% endfor %}
       </select>
     </div>
+
+   <div id="gridContainer"></div>
 
   </form>
 
