@@ -32,7 +32,7 @@ Attendees.leaderIndex = {
                    },
       });
     } else {
-      $resultElement.html('<h3>Select any groups to list participants</h3>');
+      $resultElement.html($resultElement.data('default'));
     }
   },
 

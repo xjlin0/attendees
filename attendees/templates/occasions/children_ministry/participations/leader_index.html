@@ -19,7 +19,7 @@
   </script>
 
   <script defer
-          src="{% static 'js/children_ministry/participations/leader_index.js' %}">
+          src="{% static 'js/children_ministry/participations/index.js' %}">
   </script>
 {% endblock extra_head %}
 
@@ -48,7 +48,6 @@
              type="date"/>
     </div>
 
-
     <div class="form-group col-5">
     <label for="filter-meets">
       Select groups:
@@ -65,7 +64,8 @@
 
   </form>
 
-  <div class="participations">
+  <div class="participations"
+       data-default="<h3>Select any groups to list participants, results can be filtered by the start and end dates(excluded).</h3>">
     {% include 'occasions/children_ministry/participations/_grouped_list.html' %}
   </div>
 
