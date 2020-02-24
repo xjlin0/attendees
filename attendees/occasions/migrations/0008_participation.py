@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('start', models.DateTimeField(blank=True, null=True, help_text='optional')),
                 ('finish', models.DateTimeField(blank=True, null=True, help_text='optional')),
                 ('is_removed', models.BooleanField(default=False)),
-                ('free', models.IntegerField(blank=True, default=0, help_text='multitasking: the person cannot join other gatherings if negative', null=True)),
+                ('free', models.SmallIntegerField(blank=True, default=0, help_text='multitasking: the person cannot join other gatherings if negative', null=True)),
                 ('attending', models.ForeignKey(on_delete=models.SET(0), to='persons.Attending')),
                 ('character', models.ForeignKey(on_delete=models.SET(0), to='occasions.Character')),
                 ('gathering', models.ForeignKey(on_delete=models.SET(0), to='occasions.Gathering')),

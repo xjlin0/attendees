@@ -16,7 +16,7 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
     team = models.ForeignKey('Team', default=None, null=True, blank=True, on_delete=models.SET_NULL, help_text="empty for main meet")
     attending = models.ForeignKey('persons.Attending', null=False, blank=False, on_delete=models.SET(0))
     character = models.ForeignKey('Character', null=False, blank=False, on_delete=models.SET(0))
-    free = models.IntegerField(default=0, blank=True, null=True, help_text="multitasking: the person cannot join other gatherings if negative")
+    free = models.SmallIntegerField(default=0, blank=True, null=True, help_text="multitasking: the person cannot join other gatherings if negative")
     category = models.CharField(max_length=20, null=False, blank=False, db_index=True, default="scheduled", help_text="RSVPed, leave, remote, etc")
     display_order = models.SmallIntegerField(default=0, blank=False, null=False)
 
