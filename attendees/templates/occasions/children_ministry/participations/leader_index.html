@@ -10,9 +10,15 @@
         href="{% static 'select2/select2.min.css' %}"
         onload="this.rel='stylesheet'">
 
-<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.2.6/css/dx.common.css">
-<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.2.6/css/dx.light.css">
+  <link rel="preload"
+        as="style"
+        src="{% static 'devextreme/dx.common.css' %}"
+        onload="this.rel='stylesheet'">
 
+  <link rel="preload"
+        as="style"
+        src="{% static 'devextreme/dx.light.css' %}"
+        onload="this.rel='stylesheet'">
 
 {% endblock extra_css %}
 
@@ -27,7 +33,11 @@
           src="{% static 'js/children_ministry/participations/index.js' %}">
   </script>
 
-<script defer type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.2.6/js/dx.all.js"></script>
+  <script defer type="text/javascript"
+          src="{% static 'devextreme/dx.all.js' %}"
+          integrity="sha384-98iK8PeuSLCc+1tcPVMsZT7Juh1sMcGKm1b1A0CheOwX6Meg4Ajku2x+JmbS2TpX sha512-Ik/gIwyr2yvUUUHRrX5vAPi4b6PNFjhsO4k3czdgRY1ocUoWfWAD5zYVyLEM9ssGnDzFO5CBCWkfA7m6UGATeA=="
+          crossorigin="anonymous">
+  </script>
 
 {% endblock extra_head %}
 
