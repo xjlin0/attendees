@@ -4,7 +4,7 @@ from attendees.occasions.models import Participation
 from attendees.occasions.serializers import ParticipationSerializer
 
 
-class ParticipationViewSet(viewsets.ModelViewSet):
+class ApiParticipationViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Participations to be viewed or edited.
     """
@@ -13,4 +13,4 @@ class ParticipationViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-participation_viewset = ParticipationViewSet
+api_participation_viewset = ApiParticipationViewSet

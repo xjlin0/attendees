@@ -6,4 +6,4 @@
 # from .link_note import LinkNoteDetailView
 from .children_ministry.children_ministry_participations_leaders import children_ministry_participation_leader_list_view
 from .children_ministry.children_ministry_participations_students import children_ministry_participation_student_list_view
-from .participation_api import participation_viewset
+from .api_participations import api_participation_viewset
