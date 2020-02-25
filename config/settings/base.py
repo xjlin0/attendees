@@ -303,5 +303,5 @@ CLIENT_DEFAULT_TIME_ZONE = 'America/Los_Angeles'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
 }
