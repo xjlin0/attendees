@@ -1,0 +1,1 @@
+from .attending import AttendingSerializer
