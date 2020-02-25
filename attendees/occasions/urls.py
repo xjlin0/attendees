@@ -6,6 +6,7 @@ from attendees.occasions.views import (
     children_ministry_participation_student_list_view,
     api_participation_viewset,
     api_character_viewset,
+    api_team_viewset,
 )
 
 
@@ -14,6 +15,7 @@ app_name = "occasions"
 router = routers.DefaultRouter()
 router.register('api/participations', api_participation_viewset)
 router.register('api/characters', api_character_viewset)
+router.register('api/teams', api_team_viewset)
 
 urlpatterns = [
     path('', include(router.urls)),
