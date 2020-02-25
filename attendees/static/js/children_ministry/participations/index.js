@@ -9,7 +9,7 @@ Attendees.leaderIndex = {
     $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetch_participations));
 
     $("#gridContainer").dxDataGrid({
-       dataSource: "https://jsonplaceholder.typicode.com/posts"
+       dataSource: "/1_cfcc-hayward/occasions/api/participations/",
     });
   },
 
