@@ -3,3 +3,4 @@ from .children_ministry.children_ministry_participations_students import childre
 from .api.participations import api_participation_viewset
 from .api.characters import api_character_viewset
 from .api.teams import api_team_viewset
+from .api.gathering import api_gathering_viewset

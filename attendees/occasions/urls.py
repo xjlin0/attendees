@@ -7,6 +7,7 @@ from attendees.occasions.views import (
     api_participation_viewset,
     api_character_viewset,
     api_team_viewset,
+    api_gathering_viewset,
 )
 
 
@@ -16,6 +17,7 @@ router = routers.DefaultRouter()
 router.register('api/participations', api_participation_viewset)
 router.register('api/characters', api_character_viewset)
 router.register('api/teams', api_team_viewset)
+router.register('api/gatherings', api_gathering_viewset)
 
 urlpatterns = [
     path('', include(router.urls)),
