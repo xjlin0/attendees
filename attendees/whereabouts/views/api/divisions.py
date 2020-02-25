@@ -10,7 +10,6 @@ class ApiDivisionViewSet(viewsets.ModelViewSet):
     """
     queryset = Division.objects.all()
     serializer_class = DivisionSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 
 api_division_viewset = ApiDivisionViewSet

@@ -10,7 +10,6 @@ class ApiCharacterViewSet(viewsets.ModelViewSet):
     """
     queryset = Character.objects.all()
     serializer_class = CharacterSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 
 api_character_viewset = ApiCharacterViewSet
