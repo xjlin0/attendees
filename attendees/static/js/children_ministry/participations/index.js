@@ -61,6 +61,20 @@ Attendees.leaderIndex = {
         }
       },
       {
+        caption: "Character",
+        calculateDisplayValue: "character_label",
+        dataField: "character",
+        lookup: {
+            valueExpr: "id",
+            displayExpr: "display_name",
+            dataSource: {
+                store: {
+                    key: "id"
+                }
+            }
+        }
+      },
+      {
         dataField: "modified",
         dataType: "datetime"
       },

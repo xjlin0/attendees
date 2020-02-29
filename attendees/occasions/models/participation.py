@@ -40,6 +40,10 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
     def team_label(self):
         return self.team.display_name
 
+    @property
+    def character_label(self):
+        return self.character.display_name
+
     class Meta:
         db_table = 'occasions_participations'
 
