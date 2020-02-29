@@ -20,8 +20,22 @@ Attendees.leaderIndex = {
       "id",
       { // https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Enhance_Performance_on_Large_Datasets/#Lookup_Optimization
         caption: "Gathering",
-        calculateDisplayValue: "gathering_name",
+        calculateDisplayValue: "gathering_label",
         dataField: "gathering",
+        lookup: {
+            valueExpr: "id",
+            displayExpr: "display_name",
+            dataSource: {
+                store: {
+                    key: "id"
+                }
+            }
+        }
+      },
+      {
+        caption: "Attending-Parent",
+        calculateDisplayValue: "attending_label",
+        dataField: "attending",
         lookup: {
             valueExpr: "id",
             displayExpr: "display_name",

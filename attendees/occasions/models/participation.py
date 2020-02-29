@@ -29,8 +29,12 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
         return reverse('participation_detail', args=[str(self.id)])
 
     @property
-    def gathering_name(self):
-        return self.gathering.meet.display_name + self.gathering.display_name
+    def gathering_label(self):
+        return f'{self.gathering.meet.display_name} {self.gathering.display_name}'
+
+    @property
+    def attending_label(self):
+        return f'{self.attending.attendee.display_label}-{self.attending.main_contact.display_label}'
 
     class Meta:
         db_table = 'occasions_participations'
