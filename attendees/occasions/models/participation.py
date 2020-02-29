@@ -36,6 +36,10 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
     def attending_label(self):
         return f'{self.attending.attendee.display_label}-{self.attending.main_contact.display_label}'
 
+    @property
+    def team_label(self):
+        return self.team.display_name
+
     class Meta:
         db_table = 'occasions_participations'
 
