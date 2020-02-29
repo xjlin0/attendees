@@ -19,12 +19,18 @@ Attendees.leaderIndex = {
     loadPanel: true,
     columns: [
       "id",
-      {
+      { // https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Enhance_Performance_on_Large_Datasets/#Lookup_Optimization
+        caption: "Gathering",
+        calculateDisplayValue: "gathering_name",
         dataField: "gathering",
         lookup: {
-          dataSource: "/1_cfcc-hayward/occasions/api/gatherings",
-          displayExpr: "display_name",
-          valueExpr: "id",
+            valueExpr: "id",
+            displayExpr: "display_name",
+            dataSource: {
+                store: {
+                    key: "id"
+                }
+            }
         }
       },
       {
