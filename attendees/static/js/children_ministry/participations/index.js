@@ -8,12 +8,11 @@ Attendees.leaderIndex = {
 
     $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
 
-    $("#gridContainer").dxDataGrid(Attendees.leaderIndex.participationsFormats);
+    $("div.gridContainer").dxDataGrid(Attendees.leaderIndex.participationsFormats);
   },
 
   participationsFormats: {
     dataSource: "/1_cfcc-hayward/occasions/api/participations/",
-
     rowAlternationEnabled: true,
     hoverStateEnabled: true,
     loadPanel: true,
