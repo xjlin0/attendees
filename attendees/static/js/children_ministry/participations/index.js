@@ -16,8 +16,17 @@ Attendees.leaderIndex = {
     rowAlternationEnabled: true,
     hoverStateEnabled: true,
     loadPanel: true,
+    grouping: {
+        contextMenuEnabled: true,
+    },
+    groupPanel: {
+        visible: true   // or "auto"
+    },
     columns: [
-      "id",
+      {
+        dataField: "id",
+        allowGrouping: false,
+      },
       { // https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Enhance_Performance_on_Large_Datasets/#Lookup_Optimization
         caption: "Gathering",
         calculateDisplayValue: "gathering_label",
@@ -75,7 +84,12 @@ Attendees.leaderIndex = {
         }
       },
       {
+        dataField: "category",
+        dataType: "string"
+      },
+      {
         dataField: "modified",
+        allowGrouping: false,
         dataType: "datetime"
       },
     ],
