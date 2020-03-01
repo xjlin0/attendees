@@ -13,6 +13,10 @@ Attendees.leaderIndex = {
 
   participationsFormats: {
     dataSource: "/1_cfcc-hayward/occasions/api/participations/",
+    allowColumnReordering: true,
+    columnAutoWidth: true,
+    allowColumnResizing: true,
+    columnResizingMode: 'nextColumn',
     rowAlternationEnabled: true,
     hoverStateEnabled: true,
     loadPanel: true,
