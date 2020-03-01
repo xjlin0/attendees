@@ -28,11 +28,13 @@ class PriceAdmin(admin.ModelAdmin):
 class ParticipationAdmin(admin.ModelAdmin):
     list_filter = ('gathering', 'attending', 'character', 'team')
     list_display = ('participation_info', 'attending', 'character', 'team', 'modified')
+    readonly_fields = ['id','created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish']),
                            tuple(['gathering', 'team']),
                            tuple(['attending', 'character']),
                            tuple(['free', 'display_order', 'category']),
+                           tuple(['id', 'created', 'modified']),
                            ), }),
     )
 
