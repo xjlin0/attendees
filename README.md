@@ -1,6 +1,6 @@
 # attendee
 
-<img src=""  alt="attending_list_screenshot_draft" width="100%"/>
+<img src="draft_screenshot.png"  alt="participations_screenshot_draft" width="100%"/>
 
 ## User stories
 
