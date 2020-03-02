@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 @method_decorator([login_required], name='dispatch')
-class ChildrenMinistryParticipationListView(ListView):
+class AssemblyParticipationListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

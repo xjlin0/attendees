@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from .children_ministry_participations import ChildrenMinistryParticipationListView
+from .assembly_participations import AssemblyParticipationListView
 
 import logging
 
@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 @method_decorator([login_required], name='dispatch')
-class ChildrenMinistryParticipationLeaderListView(ChildrenMinistryParticipationListView):
+class AssemblyParticipationLeaderListView(AssemblyParticipationListView):
     queryset = []
     template_name = 'occasions/children_ministry/participations/leader_index.html'
 
@@ -26,5 +26,5 @@ class ChildrenMinistryParticipationLeaderListView(ChildrenMinistryParticipationL
         return 'occasions/children_ministry/participations/_grouped_list.html'
 
 
-children_ministry_participation_leader_list_view = ChildrenMinistryParticipationLeaderListView.as_view()
+assembly_participation_leader_list_view = AssemblyParticipationLeaderListView.as_view()
 

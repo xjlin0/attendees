@@ -1,5 +1,5 @@
-from .children_ministry.children_ministry_participations_leaders import children_ministry_participation_leader_list_view
-from .children_ministry.children_ministry_participations_students import children_ministry_participation_student_list_view
+from .division.assembly_participations_leaders import assembly_participation_leader_list_view
+from .division.assembly_participations_students import assembly_participation_student_list_view
 from .api.participations import api_participation_viewset
 from .api.characters import api_character_viewset
 from .api.teams import api_team_viewset
