@@ -10,7 +10,7 @@ from attendees.persons.models import Utility, Note
 class Meet(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    division = models.ForeignKey('whereabouts.Division', null=True, blank=True, on_delete=models.SET_NULL)
+    assembly = models.ForeignKey('occasions.Assembly', null=True, blank=True, on_delete=models.SET_NULL)
     start = models.DateTimeField(null=True, blank=True, help_text='optional')
     finish = models.DateTimeField(null=True, blank=True, help_text='optional')
     display_name = models.CharField(max_length=50, blank=True, null=True, db_index=True, help_text="The Rock, Little Foot, singspiration, A/V control, etc.")

@@ -9,7 +9,7 @@ def common_variables(request):  # TODO move organization info to view
     user_organization_name = settings.PROJECT_NAME
     user_organization_name_slug = '0_organization_slug'
 
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and request.user.organization:
         user_organization = request.user.organization
         user_organization_name = user_organization.display_name
         user_organization_name_slug = user_organization.slug

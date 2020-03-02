@@ -21,7 +21,8 @@ class ChildrenMinistryParticipationListView(ListView):
         # Todo include user divisions and meets slugs in context
         current_division_slug = self.kwargs.get('division_slug', None)
         current_organization_slug = self.kwargs.get('organization_slug', None)
-        available_meets = Meet.objects.filter(division__slug=current_division_slug).in_bulk(field_name='slug')
+        current_assembly_slug = self.kwargs.get('assembly_slug', None)
+        available_meets = Meet.objects.filter(assembly__slug=current_assembly_slug).in_bulk(field_name='slug')
         context.update({
             'current_organization_slug': current_organization_slug,
             'current_division_slug': current_division_slug,

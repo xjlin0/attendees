@@ -69,7 +69,7 @@ class MeetAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish', 'slug']),
                            tuple(['display_name', 'url']),
-                           tuple(['site_type', 'info', 'division', 'site_id']),
+                           tuple(['site_type', 'info', 'assembly', 'site_id']),
                            tuple(['id', 'created', 'modified']),
                            ), }),
     )
