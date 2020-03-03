@@ -13,6 +13,8 @@ Attendees.leaderIndex = {
 
   participationsFormats: {
     dataSource: "/1_cfcc-hayward/occasions/api/participations/",
+    // filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
+    searchPanel: { visible: true },
     allowColumnReordering: true,
     columnAutoWidth: true,
     allowColumnResizing: true,
@@ -33,6 +35,7 @@ Attendees.leaderIndex = {
       },
       { // https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Enhance_Performance_on_Large_Datasets/#Lookup_Optimization
         caption: "Gathering",
+        allowFiltering: false,
         calculateDisplayValue: "gathering_label",
         dataField: "gathering",
         lookup: {
@@ -47,6 +50,7 @@ Attendees.leaderIndex = {
       },
       {
         caption: "Attending-Parent",
+        allowFiltering: false,
         calculateDisplayValue: "attending_label",
         dataField: "attending",
         lookup: {
@@ -61,6 +65,7 @@ Attendees.leaderIndex = {
       },
       {
         caption: "Team",
+        allowFiltering: false,
         calculateDisplayValue: "team_label",
         dataField: "team",
         lookup: {
@@ -77,15 +82,16 @@ Attendees.leaderIndex = {
         caption: "Character",
         calculateDisplayValue: "character_label",
         dataField: "character",
-        lookup: {
-            valueExpr: "id",
-            displayExpr: "display_name",
-            dataSource: {
-                store: {
-                    key: "id"
-                }
-            }
-        }
+        allowFiltering: false,
+//        lookup: {
+//            valueExpr: "id",
+//            displayExpr: "display_name",
+//            dataSource: {
+//                store: {
+//                    key: "id"
+//                }
+//            }
+//        }
       },
       {
         dataField: "category",

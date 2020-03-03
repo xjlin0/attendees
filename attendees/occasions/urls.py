@@ -12,7 +12,7 @@ from attendees.occasions.views import (
 
 
 app_name = "occasions"
-
+#'api/<slug:division_slug>/<slug:assembly_slug>/participations'
 router = routers.DefaultRouter()
 router.register('api/participations', api_participation_viewset)
 router.register('api/characters', api_character_viewset)
