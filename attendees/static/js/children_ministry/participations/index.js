@@ -12,7 +12,7 @@ Attendees.leaderIndex = {
   },
 
   participationsFormats: {
-    dataSource: "/1_cfcc-hayward/occasions/api/participations/",
+    dataSource: "/1_cfcc-hayward/occasions/api/children_ministry/kid_regular/participations/",
     // filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
     searchPanel: { visible: true },
     allowColumnReordering: true,
