@@ -26,6 +26,7 @@ class AssemblyParticipationListView(ListView):
         context.update({
             'current_organization_slug': current_organization_slug,
             'current_division_slug': current_division_slug,
+            'current_assembly_slug': current_assembly_slug,
             'available_meets': available_meets,
         })
         return context
@@ -41,6 +42,7 @@ class AssemblyParticipationListView(ListView):
                 return render(self.request, partial_template, {'filtered_participations': filtered_participations})
             else:
                 context.update({'filtered_participations': []})
+                context.update({'participations_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/participations/"})
                 return render(self.request, self.get_template_names()[0], context)
         else:
             raise Http404('Have you registered any events of the organization?')
