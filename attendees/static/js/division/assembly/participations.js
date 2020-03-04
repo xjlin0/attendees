@@ -1,15 +1,75 @@
 Attendees.leaderIndex = {
   init: () => {
+
+    console.log("attendees/static/js/division/assembly/participations.js");
     Attendees.leaderIndex.setDefaults();
 
     $('.basic-multiple').select2({
       placeholder: "Nothing selected",
     });
 
-    $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
-
-    $("div.gridContainer").dxDataGrid(Attendees.leaderIndex.participationsFormats);
+//    $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
+//Attendees.leaderIndex.loadDataGrid();
+    $("div#gridContainer").dxDataGrid({dataSource: "/1_cfcc-hayward/occasions/api/children_ministry/kid_regular/participations/"});
   },
+
+  loadDataGrid: () => {
+    $("div#devExtreme").dxButton({
+      text: "Test",
+      onClick: (args) => {
+        console.log("clicked!");
+        customers = [
+          {
+            ID: 211,
+            CompanyName: "Super Mart of the West",
+            Address: "702 SW 8th Street",
+            City: "Bentonville",
+            State: "Arkansas",
+            Zipcode: 72716,
+            Phone: "(800) 555-2797",
+            Fax: "(800) 555-2171"
+          }
+        ];
+        $("#gridContainer")
+          .dxDataGrid("instance")
+          .refresh();
+      }
+    });
+    $("div#gridContainer").dxDataGrid({
+      dataSource: {
+        key: "ID",
+        load: () => { // https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Data_Binding/JSON_Data/
+          return [
+                    {
+                      ID: 1,
+                      CompanyName: "Super Mart of the West",
+                      Address: "702 SW 8th Street",
+                      City: "Bentonville",
+                      State: "Arkansas",
+                      Zipcode: 72716,
+                      Phone: "(800) 555-2797",
+                      Fax: "(800) 555-2171",
+                      Website: "http://www.nowebsitesupermart.com"
+                    },
+                    {
+                      ID: 2,
+                      CompanyName: "Electronics Depot",
+                      Address: "2455 Paces Ferry Road NW",
+                      City: "Atlanta",
+                      State: "Georgia",
+                      Zipcode: 30339,
+                      Phone: "(800) 595-3232",
+                      Fax: "(800) 595-3231",
+                      Website: "http://www.nowebsitedepot.com"
+                    }
+                  ];
+        }
+      },
+      columns: ["CompanyName", "City", "State", "Phone", "Fax"],
+      showBorders: true
+    });
+  },
+
 
   participationsFormats: {
     dataSource: $('div.gridContainer').data('url'),

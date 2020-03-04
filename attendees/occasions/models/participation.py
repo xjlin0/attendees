@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.utils.functional import cached_property
 from django.contrib.contenttypes.fields import GenericRelation
 from model_utils.models import TimeStampedModel, SoftDeletableModel
-
+from random import random
 from attendees.persons.models import Utility, Note
 
 
@@ -43,6 +43,10 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
     @property
     def character_label(self):
         return self.character.display_name
+
+    @property
+    def random_float(self):
+        return random()
 
     class Meta:
         db_table = 'occasions_participations'

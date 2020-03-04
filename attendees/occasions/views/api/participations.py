@@ -12,8 +12,8 @@ class ApiParticipationViewSet(viewsets.ModelViewSet):
 
     # def get_queryset(self):
     #     """
-    #     Optionally restricts the returned purchases to chosen meets,
-    #     by filtering against a `username` query parameter in the URL.
+    #     Optionally restricts the returned participations to chosen meets,
+    #     by filtering against a start/finish/meet query parameter in the URL.
     #     """
     #     queryset = Purchase.objects.all()
     #     username = self.request.query_params.get('username', None)

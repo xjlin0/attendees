@@ -28,6 +28,7 @@ class AssemblyParticipationListView(ListView):
             'current_division_slug': current_division_slug,
             'current_assembly_slug': current_assembly_slug,
             'available_meets': available_meets,
+            'available_meets_slugs': list(available_meets.keys()),
         })
         return context
 

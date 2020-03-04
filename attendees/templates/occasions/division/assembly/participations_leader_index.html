@@ -75,6 +75,7 @@
       </label>
       <select class="basic-multiple form-control filter-meets"
               id="filter-meets"
+              data-meets="{{available_meets_slugs}}"
               name="meets"
               multiple="multiple">
         {% for slug, meet in available_meets.items %}
@@ -82,8 +83,8 @@
         {% endfor %}
       </select>
     </div>
-
-   <div class="gridContainer"
+<div id="devExtreme" class="btn button btn-primary">reload</div>
+   <div id="gridContainer"
         data-url="{{participations_endpoint}}">
    </div>
 
