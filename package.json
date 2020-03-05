@@ -1,0 +1,36 @@
+{
+  "name": "attendees",
+  "version": "0.0.3",
+  "description": "meeting management for organizations",
+  "main": "webpack.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "^4.4.1",
+    "devextreme": "^19.2.6",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1",
+    "select2": "^4.0.13",
+    "webpack": "^4.42.0",
+    "webpack-bundle-tracker": "^0.4.3",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "test": "tox"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xjlin0/attendees.git"
+  },
+  "keywords": [
+    "attendee"
+  ],
+  "author": "Jack Jack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xjlin0/attendees/issues"
+  },
+  "homepage": "https://github.com/xjlin0/attendees#readme"
+}
