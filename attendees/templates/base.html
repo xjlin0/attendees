@@ -1,23 +1,21 @@
 {% load static i18n %}<!DOCTYPE html>
+{% load render_bundle from webpack_loader %}
 <html lang="en">
   <head>
     {% block css %}
 
     <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="preload"
-          as="style"
-          href="{% static 'bootstrap/bootstrap.min.css' %}"
-          onload="this.rel='stylesheet'">
+{% render_bundle 'main' attrs='async charset="UTF-8"' %}
 
     <!-- Your stuff: Third-party CSS libraries go here -->
 
     <!-- This file stores project-specific CSS -->
 
     <!--    <link href="{% static 'css/project.css' %}" rel="stylesheet">-->
-    <link rel="preload"
-          as="style"
-          href="{% static 'css/project.css' %}"
-          onload="this.rel='stylesheet'">
+<!--    <link rel="preload"-->
+<!--          as="style"-->
+<!--          href="{% static 'css/project.css' %}"-->
+<!--          onload="this.rel='stylesheet'">-->
 
     {% endblock css%}
 
@@ -44,43 +42,19 @@
     {% block javascript %}
 
       <!-- Bootstrap JS and its dependencies-->
-      <script defer
-              src="{% static 'jquery/jquery-3.4.1.min.js' %}"
-              integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
-              crossorigin="anonymous">
-      </script>
-      <script defer
-              src="{% static 'popper/popper.min.js' %}"
-              integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-              crossorigin="anonymous">
-      </script>
-      <script defer
-              src="{% static 'bootstrap/bootstrap.min.js' %}"
-              integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-              crossorigin="anonymous">
-      </script>
-      <script defer
-              src="{% static 'fontawesome/solid.min.js' %}"
-              integrity="sha384-+2/MEhV42Ne5nONkjLVCZFGh5IaEQmfXyvGlsibBiATelTFbVGoLB1sqhczi0hlf"
-              crossorigin="anonymous">
-      </script>
-      <script defer
-              src="{% static 'fontawesome/fontawesome.min.js' %}"
-              integrity="sha384-Ia7KZbX22R7DDSbxNmxHqPQ15ceNzg2U4h5A8dy3K47G2fV1k658BTxXjp7rdhXa"
-              crossorigin="anonymous">
-      </script>
+
 
       <!-- Your stuff: Third-party javascript libraries go here -->
 
 
       <!-- place project specific Javascript in this file -->
 
-      <script defer
-              src="{% static 'js/shared/base.js' %}">
-      </script>
-      <script defer
-              src="{% static 'js/shared/utilities.js' %}">
-      </script>
+<!--      <script defer-->
+<!--              src="{% static 'js/shared/base.js' %}">-->
+<!--      </script>-->
+<!--      <script defer-->
+<!--              src="{% static 'js/shared/utilities.js' %}">-->
+<!--      </script>-->
 
 
     {% endblock javascript %}

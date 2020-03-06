@@ -331,3 +331,4 @@ attendees/media/
 .env
 .envs/*
 !.envs/.local/
+assets/webpack_bundles/*

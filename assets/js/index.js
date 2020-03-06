@@ -1,4 +1,4 @@
-console.log("assets/js/index.js 1 in index!!!!");
+console.log("assets/js/index.js 1 in index.js!!567800000");
 (($, Attendees) => {
   if (typeof Attendees === 'undefined') window.Attendees = {};
   console.log("attendees/static/js/shared/base.js");
