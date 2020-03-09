@@ -5,17 +5,17 @@
     {% block css %}
 
     <!-- Latest compiled and minified Bootstrap CSS -->
-{% render_bundle 'main' attrs='async charset="UTF-8"' %}
+    {% render_bundle 'main' attrs='async charset="UTF-8"' %}
 
     <!-- Your stuff: Third-party CSS libraries go here -->
 
     <!-- This file stores project-specific CSS -->
 
     <!--    <link href="{% static 'css/project.css' %}" rel="stylesheet">-->
-<!--    <link rel="preload"-->
-<!--          as="style"-->
-<!--          href="{% static 'css/project.css' %}"-->
-<!--          onload="this.rel='stylesheet'">-->
+    <link rel="preload"
+          as="style"
+          href="{% static 'css/project.css' %}"
+          onload="this.rel='stylesheet'">
 
     {% endblock css%}
 
@@ -49,12 +49,12 @@
 
       <!-- place project specific Javascript in this file -->
 
-<!--      <script defer-->
-<!--              src="{% static 'js/shared/base.js' %}">-->
-<!--      </script>-->
-<!--      <script defer-->
-<!--              src="{% static 'js/shared/utilities.js' %}">-->
-<!--      </script>-->
+      <script defer
+              src="{% static 'js/shared/base.js' %}">
+      </script>
+      <script defer
+              src="{% static 'js/shared/utilities.js' %}">
+      </script>
 
 
     {% endblock javascript %}
