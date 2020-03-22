@@ -9,18 +9,16 @@ Attendees.leaderIndex = {
     });
 
     $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
-//Attendees.leaderIndex.loadDataGrid();
-//$('div#devExtreme').on('click', Attendees.leaderIndex.refreshCustomer)
 
-    $("div#gridContainer").dxDataGrid(Attendees.leaderIndex.participationsFormats);
+    $("div.participatingLeaders").dxDataGrid(Attendees.leaderIndex.participationsFormats);
   },
 
 
 
   participationsFormats: {
-//    dataSource: $('div.gridContainer').data('url'),
+    dataSource: null,
     // filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
-    searchPanel: { visible: true },
+    searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
     allowColumnReordering: true,
     columnAutoWidth: true,
     allowColumnResizing: true,
@@ -113,27 +111,24 @@ Attendees.leaderIndex = {
 
 
   fetchParticipations: (event) => {
-    const $optionForm=$(event.delegateTarget);
+    const $optionForm = $(event.delegateTarget);
     let finalUrl = null;
-    const chosenOptions={
+    const chosenOptions = {
       start: $optionForm.find('input.filter-start-date').val(),
       finish: $optionForm.find('input.filter-finish-date').val(),
       meets: $optionForm.find('select.filter-meets').val(),
     };
 
-    if (chosenOptions.meets) {
-      const url = $('div#gridContainer').data('url');
-      console.log('hi jack 208 here is url: ', url);
+    if (chosenOptions.start && chosenOptions.finish && Array.isArray(chosenOptions.meets) && chosenOptions.meets.length) {
+      const url = $('div.participatingLeaders').data('url');
       const searchParams = new URLSearchParams(chosenOptions);
-      console.log('hi jack 210 here is searchParams.toString(): ', searchParams.toString());
-
       finalUrl = `${url}?${searchParams.toString()}`
     }
 
-      $("#gridContainer")
+      $("div.participatingLeaders")
         .dxDataGrid("instance")
         .option("dataSource", finalUrl);
-  },
+  }, // Getting JSON from DRF upon user selecting meet(s)
 
   fetchParticipationsOld: (event) => {
     const $optionForm=$(event.delegateTarget);
@@ -160,7 +155,7 @@ Attendees.leaderIndex = {
     } else {
       $resultElement.html($resultElement.data('default'));
     }
-  },
+  }, // Getting html from Django upon user selecting meet(s)
 
   setDefaults: () => {
     const defaultFilterStartDate = new Date();
@@ -169,6 +164,7 @@ Attendees.leaderIndex = {
     defaultFilterFinishDate.setMonth(defaultFilterFinishDate.getMonth() + 6);
     document.getElementById('filter-start-date').value = defaultFilterStartDate.toISOString().substring(0, 10);
     document.getElementById('filter-finish-date').value = defaultFilterFinishDate.toISOString().substring(0, 10);
+    document.getElementById('filter-meets').value = [];
   },
 }
 
