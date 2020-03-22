@@ -9,11 +9,38 @@ Attendees.leaderIndex = {
     });
 
 //    $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
-//Attendees.leaderIndex.loadDataGrid();
-    $("div#gridContainer").dxDataGrid({dataSource: "/1_cfcc-hayward/occasions/api/children_ministry/kid_regular/participations/"});
+Attendees.leaderIndex.loadDataGrid();
+//$('div#devExtreme').on('click', Attendees.leaderIndex.refresh)
+
+//    $("div#gridContainer").dxDataGrid({dataSource: "/1_cfcc-hayward/occasions/api/children_ministry/kid_regular/participations/"});
   },
 
   loadDataGrid: () => {
+    let customers = [
+      {
+        ID: 1,
+        CompanyName: "Super Mart of the West",
+        Address: "702 SW 8th Street",
+        City: "Bentonville",
+        State: "Arkansas",
+        Zipcode: 72716,
+        Phone: "(800) 555-2797",
+        Fax: "(800) 555-2171",
+        Website: "http://www.nowebsitesupermart.com"
+      },
+      {
+        ID: 2,
+        CompanyName: "Electronics Depot",
+        Address: "2455 Paces Ferry Road NW",
+        City: "Atlanta",
+        State: "Georgia",
+        Zipcode: 30339,
+        Phone: "(800) 595-3232",
+        Fax: "(800) 595-3231",
+        Website: "http://www.nowebsitedepot.com"
+      }
+    ];
+
     $("div#devExtreme").dxButton({
       text: "Test",
       onClick: (args) => {
@@ -21,7 +48,7 @@ Attendees.leaderIndex = {
         customers = [
           {
             ID: 211,
-            CompanyName: "Super Mart of the West",
+            CompanyName: "Super Mart of the East",
             Address: "702 SW 8th Street",
             City: "Bentonville",
             State: "Arkansas",
@@ -35,34 +62,13 @@ Attendees.leaderIndex = {
           .refresh();
       }
     });
+    //https://supportcenter.devexpress.com/Ticket/Details/T684219/how-to-refresh-datagrid
+
     $("div#gridContainer").dxDataGrid({
       dataSource: {
         key: "ID",
         load: () => { // https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Data_Binding/JSON_Data/
-          return [
-                    {
-                      ID: 1,
-                      CompanyName: "Super Mart of the West",
-                      Address: "702 SW 8th Street",
-                      City: "Bentonville",
-                      State: "Arkansas",
-                      Zipcode: 72716,
-                      Phone: "(800) 555-2797",
-                      Fax: "(800) 555-2171",
-                      Website: "http://www.nowebsitesupermart.com"
-                    },
-                    {
-                      ID: 2,
-                      CompanyName: "Electronics Depot",
-                      Address: "2455 Paces Ferry Road NW",
-                      City: "Atlanta",
-                      State: "Georgia",
-                      Zipcode: 30339,
-                      Phone: "(800) 595-3232",
-                      Fax: "(800) 595-3231",
-                      Website: "http://www.nowebsitedepot.com"
-                    }
-                  ];
+          return customers
         }
       },
       columns: ["CompanyName", "City", "State", "Phone", "Fax"],
