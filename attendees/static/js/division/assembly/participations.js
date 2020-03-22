@@ -10,7 +10,7 @@ Attendees.leaderIndex = {
 
 //    $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
 Attendees.leaderIndex.loadDataGrid();
-$('div#devExtreme').on('click', Attendees.leaderIndex.refresh)
+$('div#devExtreme').on('click', Attendees.leaderIndex.refreshCustomer)
 
 //    $("div#gridContainer").dxDataGrid({dataSource: "/1_cfcc-hayward/occasions/api/children_ministry/kid_regular/participations/"});
   },
@@ -40,29 +40,50 @@ $('div#devExtreme').on('click', Attendees.leaderIndex.refresh)
       }
   ],
 
+  refreshCustomer: () => {
+    console.log("you clicked!");
+    Attendees.leaderIndex.customers = [
+      {
+        ID: 211,
+        CompanyName: "Rising on the East",
+        Address: "702 SW 8th Street",
+        City: "Bentonville",
+        State: "Arkansas",
+        Zipcode: 72716,
+        Phone: "(800) 555-2797",
+        Fax: "(800) 555-2171"
+      }
+    ];
+    $("#gridContainer")
+      .dxDataGrid("instance")
+      .refresh();
+
+  },
+
+
   loadDataGrid: () => {
 
-    $("div#devExtreme").dxButton({
-      text: "Test",
-      onClick: (args) => {
-        console.log("clicked!");
-        Attendees.leaderIndex.customers = [
-          {
-            ID: 211,
-            CompanyName: "Rising on the East",
-            Address: "702 SW 8th Street",
-            City: "Bentonville",
-            State: "Arkansas",
-            Zipcode: 72716,
-            Phone: "(800) 555-2797",
-            Fax: "(800) 555-2171"
-          }
-        ];
-        $("#gridContainer")
-          .dxDataGrid("instance")
-          .refresh();
-      }
-    });
+//    $("div#devExtreme").dxButton({
+//      text: "Test",
+//      onClick: (args) => {
+//        console.log("clicked!");
+//        Attendees.leaderIndex.customers = [
+//          {
+//            ID: 211,
+//            CompanyName: "Rising on the East",
+//            Address: "702 SW 8th Street",
+//            City: "Bentonville",
+//            State: "Arkansas",
+//            Zipcode: 72716,
+//            Phone: "(800) 555-2797",
+//            Fax: "(800) 555-2171"
+//          }
+//        ];
+//        $("#gridContainer")
+//          .dxDataGrid("instance")
+//          .refresh();
+//      }
+//    });
     //https://supportcenter.devexpress.com/Ticket/Details/T684219/how-to-refresh-datagrid
 
     $("div#gridContainer").dxDataGrid({
