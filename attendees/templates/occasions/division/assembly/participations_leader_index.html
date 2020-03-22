@@ -10,33 +10,34 @@
         href="{% static 'select2/select2.min.css' %}"
         onload="this.rel='stylesheet'">
 
-  <link href="{% static 'devextreme/dx.common.css' %}"
-        rel="stylesheet"
-        integrity="sha384-tLz5Tydg/xklsoMnJF/toyWmFcRp4O4AbZKkGKuXNqmjNaFeYjy2mYOyYIFBXYTS sha512-5DABqEilHgTWb2j3Ow0N36gd6jgLiMbhkDZq8ncxGj0faGEXIRidfGMiUULAo+MAKGYMPYkQRe8TpvqnQoh3tg=="
-        crossorigin="anonymous">
+  <link rel="preload"
+        as="style"
+        href="{% static 'devextreme/dx.common.css' %}"
+        onload="this.rel='stylesheet'">
 
-  <link href="{% static 'devextreme/dx.light.compact.css' %}"
-        rel="stylesheet"
-        integrity="sha384-dcLPyuNVKwIswNIf6gZzh+aX6LgurEVXyWuTIgudeFqHeV1DY72l2Rnjb8GcaBc6 sha512-WMaSceA1tj7q/HeihmUvl950vX76FHC0yqupdwkoRGmTAOjugjV64DSjt5BT3UEoPXQEQQScG72tfw5oSDo+Rw=="
-        crossorigin="anonymous">
-
-
+  <link rel="preload"
+        as="style"
+        href="{% static 'devextreme/dx.light.compact.css' %}"
+        onload="this.rel='stylesheet'">
 {% endblock extra_css %}
 
 {% block extra_head %}
-  <script defer type="text/javascript"
+  <script defer
+          type="text/javascript"
           src="{% static 'devextreme/dx.all.js' %}"
           integrity="sha384-98iK8PeuSLCc+1tcPVMsZT7Juh1sMcGKm1b1A0CheOwX6Meg4Ajku2x+JmbS2TpX sha512-Ik/gIwyr2yvUUUHRrX5vAPi4b6PNFjhsO4k3czdgRY1ocUoWfWAD5zYVyLEM9ssGnDzFO5CBCWkfA7m6UGATeA=="
           crossorigin="anonymous">
   </script>
 
   <script defer
+          type="text/javascript"
           src="{% static 'select2/select2.min.js' %}"
           integrity="sha256-AFAYEOkzB6iIKnTYZOdUf9FFje6lOTYdwRJKwTN5mks="
           crossorigin="anonymous">
   </script>
 
   <script defer
+          type="text/javascript"
           src="{% static 'js/division/assembly/participations.js' %}">
   </script>
 
