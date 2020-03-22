@@ -10,13 +10,12 @@ Attendees.leaderIndex = {
 
 //    $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
 Attendees.leaderIndex.loadDataGrid();
-//$('div#devExtreme').on('click', Attendees.leaderIndex.refresh)
+$('div#devExtreme').on('click', Attendees.leaderIndex.refresh)
 
 //    $("div#gridContainer").dxDataGrid({dataSource: "/1_cfcc-hayward/occasions/api/children_ministry/kid_regular/participations/"});
   },
 
-  loadDataGrid: () => {
-    let customers = [
+  customers: [
       {
         ID: 1,
         CompanyName: "Super Mart of the West",
@@ -39,16 +38,18 @@ Attendees.leaderIndex.loadDataGrid();
         Fax: "(800) 595-3231",
         Website: "http://www.nowebsitedepot.com"
       }
-    ];
+  ],
+
+  loadDataGrid: () => {
 
     $("div#devExtreme").dxButton({
       text: "Test",
       onClick: (args) => {
         console.log("clicked!");
-        customers = [
+        Attendees.leaderIndex.customers = [
           {
             ID: 211,
-            CompanyName: "Super Mart of the East",
+            CompanyName: "Rising on the East",
             Address: "702 SW 8th Street",
             City: "Bentonville",
             State: "Arkansas",
@@ -68,7 +69,7 @@ Attendees.leaderIndex.loadDataGrid();
       dataSource: {
         key: "ID",
         load: () => { // https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Data_Binding/JSON_Data/
-          return customers
+          return Attendees.leaderIndex.customers;
         }
       },
       columns: ["CompanyName", "City", "State", "Phone", "Fax"],
