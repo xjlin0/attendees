@@ -1,9 +1,9 @@
-from attendees.persons.models import Attending
+from attendees.occasions.models import Meet
 from rest_framework import serializers
 
 
-class TeamSerializer(serializers.ModelSerializer):
+class MeetSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Team
+        model = Meet
         fields = [f.name for f in model._meta.fields if f.name not in ['is_removed']]
 
