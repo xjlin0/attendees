@@ -48,7 +48,7 @@
 
 {% block content %}
 
- <form class="d-flex flex-wrap participations-filter"
+  <form class="d-flex flex-wrap participations-filter"
         data-url="{{request.get_full_path}}">
 <!--    <div class="form-group">-->
 <!--      <label class="control-label"-->
@@ -72,30 +72,48 @@
 <!--             type="date"/>-->
 <!--    </div>-->
 
-       <div class="form-group col-3">
-        <div class="input-group date" id="filter-start-date" data-target-input="nearest">
-                <label class="control-label"
-             for="filter-start-date">
+    <div class="form-group col-3">
+      <label class="control-label"
+           for="filter-start-date">
         Filter from:
       </label>
-            <input name="start" type="text" class="filter-start-date form-control datetimepicker-input" data-target="#filter-start-date"/>
-            <div class="input-group-append" data-target="#filter-start-date" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-            </div>
+      <div class="input-group date"
+           id="filter-start-date"
+           data-target-input="nearest">
+      <input name="start"
+             type="text"
+             class="form-control datetimepicker-input filter-start-date"
+             data-target="#filter-start-date"/>
+      <div class="input-group-append"
+           data-target="#filter-start-date"
+           data-toggle="datetimepicker">
+        <div class="input-group-text">
+          <i class="fa fa-calendar"></i>
         </div>
+      </div>
+      </div>
     </div>
 
     <div class="form-group col-3">
-        <div class="input-group date" id="filter-finish-date" data-target-input="nearest">
-                <label class="control-label"
+      <label class="control-label"
              for="filter-finish-date">
         Filter till (excluded):
       </label>
-            <input name="finish" type="text" class="filter-finish-date form-control datetimepicker-input" data-target="#filter-finish-date"/>
-            <div class="input-group-append" data-target="#filter-finish-date" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-            </div>
+      <div class="input-group date"
+           id="filter-finish-date"
+           data-target-input="nearest">
+        <input name="finish"
+               type="text"
+               class="form-control datetimepicker-input filter-finish-date"
+               data-target="#filter-finish-date"/>
+        <div class="input-group-append"
+             data-target="#filter-finish-date"
+             data-toggle="datetimepicker">
+          <div class="input-group-text">
+            <i class="fa fa-calendar"></i>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="form-group d-flex flex-column col-5">
