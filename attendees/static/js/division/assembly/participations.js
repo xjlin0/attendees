@@ -3,12 +3,12 @@ Attendees.leaderIndex = {
 
     console.log("attendees/static/js/division/assembly/participations.js");
     Attendees.leaderIndex.setDefaults();
-
+    Attendees.leaderIndex.initTempusdominus();
     $('.basic-multiple').select2({
       placeholder: "Nothing selected",
     });
 
-    $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
+    $('form.participations-filter').on('change', 'input.text, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
 
     $("div.participatingLeaders").dxDataGrid(Attendees.leaderIndex.participationsFormats);
   },
@@ -114,8 +114,8 @@ Attendees.leaderIndex = {
     const $optionForm = $(event.delegateTarget);
     let finalUrl = null;
     const chosenOptions = {
-      start: $optionForm.find('input.filter-start-date').val(),
-      finish: $optionForm.find('input.filter-finish-date').val(),
+      start: $optionForm.find('input.filter-start-date') && moment($optionForm.find('input.filter-start-date').val()).format('YYYY-MM-DDTHH:MMZ'),
+      finish: $optionForm.find('input.filter-finish-date') && moment($optionForm.find('input.filter-finish-date').val()).format('YYYY-MM-DDTHH:MMZ'),
       meets: $optionForm.find('select.filter-meets').val(),
     };
 
@@ -165,6 +165,21 @@ Attendees.leaderIndex = {
     document.getElementById('filter-start-date').value = defaultFilterStartDate.toISOString().substring(0, 10);
     document.getElementById('filter-finish-date').value = defaultFilterFinishDate.toISOString().substring(0, 10);
     document.getElementById('filter-meets').value = [];
+  },
+
+  initTempusdominus: () => {
+    $.fn.datetimepicker.Constructor.Default = $.extend({},
+                $.fn.datetimepicker.Constructor.Default,
+                { icons:
+                        { time: 'fas fa-clock',
+                            date: 'fas fa-calendar',
+                            up: 'fas fa-arrow-up',
+                            down: 'fas fa-arrow-down',
+                            previous: 'fas fa-arrow-circle-left',
+                            next: 'fas fa-arrow-circle-right',
+                            today: 'far fa-calendar-check-o',
+                            clear: 'fas fa-trash',
+                            close: 'far fa-times' } });
   },
 }
 
