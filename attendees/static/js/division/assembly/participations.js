@@ -114,14 +114,12 @@ Attendees.leaderIndex = {
     let finalUrl = null;
     const $optionForm = $(event.delegateTarget);
     const meets = $optionForm.find('select.filter-meets').val();
-    const chosenOptions = {
-      start: $optionForm.find('input.filter-start-date') && moment($optionForm.find('input.filter-start-date').val()).format('YYYY-MM-DDTHH:MMZ'),
-      finish: $optionForm.find('input.filter-finish-date') && moment($optionForm.find('input.filter-finish-date').val()).format('YYYY-MM-DDTHH:MMZ'),
-    };
+    const start = $optionForm.find('input.filter-start-date') && moment($optionForm.find('input.filter-start-date').val()).format();
+    const finish = $optionForm.find('input.filter-finish-date') && moment($optionForm.find('input.filter-finish-date').val()).format();
 
-    if (chosenOptions.start && chosenOptions.finish && Array.isArray(meets) && meets.length) {
+    if (start && finish && Array.isArray(meets) && meets.length) {
       const url = $('div.participatingLeaders').data('url');
-      const searchParams = new URLSearchParams(chosenOptions);
+      const searchParams = new URLSearchParams({start: start, finish: finish});
       meets.forEach(meet => { searchParams.append('meets', meet)});
       finalUrl = `${url}?${searchParams.toString()}`
     }
