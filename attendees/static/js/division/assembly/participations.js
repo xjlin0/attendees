@@ -111,23 +111,24 @@ Attendees.leaderIndex = {
 
 
   fetchParticipations: (event) => {
-    const $optionForm = $(event.delegateTarget);
     let finalUrl = null;
+    const $optionForm = $(event.delegateTarget);
+    const meets = $optionForm.find('select.filter-meets').val();
     const chosenOptions = {
       start: $optionForm.find('input.filter-start-date') && moment($optionForm.find('input.filter-start-date').val()).format('YYYY-MM-DDTHH:MMZ'),
       finish: $optionForm.find('input.filter-finish-date') && moment($optionForm.find('input.filter-finish-date').val()).format('YYYY-MM-DDTHH:MMZ'),
-      meets: $optionForm.find('select.filter-meets').val(),
     };
 
-    if (chosenOptions.start && chosenOptions.finish && Array.isArray(chosenOptions.meets) && chosenOptions.meets.length) {
+    if (chosenOptions.start && chosenOptions.finish && Array.isArray(meets) && meets.length) {
       const url = $('div.participatingLeaders').data('url');
       const searchParams = new URLSearchParams(chosenOptions);
+      meets.forEach(meet => { searchParams.append('meets', meet)});
       finalUrl = `${url}?${searchParams.toString()}`
     }
 
-      $("div.participatingLeaders")
-        .dxDataGrid("instance")
-        .option("dataSource", finalUrl);
+    $("div.participatingLeaders")
+      .dxDataGrid("instance")
+      .option("dataSource", finalUrl);
   }, // Getting JSON from DRF upon user selecting meet(s)
 
   fetchParticipationsOld: (event) => {
