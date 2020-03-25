@@ -8,7 +8,7 @@ Attendees.leaderIndex = {
       placeholder: "Nothing selected",
     });
 
-    $('form.participations-filter').on('change', 'input.text, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
+    $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
 
     $("div.participatingLeaders").dxDataGrid(Attendees.leaderIndex.participationsFormats);
   },
@@ -113,11 +113,13 @@ Attendees.leaderIndex = {
   fetchParticipations: (event) => {
     let finalUrl = null;
     const $optionForm = $(event.delegateTarget);
-    const meets = $optionForm.find('select.filter-meets').val();
-    const start = $optionForm.find('input.filter-start-date') && moment($optionForm.find('input.filter-start-date').val()).format();
-    const finish = $optionForm.find('input.filter-finish-date') && moment($optionForm.find('input.filter-finish-date').val()).format();
+    const meets = $optionForm.find('select.filter-meets').val() || [];
+    const startDate = $optionForm.find('input.filter-start-date').val();
+    const endDate = $optionForm.find('input.filter-finish-date').val();
 
-    if (start && finish && Array.isArray(meets) && meets.length) {
+    if (startDate && endDate && meets.length) {
+      const start = (new Date($optionForm.find('input.filter-start-date').val())).toISOString();
+      const finish = (new Date($optionForm.find('input.filter-finish-date').val())).toISOString();
       const url = $('div.participatingLeaders').data('url');
       const searchParams = new URLSearchParams({start: start, finish: finish});
       meets.forEach(meet => { searchParams.append('meets', meet)});
@@ -161,24 +163,27 @@ Attendees.leaderIndex = {
     const defaultFilterFinishDate = new Date();
     defaultFilterStartDate.setMonth(defaultFilterStartDate.getMonth() - 3);
     defaultFilterFinishDate.setMonth(defaultFilterFinishDate.getMonth() + 6);
-    document.getElementById('filter-start-date').value = defaultFilterStartDate.toISOString().substring(0, 10);
-    document.getElementById('filter-finish-date').value = defaultFilterFinishDate.toISOString().substring(0, 10);
+    $('input.filter-start-date').val(defaultFilterStartDate.toLocaleString().replace(',',''));
+    $('input.filter-finish-date').val(defaultFilterFinishDate.toLocaleString().replace(',',''));
     document.getElementById('filter-meets').value = [];
   },
 
   initTempusdominus: () => {
     $.fn.datetimepicker.Constructor.Default = $.extend({},
-                $.fn.datetimepicker.Constructor.Default,
-                { icons:
-                        { time: 'fas fa-clock',
-                            date: 'fas fa-calendar',
-                            up: 'fas fa-arrow-up',
-                            down: 'fas fa-arrow-down',
-                            previous: 'fas fa-arrow-circle-left',
-                            next: 'fas fa-arrow-circle-right',
-                            today: 'far fa-calendar-check-o',
-                            clear: 'fas fa-trash',
-                            close: 'far fa-times' } });
+        $.fn.datetimepicker.Constructor.Default, {
+            icons: {
+                time: 'fas fa-clock',
+                date: 'fas fa-calendar',
+                up: 'fas fa-arrow-up',
+                down: 'fas fa-arrow-down',
+                previous: 'fas fa-arrow-circle-left',
+                next: 'fas fa-arrow-circle-right',
+                today: 'far fa-calendar-check-o',
+                clear: 'fas fa-trash',
+                close: 'far fa-times',
+            }
+        }
+    );
   },
 }
 
