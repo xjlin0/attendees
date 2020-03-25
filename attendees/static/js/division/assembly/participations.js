@@ -46,7 +46,7 @@ Attendees.leaderIndex = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON("http://192.168.99.100:8000/1_cfcc-hayward/occasions/api/gatherings");
+                      return $.getJSON($('div.participatingLeaders').data('gatherings-endpoint'));
                     },
                 }),
             },
@@ -76,7 +76,7 @@ Attendees.leaderIndex = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON("http://192.168.99.100:8000/1_cfcc-hayward/occasions/api/teams");
+                      return $.getJSON($('div.participatingLeaders').data('teams-endpoint'));
                     },
                 }),
             },
@@ -91,7 +91,7 @@ Attendees.leaderIndex = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON("http://192.168.99.100:8000/1_cfcc-hayward/occasions/api/characters");
+                      return $.getJSON($('div.participatingLeaders').data('characters-endpoint'));
                     },
                 }),
             },
@@ -120,7 +120,7 @@ Attendees.leaderIndex = {
     if (startDate && endDate && meets.length) {
       const start = (new Date($optionForm.find('input.filter-start-date').val())).toISOString();
       const finish = (new Date($optionForm.find('input.filter-finish-date').val())).toISOString();
-      const url = $('div.participatingLeaders').data('url');
+      const url = $('div.participatingLeaders').data('participations-endpoint');
       const searchParams = new URLSearchParams({start: start, finish: finish});
       meets.forEach(meet => { searchParams.append('meets', meet)});
       finalUrl = `${url}?${searchParams.toString()}`
