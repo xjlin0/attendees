@@ -93,20 +93,20 @@
            for="filter-start-date">
         Filter from:
       </label>
-      <div class="input-group date"
+      <div class="input-group date datetimepickers"
            id="filter-start-date"
            data-target-input="nearest">
-      <input name="start"
-             type="text"
-             class="form-control datetimepicker-input filter-start-date"
-             data-target="#filter-start-date"/>
-      <div class="input-group-append"
-           data-target="#filter-start-date"
-           data-toggle="datetimepicker">
-        <div class="input-group-text">
-          <i class="fa fa-calendar"></i>
+        <input name="start"
+               type="text"
+               class="form-control datetimepicker-input filter-start-date"
+               data-target="#filter-start-date"/>
+        <div class="input-group-append"
+             data-target="#filter-start-date"
+             data-toggle="datetimepicker">
+          <div class="input-group-text">
+            <i class="fa fa-calendar"></i>
+          </div>
         </div>
-      </div>
       </div>
     </div>
 
@@ -116,7 +116,7 @@
              for="filter-finish-date">
         Filter till (excluded):
       </label>
-      <div class="input-group date"
+      <div class="input-group date datetimepickers"
            id="filter-finish-date"
            data-target-input="nearest">
         <input name="finish"

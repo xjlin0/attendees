@@ -8,7 +8,7 @@ Attendees.leaderIndex = {
       placeholder: "Nothing selected",
     });
 
-    $('form.participations-filter').on('change', 'input, select', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
+    $('form.participations-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.filter-meets, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
 
     $("div.participatingLeaders").dxDataGrid(Attendees.leaderIndex.participationsFormats);
   },
@@ -159,14 +159,17 @@ Attendees.leaderIndex = {
   }, // Getting html from Django upon user selecting meet(s)
 
   setDefaults: () => {
+    const locale = "en-us"
+    const dateOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    const timeOptions = { hour12: true, hour: '2-digit', minute:'2-digit' };
     const defaultFilterStartDate = new Date();
     const defaultFilterFinishDate = new Date();
     defaultFilterStartDate.setMonth(defaultFilterStartDate.getMonth() - 3);
     defaultFilterFinishDate.setMonth(defaultFilterFinishDate.getMonth() + 6);
-    $('input.filter-start-date').val(defaultFilterStartDate.toLocaleString().replace(',',''));
-    $('input.filter-finish-date').val(defaultFilterFinishDate.toLocaleString().replace(',',''));
+    $('input.filter-start-date').val(defaultFilterStartDate.toLocaleDateString(locale, dateOptions) + ' ' + defaultFilterStartDate.toLocaleTimeString(locale, timeOptions));
+    $('input.filter-finish-date').val(defaultFilterFinishDate.toLocaleDateString(locale, dateOptions) + ' ' + defaultFilterFinishDate.toLocaleTimeString(locale, timeOptions));
     document.getElementById('filter-meets').value = [];
-  },
+  }, // https://stackoverflow.com/a/50000889
 
   initTempusdominus: () => {
     $.fn.datetimepicker.Constructor.Default = $.extend({},
