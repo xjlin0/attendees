@@ -37,19 +37,19 @@ Attendees.leaderIndex = {
         dataField: "id",
         allowGrouping: false,
       },
-      { // https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Enhance_Performance_on_Large_Datasets/#Lookup_Optimization
-        caption: "Gathering",
-        allowFiltering: false,
-        calculateDisplayValue: "gathering_label",
+      {
         dataField: "gathering",
         lookup: {
             valueExpr: "id",
             displayExpr: "display_name",
             dataSource: {
-                store: {
-                    key: "id"
-                }
-            }
+                store: new DevExpress.data.CustomStore({
+                    key: "id",
+                    load: () => {
+                      return $.getJSON("http://192.168.99.100:8000/1_cfcc-hayward/occasions/api/gatherings");
+                    },
+                }),
+            },
         }
       },
       {
@@ -68,34 +68,34 @@ Attendees.leaderIndex = {
         }
       },
       {
-        caption: "Team",
-        allowFiltering: false,
-        calculateDisplayValue: "team_label",
         dataField: "team",
         lookup: {
             valueExpr: "id",
             displayExpr: "display_name",
             dataSource: {
-                store: {
-                    key: "id"
-                }
-            }
+                store: new DevExpress.data.CustomStore({
+                    key: "id",
+                    load: () => {
+                      return $.getJSON("http://192.168.99.100:8000/1_cfcc-hayward/occasions/api/teams");
+                    },
+                }),
+            },
         }
       },
       {
-        caption: "Character",
-        calculateDisplayValue: "character_label",
         dataField: "character",
-        allowFiltering: false,
-//        lookup: {
-//            valueExpr: "id",
-//            displayExpr: "display_name",
-//            dataSource: {
-//                store: {
-//                    key: "id"
-//                }
-//            }
-//        }
+        lookup: {
+            valueExpr: "id",
+            displayExpr: "display_name",
+            dataSource: {
+                store: new DevExpress.data.CustomStore({
+                    key: "id",
+                    load: () => {
+                      return $.getJSON("http://192.168.99.100:8000/1_cfcc-hayward/occasions/api/characters");
+                    },
+                }),
+            },
+        }
       },
       {
         dataField: "category",

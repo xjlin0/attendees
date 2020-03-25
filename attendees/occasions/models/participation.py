@@ -27,21 +27,21 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
     def get_absolute_url(self):
         return reverse('participation_detail', args=[str(self.id)])
 
-    @property
-    def gathering_label(self):
-        return f'{self.gathering.meet.display_name} {self.gathering.display_name}'
+    # @property
+    # def gathering_label(self):
+    #     return f'{self.gathering.meet.display_name} {self.gathering.display_name}'
 
     @property
     def attending_label(self):
         return f'{self.attending.attendee.display_label}-{self.attending.main_contact.display_label}'
 
-    @property
-    def team_label(self):
-        return self.team.display_name
+    # @property
+    # def team_label(self):
+    #     return self.team.display_name
 
-    @property
-    def character_label(self):
-        return self.character.display_name
+    # @property
+    # def character_label(self):
+    #     return self.character.display_name
 
     class Meta:
         db_table = 'occasions_participations'
