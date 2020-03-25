@@ -19,6 +19,7 @@ class AssemblyAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
     inlines = (AssemblyAddressInline,)
     list_display = ('display_name', 'get_addresses', 'modified')
+    readonly_fields = ['id', 'created', 'modified']
 
 
 class PriceAdmin(admin.ModelAdmin):
@@ -28,11 +29,13 @@ class PriceAdmin(admin.ModelAdmin):
 class ParticipationAdmin(admin.ModelAdmin):
     list_filter = ('gathering', 'attending', 'character', 'team')
     list_display = ('participation_info', 'attending', 'character', 'team', 'modified')
+    readonly_fields = ['id','created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish']),
                            tuple(['gathering', 'team']),
                            tuple(['attending', 'character']),
                            tuple(['free', 'display_order', 'category']),
+                           tuple(['id', 'created', 'modified']),
                            ), }),
     )
 
@@ -62,10 +65,12 @@ class MeetAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
     search_fields = ('display_name',)
     list_display = ('display_name', 'slug', 'info', 'url', 'modified')
+    readonly_fields = ['id', 'created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish', 'slug']),
                            tuple(['display_name', 'url']),
-                           tuple(['site_type', 'info', 'division', 'site_id']),
+                           tuple(['site_type', 'info', 'assembly', 'site_id']),
+                           tuple(['id', 'created', 'modified']),
                            ), }),
     )
 
@@ -75,10 +80,12 @@ class GatheringAdmin(admin.ModelAdmin):
     search_fields = ('meet__display_name', 'display_name')
     list_filter = ('meet',)
     list_display = ('meet', 'start', 'display_name', 'location', 'modified')
+    readonly_fields = ['id', 'created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish']),
                            tuple(['display_name', 'link']),
                            tuple(['site_type', 'meet', 'site_id', 'occurrence']),
+                           tuple(['id', 'created', 'modified']),
                            ), }),
     )
 

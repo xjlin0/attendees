@@ -14,18 +14,21 @@ logger = logging.getLogger(__name__)
 
 
 @method_decorator([login_required], name='dispatch')
-class ChildrenMinistryParticipationListView(ListView):
+class AssemblyParticipationListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Todo include user divisions and meets slugs in context
         current_division_slug = self.kwargs.get('division_slug', None)
         current_organization_slug = self.kwargs.get('organization_slug', None)
-        available_meets = Meet.objects.filter(division__slug=current_division_slug).in_bulk(field_name='slug')
+        current_assembly_slug = self.kwargs.get('assembly_slug', None)
+        available_meets = Meet.objects.filter(assembly__slug=current_assembly_slug).in_bulk(field_name='slug')
         context.update({
             'current_organization_slug': current_organization_slug,
             'current_division_slug': current_division_slug,
+            'current_assembly_slug': current_assembly_slug,
             'available_meets': available_meets,
+            'available_meets_slugs': list(available_meets.keys()),
         })
         return context
 
@@ -40,6 +43,7 @@ class ChildrenMinistryParticipationListView(ListView):
                 return render(self.request, partial_template, {'filtered_participations': filtered_participations})
             else:
                 context.update({'filtered_participations': []})
+                context.update({'participations_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/participations/"})
                 return render(self.request, self.get_template_names()[0], context)
         else:
             raise Http404('Have you registered any events of the organization?')

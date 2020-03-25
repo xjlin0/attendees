@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('url', models.URLField(blank=True, null=True, max_length=255)),
                 ('site_type', models.ForeignKey(help_text='location: django_content_type id for table name', on_delete=models.SET(0), to='contenttypes.ContentType')),
                 ('site_id', models.BigIntegerField()),
-                ('division', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='whereabouts.Division')),
+                ('assembly', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Assembly')),
             ],
             options={
                 'db_table': 'occasions_meets',

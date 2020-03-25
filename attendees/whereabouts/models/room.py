@@ -15,7 +15,7 @@ class Room(TimeStampedModel, SoftDeletableModel, Utility):
     slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
     suite = models.ForeignKey('Suite', null=True, on_delete=models.SET_NULL)
     label = models.CharField(max_length=20, blank=True)
-    accessibility = models.IntegerField(default=0, blank=False, null=False)
+    accessibility = models.SmallIntegerField(default=0, blank=False, null=False)
 
     class Meta:
         db_table = 'whereabouts_rooms'
