@@ -9,33 +9,33 @@ import model_utils.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('whereabouts', '0008_room'),
+        ('occasions', '0005_meet'),
         ('persons', '0005_attending'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='AttendingDivision',
+            name='AttendingMeet',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('attending', models.ForeignKey(on_delete=models.SET(0), to='persons.Attending')),
-                ('division', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Division')),
+                ('meet', models.ForeignKey(on_delete=models.SET(0), to='occasions.Meet')),
             ],
             options={
-                'db_table': 'persons_attending_divisions',
+                'db_table': 'persons_attending_meets',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),
         migrations.AddField(
             model_name='attending',
-            name='divisions',
-            field=models.ManyToManyField(through='persons.AttendingDivision', to='whereabouts.Division', related_name="divisions"),
+            name='meets',
+            field=models.ManyToManyField(through='persons.AttendingMeet', to='occasions.Meet', related_name="meets"),
         ),
         migrations.AddConstraint(
-            model_name='attendingdivision',
-            constraint=models.UniqueConstraint(fields=('attending', 'division'), name='attending_division'),
+            model_name='attendingmeet',
+            constraint=models.UniqueConstraint(fields=('attending', 'meet'), name='attending_meet'),
         ),
     ]

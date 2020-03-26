@@ -22,13 +22,13 @@ class AssemblyParticipationListView(ListView):
         current_division_slug = self.kwargs.get('division_slug', None)
         current_organization_slug = self.kwargs.get('organization_slug', None)
         current_assembly_slug = self.kwargs.get('assembly_slug', None)
-        available_meets = Meet.objects.filter(assembly__slug=current_assembly_slug).in_bulk(field_name='slug')
+        available_meets = Meet.objects.filter(assembly__slug=current_assembly_slug).order_by('display_name')
+        # available_characters should exist before anyone participates, maybe m2m by assembly_characters?
         context.update({
             'current_organization_slug': current_organization_slug,
             'current_division_slug': current_division_slug,
             'current_assembly_slug': current_assembly_slug,
             'available_meets': available_meets,
-            'available_meets_slugs': list(available_meets.keys()),
         })
         return context
 

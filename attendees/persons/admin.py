@@ -11,8 +11,8 @@ class AttendeeAddressInline(admin.StackedInline):
     extra = 0
 
 
-class AttendingDivisionInline(admin.StackedInline):
-    model = AttendingDivision
+class AttendingMeetInline(admin.StackedInline):
+    model = AttendingMeet
     extra = 0
 
 
@@ -40,8 +40,8 @@ class ParticipationInline(admin.StackedInline):
 
 class AttendingAdmin(admin.ModelAdmin):
     search_fields = ('attendee__first_name', 'attendee__last_name', 'attendee__first_name2', 'attendee__last_name2')
-    inlines = (AttendingDivisionInline, ParticipationInline,)
-    list_display = ('registration', 'attendee', 'division_names', 'bed_needs', 'all_addresses')
+    inlines = (AttendingMeetInline, ParticipationInline,)
+    list_display = ('id', 'registration', 'attendee', 'meet_names', 'bed_needs', 'all_addresses')
 
 
 class NoteAdmin(SummernoteModelAdmin):

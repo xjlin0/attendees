@@ -18,7 +18,7 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     age = models.PositiveSmallIntegerField(null=True, blank=True)
     grade = models.PositiveSmallIntegerField(null=True, blank=True)
     category = models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")
-    divisions = models.ManyToManyField('whereabouts.Division', through='AttendingDivision', related_name="divisions")
+    meets = models.ManyToManyField('occasions.Meet', through='AttendingMeet', related_name="meets")
     belief = models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")
     bed_needs = models.PositiveSmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")
     mobility = models.SmallIntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")
@@ -39,12 +39,12 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
         return self.registration.main_attendee
 
     @cached_property
-    def division_names(self):
-        return ",".join([d.display_name for d in self.divisions.all()])
+    def meet_names(self):
+        return ",".join([d.display_name for d in self.meets.all()])
 
     @cached_property
     def all_addresses(self):
         return ",".join([str(a) for a in self.attendee.addresses.all()])
 
     def __str__(self):
-        return '%s %s %s' % (self.attendee, self.division_names, self.bed_needs)
+        return '%s %s %s' % (self.attendee, self.meet_names, self.bed_needs)

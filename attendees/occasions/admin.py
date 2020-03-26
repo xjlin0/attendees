@@ -28,7 +28,7 @@ class PriceAdmin(admin.ModelAdmin):
 
 class ParticipationAdmin(admin.ModelAdmin):
     list_filter = ('gathering', 'attending', 'character', 'team')
-    list_display = ('participation_info', 'attending', 'character', 'team', 'modified')
+    list_display = ('id', 'participation_info', 'attending', 'character', 'team', 'modified')
     readonly_fields = ['id','created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish']),
@@ -64,7 +64,7 @@ class TeamAdmin(admin.ModelAdmin):
 class MeetAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
     search_fields = ('display_name',)
-    list_display = ('display_name', 'slug', 'info', 'url', 'modified')
+    list_display = ('id', 'display_name', 'slug', 'info', 'url', 'modified')
     readonly_fields = ['id', 'created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish', 'slug']),
