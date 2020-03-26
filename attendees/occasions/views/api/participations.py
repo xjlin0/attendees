@@ -4,7 +4,6 @@ from attendees.occasions.serializers import ParticipationSerializer
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http import HttpResponseNotAllowed
-from urllib import parse
 import logging
 
 
