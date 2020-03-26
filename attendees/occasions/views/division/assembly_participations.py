@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from django.utils import timezone
 from django.http import Http404
 from django.shortcuts import render
-from attendees.occasions.models import Meet
+from attendees.occasions.models import Meet, Participation
 
 
 import logging
@@ -21,14 +21,12 @@ class AssemblyParticipationListView(ListView):
         # Todo include user divisions and meets slugs in context
         current_division_slug = self.kwargs.get('division_slug', None)
         current_organization_slug = self.kwargs.get('organization_slug', None)
-        current_assembly_slug = self.kwargs.get('assembly_slug', None)
-        available_meets = Meet.objects.filter(assembly__slug=current_assembly_slug).in_bulk(field_name='slug')
+        available_meets = Meet.objects.filter(assembly__division__slug=current_division_slug).in_bulk(field_name='slug')
+        # available_characters = Participation.objects.filter(attending__divisions__slug=current_division_slug).order_by('character__display_order').values_list('character__slug', flat=True).distinct()
         context.update({
             'current_organization_slug': current_organization_slug,
             'current_division_slug': current_division_slug,
-            'current_assembly_slug': current_assembly_slug,
             'available_meets': available_meets,
-            'available_meets_slugs': list(available_meets.keys()),
         })
         return context
 
@@ -46,7 +44,7 @@ class AssemblyParticipationListView(ListView):
                 context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/teams/"})
                 context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/gatherings/"})
                 context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/characters/"})
-                context.update({'participations_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/participations/"})
+                context.update({'participations_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/participations/"})
                 return render(self.request, self.get_template_names()[0], context)
         else:
             raise Http404('Have you registered any events of the organization?')

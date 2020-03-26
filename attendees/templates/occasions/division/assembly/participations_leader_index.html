@@ -119,8 +119,7 @@
       </label>
       <select class="basic-multiple form-control filter-meets"
               id="filter-meets"
-              data-meets="{{available_meets_slugs}}"
-              name="meets[]"
+              name="meets"
               multiple="multiple">
         {% for slug, meet in available_meets.items %}
           <option value="{{slug}}">{{meet.display_name}}</option>
