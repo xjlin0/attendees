@@ -15,9 +15,14 @@ class AssemblyAddressInline(admin.TabularInline):
     extra = 0
 
 
+class AssemblyCharacterInline(admin.TabularInline):
+    model = AssemblyCharacter
+    extra = 0
+
+
 class AssemblyAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
-    inlines = (AssemblyAddressInline,)
+    inlines = (AssemblyAddressInline, AssemblyCharacterInline,)
     list_display = ('id', 'display_name', 'get_addresses', 'modified')
     readonly_fields = ['id', 'created', 'modified']
 
