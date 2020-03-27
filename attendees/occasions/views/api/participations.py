@@ -24,10 +24,8 @@ class ApiParticipationViewSet(viewsets.ModelViewSet):
             start = self.request.query_params.get('start', None)
             finish = self.request.query_params.get('finish', None)
             return Participation.objects.select_related(
-                'character', 'team', 'attending', 'gathering',
-                                                        'attending__attendee').filter(
-                attending__divisions__slug=self.kwargs['division_slug'], gathering__meet__slug__in=meets,
-                gathering__start__gte=start, gathering__finish__lte=finish).exclude(
+                'character', 'team', 'attending', 'gathering', 'attending__attendee').filter(gathering__meet__assembly__slug=self.kwargs['assembly_slug'],
+                gathering__meet__slug__in=meets, gathering__start__gte=start, gathering__finish__lte=finish).exclude(
                 character__slug='student').order_by('gathering__meet', '-gathering__start', 'character__display_order')
 
         else:
