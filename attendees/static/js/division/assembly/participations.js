@@ -5,7 +5,7 @@ Attendees.leaderIndex = {
     Attendees.leaderIndex.setDefaults();
     Attendees.leaderIndex.initTempusdominus();
     $('.basic-multiple').select2({
-      placeholder: "Nothing selected",
+      theme: 'bootstrap4',
     });
 
     $('form.participations-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.filter-meets, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
@@ -113,9 +113,16 @@ Attendees.leaderIndex = {
   fetchParticipations: (event) => {
     let finalUrl = null;
     const $optionForm = $(event.delegateTarget);
-    const meets = $optionForm.find('select.filter-meets').val() || [];
+    const $meetsSelectBox = $optionForm.find('select.filter-meets');
+    const meets = $meetsSelectBox.val() || [];
     const startDate = $optionForm.find('input.filter-start-date').val();
     const endDate = $optionForm.find('input.filter-finish-date').val();
+
+    if (meets.length) {
+      $meetsSelectBox.removeClass('is-invalid');
+    } else {
+      $meetsSelectBox.addClass('is-invalid');
+    }
 
     if (startDate && endDate && meets.length) {
       const start = (new Date($optionForm.find('input.filter-start-date').val())).toISOString();

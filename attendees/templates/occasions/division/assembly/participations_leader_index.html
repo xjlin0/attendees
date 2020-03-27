@@ -17,6 +17,11 @@
 
   <link rel="preload"
         as="style"
+        href="{% static 'select2-bootstrap4-theme/select2-bootstrap4.min.css' %}"
+        onload="this.rel='stylesheet'">
+
+  <link rel="preload"
+        as="style"
         href="{% static 'devextreme/dx.common.css' %}"
         onload="this.rel='stylesheet'">
 
@@ -112,19 +117,30 @@
       </div>
     </div>
 
-    <div class="form-group d-flex flex-column col-5">
+    <div class="form-group d-flex flex-column col-6">
       <label class="control-label"
              for="filter-meets">
         Select meets:
       </label>
-      <select class="basic-multiple form-control filter-meets"
-              id="filter-meets"
-              name="meets"
-              multiple="multiple">
-        {% for meet in available_meets %}
-          <option value="{{meet.slug}}">{{meet.display_name}}</option>
-        {% endfor %}
-      </select>
+      <div class="input-group">
+        <select class="basic-multiple form-control filter-meets is-invalid"
+                data-placeholder="Select at least one meet"
+                data-allow-clear="true"
+                required
+                id="filter-meets"
+                name="meets"
+                multiple="multiple">
+          {% for meet in available_meets %}
+            <option value="{{meet.slug}}">{{meet.display_name}}</option>
+          {% endfor %}
+        </select>
+        <div class="input-group-append"
+             title="select all items">
+          <div class="input-group-text">
+            <i class="fas fa-check-double"></i>
+          </div>
+        </div>
+      </div>
     </div>
 
    <div class="participatingLeaders"

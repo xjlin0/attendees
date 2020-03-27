@@ -1,1 +1,1 @@
-// select2 4.0.13 (not full not i18n)
+// select2 4.0.13 (not full not i18n) https://github.com/select2/select2
