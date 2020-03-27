@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from django.utils import timezone
 from django.http import Http404
 from django.shortcuts import render
-from attendees.occasions.models import Meet
+from attendees.occasions.models import Meet, AssemblyCharacter
 
 
 import logging
