@@ -20,7 +20,7 @@ class AssemblyParticipationLeaderListView(AssemblyParticipationListView):
         chosen_start = args.get('chosen_start')
         chosen_finish = args.get('chosen_finish')
         chosen_meet_slugs = args.get('chosen_meet_slugs')
-        return Participation.objects.select_related('character', 'team', 'attending', 'gathering', 'attending__attendee')#.filter(attending__divisions__slug=current_division_slug, gathering__meet__slug__in=chosen_meet_slugs, gathering__start__gte=chosen_start, gathering__finish__lte=chosen_finish).exclude(character__slug='student').order_by('gathering__meet', '-gathering__start', 'character__display_order')
+        return [] #Participation.objects.select_related('character', 'team', 'attending', 'gathering', 'attending__attendee')#.filter(attending__divisions__slug=current_division_slug, gathering__meet__slug__in=chosen_meet_slugs, gathering__start__gte=chosen_start, gathering__finish__lte=chosen_finish).exclude(character__slug='student').order_by('gathering__meet', '-gathering__start', 'character__display_order')
 
     def get_partial_template(self):
         return 'occasions/division/assembly/_participations_grouped_list.html'

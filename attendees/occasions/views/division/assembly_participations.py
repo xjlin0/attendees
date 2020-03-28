@@ -37,10 +37,11 @@ class AssemblyParticipationListView(ListView):
         if self.request.user.belongs_to_organization_and_division(context['current_organization_slug'], context['current_division_slug']):
             if self.request.is_ajax():
                 chosen_meet_slugs = self.request.GET.getlist('meets[]', [])
+                chosen_character_slugs = self.request.GET.getlist('characters[]', [])
                 chosen_start = self.request.GET.get('start', timezone.now())
                 chosen_finish = self.request.GET.get('finish', timezone.now())
                 partial_template = self.get_partial_template()
-                filtered_participations = self.get_participations({'current_division_slug': context['current_division_slug'], 'chosen_start': chosen_start, 'chosen_finish': chosen_finish, 'chosen_meet_slugs': chosen_meet_slugs})
+                filtered_participations = self.get_participations({'current_division_slug': context['current_division_slug'], 'chosen_start': chosen_start, 'chosen_finish': chosen_finish, 'chosen_meet_slugs': chosen_meet_slugs, 'chosen_character_slugs': chosen_character_slugs})
                 return render(self.request, partial_template, {'filtered_participations': filtered_participations})
             else:
                 context.update({'filtered_participations': []})
