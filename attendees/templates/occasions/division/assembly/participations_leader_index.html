@@ -135,7 +135,35 @@
           {% endfor %}
         </select>
         <div class="input-group-append"
-             for="filter-meets-checkbox"
+             title="select all items">
+          <div class="input-group-text">
+            <input type="checkbox"
+                   autocomplete="off"
+                   class="select-all">
+            all
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group d-flex flex-column col-12">
+      <label class="control-label"
+             for="filter-characters">
+        dfadasdadas:
+      </label>
+      <div class="input-group for-select-all">
+        <select class="form-control filter-characters basic-multiple is-invalid select2"
+                data-placeholder="Select at least one character"
+                data-allow-clear="true"
+                data-all-options="{{available_meets_slugs}}"
+                id="filter-characters"
+                name="meets"
+                multiple="multiple">
+          {% for meet in available_meets %}
+            <option value="{{meet.slug}}">{{meet.display_name}}</option>
+          {% endfor %}
+        </select>
+        <div class="input-group-append"
              title="select all items">
           <div class="input-group-text">
             <input type="checkbox"
