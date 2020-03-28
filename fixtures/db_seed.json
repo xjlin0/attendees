@@ -1193,7 +1193,7 @@
       "assembly": 1,
       "display_name": "Student",
       "display_order": 0,
-      "slug": "student",
+      "slug": "cfcc-kid-student",
       "info": null,
       "type": "normal"
     }
@@ -1208,7 +1208,7 @@
       "assembly": 1,
       "display_name": "Teacher",
       "display_order": 0,
-      "slug": "teacher",
+      "slug": "cfcc-kid-teacher",
       "info": null,
       "type": "normal"
     }
@@ -1223,7 +1223,7 @@
       "assembly": 1,
       "display_name": "Leader",
       "display_order": 0,
-      "slug": "leader",
+      "slug": "cfcc-kid-leader",
       "info": null,
       "type": "normal"
     }
@@ -1238,7 +1238,7 @@
       "assembly": 1,
       "display_name": "Helper",
       "display_order": 0,
-      "slug": "helper",
+      "slug": "cfcc-kid-helper",
       "info": null,
       "type": "normal"
     }
@@ -1253,7 +1253,7 @@
       "assembly": 1,
       "display_name": "Food Preparer",
       "display_order": 0,
-      "slug": "food-preparer",
+      "slug": "cfcc-kid-food-preparer",
       "info": null,
       "type": "normal"
     }

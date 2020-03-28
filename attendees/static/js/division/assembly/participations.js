@@ -14,9 +14,10 @@ Attendees.leaderIndex = {
   },
 
   toggleSelectAll: (event) => {
-     const $select2Input = $(event.delegateTarget).find('select.select2');
+     const $select2Input = $(event.delegateTarget).find('select.search-filters');
      const $checkAllBox = $(event.currentTarget);
-     const options = $checkAllBox.is(':checked') ? $select2Input.data('all-options') : [];
+     const allOptions = $select2Input.children('option').map((i,e) => e.value).get();
+     const options = $checkAllBox.is(':checked') ? allOptions : [];
      $select2Input.val(options).trigger('change');
   },
 
@@ -114,24 +115,35 @@ Attendees.leaderIndex = {
     ],
   },
 
+  alterCheckBoxAndValidations: (event) => {
+    const $currentTarget = $(event.currentTarget);
+
+    if ($currentTarget.is('select')) {
+      const $checkAllBox = $currentTarget.siblings('div.input-group-append').find('input.select-all');
+      const allOptions = $currentTarget.children('option').map((i,e) => e.value).get();
+      const chosenOptions = $currentTarget.val() || [];
+
+        if (chosenOptions.length) {
+          $currentTarget.removeClass('is-invalid');
+        } else {
+          $currentTarget.addClass('is-invalid');
+        }
+      $checkAllBox.prop('checked', Attendees.utilities.testArraysEqualAfterSort(chosenOptions, allOptions));
+    }
+  },
 
   fetchParticipations: (event) => {
+
+    Attendees.leaderIndex.alterCheckBoxAndValidations(event);
+
     let finalUrl = null;
     const $optionForm = $(event.delegateTarget);
     const $meetsSelectBox = $optionForm.find('select.filter-meets');
-    const $checkAllBox = $meetsSelectBox.siblings('div.input-group-append').find('input.select-all');
-    const allOptions = $meetsSelectBox.children('option').map((i,e) => e.value).get();
+    const $charactersSelectBox = $optionForm.find('select.filter-characters');
     const meets = $meetsSelectBox.val() || [];
+    const characters = $charactersSelectBox.val() || [];
     const startDate = $optionForm.find('input.filter-start-date').val();
     const endDate = $optionForm.find('input.filter-finish-date').val();
-console.log('triggered 127');
-    if (meets.length) {
-      $meetsSelectBox.removeClass('is-invalid');
-    } else {
-      $meetsSelectBox.addClass('is-invalid');
-    }
-
-    $checkAllBox.prop('checked', Attendees.utilities.testArraysEqualAfterSort(meets, allOptions));
 
     if (startDate && endDate && meets.length) {
       const start = (new Date($optionForm.find('input.filter-start-date').val())).toISOString();
@@ -139,6 +151,7 @@ console.log('triggered 127');
       const url = $('div.participatingLeaders').data('participations-endpoint');
       const searchParams = new URLSearchParams({start: start, finish: finish});
       meets.forEach(meet => { searchParams.append('meets', meet)});
+      characters.forEach(character => { searchParams.append('characters', character)});
       finalUrl = `${url}?${searchParams.toString()}`
     }
 

@@ -148,25 +148,23 @@
     <div class="form-group d-flex flex-column col-12">
       <label class="control-label"
              for="filter-characters">
-        dfadasdadas:
+        Select characters:
       </label>
       <div class="input-group for-select-all">
         <select class="form-control filter-characters basic-multiple is-invalid search-filters"
                 data-placeholder="Select at least one character"
                 data-allow-clear="true"
-                data-all-options="{{available_meets_slugs}}"
                 id="filter-characters"
                 name="meets"
                 multiple="multiple">
-          {% for meet in available_meets %}
-            <option value="{{meet.slug}}">{{meet.display_name}}</option>
+          {% for character in available_characters %}
+            <option value="{{character.slug}}">{{character.display_name}}</option>
           {% endfor %}
         </select>
         <div class="input-group-append"
              title="select all items">
           <div class="input-group-text">
             <input type="checkbox"
-                   autocomplete="off"
                    class="select-all">
             all
           </div>
@@ -174,14 +172,14 @@
       </div>
     </div>
 
-   <div class="participatingLeaders"
-        data-teams-endpoint="{{teams_endpoint}}"
-        data-gatherings-endpoint="{{gatherings_endpoint}}"
-        data-characters-endpoint="{{characters_endpoint}}"
-        data-participations-endpoint="{{participations_endpoint}}">
-   </div>
-
   </form>
+
+  <div class="participatingLeaders"
+      data-teams-endpoint="{{teams_endpoint}}"
+      data-gatherings-endpoint="{{gatherings_endpoint}}"
+      data-characters-endpoint="{{characters_endpoint}}"
+      data-participations-endpoint="{{participations_endpoint}}">
+  </div>
 
   <div class="participations d-none"
        data-default="<h3>Select any groups to list participants, results can be filtered by the start and end dates(excluded).</h3>">

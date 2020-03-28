@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from django.utils import timezone
 from django.http import Http404
 from django.shortcuts import render
-from attendees.occasions.models import Meet
+from attendees.occasions.models import Meet, Character
 
 
 import logging
@@ -23,12 +23,13 @@ class AssemblyParticipationListView(ListView):
         current_organization_slug = self.kwargs.get('organization_slug', None)
         current_assembly_slug = self.kwargs.get('assembly_slug', None)
         available_meets = Meet.objects.filter(assembly__slug=current_assembly_slug).order_by('display_name')
-        # available_characters should exist before anyone participates, maybe m2m by assembly_characters?
+        available_characters = Character.objects.filter(assembly__slug=current_assembly_slug).order_by('display_order')
         context.update({
             'current_organization_slug': current_organization_slug,
             'current_division_slug': current_division_slug,
             'current_assembly_slug': current_assembly_slug,
             'available_meets': available_meets,
+            'available_characters': available_characters,
         })
         return context
 
