@@ -8,7 +8,7 @@ Attendees.leaderIndex = {
       theme: 'bootstrap4',
     });
 
-    $('form.participations-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.filter-meets, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
+    $('form.participations-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.search-filters, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
     $('div.for-select-all').on('click', 'input.select-all', Attendees.leaderIndex.toggleSelectAll);
     $("div.participatingLeaders").dxDataGrid(Attendees.leaderIndex.participationsFormats);
   },
@@ -124,7 +124,7 @@ Attendees.leaderIndex = {
     const meets = $meetsSelectBox.val() || [];
     const startDate = $optionForm.find('input.filter-start-date').val();
     const endDate = $optionForm.find('input.filter-finish-date').val();
-
+console.log('triggered 127');
     if (meets.length) {
       $meetsSelectBox.removeClass('is-invalid');
     } else {
