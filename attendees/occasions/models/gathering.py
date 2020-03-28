@@ -34,6 +34,10 @@ class Gathering(TimeStampedModel, SoftDeletableModel, Utility):
     def get_absolute_url(self):
         return reverse('gathering_detail', args=[str(self.id)])
 
+    @property
+    def gathering_label(self):
+        return (self.meet.display_name or '') + ' ' + (self.display_name or '')
+
     class Meta:
         db_table = 'occasions_gatherings'
         ordering = ['meet', 'start']

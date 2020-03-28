@@ -23,7 +23,7 @@ Attendees.leaderIndex = {
 
   participationsFormats: {
     dataSource: null,
-    // filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
+    filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
     searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
     allowColumnReordering: true,
     columnAutoWidth: true,
@@ -47,7 +47,7 @@ Attendees.leaderIndex = {
         dataField: "gathering",
         lookup: {
             valueExpr: "id",
-            displayExpr: "display_name",
+            displayExpr: "gathering_label",
             dataSource: {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
@@ -145,7 +145,7 @@ Attendees.leaderIndex = {
     const startDate = $optionForm.find('input.filter-start-date').val();
     const endDate = $optionForm.find('input.filter-finish-date').val();
 
-    if (startDate && endDate && meets.length) {
+    if (startDate && endDate && meets.length && characters.length) {
       const start = (new Date($optionForm.find('input.filter-start-date').val())).toISOString();
       const finish = (new Date($optionForm.find('input.filter-finish-date').val())).toISOString();
       const url = $('div.participatingLeaders').data('participations-endpoint');
