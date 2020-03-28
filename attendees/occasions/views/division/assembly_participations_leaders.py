@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 @method_decorator([login_required], name='dispatch')
-class AssemblyParticipationLeaderListView(AssemblyParticipationListView):
+class AssemblyParticipationAttendanceListView(AssemblyParticipationListView):
     queryset = []
     template_name = 'occasions/division/assembly/participations_leader_index.html'
 
@@ -26,5 +26,5 @@ class AssemblyParticipationLeaderListView(AssemblyParticipationListView):
         return 'occasions/division/assembly/_participations_grouped_list.html'
 
 
-assembly_participation_leader_list_view = AssemblyParticipationLeaderListView.as_view()
+assembly_participation_attendance_list_view = AssemblyParticipationAttendanceListView.as_view()
 
