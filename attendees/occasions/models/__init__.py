@@ -6,4 +6,3 @@ from .meet import Meet
 from .gathering import Gathering
 from .team import Team
 from .participation import Participation
-from .assembly_character import AssemblyCharacter

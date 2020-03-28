@@ -376,14 +376,6 @@
     }
   },
   {
-    "model": "contenttypes.contenttype",
-    "pk": 48,
-    "fields": {
-      "app_label": "occasions",
-      "model": "assemblycharacter"
-    }
-  },
-  {
     "model": "sites.site",
     "pk": 1,
     "fields": {
@@ -1573,61 +1565,6 @@
       "free": 0,
       "category": "scheduled",
       "display_order": 0
-    }
-  },
-  {
-    "model": "occasions.assemblycharacter",
-    "pk": 1,
-    "fields": {
-      "created": "2020-03-27T02:25:35.827Z",
-      "modified": "2020-03-27T02:25:35.827Z",
-      "is_removed": false,
-      "assembly": 1,
-      "character": 1
-    }
-  },
-  {
-    "model": "occasions.assemblycharacter",
-    "pk": 2,
-    "fields": {
-      "created": "2020-03-27T02:25:35.828Z",
-      "modified": "2020-03-27T02:25:35.828Z",
-      "is_removed": false,
-      "assembly": 1,
-      "character": 2
-    }
-  },
-  {
-    "model": "occasions.assemblycharacter",
-    "pk": 3,
-    "fields": {
-      "created": "2020-03-27T02:25:35.828Z",
-      "modified": "2020-03-27T02:25:35.828Z",
-      "is_removed": false,
-      "assembly": 1,
-      "character": 3
-    }
-  },
-  {
-    "model": "occasions.assemblycharacter",
-    "pk": 4,
-    "fields": {
-      "created": "2020-03-27T02:25:35.829Z",
-      "modified": "2020-03-27T02:25:35.829Z",
-      "is_removed": false,
-      "assembly": 1,
-      "character": 4
-    }
-  },
-  {
-    "model": "occasions.assemblycharacter",
-    "pk": 5,
-    "fields": {
-      "created": "2020-03-27T02:25:35.830Z",
-      "modified": "2020-03-27T02:25:35.830Z",
-      "is_removed": false,
-      "assembly": 1,
-      "character": 5
     }
   },
   {
@@ -3320,42 +3257,6 @@
       "name": "Can view participation",
       "content_type": 47,
       "codename": "view_participation"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 189,
-    "fields": {
-      "name": "Can add assembly character",
-      "content_type": 48,
-      "codename": "add_assemblycharacter"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 190,
-    "fields": {
-      "name": "Can change assembly character",
-      "content_type": 48,
-      "codename": "change_assemblycharacter"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 191,
-    "fields": {
-      "name": "Can delete assembly character",
-      "content_type": 48,
-      "codename": "delete_assemblycharacter"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 192,
-    "fields": {
-      "name": "Can view assembly character",
-      "content_type": 48,
-      "codename": "view_assemblycharacter"
     }
   },
   {

@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('finish', models.DateTimeField(blank=True, help_text='optional', null=True)),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(max_length=50)),
-                ('slug', models.SlugField(max_length=50, unique=True)),
+                ('slug', models.SlugField(max_length=50, unique=True, help_text='format: Organization_name-Assembly_name')),
                 ('division', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Division')),
             ],
             options={

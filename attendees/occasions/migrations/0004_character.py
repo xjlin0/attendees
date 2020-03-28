@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(blank=True, db_index=True, max_length=50)),
                 ('display_order', models.SmallIntegerField(blank=False, default=0, null=False)),
-                ('slug', models.SlugField(max_length=50, unique=True)),
+                ('slug', models.SlugField(max_length=50, unique=True, help_text='format: Assembly_name-Character_name')),
                 ('info', models.CharField(blank=True, max_length=255, null=True)),
                 ('type', models.CharField(db_index=True, default='normal', max_length=50)),
             ],
