@@ -15,6 +15,12 @@ Attendees.utilities = {
       }, delay);
     };
   },
+
+  testArraysEqualAfterSort : (a, b) => {
+    a = Array.isArray(a) ? a.sort() : [];
+    b = Array.isArray(b) ? b.sort() : [];
+    return a.length === b.length && a.every((el, ix) => el === b[ix]);
+  }, // https://stackoverflow.com/a/39967517/4257237
 }
 
 $(document).ready(() => {

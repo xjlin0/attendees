@@ -9,11 +9,16 @@ Attendees.leaderIndex = {
     });
 
     $('form.participations-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.filter-meets, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
-
+    $('div.for-select-all').on('click', 'input.select-all', Attendees.leaderIndex.toggleSelectAll);
     $("div.participatingLeaders").dxDataGrid(Attendees.leaderIndex.participationsFormats);
   },
 
-
+  toggleSelectAll: (event) => {
+     const $select2Input = $(event.delegateTarget).find('select.select2');
+     const $checkAllBox = $(event.currentTarget);
+     const options = $checkAllBox.is(':checked') ? $select2Input.data('all-options') : [];
+     $select2Input.val(options).trigger('change');
+  },
 
   participationsFormats: {
     dataSource: null,
@@ -114,6 +119,8 @@ Attendees.leaderIndex = {
     let finalUrl = null;
     const $optionForm = $(event.delegateTarget);
     const $meetsSelectBox = $optionForm.find('select.filter-meets');
+    const $checkAllBox = $optionForm.find('input.select-all')
+    const allOptions = $meetsSelectBox.data('all-options');
     const meets = $meetsSelectBox.val() || [];
     const startDate = $optionForm.find('input.filter-start-date').val();
     const endDate = $optionForm.find('input.filter-finish-date').val();
@@ -123,6 +130,8 @@ Attendees.leaderIndex = {
     } else {
       $meetsSelectBox.addClass('is-invalid');
     }
+
+    $checkAllBox.prop('checked', Attendees.utilities.testArraysEqualAfterSort(meets, allOptions));
 
     if (startDate && endDate && meets.length) {
       const start = (new Date($optionForm.find('input.filter-start-date').val())).toISOString();

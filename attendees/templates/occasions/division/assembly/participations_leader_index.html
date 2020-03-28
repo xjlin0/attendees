@@ -122,11 +122,11 @@
              for="filter-meets">
         Select meets:
       </label>
-      <div class="input-group">
-        <select class="basic-multiple form-control filter-meets is-invalid"
+      <div class="input-group for-select-all">
+        <select class="form-control filter-meets basic-multiple is-invalid select2"
                 data-placeholder="Select at least one meet"
                 data-allow-clear="true"
-                required
+                data-all-options="{{available_meets_slugs}}"
                 id="filter-meets"
                 name="meets"
                 multiple="multiple">
@@ -135,9 +135,13 @@
           {% endfor %}
         </select>
         <div class="input-group-append"
+             for="filter-meets-checkbox"
              title="select all items">
           <div class="input-group-text">
-            <i class="fas fa-check-double"></i>
+            <input type="checkbox"
+                   autocomplete="off"
+                   class="select-all">
+            all
           </div>
         </div>
       </div>
