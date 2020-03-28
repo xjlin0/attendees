@@ -119,8 +119,8 @@ Attendees.leaderIndex = {
     let finalUrl = null;
     const $optionForm = $(event.delegateTarget);
     const $meetsSelectBox = $optionForm.find('select.filter-meets');
-    const $checkAllBox = $optionForm.next('div.input-group-append').find('input.select-all')
-    const allOptions = $meetsSelectBox.data('all-options');
+    const $checkAllBox = $meetsSelectBox.siblings('div.input-group-append').find('input.select-all');
+    const allOptions = $meetsSelectBox.children('option').map((i,e) => e.value).get();
     const meets = $meetsSelectBox.val() || [];
     const startDate = $optionForm.find('input.filter-start-date').val();
     const endDate = $optionForm.find('input.filter-finish-date').val();

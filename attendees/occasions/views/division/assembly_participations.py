@@ -5,7 +5,6 @@ from django.utils import timezone
 from django.http import Http404
 from django.shortcuts import render
 from attendees.occasions.models import Meet
-import json
 
 
 import logging
@@ -24,14 +23,12 @@ class AssemblyParticipationListView(ListView):
         current_organization_slug = self.kwargs.get('organization_slug', None)
         current_assembly_slug = self.kwargs.get('assembly_slug', None)
         available_meets = Meet.objects.filter(assembly__slug=current_assembly_slug).order_by('display_name')
-        available_meets_slugs = json.dumps(list(available_meets.values_list('slug', flat=True)))
         # available_characters should exist before anyone participates, maybe m2m by assembly_characters?
         context.update({
             'current_organization_slug': current_organization_slug,
             'current_division_slug': current_division_slug,
             'current_assembly_slug': current_assembly_slug,
             'available_meets': available_meets,
-            'available_meets_slugs': available_meets_slugs,
         })
         return context
 
