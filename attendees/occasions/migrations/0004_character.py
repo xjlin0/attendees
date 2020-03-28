@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
+                ('assembly', models.ForeignKey(on_delete=models.SET(0), to='occasions.Assembly')),
                 ('display_name', models.CharField(blank=True, db_index=True, max_length=50)),
                 ('display_order', models.SmallIntegerField(blank=False, default=0, null=False)),
                 ('slug', models.SlugField(max_length=50, unique=True, help_text='format: Assembly_name-Character_name')),

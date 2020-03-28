@@ -53,7 +53,7 @@ class ParticipationInline(admin.StackedInline):
 
 class CharacterAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
-    list_display = ('display_name', 'slug', 'info', 'display_order', 'modified')
+    list_display = ('assembly', 'display_name', 'slug', 'info', 'display_order', 'modified')
 
 
 class TeamAdmin(admin.ModelAdmin):

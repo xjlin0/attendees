@@ -1100,7 +1100,7 @@
       "is_removed": false,
       "start": null,
       "finish": null,
-      "display_name": "\u5e38\u898f\u5152\u7ae5\u6d3b\u52d5",
+      "display_name": "CFCC\u5e38\u898f\u5152\u7ae5\u6d3b\u52d5",
       "slug": "cfcc-regular-kid-activities",
       "division": 3
     }
@@ -1114,7 +1114,7 @@
       "is_removed": false,
       "start": null,
       "finish": null,
-      "display_name": "\u6210\u4eba\u4e3b\u65e5\u5d07\u62dc",
+      "display_name": "CFCC\u6210\u4eba\u4e3b\u65e5\u5d07\u62dc",
       "slug": "cfcc-adult-sunday-worship",
       "division": 1
     }
@@ -1128,7 +1128,7 @@
       "is_removed": false,
       "start": null,
       "finish": null,
-      "display_name": "\u9752\u5c11\u77ed\u5ba32020",
+      "display_name": "CFCC\u9752\u5c11\u77ed\u5ba32020",
       "slug": "cfcc-youth-short-term-missionary-2020",
       "division": 3
     }
@@ -1142,7 +1142,7 @@
       "is_removed": false,
       "start": null,
       "finish": null,
-      "display_name": "\u5bf6\u5ea7\u656c\u62dc",
+      "display_name": "heaven\u5bf6\u5ea7\u656c\u62dc",
       "slug": "heaven-throne-worship",
       "division": 4
     }
@@ -1190,6 +1190,7 @@
       "created": "2020-02-08T23:28:11.799Z",
       "modified": "2020-02-08T23:28:11.799Z",
       "is_removed": false,
+      "assembly": 1,
       "display_name": "Student",
       "display_order": 0,
       "slug": "student",
@@ -1204,6 +1205,7 @@
       "created": "2020-02-08T23:28:17.970Z",
       "modified": "2020-02-08T23:28:17.970Z",
       "is_removed": false,
+      "assembly": 1,
       "display_name": "Teacher",
       "display_order": 0,
       "slug": "teacher",
@@ -1218,6 +1220,7 @@
       "created": "2020-02-08T23:28:23.778Z",
       "modified": "2020-02-08T23:28:23.778Z",
       "is_removed": false,
+      "assembly": 1,
       "display_name": "Leader",
       "display_order": 0,
       "slug": "leader",
@@ -1232,6 +1235,7 @@
       "created": "2020-02-08T23:28:28.821Z",
       "modified": "2020-02-08T23:28:28.821Z",
       "is_removed": false,
+      "assembly": 1,
       "display_name": "Helper",
       "display_order": 0,
       "slug": "helper",
@@ -1246,6 +1250,7 @@
       "created": "2020-02-08T23:30:37.366Z",
       "modified": "2020-02-08T23:30:37.366Z",
       "is_removed": false,
+      "assembly": 1,
       "display_name": "Food Preparer",
       "display_order": 0,
       "slug": "food-preparer",
