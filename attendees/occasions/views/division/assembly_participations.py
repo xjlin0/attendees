@@ -48,7 +48,7 @@ class AssemblyParticipationListView(ListView):
                 context.update({'filtered_participations': []})
                 context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/teams/"})
                 context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/gatherings/"})
-                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/characters/"})
+                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/characters/"})
                 context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/attendings/"})
                 context.update({'participations_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/participations/"})
                 return render(self.request, self.get_template_names()[0], context)
