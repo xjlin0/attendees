@@ -1,13 +1,12 @@
+import time
+
 from rest_framework import viewsets
+from rest_framework.exceptions import AuthenticationFailed
+
 from attendees.occasions.models import Participation
 from attendees.occasions.serializers import ParticipationSerializer
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.http import HttpResponseNotAllowed
-import logging
-
-
-logger = logging.getLogger(__name__)
 
 
 @method_decorator([login_required], name='dispatch')
@@ -33,6 +32,7 @@ class ApiParticipationViewSet(viewsets.ModelViewSet):
                 ).order_by('gathering__meet', '-gathering__start', 'character__display_order')
 
         else:
-            raise HttpResponseNotAllowed('Have you registered any events of the organization?')
+            time.sleep(2)
+            raise AuthenticationFailed(detail='Have you registered any events of the organization?')
 
 api_participation_viewset = ApiParticipationViewSet

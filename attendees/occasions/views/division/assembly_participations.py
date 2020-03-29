@@ -1,3 +1,5 @@
+import time
+
 from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -5,7 +7,6 @@ from django.utils import timezone
 from django.http import Http404
 from django.shortcuts import render
 from attendees.occasions.models import Meet, Character
-
 
 import logging
 
@@ -52,6 +53,7 @@ class AssemblyParticipationListView(ListView):
                 context.update({'participations_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/participations/"})
                 return render(self.request, self.get_template_names()[0], context)
         else:
+            time.sleep(2)
             raise Http404('Have you registered any events of the organization?')
 
     def get_participations(self, args):
