@@ -59,18 +59,19 @@ Attendees.leaderIndex = {
         }
       },
       {
-        caption: "Attending-Parent",
-        allowFiltering: false,
-        calculateDisplayValue: "attending_label",
+        caption: 'Attending (Register)',
         dataField: "attending",
         lookup: {
             valueExpr: "id",
-            displayExpr: "display_name",
+            displayExpr: "attending_label",
             dataSource: {
-                store: {
-                    key: "id"
-                }
-            }
+                store: new DevExpress.data.CustomStore({
+                    key: "id",
+                    load: () => {
+                      return $.getJSON($('div.participatingLeaders').data('attendings-endpoint'));
+                    },
+                }),
+            },
         }
       },
       {

@@ -42,6 +42,10 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     def meet_names(self):
         return ",".join([d.display_name for d in self.meets.all()])
 
+    @property
+    def attending_label(self):
+        return f'{self.attendee.display_label} ({self.main_contact.display_label})'
+
     @cached_property
     def all_addresses(self):
         return ",".join([str(a) for a in self.attendee.addresses.all()])
