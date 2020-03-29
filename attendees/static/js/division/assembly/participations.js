@@ -52,7 +52,7 @@ Attendees.leaderIndex = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.participatingLeaders').data('gatherings-endpoint'));
+                      return $.getJSON($('div.participatingLeaders').data('gatherings-endpoint'), {meets: $('select.filter-meets').val()});
                     },
                 }),
             },

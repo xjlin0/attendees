@@ -17,7 +17,7 @@ router = routers.DefaultRouter()
 router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/participations', api_participation_viewset, basename='participation')
 router.register('api/characters', api_character_viewset)
 router.register('api/teams', api_team_viewset)
-router.register('api/gatherings', api_gathering_viewset)
+router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/gatherings', api_gathering_viewset, basename='gathering')
 
 urlpatterns = [
     path('', include(router.urls)),

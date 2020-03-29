@@ -46,7 +46,7 @@ class AssemblyParticipationListView(ListView):
             else:
                 context.update({'filtered_participations': []})
                 context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/teams/"})
-                context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/gatherings/"})
+                context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/gatherings/"})
                 context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/characters/"})
                 context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/attendings/"})
                 context.update({'participations_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/participations/"})
