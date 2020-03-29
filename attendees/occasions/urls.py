@@ -16,7 +16,7 @@ app_name = "occasions"
 router = routers.DefaultRouter()
 router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/participations', api_participation_viewset, basename='participation')
 router.register('api/characters', api_character_viewset, basename='character')
-router.register('api/teams', api_team_viewset, basename='team')
+router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/teams', api_team_viewset, basename='team')
 router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/gatherings', api_gathering_viewset, basename='gathering')
 
 urlpatterns = [

@@ -18,7 +18,7 @@ class ApiGatheringViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
             meets = self.request.query_params.getlist('meets[]', [])
-            return Gathering.objects.filter(meet__slug__in=meets).order_by('meet', '-start')
+            return Gathering.objects.filter(meet__slug__in=meets, meet__assembly__slug=self.kwargs['assembly_slug']).order_by('meet', '-start')
 
         else:
             time.sleep(2)
