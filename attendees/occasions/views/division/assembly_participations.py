@@ -16,6 +16,8 @@ logger = logging.getLogger(__name__)
 
 @method_decorator([login_required], name='dispatch')
 class AssemblyParticipationListView(ListView):
+    queryset = []
+    template_name = 'occasions/division/assembly/participations.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -56,8 +58,11 @@ class AssemblyParticipationListView(ListView):
             time.sleep(2)
             raise Http404('Have you registered any events of the organization?')
 
-    def get_participations(self, args):
-        return []
+    # def get_participations(self, args):
+    #     return []
+    #
+    # def get_partial_template(self):
+    #     return ''
 
-    def get_partial_template(self):
-        return ''
+
+assembly_participation_list_view = AssemblyParticipationListView.as_view()
