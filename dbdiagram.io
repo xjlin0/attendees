@@ -374,9 +374,9 @@ Table discussion_participations {
 //  created datetime
 //  modified datetime
 //  is_removed boolean
-//} // deprecated by start and end of assembly
+//} // deprecated by start and end dates in meets
 
-Table program_groups {
+Table program_meets {
   id int [pk]
   division_id int [ref: > divisions.id]
   name varchar [note: "Shining Stars, The Rock"]
@@ -389,7 +389,7 @@ Table program_groups {
 
 Table program_teams {
   id int [pk]
-  program_group_id int [ref: > program_groups.id]
+  program_meet_id int [ref: > program_meets.id]
   name varchar [note: "Small group 4th grade, (Main/Large group is null)"]
   display_order int
   created datetime
@@ -397,10 +397,10 @@ Table program_teams {
   is_removed boolean
 } // All Small groups are defined here, please don't define Main/Large group
 
-Table program_sessions {
+Table program_gatherings {
   id int [pk]
-  program_progression_id int [ref: > program_progressions.id]
-  program_group_id int [ref: > program_groups.id]
+  // program_progression_id int [ref: > program_progressions.id] // replacing progression by start and end dates
+  program_meet_id int [ref: > program_meets.id]
   name varchar [note: "Lesson #3 resurrection, retreat #2, etc"]
   start_at datetime
   end_at datetime
@@ -411,14 +411,14 @@ Table program_sessions {
   is_removed boolean
 
   indexes {
-    (program_group_id, content_type, object_id, start_time) [unique]
+    (program_meet_id, content_type, object_id, start_time) [unique]
   }
 } // so we can have The Rock @ Main or Burbank campus
 
 
-Table program_participations {
+Table program_attendances {
   id int [pk]
-  program_session_id int [ref: > program_sessions.id]
+  program_gathering_id int [ref: > program_gatherings.id]
   program_team_id int [ref: > program_teams.id] // nullable
   attending_id int [ref: > attendings.id]
   character_id int [ref: > characters.id] // note: "LG leader, student"
@@ -427,7 +427,7 @@ Table program_participations {
   created datetime
   modified datetime
   is_removed boolean
-} // denormalize and add program_session_id here since program_team_id is nullable
+} // denormalize and add program_gathering_id here since program_team_id is nullable
 
 // Table 'assembly' provides division for creating program_progression
 //
@@ -438,9 +438,9 @@ Table program_participations {
 // |2019-20 kid program| Q4 |     4       |
 // +-------------------+----+-------------+
 
-// Table program_sessions example:
+// Table program_gatherings example:
 // +-------------------+-------------+--------------------+
-// |program_progression|program_group|        name        |
+// |program_progression|program_meet |        name        |
 // +-------------------+-------------+--------------------+
 // |          Q4       | The Rock    | Lesson #3 09/01/19 |
 // +-------------------+-------------+--------------------+
@@ -451,38 +451,38 @@ Table program_participations {
 // Example of The Rock student participates large group AND 4th small group:
 // By design everyone must attend main team, which program_team_id is null
 // +------------------+------------+---------+
-// |  program_session |program_team|character|
+// |program_gathering |program_team|character|
 // +------------------+------------+---------+
 // |Lesson #3 09/01/19| 4th SG     | student |
 // +------------------+------------+---------+
 //
 // Example of The Rock large group (main team) leader:
 // +------------------+------------+---------+
-// |  program_session |program_team|character|
+// |program_gathering |program_team|character|
 // +------------------+------------+---------+
 // |Lesson #3 09/01/19| NULL       |LG leader|
 // +------------------+------------+---------+
 //
 // Example of The Rock large small group leader for 4th Grade:
 // +------------------+------------+---------+
-// |  program_session |program_team|character|
+// |program_gathering |program_team|character|
 // +------------------+------------+---------+
 // |Lesson #3 09/01/19| 4th SG     |SG leader|
 // +------------------+------------+---------+
 
 
-Table program_group_settings {
-  id int [pk]
-  program_group_id int [ref: > program_groups.id]
-  recurrences int [ref: > schedules.id] //recurrences = RecurrenceField()
-  duration bigint // https://pypi.org/project/django-relativedelta/ is for Postgres
-  start_time time // no timezone
-  site_type varchar [note: "any location table id in Django's django_content_type"]
-  site_id int [note: "any location table primary id"]
-  created datetime
-  modified datetime
-  is_removed boolean
-} // https://django-recurrence.readthedocs.io/en/latest/usage/getting_started.html
+// Table program_meet_settings { // deprecated by program_meets
+//  id int [pk]
+//  program_meet_id int [ref: > program_meets.id]
+//  recurrences int [ref: > schedules.id] //recurrences = RecurrenceField()
+//  duration bigint // https://pypi.org/project/django-relativedelta/ is for Postgres
+//  start_time time // no timezone
+//  site_type varchar [note: "any location table id in Django's django_content_type"]
+//  site_id int [note: "any location table primary id"]
+//  created datetime
+//  modified datetime
+//  is_removed boolean
+// } // https://django-recurrence.readthedocs.io/en/latest/usage/getting_started.html
 
 
 //Table schedules {

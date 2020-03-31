@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Participation',
+            name='Attendance',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
@@ -34,13 +34,13 @@ class Migration(migrations.Migration):
                 ('display_order', models.SmallIntegerField(blank=False, default=0, null=False)),
             ],
             options={
-                'db_table': 'occasions_participations',
+                'db_table': 'occasions_attendances',
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),
         migrations.AddField(
             model_name='gathering',
             name='attendings',
-            field=models.ManyToManyField(through='occasions.Participation', to='persons.Attending'),
+            field=models.ManyToManyField(through='occasions.Attendance', to='persons.Attending'),
         ),
     ]

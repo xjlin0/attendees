@@ -5,4 +5,4 @@ from .character import Character
 from .meet import Meet
 from .gathering import Gathering
 from .team import Team
-from .participation import Participation
+from .attendance import Attendance

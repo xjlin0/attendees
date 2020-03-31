@@ -1,9 +1,9 @@
-# from attendees.occasions.models import Participation
+# from attendees.occasions.models import Attendance
 # from rest_framework import serializers
 #
 #
-# class ParticipationSerializer(serializers.ModelSerializer):
+# class AttendanceSerializer(serializers.ModelSerializer):
 #     class Meta:
-#         model = Participation
+#         model = Attendance
 #         fields = [f.name for f in model._meta.fields if f.name not in ['is_removed']]
 #

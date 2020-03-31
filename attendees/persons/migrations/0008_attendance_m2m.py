@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('occasions', '0008_participation'),
+        ('occasions', '0008_attendance'),
         ('persons', '0007_attendee_address'),
     ]
 
@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='attending',
             name='gatherings',
-            field=models.ManyToManyField(through='occasions.Participation', to='occasions.Gathering'),
+            field=models.ManyToManyField(through='occasions.Attendance', to='occasions.Gathering'),
         ),
     ]

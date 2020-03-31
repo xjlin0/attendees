@@ -53,7 +53,7 @@
 - As a coworker, I can see both age and grade of a student (age and grade may vary a lot) periodically advanced automatically.
   
 #### page priority 
-- student roasters (with their medical concerns, parent contact, and possibly other participations) for the incoming classes
+- student roasters (with their medical concerns, parent contact, and possibly other attendances) for the incoming classes
 - leader/coworker list for the incoming classes (for teacher availability and arrangement)
 
 #### how to direct parents/coworker to use app (my own thoughts)

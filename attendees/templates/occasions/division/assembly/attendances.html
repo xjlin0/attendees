@@ -61,7 +61,7 @@
 
   <script defer
           type="text/javascript"
-          src="{% static 'js/division/assembly/participations.js' %}">
+          src="{% static 'js/division/assembly/attendances.js' %}">
   </script>
 
 {% endblock extra_head %}
@@ -72,7 +72,7 @@
     Attendance of activities by dates
   </h3>
 
-  <form class="d-flex flex-wrap participations-filter"
+  <form class="d-flex flex-wrap attendances-filter"
         data-url="{{request.get_full_path}}">
 
     <div class="form-group col-3"
@@ -182,11 +182,11 @@
 
   </form>
 
-  <div class="participatingLeaders"
+  <div class="attendances"
       data-teams-endpoint="{{teams_endpoint}}"
       data-gatherings-endpoint="{{gatherings_endpoint}}"
       data-characters-endpoint="{{characters_endpoint}}"
       data-attendings-endpoint="{{attendings_endpoint}}"
-      data-participations-endpoint="{{participations_endpoint}}">
+      data-attendances-endpoint="{{attendances_endpoint}}">
   </div>
 {% endblock content %}

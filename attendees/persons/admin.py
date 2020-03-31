@@ -6,6 +6,7 @@ from .models import *
 
 # Register your models here.
 
+
 class AttendeeAddressInline(admin.StackedInline):
     model = AttendeeAddress
     extra = 0
@@ -33,14 +34,14 @@ class RegistrationAdmin(admin.ModelAdmin):
     list_display = ('main_attendee', 'apply_type', 'apply_key', 'assembly', 'modified')
 
 
-class ParticipationInline(admin.StackedInline):
-    model = Participation
+class AttendanceInline(admin.StackedInline):
+    model = Attendance
     extra = 0
 
 
 class AttendingAdmin(admin.ModelAdmin):
     search_fields = ('attendee__first_name', 'attendee__last_name', 'attendee__first_name2', 'attendee__last_name2')
-    inlines = (AttendingMeetInline, ParticipationInline,)
+    inlines = (AttendingMeetInline, AttendanceInline,)
     list_display = ('id', 'registration', 'attendee', 'meet_names', 'bed_needs', 'all_addresses')
 
 

@@ -26,9 +26,9 @@ class PriceAdmin(admin.ModelAdmin):
     list_display = ('display_name', 'price_type', 'start', 'price_value', 'modified')
 
 
-class ParticipationAdmin(admin.ModelAdmin):
+class AttendanceAdmin(admin.ModelAdmin):
     list_filter = ('gathering', 'attending', 'character', 'team')
-    list_display = ('id', 'participation_info', 'attending', 'character', 'team', 'modified')
+    list_display = ('id', 'attendance_info', 'attending', 'character', 'team', 'modified')
     readonly_fields = ['id','created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish']),
@@ -40,9 +40,8 @@ class ParticipationAdmin(admin.ModelAdmin):
     )
 
 
-
-class ParticipationInline(admin.StackedInline):
-    model = Participation
+class AttendanceInline(admin.StackedInline):
+    model = Attendance
     extra = 0
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish', 'free', 'category']),
@@ -76,7 +75,7 @@ class MeetAdmin(admin.ModelAdmin):
 
 
 class GatheringAdmin(admin.ModelAdmin):
-    inlines = (ParticipationInline,)
+    inlines = (AttendanceInline,)
     search_fields = ('meet__display_name', 'display_name')
     list_filter = ('meet',)
     list_display = ('meet', 'start', 'display_name', 'location', 'modified')
@@ -97,4 +96,4 @@ admin.site.register(Character, CharacterAdmin)
 admin.site.register(Meet, MeetAdmin)
 admin.site.register(Gathering, GatheringAdmin)
 admin.site.register(Team, TeamAdmin)
-admin.site.register(Participation, ParticipationAdmin)
+admin.site.register(Attendance, AttendanceAdmin)

@@ -1,16 +1,16 @@
 Attendees.leaderIndex = {
   init: () => {
 
-    console.log("attendees/static/js/division/assembly/participations.js");
+    console.log("attendees/static/js/division/assembly/attendances.js");
     Attendees.leaderIndex.setDefaults();
     Attendees.leaderIndex.initTempusdominus();
     $('.basic-multiple').select2({
       theme: 'bootstrap4',
     });
 
-    $('form.participations-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.search-filters, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchParticipations));
+    $('form.attendances-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.search-filters, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchAttendances));
     $('div.for-select-all').on('click', 'input.select-all', Attendees.leaderIndex.toggleSelectAll);
-    $("div.participatingLeaders").dxDataGrid(Attendees.leaderIndex.participationsFormats);
+    $("div.attendances").dxDataGrid(Attendees.leaderIndex.attendancesFormats);
   },
 
   toggleSelectAll: (event) => {
@@ -21,7 +21,7 @@ Attendees.leaderIndex = {
      $select2Input.val(options).trigger('change');
   },
 
-  participationsFormats: {
+  attendancesFormats: {
     dataSource: null,
     filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
     searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
@@ -52,7 +52,7 @@ Attendees.leaderIndex = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.participatingLeaders').data('gatherings-endpoint'), {meets: $('select.filter-meets').val()});
+                      return $.getJSON($('div.attendances').data('gatherings-endpoint'), {meets: $('select.filter-meets').val()});
                     },
                 }),
             },
@@ -68,7 +68,7 @@ Attendees.leaderIndex = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.participatingLeaders').data('attendings-endpoint'), {meets: $('select.filter-meets').val()});
+                      return $.getJSON($('div.attendances').data('attendings-endpoint'), {meets: $('select.filter-meets').val()});
                     },
                 }),
             },
@@ -83,7 +83,7 @@ Attendees.leaderIndex = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.participatingLeaders').data('teams-endpoint'), {meets: $('select.filter-meets').val()});
+                      return $.getJSON($('div.attendances').data('teams-endpoint'), {meets: $('select.filter-meets').val()});
                     },
                 }),
             },
@@ -98,7 +98,7 @@ Attendees.leaderIndex = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.participatingLeaders').data('characters-endpoint'));
+                      return $.getJSON($('div.attendances').data('characters-endpoint'));
                     },
                 }),
             },
@@ -133,7 +133,7 @@ Attendees.leaderIndex = {
     }
   },
 
-  fetchParticipations: (event) => {
+  fetchAttendances: (event) => {
 
     Attendees.leaderIndex.alterCheckBoxAndValidations(event);
 
@@ -149,21 +149,21 @@ Attendees.leaderIndex = {
     if (startDate && endDate && meets.length && characters.length) {
       const start = (new Date($optionForm.find('input.filter-start-date').val())).toISOString();
       const finish = (new Date($optionForm.find('input.filter-finish-date').val())).toISOString();
-      const url = $('div.participatingLeaders').data('participations-endpoint');
+      const url = $('div.attendances').data('attendances-endpoint');
       const searchParams = new URLSearchParams({start: start, finish: finish});
       meets.forEach(meet => { searchParams.append('meets', meet)});
       characters.forEach(character => { searchParams.append('characters', character)});
       finalUrl = `${url}?${searchParams.toString()}`
     }
 
-    $("div.participatingLeaders")
+    $("div.attendances")
       .dxDataGrid("instance")
       .option("dataSource", finalUrl);
   }, // Getting JSON from DRF upon user selecting meet(s)
 
-  fetchParticipationsOld: (event) => {
+  fetchAttendancesOld: (event) => {
     const $optionForm=$(event.delegateTarget);
-    const $resultElement=$('div.participations');
+    const $resultElement=$('div.oldAttendances');
     const chosenOptions={
       start: $optionForm.find('input.filter-start-date').val(),
       finish: $optionForm.find('input.filter-finish-date').val(),

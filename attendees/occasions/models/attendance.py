@@ -6,7 +6,7 @@ from model_utils.models import TimeStampedModel, SoftDeletableModel
 from attendees.persons.models import Utility, Note
 
 
-class Participation(TimeStampedModel, SoftDeletableModel, Utility):
+class Attendance(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     start = models.DateTimeField(null=True, blank=True, help_text='optional')
@@ -20,19 +20,19 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
     display_order = models.SmallIntegerField(default=0, blank=False, null=False)
 
     @cached_property
-    def participation_info(self):
+    def attendance_info(self):
         gathering = self.gathering
         return gathering.meet.display_name + gathering.start.strftime(" @ %b.%d'%y")
 
     def get_absolute_url(self):
-        return reverse('participation_detail', args=[str(self.id)])
+        return reverse('attendance_detail', args=[str(self.id)])
 
     # @property
     # def gathering_label(self):
     #     return f'{self.gathering.meet.display_name} {self.gathering.display_name}'
 
     @property
-    def attending_label(self):
+    def attendance_label(self):
         return f'{self.attending.attendee.display_label}-{self.attending.main_contact.display_label}'
 
     # @property
@@ -44,7 +44,7 @@ class Participation(TimeStampedModel, SoftDeletableModel, Utility):
     #     return self.character.display_name
 
     class Meta:
-        db_table = 'occasions_participations'
+        db_table = 'occasions_attendances'
 
     def __str__(self):
         return '%s %s %s %s' % (self.gathering, self.character, self.attending, self.team or '')

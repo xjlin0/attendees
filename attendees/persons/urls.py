@@ -8,7 +8,7 @@ from attendees.persons.views import (
 app_name = "persons"
 
 router = routers.DefaultRouter()
-router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/attendings', api_attending_viewset, basename='participation')
+router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/attendings', api_attending_viewset, basename='attending')
 
 urlpatterns = [
     path('', include(router.urls)),

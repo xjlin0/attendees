@@ -14,7 +14,7 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     registration = models.ForeignKey(Registration, null=True, on_delete=models.SET_NULL)
     attendee = models.ForeignKey(Attendee, null=False, blank=False, on_delete=models.SET(0))
-    gatherings = models.ManyToManyField('occasions.Gathering', through='occasions.Participation')
+    gatherings = models.ManyToManyField('occasions.Gathering', through='occasions.Attendance')
     age = models.PositiveSmallIntegerField(null=True, blank=True)
     grade = models.PositiveSmallIntegerField(null=True, blank=True)
     category = models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")

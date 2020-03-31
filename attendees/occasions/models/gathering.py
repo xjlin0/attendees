@@ -14,7 +14,7 @@ class Gathering(TimeStampedModel, SoftDeletableModel, Utility):
     meet = models.ForeignKey('Meet', on_delete=models.SET(0), null=False, blank=False)
     start = models.DateTimeField(null=False, blank=False)
     finish = models.DateTimeField(null=True, blank=True)
-    attendings = models.ManyToManyField('persons.Attending', through='Participation')
+    attendings = models.ManyToManyField('persons.Attending', through='Attendance')
     display_name = models.CharField(max_length=50, blank=True, null=True, help_text="02/09/2020, etc")
     link = models.URLField(max_length=254, blank=True, null=True)
     occurrence = models.ForeignKey(Occurrence, blank=True, null=True, on_delete=models.SET_NULL)
