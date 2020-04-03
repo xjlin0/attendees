@@ -1,24 +1,16 @@
-Attendees.leaderIndex = {
+Attendees.attendances = {
   init: () => {
 
     console.log("attendees/static/js/division/assembly/attendances.js");
-    Attendees.leaderIndex.setDefaults();
-    Attendees.leaderIndex.initTempusdominus();
+    Attendees.attendances.setDefaults();
+    Attendees.attendances.initTempusdominus();
     $('.basic-multiple').select2({
       theme: 'bootstrap4',
     });
 
-    $('form.attendances-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.search-filters, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.leaderIndex.fetchAttendances));
-    $('div.for-select-all').on('click', 'input.select-all', Attendees.leaderIndex.toggleSelectAll);
-    $("div.attendances").dxDataGrid(Attendees.leaderIndex.attendancesFormats);
-  },
-
-  toggleSelectAll: (event) => {
-     const $select2Input = $(event.delegateTarget).find('select.search-filters');
-     const $checkAllBox = $(event.currentTarget);
-     const allOptions = $select2Input.children('option').map((i,e) => e.value).get();
-     const options = $checkAllBox.is(':checked') ? allOptions : [];
-     $select2Input.val(options).trigger('change');
+    $('form.attendances-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.search-filters, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.attendances.fetchAttendances));
+    $('div.for-select-all').on('click', 'input.select-all', e => Attendees.utilities.toggleSelect2All(e, 'select.search-filters'));
+    $("div.attendances").dxDataGrid(Attendees.attendances.attendancesFormats);
   },
 
   attendancesFormats: {
@@ -135,7 +127,7 @@ Attendees.leaderIndex = {
 
   fetchAttendances: (event) => {
 
-    Attendees.leaderIndex.alterCheckBoxAndValidations(event);
+    Attendees.attendances.alterCheckBoxAndValidations(event);
 
     let finalUrl = null;
     const $optionForm = $(event.delegateTarget);
@@ -221,5 +213,5 @@ Attendees.leaderIndex = {
 }
 
 $(document).ready(() => {
-  Attendees.leaderIndex.init();
+  Attendees.attendances.init();
 });

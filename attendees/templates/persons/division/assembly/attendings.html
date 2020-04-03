@@ -7,11 +7,6 @@
 {% block extra_css %}
   <link rel="preload"
         as="style"
-        href="{% static 'tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css' %}"
-        onload="this.rel='stylesheet'">
-
-  <link rel="preload"
-        as="style"
         href="{% static 'select2/select2.min.css' %}"
         onload="this.rel='stylesheet'">
 
@@ -32,19 +27,6 @@
 {% endblock extra_css %}
 
 {% block extra_head %}
-  <script defer
-          type="text/javascript"
-          src="{% static 'moment.js/moment.min.js' %}"
-          integrity="sha384-sIzeKWIAHvT0Vm8QbfLCqZwBG0WMCkWVAOYd/330YSNeeQ1Y57N3T9lQz5Ry/EHH">
-  </script>
-
-  <script defer
-          type="text/javascript"
-          src="{% static 'tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js' %}"
-          integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4="
-          crossorigin="anonymous">
-  </script>
-
   <script defer
           type="text/javascript"
           src="{% static 'devextreme/dx.all.js' %}"

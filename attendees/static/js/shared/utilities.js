@@ -16,6 +16,14 @@ Attendees.utilities = {
     };
   },
 
+  toggleSelect2All: (event, inputSelector) => {
+     const $select2Input = $(event.delegateTarget).find(inputSelector);
+     const $checkAllBox = $(event.currentTarget);
+     const allOptions = $select2Input.children('option').map((i,e) => e.value).get();
+     const options = $checkAllBox.is(':checked') ? allOptions : [];
+     $select2Input.val(options).trigger('change');
+  },
+
   testArraysEqualAfterSort : (a, b) => {
     a = Array.isArray(a) ? a.sort() : [];
     b = Array.isArray(b) ? b.sort() : [];
