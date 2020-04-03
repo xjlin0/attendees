@@ -2,12 +2,111 @@ Attendees.attendings = {
   init: () => {
 
     console.log("attendees/static/js/division/assembly/attendings.js");
+    document.getElementById('filter-meets').value = [];
 
     $('.basic-multiple').select2({
       theme: 'bootstrap4',
     });
 
     $('div.for-select-all').on('click', 'input.select-all', e => Attendees.utilities.toggleSelect2All(e, 'select.search-filters'));
+
+    $("div.attendances").dxDataGrid(Attendees.attendings.attendingsFormats);
+
+  },
+
+    attendingsFormats: {
+    dataSource: null,
+    filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
+    searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
+    allowColumnReordering: true,
+    columnAutoWidth: true,
+    allowColumnResizing: true,
+    columnResizingMode: 'nextColumn',
+    rowAlternationEnabled: true,
+    hoverStateEnabled: true,
+    loadPanel: true,
+    grouping: {
+        contextMenuEnabled: true,
+    },
+    groupPanel: {
+        visible: true   // or "auto"
+    },
+    columns: [
+      {
+        dataField: "id",
+        allowGrouping: false,
+      },
+//      {
+//        dataField: "gathering",
+//        lookup: {
+//            valueExpr: "id",
+//            displayExpr: "gathering_label",
+//            dataSource: {
+//                store: new DevExpress.data.CustomStore({
+//                    key: "id",
+//                    load: () => {
+//                      return $.getJSON($('div.attendances').data('gatherings-endpoint'), {meets: $('select.filter-meets').val()});
+//                    },
+//                }),
+//            },
+//        }
+//      },
+//      {
+//        caption: 'Attending (Register)',
+//        dataField: "attending",
+//        lookup: {
+//            valueExpr: "id",
+//            displayExpr: "attending_label",
+//            dataSource: {
+//                store: new DevExpress.data.CustomStore({
+//                    key: "id",
+//                    load: () => {
+//                      return $.getJSON($('div.attendances').data('attendings-endpoint'), {meets: $('select.filter-meets').val()});
+//                    },
+//                }),
+//            },
+//        }
+//      },
+//      {
+//        dataField: "team",
+//        lookup: {
+//            valueExpr: "id",
+//            displayExpr: "display_name",
+//            dataSource: {
+//                store: new DevExpress.data.CustomStore({
+//                    key: "id",
+//                    load: () => {
+//                      return $.getJSON($('div.attendances').data('teams-endpoint'), {meets: $('select.filter-meets').val()});
+//                    },
+//                }),
+//            },
+//        }
+//      },
+//      {
+//        dataField: "character",
+//        lookup: {
+//            valueExpr: "id",
+//            displayExpr: "display_name",
+//            dataSource: {
+//                store: new DevExpress.data.CustomStore({
+//                    key: "id",
+//                    load: () => {
+//                      return $.getJSON($('div.attendances').data('characters-endpoint'));
+//                    },
+//                }),
+//            },
+//        }
+//      },
+      {
+        dataField: "category",
+        dataType: "string"
+      },
+      {
+        dataField: "modified",
+        allowGrouping: false,
+        dataType: "datetime"
+      },
+    ],
   },
 }
 

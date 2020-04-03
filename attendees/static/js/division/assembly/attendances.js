@@ -108,26 +108,9 @@ Attendees.attendances = {
     ],
   },
 
-  alterCheckBoxAndValidations: (event) => {
-    const $currentTarget = $(event.currentTarget);
-
-    if ($currentTarget.is('select')) {
-      const $checkAllBox = $currentTarget.siblings('div.input-group-append').find('input.select-all');
-      const allOptions = $currentTarget.children('option').map((i,e) => e.value).get();
-      const chosenOptions = $currentTarget.val() || [];
-
-        if (chosenOptions.length) {
-          $currentTarget.removeClass('is-invalid');
-        } else {
-          $currentTarget.addClass('is-invalid');
-        }
-      $checkAllBox.prop('checked', Attendees.utilities.testArraysEqualAfterSort(chosenOptions, allOptions));
-    }
-  },
-
   fetchAttendances: (event) => {
 
-    Attendees.attendances.alterCheckBoxAndValidations(event);
+    Attendees.utilities.alterCheckBoxAndValidations(event, 'input.select-all');
 
     let finalUrl = null;
     const $optionForm = $(event.delegateTarget);

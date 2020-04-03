@@ -29,6 +29,23 @@ Attendees.utilities = {
     b = Array.isArray(b) ? b.sort() : [];
     return a.length === b.length && a.every((el, ix) => el === b[ix]);
   }, // https://stackoverflow.com/a/39967517/4257237
+
+  alterCheckBoxAndValidations: (event, inputSelector) => {
+    const $currentTarget = $(event.currentTarget);
+
+    if ($currentTarget.is('select')) {
+      const $checkAllBox = $currentTarget.siblings('div.input-group-append').find(inputSelector);
+      const allOptions = $currentTarget.children('option').map((i,e) => e.value).get();
+      const chosenOptions = $currentTarget.val() || [];
+
+        if (chosenOptions.length) {
+          $currentTarget.removeClass('is-invalid');
+        } else {
+          $currentTarget.addClass('is-invalid');
+        }
+      $checkAllBox.prop('checked', Attendees.utilities.testArraysEqualAfterSort(chosenOptions, allOptions));
+    }
+  },
 }
 
 $(document).ready(() => {
