@@ -25,6 +25,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     actual_birthday = models.DateTimeField(blank=True, null=True)
     estimated_birthday = models.DateTimeField(blank=True, null=True)
     concerns = JSONField(null=True, blank=True, default=dict, help_text='Example: {"food allergy": "peanuts"}. Please keep {} here even no data')
+    # Todo: change concerns to infos for shorter field name
 
     @property
     def display_label(self):

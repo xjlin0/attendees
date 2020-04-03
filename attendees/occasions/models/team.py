@@ -12,6 +12,7 @@ class Team(TimeStampedModel, SoftDeletableModel, Utility):
     slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
     display_name = models.CharField(max_length=50, blank=True, null=True)
     display_order = models.SmallIntegerField(default=0, blank=False, null=False)
+    # Todo: add location relation since small group can be held at different places.
 
     class Meta:
         db_table = 'occasions_teams'

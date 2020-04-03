@@ -7,6 +7,7 @@ class AttendingMeet(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     attending = models.ForeignKey('Attending', on_delete=models.SET(0), null=False, blank=False)
     meet = models.ForeignKey('occasions.Meet', on_delete=models.SET(0), null=False, blank=False)
+    # Todo: add category to identify which attending is the attendee's major participation.
 
     class Meta:
         db_table = 'persons_attending_meets'

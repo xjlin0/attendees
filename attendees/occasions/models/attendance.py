@@ -18,6 +18,7 @@ class Attendance(TimeStampedModel, SoftDeletableModel, Utility):
     free = models.SmallIntegerField(default=0, blank=True, null=True, help_text="multitasking: the person cannot join other gatherings if negative")
     category = models.CharField(max_length=20, null=False, blank=False, db_index=True, default="scheduled", help_text="RSVPed, leave, remote, etc")
     display_order = models.SmallIntegerField(default=0, blank=False, null=False)
+    # Todo: add infos json for extra data, such as kid points
 
     @cached_property
     def attendance_info(self):
