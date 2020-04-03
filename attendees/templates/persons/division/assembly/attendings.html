@@ -54,10 +54,10 @@
     Participation of people by groups
   </h3>
 
-  <form class="d-flex flex-wrap attendances-filter"
+  <form class="d-flex flex-wrap attendings-filter"
         data-url="{{request.get_full_path}}">
 
-    <div class="form-group d-flex flex-column col-5">
+    <div class="form-group d-flex flex-column col-6">
       <label class="control-label"
              for="filter-meets">
         Select activities(meets):
@@ -85,7 +85,7 @@
       </div>
     </div>
 
-    <div class="form-group d-flex flex-column col-7">
+    <div class="form-group d-flex flex-column col-6">
       <label class="control-label"
              for="filter-characters">
         Select characters:
@@ -98,8 +98,7 @@
                 name="meets"
                 multiple="multiple">
           {% for character in available_characters %}
-            <option value="{{character.slug}}"
-                    selected="selected">
+            <option value="{{character.slug}}">
               {{character.display_name}}
             </option>
           {% endfor %}
@@ -118,7 +117,7 @@
 
   </form>
 
-  <div class="attendances"
+  <div class="attendings"
       data-teams-endpoint="{{teams_endpoint}}"
       data-gatherings-endpoint="{{gatherings_endpoint}}"
       data-characters-endpoint="{{characters_endpoint}}"

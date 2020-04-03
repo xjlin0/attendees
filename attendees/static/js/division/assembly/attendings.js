@@ -2,7 +2,8 @@ Attendees.attendings = {
   init: () => {
 
     console.log("attendees/static/js/division/assembly/attendings.js");
-    document.getElementById('filter-meets').value = [];
+
+    Attendees.attendings.setDefaults();
 
     $('.basic-multiple').select2({
       theme: 'bootstrap4',
@@ -10,11 +11,36 @@ Attendees.attendings = {
 
     $('div.for-select-all').on('click', 'input.select-all', e => Attendees.utilities.toggleSelect2All(e, 'select.search-filters'));
 
-    $("div.attendances").dxDataGrid(Attendees.attendings.attendingsFormats);
+    $("div.attendings").dxDataGrid(Attendees.attendings.attendingsFormats);
+
+    $('form.attendings-filter').on('change', 'select.search-filters', Attendees.utilities.debounce(250, Attendees.attendings.fetchAttendings));
+  },
+
+  fetchAttendings: (event) => {
+    Attendees.utilities.alterCheckBoxAndValidations(event, 'input.select-all');
+
+    let finalUrl = null;
+    const $optionForm = $(event.delegateTarget);
+    const $meetsSelectBox = $optionForm.find('select.filter-meets');
+    const $charactersSelectBox = $optionForm.find('select.filter-characters');
+    const meets = $meetsSelectBox.val() || [];
+    const characters = $charactersSelectBox.val() || [];
+
+    if (meets.length && characters.length) {
+      const url = $('div.attendings').data('attendings-endpoint');
+      const searchParams = new URLSearchParams();
+      meets.forEach(meet => { searchParams.append('meets', meet)});
+      characters.forEach(character => { searchParams.append('characters', character)});
+      finalUrl = `${url}?${searchParams.toString()}`
+    }
+
+    $("div.attendings")
+      .dxDataGrid("instance")
+      .option("dataSource", finalUrl);
 
   },
 
-    attendingsFormats: {
+  attendingsFormats: {
     dataSource: null,
     filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
     searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
@@ -107,6 +133,14 @@ Attendees.attendings = {
         dataType: "datetime"
       },
     ],
+  },
+
+  setDefaults: () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const characters = urlParams.getAll('characters');
+    document.getElementById('filter-characters').value = characters;
+
+    document.getElementById('filter-meets').value = [];
   },
 }
 

@@ -42,7 +42,8 @@ class PageAttendingListView(ListView):
                 pass
 
             else:
-                # context.update({'filtered_attendances': []})
+                # chosen_character_slugs = self.request.GET.getlist('characters', [])
+                # context.update({'chosen_character_slugs': chosen_character_slugs})
                 context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/teams/"})
                 context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/gatherings/"})
                 context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/characters/"})
