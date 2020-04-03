@@ -10,7 +10,7 @@ app_name = "persons"
 
 router = routers.DefaultRouter()
 router.register(
-    'api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/attendings/',
+    'api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/attendings',
     api_attending_viewset,
     basename='attending',
 )
