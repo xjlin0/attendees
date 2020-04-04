@@ -23,6 +23,8 @@ class Migration(migrations.Migration):
                 ('is_removed', models.BooleanField(default=False)),
                 ('attending', models.ForeignKey(on_delete=models.SET(0), to='persons.Attending')),
                 ('meet', models.ForeignKey(on_delete=models.SET(0), to='occasions.Meet')),
+                ('character', models.ForeignKey(on_delete=models.SET(0), to='occasions.Character')),
+                ('category', models.CharField(max_length=20, default='primary', blank=False, null=False, help_text='primary, secondary, etc (primary will be displayed first)')),
             ],
             options={
                 'db_table': 'persons_attending_meets',

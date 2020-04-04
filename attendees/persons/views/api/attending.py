@@ -25,4 +25,5 @@ class ApiAttendingViewSet(viewsets.ModelViewSet):
             time.sleep(2)
             raise AuthenticationFailed(detail='Have you registered any events of the organization?')
 
+
 api_attending_viewset = ApiAttendingViewSet

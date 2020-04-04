@@ -811,7 +811,20 @@
       "is_removed": false,
       "from_attendee": 2,
       "to_attendee": 3,
-      "relation": "mother - son",
+      "relation": "parent",
+      "category": "relatives"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 2,
+    "fields": {
+      "created": "2020-04-04T15:56:00.898Z",
+      "modified": "2020-04-04T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 3,
+      "to_attendee": 2,
+      "relation": "parent",
       "category": "relatives"
     }
   },
@@ -985,6 +998,8 @@
       "modified": "2020-02-08T23:34:25.520Z",
       "is_removed": false,
       "attending": 1,
+      "character": 1,
+      "category": "primary",
       "meet": 1
     }
   },
@@ -996,6 +1011,8 @@
       "modified": "2020-02-16T06:19:58.543Z",
       "is_removed": false,
       "attending": 2,
+      "character": 2,
+      "category": "primary",
       "meet": 1
     }
   },
@@ -1007,6 +1024,8 @@
       "modified": "2020-02-16T06:20:48.479Z",
       "is_removed": false,
       "attending": 3,
+      "character": 3,
+      "category": "primary",
       "meet": 1
     }
   },
@@ -1018,6 +1037,8 @@
       "modified": "2020-02-17T14:59:10.928Z",
       "is_removed": false,
       "attending": 4,
+      "character": 6,
+      "category": "primary",
       "meet": 3
     }
   },
@@ -1029,6 +1050,8 @@
       "modified": "2020-02-18T02:04:51.107Z",
       "is_removed": false,
       "attending": 5,
+      "character": 3,
+      "category": "primary",
       "meet": 2
     }
   },
@@ -1040,7 +1063,22 @@
       "modified": "2020-02-18T02:35:42.720Z",
       "is_removed": false,
       "attending": 6,
+      "character": 7,
+      "category": "primary",
       "meet": 4
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 7,
+    "fields": {
+      "created": "2020-03-16T06:20:48.479Z",
+      "modified": "2020-03-16T06:20:48.479Z",
+      "is_removed": false,
+      "attending": 3,
+      "character": 2,
+      "category": "secondary",
+      "meet": 2
     }
   },
   {
@@ -1191,7 +1229,7 @@
       "modified": "2020-02-08T23:28:11.799Z",
       "is_removed": false,
       "assembly": 1,
-      "display_name": "Student",
+      "display_name": "Children Ministry Student",
       "display_order": 0,
       "slug": "cfcc-kid-student",
       "info": null,
@@ -1206,7 +1244,7 @@
       "modified": "2020-02-08T23:28:17.970Z",
       "is_removed": false,
       "assembly": 1,
-      "display_name": "Teacher",
+      "display_name": "Children Ministry Teacher",
       "display_order": 0,
       "slug": "cfcc-kid-teacher",
       "info": null,
@@ -1221,9 +1259,9 @@
       "modified": "2020-02-08T23:28:23.778Z",
       "is_removed": false,
       "assembly": 1,
-      "display_name": "Leader",
+      "display_name": "Children Ministry Class Leader",
       "display_order": 0,
-      "slug": "cfcc-kid-leader",
+      "slug": "cfcc-kid-class-leader",
       "info": null,
       "type": "normal"
     }
@@ -1236,7 +1274,7 @@
       "modified": "2020-02-08T23:28:28.821Z",
       "is_removed": false,
       "assembly": 1,
-      "display_name": "Helper",
+      "display_name": "Children Ministry Helper",
       "display_order": 0,
       "slug": "cfcc-kid-helper",
       "info": null,
@@ -1251,9 +1289,39 @@
       "modified": "2020-02-08T23:30:37.366Z",
       "is_removed": false,
       "assembly": 1,
-      "display_name": "Food Preparer",
+      "display_name": "Children Ministry Food Preparer",
       "display_order": 0,
       "slug": "cfcc-kid-food-preparer",
+      "info": null,
+      "type": "normal"
+    }
+  },
+  {
+    "model": "occasions.character",
+    "pk": 6,
+    "fields": {
+      "created": "2020-03-08T23:30:37.366Z",
+      "modified": "2020-03-08T23:30:37.366Z",
+      "is_removed": false,
+      "assembly": 2,
+      "display_name": "Chinese A/V controller",
+      "display_order": 0,
+      "slug": "chinese-av-controller",
+      "info": null,
+      "type": "normal"
+    }
+  },
+  {
+    "model": "occasions.character",
+    "pk": 7,
+    "fields": {
+      "created": "2020-04-08T23:30:37.366Z",
+      "modified": "2020-04-08T23:30:37.366Z",
+      "is_removed": false,
+      "assembly": 4,
+      "display_name": "sky choir member",
+      "display_order": 0,
+      "slug": "sky-choir-member",
       "info": null,
       "type": "normal"
     }
