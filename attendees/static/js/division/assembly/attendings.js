@@ -97,21 +97,10 @@ Attendees.attendings = {
         dataField: "meet",
         dataType: "string"
       },
-//      {
-//        dataField: "character",
-//        lookup: {
-//            valueExpr: "id",
-//            displayExpr: "display_name",
-//            dataSource: {
-//                store: new DevExpress.data.CustomStore({
-//                    key: "id",
-//                    load: () => {
-//                      return $.getJSON($('div.attendances').data('characters-endpoint'));
-//                    },
-//                }),
-//            },
-//        }
-//      },
+      {
+        dataField: "character",
+        dataType: "string"
+      },
       {
         dataField: "category",
         dataType: "string"

@@ -20,11 +20,14 @@ class ApiAttendingViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
             meets = self.request.query_params.getlist('meets', [])
+            characters = self.request.query_params.getlist('characters', [])
             return Attending.objects.filter(
                 meets__slug__in=meets,
+                attendingmeet__character__slug__in=characters,
                 meets__assembly__slug=self.kwargs['assembly_slug'],
             ).annotate(
                 meet=F('attendingmeet__meet__display_name'),
+                character=F('attendingmeet__character__display_name'),
             ).order_by(
                 'attendee',
             )
