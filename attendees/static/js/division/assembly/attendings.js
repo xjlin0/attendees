@@ -93,21 +93,10 @@ Attendees.attendings = {
 //            },
 //        }
 //      },
-//      {
-//        dataField: "team",
-//        lookup: {
-//            valueExpr: "id",
-//            displayExpr: "display_name",
-//            dataSource: {
-//                store: new DevExpress.data.CustomStore({
-//                    key: "id",
-//                    load: () => {
-//                      return $.getJSON($('div.attendances').data('teams-endpoint'), {meets: $('select.filter-meets').val()});
-//                    },
-//                }),
-//            },
-//        }
-//      },
+      {
+        dataField: "meet",
+        dataType: "string"
+      },
 //      {
 //        dataField: "character",
 //        lookup: {

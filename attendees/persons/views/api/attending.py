@@ -1,5 +1,6 @@
 import time
 
+from django.db.models.expressions import F
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from rest_framework import viewsets
@@ -19,7 +20,14 @@ class ApiAttendingViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
             meets = self.request.query_params.getlist('meets', [])
-            return Attending.objects.filter(meets__slug__in=meets, meets__assembly__slug=self.kwargs['assembly_slug']).order_by('attendee')
+            return Attending.objects.filter(
+                meets__slug__in=meets,
+                meets__assembly__slug=self.kwargs['assembly_slug'],
+            ).annotate(
+                meet=F('attendingmeet__meet__display_name'),
+            ).order_by(
+                'attendee',
+            )
 
         else:
             time.sleep(2)
