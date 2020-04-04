@@ -62,21 +62,21 @@ Attendees.attendings = {
         dataField: "id",
         allowGrouping: false,
       },
-//      {
-//        dataField: "gathering",
-//        lookup: {
-//            valueExpr: "id",
-//            displayExpr: "gathering_label",
-//            dataSource: {
-//                store: new DevExpress.data.CustomStore({
-//                    key: "id",
-//                    load: () => {
-//                      return $.getJSON($('div.attendances').data('gatherings-endpoint'), {meets: $('select.filter-meets').val()});
-//                    },
-//                }),
-//            },
-//        }
-//      },
+      {
+        dataField: "attendee",
+        lookup: {
+            valueExpr: "id",
+            displayExpr: "display_label",
+            dataSource: {
+                store: new DevExpress.data.CustomStore({
+                    key: "id",
+                    load: () => {
+                      return $.getJSON($('div.attendings').data('attendees-endpoint'), {meets: $('select.filter-meets').val()});
+                    },
+                }),
+            },
+        }
+      },
 //      {
 //        caption: 'Attending (Register)',
 //        dataField: "attending",

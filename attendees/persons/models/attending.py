@@ -13,7 +13,7 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     registration = models.ForeignKey(Registration, null=True, on_delete=models.SET_NULL)
-    attendee = models.ForeignKey(Attendee, null=False, blank=False, on_delete=models.SET(0))
+    attendee = models.ForeignKey(Attendee, null=False, blank=False, on_delete=models.SET(0), related_name="attendings")
     gatherings = models.ManyToManyField('occasions.Gathering', through='occasions.Attendance')
     age = models.PositiveSmallIntegerField(null=True, blank=True)
     grade = models.PositiveSmallIntegerField(null=True, blank=True)

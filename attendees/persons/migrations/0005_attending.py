@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('belief', models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")),
                 ('bed_needs', models.PositiveSmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")),
                 ('mobility', models.SmallIntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")),
-                ('attendee', models.ForeignKey(null=False, blank=False, on_delete=models.SET(0), to='persons.Attendee')),
+                ('attendee', models.ForeignKey(null=False, blank=False, on_delete=models.SET(0), to='persons.Attendee', related_name="attendings")),
                 ('registration', models.ForeignKey(null=True, on_delete=models.deletion.SET_NULL, to='persons.Registration')),
             ],
             options={
