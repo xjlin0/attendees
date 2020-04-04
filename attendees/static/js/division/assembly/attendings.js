@@ -63,19 +63,9 @@ Attendees.attendings = {
         allowGrouping: false,
       },
       {
+        caption: 'Attendee',
         dataField: "attendee",
-        lookup: {
-            valueExpr: "id",
-            displayExpr: "display_label",
-            dataSource: {
-                store: new DevExpress.data.CustomStore({
-                    key: "id",
-                    load: () => {
-                      return $.getJSON($('div.attendings').data('attendees-endpoint'), {meets: $('select.filter-meets').val()});
-                    },
-                }),
-            },
-        }
+        calculateCellValue: rowData => rowData.attendee.display_label,
       },
 //      {
 //        caption: 'Attending (Register)',
@@ -99,6 +89,7 @@ Attendees.attendings = {
       },
       {
         dataField: "character",
+        caption: 'role',
         dataType: "string"
       },
       {
@@ -108,9 +99,7 @@ Attendees.attendings = {
       {
         caption: 'grade',
         dataField: "infos",
-        calculateCellValue: function(rowData) {
-                return rowData.infos.grade;
-        }
+        calculateCellValue: rowData => rowData.infos.grade,
       },
       {
         dataField: "modified",
