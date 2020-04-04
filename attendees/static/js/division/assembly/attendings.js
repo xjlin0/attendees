@@ -102,8 +102,15 @@ Attendees.attendings = {
         dataType: "string"
       },
       {
-        dataField: "category",
-        dataType: "string"
+        dataField: "age",
+        dataType: "number"
+      },
+      {
+        caption: 'grade',
+        dataField: "infos",
+        calculateCellValue: function(rowData) {
+                return rowData.infos.grade;
+        }
       },
       {
         dataField: "modified",

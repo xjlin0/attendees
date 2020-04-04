@@ -2,6 +2,7 @@
 
 import attendees.persons.models.utility
 from django.db import migrations, models
+from django.contrib.postgres.fields.jsonb import JSONField
 import django.utils.timezone
 import model_utils.fields
 
@@ -20,14 +21,14 @@ class Migration(migrations.Migration):
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
-                ('age', models.PositiveSmallIntegerField(blank=True, null=True)),
-                ('grade', models.PositiveSmallIntegerField(blank=True, null=True)),
+                ('age', models.SmallIntegerField(blank=True, null=True)),
                 ('category', models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")),
                 ('belief', models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")),
-                ('bed_needs', models.PositiveSmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")),
+                ('bed_needs', models.SmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")),
                 ('mobility', models.SmallIntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")),
                 ('attendee', models.ForeignKey(null=False, blank=False, on_delete=models.SET(0), to='persons.Attendee', related_name="attendings")),
                 ('registration', models.ForeignKey(null=True, on_delete=models.deletion.SET_NULL, to='persons.Registration')),
+                ('infos', JSONField(blank=True, default=dict, help_text='Example: {"grade": 5}. Please keep {} here even no data', null=True)),
             ],
             options={
                 'db_table': 'persons_attendings',

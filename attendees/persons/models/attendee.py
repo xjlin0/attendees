@@ -24,8 +24,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     gender = models.CharField(max_length=11, blank=False, null=False, default=GenderEnum.UNSPECIFIED, choices=GenderEnum.choices())
     actual_birthday = models.DateTimeField(blank=True, null=True)
     estimated_birthday = models.DateTimeField(blank=True, null=True)
-    concerns = JSONField(null=True, blank=True, default=dict, help_text='Example: {"food allergy": "peanuts"}. Please keep {} here even no data')
-    # Todo: change concerns to infos for shorter field name
+    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"food allergy": "peanuts"}. Please keep {} here even no data')
 
     @property
     def display_label(self):

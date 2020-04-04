@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('gender', models.CharField(choices=GenderEnum.choices(), default=GenderEnum.UNSPECIFIED, max_length=11)),
                 ('actual_birthday', models.DateTimeField(blank=True, null=True)),
                 ('estimated_birthday', models.DateTimeField(blank=True, null=True)),
-                ('concerns', JSONField(blank=True, default=dict, help_text='Example: {"food allergy": "peanuts"}. Please keep {} here even no data', null=True)),
+                ('infos', JSONField(blank=True, default=dict, help_text='Example: {"food allergy": "peanuts"}. Please keep {} here even no data', null=True)),
             ],
             options={
                 'db_table': 'persons_attendees',

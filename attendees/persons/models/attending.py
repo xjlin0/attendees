@@ -2,6 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.urls import reverse
 from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.postgres.fields.jsonb import JSONField
 from django.utils.functional import cached_property
 
 from model_utils.models import TimeStampedModel, SoftDeletableModel
@@ -15,14 +16,13 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     registration = models.ForeignKey(Registration, null=True, on_delete=models.SET_NULL)
     attendee = models.ForeignKey(Attendee, null=False, blank=False, on_delete=models.SET(0), related_name="attendings")
     gatherings = models.ManyToManyField('occasions.Gathering', through='occasions.Attendance')
-    age = models.PositiveSmallIntegerField(null=True, blank=True)
-    grade = models.PositiveSmallIntegerField(null=True, blank=True)
+    age = models.SmallIntegerField(null=True, blank=True)
     category = models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")
     meets = models.ManyToManyField('occasions.Meet', through='AttendingMeet', related_name="meets")
     belief = models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")
-    bed_needs = models.PositiveSmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")
+    bed_needs = models.SmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")
     mobility = models.SmallIntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")
-    # Todo: add infos json for extra data
+    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"grade": 5}. Please keep {} here even no data')
 
     def clean(self):
         if self.bed_needs < 1 and self.age is None:
