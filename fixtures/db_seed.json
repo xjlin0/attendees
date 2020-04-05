@@ -578,9 +578,9 @@
       "created": "2020-02-04T15:48:40.752Z",
       "modified": "2020-02-04T15:52:29.771Z",
       "is_removed": false,
-      "display_name": "patty's place",
-      "email1": null,
-      "email2": null,
+      "display_name": "Hagar's place",
+      "email1": "Hagar1@email.com",
+      "email2": "Hagar2@email.com",
       "phone1": null,
       "phone2": null,
       "address_type": "street",
@@ -601,8 +601,8 @@
       "modified": "2020-02-04T15:52:25.655Z",
       "is_removed": false,
       "display_name": null,
-      "email1": null,
-      "email2": null,
+      "email1": "good1@email.com",
+      "email2": "good2@email.com",
       "phone1": null,
       "phone2": null,
       "address_type": "street",
@@ -1128,7 +1128,7 @@
       "modified": "2020-02-04T15:52:11.169Z",
       "is_removed": false,
       "attendee": 1,
-      "address": 4,
+      "address": 5,
       "category": "main"
     }
   },
@@ -1159,6 +1159,18 @@
   {
     "model": "persons.attendeeaddress",
     "pk": 4,
+    "fields": {
+      "created": "2020-02-04T15:55:24.665Z",
+      "modified": "2020-02-04T15:55:24.665Z",
+      "is_removed": false,
+      "attendee": 3,
+      "address": 4,
+      "category": "resident"
+    }
+  },
+  {
+    "model": "persons.attendeeaddress",
+    "pk": 5,
     "fields": {
       "created": "2020-02-17T03:03:31.789Z",
       "modified": "2020-02-17T03:03:31.789Z",
