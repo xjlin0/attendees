@@ -38,7 +38,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
 
     @cached_property
     def parents_notifiers_names(self):
-        relation_keywords = ['parent', 'guardian', 'mother', 'father', 'caregiver']
+        relation_keywords = ['parent', 'mother', 'guardian', 'father', 'caregiver']
         category_keywords = ['notifier', 'caregiver']
         return ', '.join(list(
                             self.relations.filter(
@@ -54,6 +54,9 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
                                     models.Value(' '),
                                     'last_name2',
                                 ),
+                            ).order_by(
+                                '-to_attendee__relation',
+                                '-to_attendee__category',
                             ).values_list(
                                 'full_name',
                                 flat=True

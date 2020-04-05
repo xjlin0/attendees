@@ -535,10 +535,10 @@
       "modified": "2020-02-04T15:46:53.674Z",
       "is_removed": false,
       "display_name": "cfcc_hayward_main",
-      "email1": null,
-      "email2": null,
+      "email1": "haywardchurch@yahoo.com",
+      "email2": "church.office@cfcchayward.org",
       "phone1": "510-581-1630",
-      "phone2": null,
+      "phone2": "111-111-1111",
       "address_type": "street",
       "street1": "22416 Meekland Ave.",
       "street2": null,
@@ -559,8 +559,8 @@
       "display_name": "Burbank Elementary School",
       "email1": null,
       "email2": null,
-      "phone1": null,
-      "phone2": null,
+      "phone1": "222-222-2222",
+      "phone2": "+1-222-222-2222",
       "address_type": "street",
       "street1": "222 Burbank St.",
       "street2": null,
@@ -579,10 +579,10 @@
       "modified": "2020-02-04T15:52:29.771Z",
       "is_removed": false,
       "display_name": "Hagar's place",
-      "email1": "Hagar1@email.com",
-      "email2": "Hagar2@email.com",
-      "phone1": null,
-      "phone2": null,
+      "email1": "3prettya@email.com",
+      "email2": "3prettyb@email.com",
+      "phone1": "333-333-3333",
+      "phone2": "+1-333-333-3333",
       "address_type": "street",
       "street1": "1 pretty st.",
       "street2": null,
@@ -601,10 +601,10 @@
       "modified": "2020-02-04T15:52:25.655Z",
       "is_removed": false,
       "display_name": null,
-      "email1": "good1@email.com",
-      "email2": "good2@email.com",
-      "phone1": null,
-      "phone2": null,
+      "email1": "4gooda@email.com",
+      "email2": "4goodb@email.com",
+      "phone1": "444-444-4444",
+      "phone2": "+1-444-444-4444",
       "address_type": "street",
       "street1": "2 good street",
       "street2": null,
@@ -623,10 +623,10 @@
       "modified": "2020-02-05T05:12:49.613Z",
       "is_removed": false,
       "display_name": null,
-      "email1": null,
-      "email2": null,
-      "phone1": null,
-      "phone2": null,
+      "email1": "5greata@email.com",
+      "email2": "5greatb@email.com",
+      "phone1": "555-555-5555",
+      "phone2": "+1-555-555-5555",
       "address_type": "street",
       "street1": "3 great rd",
       "street2": null,
@@ -645,10 +645,10 @@
       "modified": "2020-02-05T05:13:21.625Z",
       "is_removed": false,
       "display_name": null,
-      "email1": null,
-      "email2": null,
-      "phone1": null,
-      "phone2": null,
+      "email1": "6coola@email.com",
+      "email2": "6coolb@email.com",
+      "phone1": "666-666-6666",
+      "phone2": "+1-666-666-6666",
       "address_type": "street",
       "street1": "4 cool lane",
       "street2": null,
@@ -667,10 +667,10 @@
       "modified": "2020-02-05T05:13:59.622Z",
       "is_removed": false,
       "display_name": null,
-      "email1": null,
-      "email2": null,
-      "phone1": null,
-      "phone2": null,
+      "email1": "7excellenta@email.com",
+      "email2": "7excellentb@email.com",
+      "phone1": "777-777-7777",
+      "phone2": "+1-777-777-7777",
       "address_type": "street",
       "street1": "5 excellent ct",
       "street2": null,
@@ -689,10 +689,10 @@
       "modified": "2020-02-05T05:15:14.968Z",
       "is_removed": false,
       "display_name": null,
-      "email1": null,
-      "email2": null,
-      "phone1": null,
-      "phone2": null,
+      "email1": "8beautifula@email.com",
+      "email2": "8beautifula@email.com",
+      "phone1": "888-888-8888",
+      "phone2": "+1-888-888-8888",
       "address_type": "street",
       "street1": "6 beautiful dr",
       "street2": null,
@@ -711,10 +711,10 @@
       "modified": "2020-02-18T02:29:25.368Z",
       "is_removed": false,
       "display_name": "\u65b0\u5929\u65b0\u5730",
-      "email1": null,
-      "email2": null,
-      "phone1": null,
-      "phone2": null,
+      "email1": "9thronea@email.com",
+      "email2": "9throneb@email.com",
+      "phone1": "999-999-9999",
+      "phone2": "+1-999-999-9999",
       "address_type": "street",
       "street1": "7 throne way",
       "street2": null,
@@ -864,6 +864,110 @@
       "from_attendee": 12,
       "to_attendee": 3,
       "relation": "half brother",
+      "category": "relative"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 6,
+    "fields": {
+      "created": "2020-03-04T15:56:00.898Z",
+      "modified": "2020-04-06T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 13,
+      "to_attendee": 2,
+      "relation": "concubine",
+      "category": "relative"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 7,
+    "fields": {
+      "created": "2020-03-04T15:56:00.898Z",
+      "modified": "2020-04-06T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 3,
+      "to_attendee": 13,
+      "relation": "father",
+      "category": "relative"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 8,
+    "fields": {
+      "created": "2020-03-04T15:56:00.898Z",
+      "modified": "2020-04-06T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 2,
+      "to_attendee": 13,
+      "relation": "husband",
+      "category": "relative"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 9,
+    "fields": {
+      "created": "2020-03-04T15:56:00.898Z",
+      "modified": "2020-04-06T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 14,
+      "to_attendee": 13,
+      "relation": "husband",
+      "category": "relative"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 10,
+    "fields": {
+      "created": "2020-03-04T15:56:00.898Z",
+      "modified": "2020-04-06T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 14,
+      "to_attendee": 12,
+      "relation": "son",
+      "category": "relative"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 11,
+    "fields": {
+      "created": "2020-03-04T15:56:00.898Z",
+      "modified": "2020-04-06T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 12,
+      "to_attendee": 14,
+      "relation": "mother",
+      "category": "relative"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 12,
+    "fields": {
+      "created": "2020-03-04T15:56:00.898Z",
+      "modified": "2020-04-06T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 14,
+      "to_attendee": 2,
+      "relation": "servant",
+      "category": "other"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 13,
+    "fields": {
+      "created": "2020-03-04T15:56:00.898Z",
+      "modified": "2020-04-06T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 12,
+      "to_attendee": 13,
+      "relation": "father",
       "category": "relative"
     }
   },
@@ -1176,7 +1280,43 @@
       "modified": "2020-02-17T03:03:31.789Z",
       "is_removed": false,
       "attendee": 11,
-      "address": 5,
+      "address": 2,
+      "category": "main"
+    }
+  },
+  {
+    "model": "persons.attendeeaddress",
+    "pk": 6,
+    "fields": {
+      "created": "2020-03-17T03:03:31.789Z",
+      "modified": "2020-03-17T03:03:31.789Z",
+      "is_removed": false,
+      "attendee": 13,
+      "address": 6,
+      "category": "main"
+    }
+  },
+  {
+    "model": "persons.attendeeaddress",
+    "pk": 7,
+    "fields": {
+      "created": "2020-03-17T03:03:31.789Z",
+      "modified": "2020-03-17T03:03:31.789Z",
+      "is_removed": false,
+      "attendee": 14,
+      "address": 6,
+      "category": "main"
+    }
+  },
+  {
+    "model": "persons.attendeeaddress",
+    "pk": 8,
+    "fields": {
+      "created": "2020-03-17T03:03:31.789Z",
+      "modified": "2020-03-17T03:03:31.789Z",
+      "is_removed": false,
+      "attendee": 12,
+      "address": 6,
       "category": "main"
     }
   },
@@ -3842,6 +3982,46 @@
       "other_name": null,
       "public_name": null,
       "gender": "MALE",
+      "actual_birthday": null,
+      "estimated_birthday": null,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": 13,
+    "fields": {
+      "created": "2020-04-10T03:35:25.372Z",
+      "modified": "2020-04-17T17:34:46.980Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "Abraham",
+      "last_name": "亞伯拉罕",
+      "first_name2": null,
+      "last_name2": null,
+      "other_name": null,
+      "public_name": null,
+      "gender": "MALE",
+      "actual_birthday": null,
+      "estimated_birthday": null,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": 14,
+    "fields": {
+      "created": "2020-04-5T03:35:25.372Z",
+      "modified": "2020-04-17T17:34:46.980Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "Sarah",
+      "last_name": "撒拉",
+      "first_name2": null,
+      "last_name2": null,
+      "other_name": null,
+      "public_name": null,
+      "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
       "infos": {}
