@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('relation', models.CharField(max_length=32, null=False, blank=False, default="relation", db_index=True, help_text="example: father - son, husband - wife, etc")),
-                ('category', models.CharField(max_length=32, null=False, blank=False, default="relatives", db_index=True, help_text="relatives, SMS_kid_class, emergency_contact, etc")),
+                ('category', models.CharField(max_length=32, null=False, blank=False, default="relatives", db_index=True, help_text="relative/friend, notifier/caregiver, SMS_kid_class, emergency_contact, etc")),
                 ('from_attendee', models.ForeignKey(on_delete=models.SET(0), related_name='from_attendee', to='persons.Attendee')),
                 ('to_attendee', models.ForeignKey(on_delete=models.SET(0), related_name='to_attendee', to='persons.Attendee')),
             ],
@@ -37,6 +37,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddConstraint(
             model_name='relationship',
-            constraint=models.UniqueConstraint(fields=('from_attendee', 'to_attendee'), name='from_attendee_to_attendee'),
+            constraint=models.UniqueConstraint(fields=('from_attendee', 'to_attendee', 'category', 'relation'), name='attendee_category_relation'),
         ),
     ]

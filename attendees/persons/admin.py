@@ -27,7 +27,7 @@ class AttendeeAdmin(admin.ModelAdmin):
     search_fields = ('first_name', 'last_name', 'last_name2', 'first_name2')
     inlines = (AttendeeAddressInline, RelationshipInline)
     list_display_links = ('last_name',)
-    list_display = ('first_name', 'last_name', 'last_name2', 'first_name2', 'modified')
+    list_display = ('id', 'first_name', 'last_name', 'last_name2', 'first_name2', 'modified')
 
 
 class RegistrationAdmin(admin.ModelAdmin):
@@ -52,7 +52,7 @@ class NoteAdmin(SummernoteModelAdmin):
 
 class RelationshipAdmin(admin.ModelAdmin):
     list_display_links = ('relation',)
-    list_display = ('from_attendee', 'to_attendee', 'relation', 'category', 'modified')
+    list_display = ('id', 'from_attendee', 'relation', 'to_attendee', 'category', 'modified')
 
 
 admin.site.register(Note, NoteAdmin)

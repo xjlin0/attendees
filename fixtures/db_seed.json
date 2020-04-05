@@ -811,7 +811,7 @@
       "is_removed": false,
       "from_attendee": 2,
       "to_attendee": 3,
-      "relation": "parent",
+      "relation": "son",
       "category": "relatives"
     }
   },
@@ -819,13 +819,52 @@
     "model": "persons.relationship",
     "pk": 2,
     "fields": {
+      "created": "2020-03-04T15:56:00.898Z",
+      "modified": "2020-03-04T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 3,
+      "to_attendee": 2,
+      "relation": "mother",
+      "category": "relatives"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 3,
+    "fields": {
       "created": "2020-04-04T15:56:00.898Z",
       "modified": "2020-04-04T15:56:00.898Z",
       "is_removed": false,
       "from_attendee": 3,
       "to_attendee": 2,
-      "relation": "parent",
-      "category": "relatives"
+      "relation": "mother",
+      "category": "notifier"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 4,
+    "fields": {
+      "created": "2020-04-04T15:56:00.898Z",
+      "modified": "2020-04-05T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 3,
+      "to_attendee": 12,
+      "relation": "half brother",
+      "category": "relative"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 5,
+    "fields": {
+      "created": "2020-04-04T15:56:00.898Z",
+      "modified": "2020-04-06T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 12,
+      "to_attendee": 3,
+      "relation": "half brother",
+      "category": "relative"
     }
   },
   {
@@ -3771,6 +3810,26 @@
       "other_name": "\u63a8\u96c5\u63a8\u5587\u7684\u5442\u5e95\u4e9e",
       "public_name": null,
       "gender": "FEMALE",
+      "actual_birthday": null,
+      "estimated_birthday": null,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": 12,
+    "fields": {
+      "created": "2020-04-09T03:35:25.372Z",
+      "modified": "2020-04-17T17:34:46.980Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "Isaac",
+      "last_name": "以撒",
+      "first_name2": null,
+      "last_name2": null,
+      "other_name": null,
+      "public_name": null,
+      "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
       "infos": {}
