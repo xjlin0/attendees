@@ -52,10 +52,17 @@ Attendees.attendings = {
     hoverStateEnabled: true,
     loadPanel: true,
     grouping: {
-        autoExpandAll: true,
+      autoExpandAll: true,
     },
     groupPanel: {
-        visible: "auto",
+      visible: "auto",
+    },
+    columnChooser: {
+      enabled: true,
+      mode: "select",
+    },
+    columnFixing: {
+      enabled: true
     },
     columns: [
       {
@@ -64,6 +71,7 @@ Attendees.attendings = {
       },
       {
         caption: 'Attendee',
+        allowFixing: true,
         dataField: "attendee",
         calculateCellValue: rowData => rowData.attendee.display_label,
       },
@@ -108,9 +116,9 @@ Attendees.attendings = {
         calculateCellValue: rowData => rowData.attendee.parents_notifiers_names,
       },
       {
-        caption: "Email",
-        dataField: "attendee.all_email_addresses",
-        calculateCellValue: rowData => rowData.attendee.all_email_addresses,
+        caption: "Self emails",
+        dataField: "attendee.self_email_addresses",
+        calculateCellValue: rowData => rowData.attendee.self_email_addresses,
       },
     ],
   },

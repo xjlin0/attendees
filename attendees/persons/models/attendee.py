@@ -11,6 +11,9 @@ from . import GenderEnum, Note, Utility
 
 
 class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
+    RELATION_KEYWORDS = ['parent', 'mother', 'guardian', 'father', 'caregiver']
+    CATEGORY_KEYWORDS = ['notifier', 'caregiver']
+
     notes = GenericRelation(Note)
     relations = models.ManyToManyField('self', through='Relationship', symmetrical=False, related_name='related_to+')
     addresses = models.ManyToManyField('whereabouts.Address', through='AttendeeAddress', related_name='addresses')
@@ -32,18 +35,26 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
         return (self.first_name or '') + ' ' + (self.last_name or '') + (self.last_name2 or '') + ' ' + (self.first_name2 or '')
 
     @cached_property
-    def all_email_addresses(self):
+    def self_email_addresses(self):
         emails = sum(self.addresses.values_list('email1', 'email2'), ())
         return ', '.join(email for email in emails if email)
 
     @cached_property
+    def caregiver_email_addresses(self):
+        return ', '.join(a.self_email_addresses for a in self.get_relatives(self.RELATION_KEYWORDS, self.CATEGORY_KEYWORDS))
+
+    def get_relatives(self, relation_keywords, category_keywords):
+        return self.relations.filter(
+                    to_attendee__relation__in=relation_keywords,
+                    to_attendee__category__in=category_keywords,
+                )
+
+    @cached_property
     def parents_notifiers_names(self):
-        relation_keywords = ['parent', 'mother', 'guardian', 'father', 'caregiver']
-        category_keywords = ['notifier', 'caregiver']
         return ', '.join(list(
                             self.relations.filter(
-                                to_attendee__relation__in=relation_keywords,
-                                to_attendee__category__in=category_keywords,
+                                to_attendee__relation__in=self.RELATION_KEYWORDS,
+                                to_attendee__category__in=self.CATEGORY_KEYWORDS,
                             ).annotate(
                                 full_name=models.functions.Concat(
                                     'first_name',
@@ -63,12 +74,6 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
                             )
                         )
                     )
-
-    def get_relatives(self, relation_keywords, category_keywords):
-        return self.relations.filter(
-                    to_attendee__relation__in=relation_keywords,
-                    to_attendee__category__in=category_keywords,
-                )
 
     def __str__(self):
         return self.display_label

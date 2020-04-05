@@ -838,7 +838,7 @@
       "from_attendee": 3,
       "to_attendee": 2,
       "relation": "mother",
-      "category": "notifier"
+      "category": "caregiver"
     }
   },
   {
@@ -969,6 +969,19 @@
       "to_attendee": 13,
       "relation": "father",
       "category": "relative"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 14,
+    "fields": {
+      "created": "2020-04-04T15:56:00.898Z",
+      "modified": "2020-04-05T15:56:00.898Z",
+      "is_removed": false,
+      "from_attendee": 3,
+      "to_attendee": 13,
+      "relation": "father",
+      "category": "notifier"
     }
   },
   {
