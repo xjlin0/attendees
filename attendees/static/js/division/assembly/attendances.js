@@ -25,10 +25,10 @@ Attendees.attendances = {
     hoverStateEnabled: true,
     loadPanel: true,
     grouping: {
-        contextMenuEnabled: true,
+        autoExpandAll: true,
     },
     groupPanel: {
-        visible: true   // or "auto"
+        visible: "auto",
     },
     columns: [
       {
@@ -37,6 +37,7 @@ Attendees.attendances = {
       },
       {
         dataField: "gathering",
+        groupIndex: 0,
         lookup: {
             valueExpr: "id",
             displayExpr: "gathering_label",

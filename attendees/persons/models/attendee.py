@@ -35,12 +35,12 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
 
     @cached_property
     def parents_kids_names(self):
-        relations = ['parent', 'guardian']
+        relation_keywords = ['parent', 'guardian']
         return ', '.join(list(
                             self.relations.filter(
-                                Q(to_attendee__relation__in=relations)
+                                Q(to_attendee__relation__in=relation_keywords)
                                 |
-                                Q(from_attendee__relation__in=relations)
+                                Q(from_attendee__relation__in=relation_keywords)
                             ).annotate(
                                 full_name=Concat(
                                     'first_name',
@@ -50,7 +50,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
                                     'last_name',
                                     V(' '),
                                     'last_name2',
-                                )
+                                ),
                             ).values_list(
                                 'full_name',
                                 flat=True

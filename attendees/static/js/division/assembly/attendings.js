@@ -52,10 +52,10 @@ Attendees.attendings = {
     hoverStateEnabled: true,
     loadPanel: true,
     grouping: {
-        contextMenuEnabled: true,
+        autoExpandAll: true,
     },
     groupPanel: {
-        visible: true   // or "auto"
+        visible: "auto",
     },
     columns: [
       {
@@ -85,16 +85,17 @@ Attendees.attendings = {
 //      },
       {
         dataField: "meet",
-        dataType: "string"
+        dataType: "string",
+        groupIndex: 0,
       },
       {
         dataField: "character",
         caption: 'role',
-        dataType: "string"
+        dataType: "string",
       },
       {
         dataField: "age",
-        dataType: "number"
+        dataType: "number",
       },
       {
         caption: 'grade',
