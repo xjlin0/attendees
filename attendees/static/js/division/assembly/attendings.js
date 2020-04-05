@@ -102,9 +102,9 @@ Attendees.attendings = {
         calculateCellValue: rowData => rowData.infos.grade,
       },
       {
-        dataField: "modified",
-        allowGrouping: false,
-        dataType: "datetime"
+        caption: "Parents/Kids",
+        dataField: "attendee.parents_kids_names",
+        calculateCellValue: rowData => rowData.attendee.parents_kids_names,
       },
     ],
   },

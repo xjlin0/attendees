@@ -3,6 +3,9 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields.jsonb import JSONField
+from django.utils.functional import cached_property
+from django.db.models import Q, Value as V
+from django.db.models.functions import Concat
 
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
@@ -29,6 +32,38 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     @property
     def display_label(self):
         return (self.first_name or '') + ' ' + (self.last_name or '') + (self.last_name2 or '') + ' ' + (self.first_name2 or '')
+
+    @cached_property
+    def parents_kids_names(self):
+        relations = ['parent', 'guardian']
+        return ', '.join(list(
+                            self.relations.filter(
+                                Q(to_attendee__relation__in=relations)
+                                |
+                                Q(from_attendee__relation__in=relations)
+                            ).annotate(
+                                full_name=Concat(
+                                    'first_name',
+                                    V(' '),
+                                    'first_name2',
+                                    V(' '),
+                                    'last_name',
+                                    V(' '),
+                                    'last_name2',
+                                )
+                            ).values_list(
+                                'full_name',
+                                flat=True
+                            )
+                        )
+                    )
+
+    def get_relatives(self, relation_keywords):
+        return self.relations.filter(
+                    Q(to_attendee__relation__in=relation_keywords)
+                    |
+                    Q(from_attendee__relation__in=relation_keywords)
+                )
 
     def __str__(self):
         return self.display_label

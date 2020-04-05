@@ -3,7 +3,12 @@ from rest_framework import serializers
 
 
 class AttendeeSerializer(serializers.ModelSerializer):
+    parents_kids_names = serializers.CharField()
+
     class Meta:
         model = Attendee
-        fields = [f.name for f in model._meta.fields if f.name not in ['is_removed']] + ['display_label']
+        fields = [f.name for f in model._meta.fields if f.name not in ['is_removed']] + [
+            'display_label',
+            'parents_kids_names',
+        ]
 
