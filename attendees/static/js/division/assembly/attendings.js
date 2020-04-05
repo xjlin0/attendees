@@ -107,6 +107,11 @@ Attendees.attendings = {
         dataField: "attendee.parents_kids_names",
         calculateCellValue: rowData => rowData.attendee.parents_kids_names,
       },
+      {
+        caption: "Email",
+        dataField: "attendee.all_email_addresses",
+        calculateCellValue: rowData => rowData.attendee.all_email_addresses,
+      },
     ],
   },
 

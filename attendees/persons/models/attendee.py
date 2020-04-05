@@ -34,6 +34,11 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
         return (self.first_name or '') + ' ' + (self.last_name or '') + (self.last_name2 or '') + ' ' + (self.first_name2 or '')
 
     @cached_property
+    def all_email_addresses(self):
+        emails = sum(self.addresses.values_list('email1', 'email2'), ())
+        return ', '.join(email for email in emails if email)
+
+    @cached_property
     def parents_kids_names(self):
         relation_keywords = ['parent', 'guardian']
         return ', '.join(list(
