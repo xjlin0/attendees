@@ -103,9 +103,9 @@ Attendees.attendings = {
         calculateCellValue: rowData => rowData.infos.grade,
       },
       {
-        caption: "Parents/Kids",
-        dataField: "attendee.parents_kids_names",
-        calculateCellValue: rowData => rowData.attendee.parents_kids_names,
+        caption: "Parents/Caregivers",
+        dataField: "attendee.parents_notifiers_names",
+        calculateCellValue: rowData => rowData.attendee.parents_notifiers_names,
       },
       {
         caption: "Email",

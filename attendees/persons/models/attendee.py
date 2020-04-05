@@ -4,8 +4,6 @@ from django.core.exceptions import ValidationError
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields.jsonb import JSONField
 from django.utils.functional import cached_property
-from django.db.models import Q, Value as V
-from django.db.models.functions import Concat
 
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
@@ -39,21 +37,21 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
         return ', '.join(email for email in emails if email)
 
     @cached_property
-    def parents_kids_names(self):
-        relation_keywords = ['parent', 'guardian']
+    def parents_notifiers_names(self):
+        relation_keywords = ['parent', 'guardian', 'mother', 'father', 'caregiver']
+        category_keywords = ['notifier', 'caregiver']
         return ', '.join(list(
                             self.relations.filter(
-                                Q(to_attendee__relation__in=relation_keywords)
-                                |
-                                Q(from_attendee__relation__in=relation_keywords)
+                                to_attendee__relation__in=relation_keywords,
+                                to_attendee__category__in=category_keywords,
                             ).annotate(
-                                full_name=Concat(
+                                full_name=models.functions.Concat(
                                     'first_name',
-                                    V(' '),
+                                    models.Value(' '),
                                     'first_name2',
-                                    V(' '),
+                                    models.Value(' '),
                                     'last_name',
-                                    V(' '),
+                                    models.Value(' '),
                                     'last_name2',
                                 ),
                             ).values_list(
@@ -63,11 +61,10 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
                         )
                     )
 
-    def get_relatives(self, relation_keywords):
+    def get_relatives(self, relation_keywords, category_keywords):
         return self.relations.filter(
-                    Q(to_attendee__relation__in=relation_keywords)
-                    |
-                    Q(from_attendee__relation__in=relation_keywords)
+                    to_attendee__relation__in=relation_keywords,
+                    to_attendee__category__in=category_keywords,
                 )
 
     def __str__(self):
