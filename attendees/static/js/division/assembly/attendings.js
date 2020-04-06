@@ -66,6 +66,8 @@ Attendees.attendings = {
     columnFixing: {
       enabled: true
     },
+    onCellPrepared: e => e.column.dataHtmlTitle && e.cellElement.attr("title", e.column.dataHtmlTitle),
+    // omit e.rowType === "header" to make entire column shows title. https://supportcenter.devexpress.com/ticket/details/t541796
     columns: [
       {
         dataField: "id",
@@ -110,6 +112,7 @@ Attendees.attendings = {
       },
       {
         caption: 'Birthday',
+        dataHtmlTitle: "Could be real or estimated, depends on user inputs",
         dataField: "attendee",
         calculateCellValue: rowData => {
           const date = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
@@ -118,6 +121,7 @@ Attendees.attendings = {
       },
       {
         caption: 'Age',
+        dataHtmlTitle: "Could be real or estimated, depends on user inputs",
         dataField: "attendee",
         dataType: "number",
         calculateCellValue: rowData => {
