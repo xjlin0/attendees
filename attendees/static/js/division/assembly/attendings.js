@@ -151,6 +151,11 @@ Attendees.attendings = {
         dataField: "attendee.caregiver_phone_numbers",
         calculateCellValue: rowData => rowData.attendee.caregiver_phone_numbers,
       },
+      {
+        caption: 'allergy',
+        dataField: "attendee.infos.allergy",
+        calculateCellValue: rowData => rowData.attendee.infos.allergy,
+      },
     ],
   },
 
