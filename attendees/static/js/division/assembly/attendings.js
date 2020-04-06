@@ -104,13 +104,27 @@ Attendees.attendings = {
         dataType: "string",
       },
       {
-        dataField: "age",
-        dataType: "number",
+        caption: 'grade',
+        dataField: "infos.grade",
+        calculateCellValue: rowData => rowData.infos.grade,
       },
       {
-        caption: 'grade',
-        dataField: "infos",
-        calculateCellValue: rowData => rowData.infos.grade,
+        caption: 'Birthday',
+        dataField: "attendee",
+        calculateCellValue: rowData => {
+          const date = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
+          return date ? new Date(date).toLocaleDateString() : null;
+        },
+      },
+      {
+        caption: 'Age',
+        dataField: "attendee",
+        dataType: "number",
+        calculateCellValue: rowData => {
+          const oneYear = 31557600 * 1000;
+          const date = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
+          return date ? Math.round((new Date() - new Date(date))/oneYear): rowData.age;
+        },
       },
       {
         caption: "Parents/Caregivers",
