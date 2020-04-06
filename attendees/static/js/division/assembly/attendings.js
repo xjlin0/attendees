@@ -141,6 +141,16 @@ Attendees.attendings = {
         dataField: "attendee.caregiver_email_addresses",
         calculateCellValue: rowData => rowData.attendee.caregiver_email_addresses,
       },
+      {
+        caption: "Self phones",
+        dataField: "attendee.self_phone_numbers",
+        calculateCellValue: rowData => rowData.attendee.self_phone_numbers,
+      },
+      {
+        caption: "Parents phones",
+        dataField: "attendee.caregiver_phone_numbers",
+        calculateCellValue: rowData => rowData.attendee.caregiver_phone_numbers,
+      },
     ],
   },
 
