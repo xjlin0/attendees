@@ -1,6 +1,8 @@
 from django.db import models
-from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.postgres.fields.jsonb import JSONField
+from django.contrib.contenttypes.fields import GenericRelation, GenericForeignKey
 from model_utils.models import TimeStampedModel, SoftDeletableModel
+from django.contrib.contenttypes.models import ContentType
 
 from attendees.persons.models import Utility, Note
 
@@ -12,7 +14,10 @@ class Team(TimeStampedModel, SoftDeletableModel, Utility):
     slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
     display_name = models.CharField(max_length=50, blank=True, null=True)
     display_order = models.SmallIntegerField(default=0, blank=False, null=False)
-    # Todo: add location relation since small group can be held at different places.
+    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"link": "https://..."}. Please keep {} here even no data')
+    site_type = models.ForeignKey(ContentType, on_delete=models.SET(0), help_text='location: django_content_type id for table name')
+    site_id = models.BigIntegerField()
+    location = GenericForeignKey('site_type', 'site_id')
 
     class Meta:
         db_table = 'occasions_teams'

@@ -2,8 +2,7 @@
 
 import attendees.persons.models.utility
 from django.db import migrations, models
-import django.db.models.deletion
-import django.db.models.manager
+from django.contrib.postgres.fields.jsonb import JSONField
 import django.utils.timezone
 import model_utils.fields
 
@@ -32,6 +31,7 @@ class Migration(migrations.Migration):
                 ('team', models.ForeignKey(blank=True, default=None, help_text='empty for main meet', null=True, on_delete=django.db.models.deletion.SET_NULL, to='occasions.Team')),
                 ('category', models.CharField(max_length=20, null=False, blank=False, default="scheduled", db_index=True, help_text="RSVPed, leave, remote, etc")),
                 ('display_order', models.SmallIntegerField(blank=False, default=0, null=False)),
+                ('infos', JSONField(blank=True, default=dict, help_text='Example: {"kid_points": 5}. Please keep {} here even no data', null=True)),
             ],
             options={
                 'db_table': 'occasions_attendances',

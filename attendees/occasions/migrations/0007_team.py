@@ -2,6 +2,7 @@
 
 import attendees.persons.models.utility
 from django.db import migrations, models
+from django.contrib.postgres.fields.jsonb import JSONField
 import django.utils.timezone
 import model_utils.fields
 
@@ -23,6 +24,9 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(max_length=50, unique=True)),
                 ('display_name', models.CharField(blank=True, max_length=50, null=True)),
                 ('display_order', models.SmallIntegerField(blank=False, default=0, null=False)),
+                ('infos', JSONField(blank=True, default=dict, help_text='Example: {"link": "https://..."}. Please keep {} here even no data', null=True)),
+                ('site_id', models.BigIntegerField()),
+                ('site_type', models.ForeignKey(help_text='location: django_content_type id for table name', on_delete=models.SET(0), to='contenttypes.ContentType')),
                 ('meet', models.ForeignKey(on_delete=models.SET(0), to='occasions.Meet')),
             ],
             options={

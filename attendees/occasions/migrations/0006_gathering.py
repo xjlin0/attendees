@@ -2,8 +2,7 @@
 
 import attendees.persons.models.utility
 from django.db import migrations, models
-import django.db.models.deletion
-import django.db.models.manager
+from django.contrib.postgres.fields.jsonb import JSONField
 import django.utils.timezone
 import model_utils.fields
 
@@ -27,7 +26,7 @@ class Migration(migrations.Migration):
                 ('finish', models.DateTimeField(blank=True, null=True)),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(blank=True, null=True, max_length=50, help_text="02/09/2020, etc")),
-                ('link', models.URLField(blank=True, null=True, max_length=254)),
+                ('infos', JSONField(blank=True, default=dict, help_text='Example: {"LG_location": "F207", "link": "https://..."}. Please keep {} here even no data', null=True)),
                 ('occurrence', models.ForeignKey(blank=True, null=True, on_delete=models.deletion.SET_NULL, to='schedule.Occurrence')),
                 ('site_id', models.BigIntegerField()),
                 ('meet', models.ForeignKey(on_delete=models.SET(0), to='occasions.Meet')),

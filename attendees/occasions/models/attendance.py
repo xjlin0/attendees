@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.functional import cached_property
 from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.postgres.fields.jsonb import JSONField
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 from attendees.persons.models import Utility, Note
 
@@ -18,7 +19,7 @@ class Attendance(TimeStampedModel, SoftDeletableModel, Utility):
     free = models.SmallIntegerField(default=0, blank=True, null=True, help_text="multitasking: the person cannot join other gatherings if negative")
     category = models.CharField(max_length=20, null=False, blank=False, db_index=True, default="scheduled", help_text="RSVPed, leave, remote, etc")
     display_order = models.SmallIntegerField(default=0, blank=False, null=False)
-    # Todo: add infos json for extra data, such as kid points
+    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"kid_points": 5}. Please keep {} here even no data')
 
     @cached_property
     def attendance_info(self):

@@ -1631,10 +1631,10 @@
       "start": "2020-02-09T18:00:00Z",
       "finish": "2020-02-09T20:00:00Z",
       "display_name": "02/09/2020",
-      "link": null,
       "occurrence": null,
       "site_type": 31,
-      "site_id": 1
+      "site_id": 1,
+      "infos": {"link": null}
     }
   },
   {
@@ -1648,10 +1648,10 @@
       "start": "2020-02-16T18:00:00Z",
       "finish": "2020-02-16T20:00:00Z",
       "display_name": "02/16/2020",
-      "link": null,
       "occurrence": null,
       "site_type": 32,
-      "site_id": 1
+      "site_id": 1,
+      "infos": {"link": null}
     }
   },
   {
@@ -1665,10 +1665,10 @@
       "start": "2020-01-10T17:00:00Z",
       "finish": "2020-01-10T20:00:00Z",
       "display_name": "01/10/2020",
-      "link": null,
       "occurrence": null,
       "site_type": 30,
-      "site_id": 2
+      "site_id": 2,
+      "infos": {"link": null}
     }
   },
   {
@@ -1682,10 +1682,10 @@
       "start": "2020-02-09T18:00:00Z",
       "finish": "2020-02-09T20:00:00Z",
       "display_name": "02/09/2020",
-      "link": null,
       "occurrence": null,
       "site_type": 30,
-      "site_id": 1
+      "site_id": 1,
+      "infos": {"link": null}
     }
   },
   {
@@ -1699,10 +1699,10 @@
       "start": "2020-02-17T08:00:00Z",
       "finish": "9999-12-29T08:00:01Z",
       "display_name": "forever",
-      "link": null,
       "occurrence": null,
       "site_type": 29,
-      "site_id": 2
+      "site_id": 2,
+      "infos": {"link": null, "LG_location": "Burbank Library"}
     }
   },
   {
@@ -1715,7 +1715,10 @@
       "meet": 1,
       "slug": "large-group-4g",
       "display_name": "Large Group 4G",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {},
+      "site_type": 29,
+      "site_id": 2
     }
   },
   {
@@ -1733,7 +1736,8 @@
       "character": 1,
       "free": 0,
       "category": "scheduled",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {"kid_points":  5}
     }
   },
   {
@@ -1751,7 +1755,8 @@
       "character": 2,
       "free": -1,
       "category": "scheduled",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {}
     }
   },
   {
@@ -1769,7 +1774,8 @@
       "character": 4,
       "free": 0,
       "category": "confirmed",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {}
     }
   },
   {
@@ -1787,7 +1793,8 @@
       "character": 5,
       "free": 0,
       "category": "scheduled",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {}
     }
   },
   {
@@ -1805,7 +1812,8 @@
       "character": 4,
       "free": 0,
       "category": "scheduled",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {}
     }
   },
   {
@@ -1823,7 +1831,8 @@
       "character": 4,
       "free": 1,
       "category": "scheduled",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {}
     }
   },
   {
@@ -1841,7 +1850,8 @@
       "character": 3,
       "free": 0,
       "category": "scheduled",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {}
     }
   },
   {

@@ -36,6 +36,7 @@ class AttendanceAdmin(admin.ModelAdmin):
                            tuple(['attending', 'character']),
                            tuple(['free', 'display_order', 'category']),
                            tuple(['id', 'created', 'modified']),
+                           tuple(['infos']),
                            ), }),
     )
 
@@ -45,7 +46,8 @@ class AttendanceInline(admin.StackedInline):
     extra = 0
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish', 'free', 'category']),
-                           tuple(['gathering', 'team', 'attending', 'character'])
+                           tuple(['gathering', 'team', 'attending', 'character']),
+                           tuple(['infos']),
                            ), }),
     )
 
@@ -82,7 +84,7 @@ class GatheringAdmin(admin.ModelAdmin):
     readonly_fields = ['id', 'created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish']),
-                           tuple(['display_name', 'link']),
+                           tuple(['display_name', 'infos']),
                            tuple(['site_type', 'meet', 'site_id', 'occurrence']),
                            tuple(['id', 'created', 'modified']),
                            ), }),
