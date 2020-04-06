@@ -35,13 +35,32 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
         return (self.first_name or '') + ' ' + (self.last_name or '') + (self.last_name2 or '') + ' ' + (self.first_name2 or '')
 
     @cached_property
+    def self_phone_numbers(self):
+        return self.self_addresses_for_fields_of(['phone1', 'phone2'])
+
+    @cached_property
     def self_email_addresses(self):
-        emails = sum(self.addresses.values_list('email1', 'email2'), ())
-        return ', '.join(email for email in emails if email)
+        return self.self_addresses_for_fields_of(['email1', 'email2'])
+
+    def self_addresses_for_fields_of(self, fields):
+        items = sum(self.addresses.values_list(*fields), ())
+        return ', '.join(
+            item for item in items if item
+        )
 
     @cached_property
     def caregiver_email_addresses(self):
-        return ', '.join(a.self_email_addresses for a in self.get_relatives(self.RELATION_KEYWORDS, self.CATEGORY_KEYWORDS))
+        return self.caregiver_addresses_for_fields_of(['email1', 'email2'])
+
+    @cached_property
+    def caregiver_phone_numbers(self):
+        return self.caregiver_addresses_for_fields_of(['phone1', 'phone2'])
+
+    def caregiver_addresses_for_fields_of(self, fields):
+        return ', '.join(
+            a.self_addresses_for_fields_of(fields) for a in
+                self.get_relatives(self.RELATION_KEYWORDS, self.CATEGORY_KEYWORDS)
+        )
 
     def get_relatives(self, relation_keywords, category_keywords):
         return self.relations.filter(

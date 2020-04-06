@@ -42,6 +42,7 @@ Attendees.attendings = {
 
   attendingsFormats: {
     dataSource: null,
+//    height: '80%',
     filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
     searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
     allowColumnReordering: true,
@@ -51,6 +52,7 @@ Attendees.attendings = {
     rowAlternationEnabled: true,
     hoverStateEnabled: true,
     loadPanel: true,
+    wordWrapEnabled: true,
     grouping: {
       autoExpandAll: true,
     },
@@ -119,6 +121,11 @@ Attendees.attendings = {
         caption: "Self emails",
         dataField: "attendee.self_email_addresses",
         calculateCellValue: rowData => rowData.attendee.self_email_addresses,
+      },
+      {
+        caption: "Parents emails",
+        dataField: "attendee.caregiver_email_addresses",
+        calculateCellValue: rowData => rowData.attendee.caregiver_email_addresses,
       },
     ],
   },
