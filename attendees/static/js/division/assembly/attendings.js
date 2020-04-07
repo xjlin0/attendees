@@ -52,7 +52,7 @@ Attendees.attendings = {
     rowAlternationEnabled: true,
     hoverStateEnabled: true,
     loadPanel: true,
-    wordWrapEnabled: true,
+    wordWrapEnabled: false,
     grouping: {
       autoExpandAll: true,
     },
@@ -66,8 +66,11 @@ Attendees.attendings = {
     columnFixing: {
       enabled: true
     },
-    onCellPrepared: e => e.column.dataHtmlTitle && e.cellElement.attr("title", e.column.dataHtmlTitle),
-    // omit e.rowType === "header" to make entire column shows title. https://supportcenter.devexpress.com/ticket/details/t541796
+    onCellPrepared: e => e.rowType === "header" && e.column.dataHtmlTitle && e.cellElement.attr("title", e.column.dataHtmlTitle),
+    // compatible with cellHintEnabled (hint didn't work) and make entire column shows title. https://supportcenter.devexpress.com/ticket/details/t541796
+//    scrolling: {
+//            mode: "virtual",
+//    },
     columns: [
       {
         dataField: "id",
@@ -138,6 +141,7 @@ Attendees.attendings = {
       {
         caption: "Self emails",
         dataField: "attendee.self_email_addresses",
+//        width: '15%',
         calculateCellValue: rowData => rowData.attendee.self_email_addresses,
       },
       {
