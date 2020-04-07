@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.contenttypes.fields import GenericRelation, GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.postgres.fields.jsonb import JSONField
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
 from attendees.persons.models import Utility, Note
@@ -16,8 +17,7 @@ class Meet(TimeStampedModel, SoftDeletableModel, Utility):
     finish = models.DateTimeField(null=True, blank=True, help_text='optional')
     display_name = models.CharField(max_length=50, blank=True, null=True, db_index=True, help_text="The Rock, Little Foot, singspiration, A/V control, etc.")
     slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
-    info = models.CharField(max_length=255, blank=True, null=True)
-    url = models.URLField(max_length=255, blank=True, null=True)
+    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"info": "...", "url": "https://..."}. Please keep {} here even no data')
     site_type = models.ForeignKey(ContentType, on_delete=models.SET(0), help_text='location: django_content_type id for table name')
     site_id = models.BigIntegerField()
     location = GenericForeignKey('site_type', 'site_id')
@@ -28,8 +28,15 @@ class Meet(TimeStampedModel, SoftDeletableModel, Utility):
     def get_absolute_url(self):
         return reverse('character_detail', args=[str(self.id)])
 
+    def info(self):
+        return self.infos.get('info', '')
+
+    def url(self):
+        return self.infos.get('url', '')
+
+
     class Meta:
         db_table = 'occasions_meets'
 
     def __str__(self):
-        return '%s %s %s' % (self.display_name or '', self.info or '', self.url or '')
+        return '%s %s %s' % (self.display_name or '', self.infos.get('info', ''), self.infos.get('url', ''))

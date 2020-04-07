@@ -1542,8 +1542,7 @@
       "finish": null,
       "display_name": "The Rock",
       "slug": "the-rock",
-      "info": null,
-      "url": null,
+      "infos": {},
       "site_type": 30,
       "site_id": 1
     }
@@ -1560,8 +1559,7 @@
       "finish": null,
       "display_name": "Little foot",
       "slug": "little-foot",
-      "info": null,
-      "url": null,
+      "infos": {},
       "site_type": 32,
       "site_id": 1
     }
@@ -1578,8 +1576,7 @@
       "finish": null,
       "display_name": "\u5f71\u97f3\u4e2d\u63a7",
       "slug": "recording-av-control",
-      "info": null,
-      "url": null,
+      "infos": {},
       "site_type": 30,
       "site_id": 2
     }
@@ -1596,8 +1593,7 @@
       "finish": null,
       "display_name": "\u73bb\u7483\u6d77\u5929\u4f7f\u8a69\u73ed",
       "slug": "see-of-glass-angel-choir",
-      "info": null,
-      "url": null,
+      "infos": {},
       "site_type": 29,
       "site_id": 2
     }
@@ -1614,8 +1610,7 @@
       "finish": null,
       "display_name": "Easter Celebration",
       "slug": "easter-celebration",
-      "info": null,
-      "url": null,
+      "infos": {},
       "site_type": 29,
       "site_id": 2
     }
