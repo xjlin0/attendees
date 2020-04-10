@@ -2,7 +2,7 @@ from datetime import timedelta
 from django.utils import timezone
 import pytz
 
-
+import time
 from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -26,7 +26,7 @@ class UserOrganizationAttendanceListView(ListView):
         current_organization_slug = self.kwargs.get('organization_slug', None)
         available_meets = Meet.objects.filter(assembly__division__organization__slug=self.request.user.organization.slug).order_by('display_name')
         context.update({
-            # 'current_organization_slug': current_organization_slug,
+            'current_organization_slug': current_organization_slug,
             'available_meets': available_meets,
         })
         return context
@@ -39,12 +39,12 @@ class UserOrganizationAttendanceListView(ListView):
             else:
                 # chosen_character_slugs = self.request.GET.getlist('characters', [])
                 # context.update({'chosen_character_slugs': chosen_character_slugs})
-                context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/teams/"})
-                context.update({'attendees_endpoint': f"/{context['current_organization_slug']}/persons/api/{context['current_division_slug']}/{context['current_assembly_slug']}/attendees/"})
-                context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/gatherings/"})
-                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/characters/"})
-                context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/{context['current_division_slug']}/{context['current_assembly_slug']}/attendings/"})
-                context.update({'attendances_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/attendances/"})
+                context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_teams/"})
+                context.update({'attendees_endpoint': f"/{context['current_organization_slug']}/persons/api/organization_attendees/"})
+                context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_gatherings/"})
+                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_characters/"})
+                context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/organization_attendings/"})
+                context.update({'attendances_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_attendances/"})
                 return render(self.request, self.get_template_names()[0], context)
         else:
             time.sleep(2)

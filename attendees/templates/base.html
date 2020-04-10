@@ -125,6 +125,23 @@
               </a>
             </li>
             {% if request.user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   data-toggle="dropdown"
+                   role="tab"
+                   href="#"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                  {% trans "My Info" %}
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item"
+                     title="My Activities"
+                     href="/{{user_organization_name_slug}}/occasions/user/organization_attendances/">
+                    {% trans "My activities" %}
+                  </a>
+                </div>
+              </li>
               {% if True %}
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle"
@@ -151,12 +168,6 @@
                        title="Leader List"
                        href="/{{user_organization_name_slug}}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/">
                       All attendance (date)
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item"
-                       title="My Activities"
-                       href="/{{user_organization_name_slug}}/occasions/user/organization_attendances/">
-                      My Activities
                     </a>
                   </div>
                 </li>
