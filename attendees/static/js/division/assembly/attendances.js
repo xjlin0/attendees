@@ -111,7 +111,7 @@ Attendees.attendances = {
 
   fetchAttendances: (event) => {
 
-    Attendees.utilities.alterCheckBoxAndValidations(event, 'input.select-all');
+    Attendees.utilities.alterCheckBoxAndValidations(event.currentTarget, 'input.select-all');
 
     let finalUrl = null;
     const $optionForm = $(event.delegateTarget);

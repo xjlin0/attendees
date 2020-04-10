@@ -19,6 +19,12 @@ class User(AbstractUser):
     def belongs_to_groups_of(self, auth_group_names): #.in_bulk() might take more memory
         return self.groups.filter(name__in=auth_group_names).exists()
 
+    def belongs_to_organization_of(self, organization_slug):
+        if self.is_superuser:
+            return True
+        else:
+            return self.organization.slug == organization_slug
+
     def attend_divisions_of(self, division_slugs):
         return self.attendee.attending_set.filter(divisions__slug__in=division_slugs).exists()
 

@@ -27,11 +27,11 @@ Attendees.utilities = {
   testArraysEqualAfterSort : (a, b) => {
     a = Array.isArray(a) ? a.sort() : [];
     b = Array.isArray(b) ? b.sort() : [];
-    return a.length === b.length && a.every((el, ix) => el === b[ix]);
+    return a.length > 0 && a.length === b.length && a.every((el, ix) => el === b[ix]);
   }, // https://stackoverflow.com/a/39967517/4257237
 
-  alterCheckBoxAndValidations: (event, inputSelector) => {
-    const $currentTarget = $(event.currentTarget);
+  alterCheckBoxAndValidations: (currentTarget, inputSelector) => {
+    const $currentTarget = $(currentTarget);
 
     if ($currentTarget.is('select')) {
       const $checkAllBox = $currentTarget.siblings('div.input-group-append').find(inputSelector);
