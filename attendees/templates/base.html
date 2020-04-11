@@ -135,6 +135,13 @@
                   {% trans "My Info" %}
                 </a>
                 <div class="dropdown-menu">
+                  {% if True %} <!-- if user is kid coworker/admin of the organization -->
+                    <a class="dropdown-item"
+                       title="Coworkers Activities"
+                       href="/{{user_organization_name_slug}}/occasions/coworkers/organization_attendances/">
+                      {% trans "Coworkers activities" %}
+                    </a>
+                  {% endif %}
                   <a class="dropdown-item"
                      title="My Activities"
                      href="/{{user_organization_name_slug}}/occasions/user/organization_attendances/">
@@ -142,7 +149,7 @@
                   </a>
                 </div>
               </li>
-              {% if True %}
+              {% if request.user.allowed_to_access %} <!-- if user is kid coworker/admin of the organization -->
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle"
                      data-toggle="dropdown"
