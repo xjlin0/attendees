@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta, timezone
 
 
 class Utility:
@@ -9,6 +10,10 @@ class Utility:
     @property
     def all_notes(self):
         return self.notes.all()
+
+    @staticmethod
+    def forever():  # 1923 years from now
+        return datetime.now(timezone.utc)+timedelta(weeks=99999)
 
     # @property
     # def notes(self):

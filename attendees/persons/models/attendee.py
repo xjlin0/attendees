@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields.jsonb import JSONField
 from django.utils.functional import cached_property
-
+from datetime import datetime, timezone
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
 from . import GenderEnum, Note, Utility
@@ -66,6 +66,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
         return self.relations.filter(
                     to_attendee__relation__in=relation_keywords,
                     to_attendee__category__in=category_keywords,
+                    to_attendee__finish__gte=datetime.now(timezone.utc),
                 )
 
     @cached_property
@@ -74,6 +75,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
                             self.relations.filter(
                                 to_attendee__relation__in=self.RELATION_KEYWORDS,
                                 to_attendee__category__in=self.CATEGORY_KEYWORDS,
+                                to_attendee__finish__gte=datetime.now(timezone.utc),
                             ).annotate(
                                 full_name=models.functions.Concat(
                                     'first_name',

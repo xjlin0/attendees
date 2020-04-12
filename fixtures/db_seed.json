@@ -778,6 +778,7 @@
     "fields": {
       "created": "2020-04-11T19:43:41.616Z",
       "modified": "2020-04-11T19:43:41.616Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 2,
       "to_attendee": 3,
@@ -791,6 +792,7 @@
     "fields": {
       "created": "2020-04-11T19:44:22.618Z",
       "modified": "2020-04-12T04:44:40.016Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 3,
       "to_attendee": 2,
@@ -804,6 +806,7 @@
     "fields": {
       "created": "2020-04-11T19:44:40.851Z",
       "modified": "2020-04-12T04:44:56.868Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 3,
       "to_attendee": 2,
@@ -817,6 +820,7 @@
     "fields": {
       "created": "2020-04-11T19:45:23.668Z",
       "modified": "2020-04-11T19:45:23.668Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 3,
       "to_attendee": 12,
@@ -830,6 +834,7 @@
     "fields": {
       "created": "2020-04-11T19:45:54.686Z",
       "modified": "2020-04-11T19:45:54.686Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 12,
       "to_attendee": 3,
@@ -843,6 +848,7 @@
     "fields": {
       "created": "2020-04-11T19:47:18.221Z",
       "modified": "2020-04-11T19:47:18.221Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 13,
       "to_attendee": 2,
@@ -856,6 +862,7 @@
     "fields": {
       "created": "2020-04-11T19:47:40.993Z",
       "modified": "2020-04-11T19:47:40.993Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 3,
       "to_attendee": 13,
@@ -869,6 +876,7 @@
     "fields": {
       "created": "2020-04-11T19:48:07.554Z",
       "modified": "2020-04-11T19:48:07.554Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 2,
       "to_attendee": 13,
@@ -882,6 +890,7 @@
     "fields": {
       "created": "2020-04-11T19:48:32.989Z",
       "modified": "2020-04-12T04:45:58.894Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 14,
       "to_attendee": 13,
@@ -895,6 +904,7 @@
     "fields": {
       "created": "2020-04-11T19:48:53.933Z",
       "modified": "2020-04-11T19:48:53.933Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 13,
       "to_attendee": 12,
@@ -908,6 +918,7 @@
     "fields": {
       "created": "2020-04-11T19:49:16.736Z",
       "modified": "2020-04-11T19:49:16.736Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 12,
       "to_attendee": 14,
@@ -921,6 +932,7 @@
     "fields": {
       "created": "2020-04-11T19:49:40.425Z",
       "modified": "2020-04-11T19:49:40.425Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 14,
       "to_attendee": 2,
@@ -934,6 +946,7 @@
     "fields": {
       "created": "2020-04-11T19:50:02.992Z",
       "modified": "2020-04-11T19:50:02.992Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 12,
       "to_attendee": 13,
@@ -947,6 +960,7 @@
     "fields": {
       "created": "2020-04-11T19:50:29.367Z",
       "modified": "2020-04-11T19:50:29.367Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 3,
       "to_attendee": 13,
@@ -960,6 +974,7 @@
     "fields": {
       "created": "2020-04-12T04:41:32.236Z",
       "modified": "2020-04-12T04:41:32.236Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 13,
       "to_attendee": 3,
@@ -973,11 +988,54 @@
     "fields": {
       "created": "2020-04-12T04:47:14.554Z",
       "modified": "2020-04-12T04:47:14.554Z",
+      "finish": "4020-04-11T19:43:41.616Z",
       "is_removed": false,
       "from_attendee": 13,
       "to_attendee": 14,
       "relation": "wife",
       "category": "relatives"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 17,
+    "fields": {
+      "created": "2020-04-12T19:47:10.526Z",
+      "modified": "2020-04-12T19:47:10.526Z",
+      "finish": "4020-04-11T19:43:41.616Z",
+      "is_removed": false,
+      "from_attendee": 3,
+      "to_attendee": 2,
+      "relation": "mother",
+      "category": "notifier"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 18,
+    "fields": {
+      "created": "2020-04-12T19:51:03.425Z",
+      "modified": "2020-04-12T19:51:03.425Z",
+      "finish": "4020-04-11T19:43:41.616Z",
+      "is_removed": false,
+      "from_attendee": 12,
+      "to_attendee": 14,
+      "relation": "mother",
+      "category": "notifier"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 19,
+    "fields": {
+      "created": "2020-04-12T19:51:35.997Z",
+      "modified": "2020-04-12T19:51:35.997Z",
+      "finish": "4020-04-11T19:43:41.616Z",
+      "is_removed": false,
+      "from_attendee": 12,
+      "to_attendee": 13,
+      "relation": "father",
+      "category": "notifier"
     }
   },
   {

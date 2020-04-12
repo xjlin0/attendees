@@ -11,6 +11,7 @@ class Relationship(TimeStampedModel, SoftDeletableModel, Utility):
     to_attendee = models.ForeignKey(Attendee, related_name='to_attendee', on_delete=models.SET(0))
     relation = models.CharField(max_length=32, null=False, blank=False, default="relation", db_index=True, help_text="example: father - son, husband - wife, etc")
     category = models.CharField(max_length=32, null=False, blank=False, db_index=True, default="relatives", help_text="relative/friend, notifier/caregiver, SMS_kid_class, emergency_contact, etc")
+    finish = models.DateTimeField(blank=False, null=False, default=Utility.forever, help_text="The relation will be ended at when")
 
     class Meta:
         db_table = 'persons_relationships'

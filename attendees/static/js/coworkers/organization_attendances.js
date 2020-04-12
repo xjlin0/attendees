@@ -29,7 +29,7 @@ Attendees.organizationAttendances = {
       const finish = (new Date($optionForm.find('input.filter-finish-date').val())).toISOString();
       const url = $('div.organization-attendances').data('attendances-endpoint');
       const searchParams = new URLSearchParams({start: start, finish: finish});
-      meets.forEach(meet => { searchParams.append('meets', meet)});
+      meets.forEach(meet => { searchParams.append('meets[]', meet)});
       finalUrl = `${url}?${searchParams.toString()}`
     }
 
