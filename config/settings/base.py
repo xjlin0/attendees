@@ -72,6 +72,7 @@ THIRD_PARTY_APPS = [
     "django_celery_beat",
     "django_summernote",
     "schedule",
+    "mptt",
 ]
 
 LOCAL_APPS = [

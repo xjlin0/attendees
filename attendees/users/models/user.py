@@ -4,11 +4,6 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from attendees.whereabouts.models import Organization
-import inspect
-import logging
-
-
-logger = logging.getLogger(__name__)
 
 
 class User(AbstractUser):
@@ -17,18 +12,6 @@ class User(AbstractUser):
     # around the globe.
     name = CharField(_("Name of User"), blank=True, max_length=255)
     organization = models.ForeignKey(Organization, null=True, blank=True, default=None, on_delete=models.SET_NULL, help_text='Primary organization of the user')
-    #allowed_urls = JSONField
-
-    def allowed_to_access(self):
-        """
-        user is coworker/admin of the organization and assigned to see the urls
-        :return: boolean
-        """
-
-        if self.is_superuser:
-            return True
-        else:
-            return True
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
