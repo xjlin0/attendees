@@ -19,8 +19,8 @@ class ApiAttendingViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
-            meets = self.request.query_params.getlist('meets', [])
-            characters = self.request.query_params.getlist('characters', [])
+            meets = self.request.query_params.getlist('meets[]', [])
+            characters = self.request.query_params.getlist('characters[]', [])
             return Attending.objects.select_related().prefetch_related().filter(
                 meets__slug__in=meets,
                 attendingmeet__character__slug__in=characters,

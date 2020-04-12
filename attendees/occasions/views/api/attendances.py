@@ -18,8 +18,8 @@ class ApiAttendanceViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
-            characters = self.request.query_params.getlist('characters', [])
-            meets = self.request.query_params.getlist('meets', [])
+            characters = self.request.query_params.getlist('characters[]', [])
+            meets = self.request.query_params.getlist('meets[]', [])
             start = self.request.query_params.get('start', None)
             finish = self.request.query_params.get('finish', None)
             return Attendance.objects.select_related(

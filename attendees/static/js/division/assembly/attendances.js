@@ -61,7 +61,7 @@ Attendees.attendances = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.attendances').data('attendings-endpoint'), {meets: $('select.filter-meets').val()});
+                      return $.getJSON($('div.attendances').data('attendings-endpoint'), {meets: $('select.filter-meets').val(), characters: $('select.filter-characters').val()});
                     },
                 }),
             },
@@ -127,8 +127,8 @@ Attendees.attendances = {
       const finish = (new Date($optionForm.find('input.filter-finish-date').val())).toISOString();
       const url = $('div.attendances').data('attendances-endpoint');
       const searchParams = new URLSearchParams({start: start, finish: finish});
-      meets.forEach(meet => { searchParams.append('meets', meet)});
-      characters.forEach(character => { searchParams.append('characters', character)});
+      meets.forEach(meet => { searchParams.append('meets[]', meet)});
+      characters.forEach(character => { searchParams.append('characters[]', character)});
       finalUrl = `${url}?${searchParams.toString()}`
     }
 

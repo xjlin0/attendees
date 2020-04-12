@@ -29,8 +29,8 @@ Attendees.attendings = {
     if (meets.length && characters.length) {
       const url = $('div.attendings').data('attendings-endpoint');
       const searchParams = new URLSearchParams();
-      meets.forEach(meet => { searchParams.append('meets', meet)});
-      characters.forEach(character => { searchParams.append('characters', character)});
+      meets.forEach(meet => { searchParams.append('meets[]', meet)});
+      characters.forEach(character => { searchParams.append('characters[]', character)});
       finalUrl = `${url}?${searchParams.toString()}`
     }
 
