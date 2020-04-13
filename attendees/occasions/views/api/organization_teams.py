@@ -19,7 +19,12 @@ class ApiOrganizationTeamViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.belongs_to_organization_of(self.kwargs['organization_slug']):
             meets = self.request.query_params.getlist('meets[]', [])
-            return Team.objects.filter(meet__slug__in=meets, meet__assembly__division__organization__slug=self.kwargs['organization_slug']).order_by('display_order')
+            return Team.objects.filter(
+                meet__slug__in=meets,
+                meet__assembly__division__organization__slug=self.kwargs['organization_slug']
+            ).order_by(
+                'display_order',
+            )
 
         else:
             time.sleep(2)

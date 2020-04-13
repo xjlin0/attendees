@@ -17,13 +17,16 @@ class ApiOrganizationAttendanceViewSet(viewsets.ModelViewSet):
     serializer_class = AttendanceSerializer
 
     def get_queryset(self):
-        if self.request.user.belongs_to_organization_of(self.kwargs['organization_slug']):
+        current_user = self.request.user
+        if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
+            user_attended_gathering_ids = current_user.attendee.attendings.values_list('gathering__id', flat=True).distinct()
             meets = self.request.query_params.getlist('meets[]', [])
             start = self.request.query_params.get('start', None)
             finish = self.request.query_params.get('finish', None)
             return Attendance.objects.select_related(
                 'character', 'team', 'attending', 'gathering', 'attending__attendee').filter(
                     gathering__meet__assembly__division__organization__slug=self.kwargs['organization_slug'],
+                    gathering__id__in=user_attended_gathering_ids,
                     gathering__meet__slug__in=meets,
                     gathering__start__gte=start,
                     gathering__finish__lte=finish,

@@ -17,8 +17,15 @@ class ApiOrganizationCharacterViewSet(viewsets.ModelViewSet):
     serializer_class = CharacterSerializer
 
     def get_queryset(self):
-        if self.request.user.belongs_to_organization_of(self.kwargs['organization_slug']):
-            return Character.objects.filter(assembly__division__organization__slug=self.kwargs['organization_slug']).order_by('display_order')
+        current_user = self.request.user
+        if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
+            assembly__slugs = current_user.attendee.attendings.values_list('gathering__meet__assembly__slug', flat=True)
+            return Character.objects.filter(
+                assembly__division__organization__slug=self.kwargs['organization_slug'],
+                assembly__slug__in=assembly__slugs,
+            ).order_by(
+                'display_order',
+            )
 
         else:
             time.sleep(2)
