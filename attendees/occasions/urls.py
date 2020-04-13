@@ -9,6 +9,10 @@ from attendees.occasions.views import (
     api_character_viewset,
     api_team_viewset,
     api_gathering_viewset,
+    api_organization_team_viewset,
+    api_organization_gathering_viewset,
+    api_organization_character_viewset,
+    api_organization_attendance_viewset,
 )
 
 
@@ -19,6 +23,11 @@ router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/attendances', a
 router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/characters', api_character_viewset, basename='character')
 router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/teams', api_team_viewset, basename='team')
 router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/gatherings', api_gathering_viewset, basename='gathering')
+router.register('api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/gatherings', api_gathering_viewset, basename='gathering')
+router.register('api/organization_teams', api_organization_team_viewset, basename='team')
+router.register('api/organization_gatherings', api_organization_gathering_viewset, basename='gathering')
+router.register('api/organization_characters', api_organization_character_viewset, basename='character')
+router.register('api/organization_attendances', api_organization_attendance_viewset, basename='attendance')
 
 urlpatterns = [
     path('', include(router.urls)),

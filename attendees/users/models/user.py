@@ -23,7 +23,7 @@ class User(AbstractUser):
         if self.is_superuser:
             return True
         else:
-            return self.organization.slug == organization_slug
+            return self.organization and self.organization.slug == organization_slug
 
     def attend_divisions_of(self, division_slugs):
         return self.attendee.attending_set.filter(divisions__slug__in=division_slugs).exists()

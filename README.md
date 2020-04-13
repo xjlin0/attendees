@@ -84,6 +84,7 @@ https://dbdiagram.io/d/5d5ff66eced98361d6dddc48
 * create a superuser by `docker-compose -f local.yml run --rm django python manage.py createsuperuser`
 * import the seed data by `docker-compose -f local.yml run django python manage.py loaddata fixtures/db_seed`
   (data were created by `docker-compose -f local.yml run django python manage.py dumpdata --exclude users.user --exclude admin.logentry --exclude sessions.session --indent 2 > fixtures/db_seed.json`)
+* go to Django admin to add the first organization and all groups to the first user (superuser) at http://192.168.99.100:8000/admin/users/user/
 * use browser to open http://192.168.99.100:8000/ and http://192.168.99.100:8025/
 * Enter postgres db console by `docker-compose -f local.yml exec postgres psql --username=YBIJMKerEaNYKqzfvMxOlBAesdyiahxk attendees_development`
 * Enter Django console by `docker-compose -f local.yml run django python manage.py shell_plus`
