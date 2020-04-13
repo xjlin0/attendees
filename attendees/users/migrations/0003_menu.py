@@ -41,6 +41,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddConstraint(
             model_name='menu',
-            constraint=models.UniqueConstraint(fields=('organization', 'category', 'urn'), name='organization_category_urn'),
+            constraint=models.UniqueConstraint(fields=('organization', 'category', 'urn', 'display_name'), name='organization_category_urn_display_name'),
         ),
     ]

@@ -34,7 +34,6 @@ class Meet(TimeStampedModel, SoftDeletableModel, Utility):
     def url(self):
         return self.infos.get('url', '')
 
-
     class Meta:
         db_table = 'occasions_meets'
 

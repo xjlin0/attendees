@@ -70,5 +70,8 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
     class Meta:
         db_table = 'users_menus'
         constraints = [
-            models.UniqueConstraint(fields=['organization', 'category', 'urn'], name="organization_category_urn")
+            models.UniqueConstraint(fields=['organization', 'category', 'urn', 'display_name'], name="organization_category_urn_display_name")
         ]
+
+    def __str__(self):
+        return '%s %s %s %s' % (self.organization, self.category, self.display_name, self.urn)
