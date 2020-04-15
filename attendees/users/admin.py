@@ -19,10 +19,21 @@ class UserAdmin(auth_admin.UserAdmin):
     search_fields = ["name"]
 
 
-class MenuAdmin(admin.ModelAdmin):
-    mptt_level_indent = 50
-    list_display = ('organization', 'category',  'display_name', 'urn', 'display_order')
+class MenuAuthGroupInline(admin.TabularInline):
+    model = MenuAuthGroup
+    extra = 0
 
 
+@admin.register(Menu)
+class MenuAdmin(MPTTModelAdmin):
 
-admin.site.register(Menu, MPTTModelAdmin)
+    mptt_level_indent = 20
+    list_display = ('display_name', 'organization_slug', 'category', 'urn', 'display_order')
+    inlines = (MenuAuthGroupInline,)
+    list_display_links=('display_name',)
+
+
+@admin.register(MenuAuthGroup)
+class MenuAuthGroupAdmin(admin.ModelAdmin):
+
+    list_display = ('auth_group', 'read', 'write', 'menu',)

@@ -75,3 +75,7 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
 
     def __str__(self):
         return '%s %s %s %s' % (self.organization, self.category, self.display_name, self.urn)
+
+    @property
+    def organization_slug(self):
+        return self.organization.slug
