@@ -33,4 +33,9 @@ class Migration(migrations.Migration):
             model_name='menuauthgroup',
             constraint=models.UniqueConstraint(fields=('auth_group', 'menu'), name='auth_group_menu'),
         ),
+        migrations.AddField(
+            model_name='menu',
+            name='auth_groups',
+            field=models.ManyToManyField(related_name='auth_groups', through='users.MenuAuthGroup', to='auth.Group'),
+        ),
     ]

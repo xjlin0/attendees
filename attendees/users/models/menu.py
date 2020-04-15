@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group
 from django.db import models
 from django.contrib.postgres.fields.jsonb import JSONField
 from mptt.models import MPTTModel, TreeForeignKey
@@ -62,6 +63,12 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
         blank=True,
         default=dict,
         help_text="HTML attributes & more such as {'class': 'dropdown-item'}. Please keep {} here even no data"
+    )
+
+    auth_groups = models.ManyToManyField(
+        Group,
+        through='MenuAuthGroup',
+        related_name='auth_groups'
     )
 
     class MPTTMeta:
