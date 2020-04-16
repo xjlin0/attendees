@@ -1,1 +1,18 @@
 {% extends "base.html" %}
+{% load mptt_tags %}
+{% load user_extras %}
+{% block content %}
+<ul class="root">
+    {% recursetree user_menus %}
+        <li>
+            {{ node.display_name }}
+            {% convert_uri node.urn %}
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+{% endblock content %}

@@ -509,7 +509,7 @@
       "organization": 1,
       "category": "main",
       "parent": 1,
-      "urn": "/{{user_organization_name_slug}}/occasions/coworkers/organization_attendances/",
+      "urn": "/{user_organization_name_slug}/occasions/coworkers/organization_attendances/",
       "display_name": "Coworkers activities",
       "display_order": 1200,
       "infos": {
@@ -532,7 +532,7 @@
       "organization": 1,
       "category": "main",
       "parent": 1,
-      "urn": "/{{user_organization_name_slug}}/occasions/user/organization_attendances/",
+      "urn": "/{user_organization_name_slug}/occasions/user/organization_attendances/",
       "display_name": "My activities",
       "display_order": 1100,
       "infos": {
@@ -603,7 +603,7 @@
       "organization": 1,
       "category": "main",
       "parent": 4,
-      "urn": "/{{user_organization_name_slug}}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student",
+      "urn": "/{user_organization_name_slug}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student",
       "display_name": "All participations (group)",
       "display_order": 2200,
       "infos": {
@@ -626,7 +626,7 @@
       "organization": 1,
       "category": "main",
       "parent": 4,
-      "urn": "/{{user_organization_name_slug}}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/",
+      "urn": "/{user_organization_name_slug}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/",
       "display_name": "All attendance (date)",
       "display_order": 2300,
       "infos": {
