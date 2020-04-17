@@ -5,7 +5,9 @@
 {% block content %}
 <ul class="root">
     {% recursetree user_menus %}
-        <li>
+      {% if node.is_root_node %}
+        <li class="nav-item dropdown parent">
+      {% endif %}
             {% if node.html_type == 'a' %}
                 <a href="{% convert_urn node.urn %}"
                    {% for key, value in node.infos.items %}
@@ -27,11 +29,13 @@
             {% endif %}
 
             {% if not node.is_leaf_node %}
-                <ul class="children">
+                <div class="dropdown-menu children">
                     {{ children }}
-                </ul>
+                </div>
             {% endif %}
+      {% if node.is_root_node %}
         </li>
+      {% endif %}
     {% endrecursetree %}
 </ul>
 {% endblock content %}

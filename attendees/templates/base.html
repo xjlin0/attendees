@@ -137,13 +137,11 @@
                   {% trans "My Info" %}
                 </a>
                 <div class="dropdown-menu">
-                  {% if True %} <!-- if user is kid coworker/admin of the organization -->
-                    <a class="dropdown-item"
-                       title="Coworkers Activities"
-                       href="/{{user_organization_name_slug}}/occasions/coworkers/organization_attendances/">
-                      {% trans "Coworkers activities" %}
-                    </a>
-                  {% endif %}
+                  <a class="dropdown-item"
+                     title="Coworkers Activities"
+                     href="/{{user_organization_name_slug}}/occasions/coworkers/organization_attendances/">
+                    {% trans "Coworkers activities" %}
+                  </a>
                   <a class="dropdown-item"
                      title="My Activities"
                      href="/{{user_organization_name_slug}}/occasions/user/organization_attendances/">
@@ -151,36 +149,34 @@
                   </a>
                 </div>
               </li>
-              {% if True %} <!-- if user is kid coworker/admin of the organization -->
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle"
-                     data-toggle="dropdown"
-                     role="tab"
-                     href="#"
-                     aria-haspopup="true"
-                     aria-expanded="false">
-                    {% trans "Children Ministry" %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   data-toggle="dropdown"
+                   role="tab"
+                   href="#"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                  {% trans "Children Ministry" %}
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item"
+                     href="/persons/attendings">
+                    {% trans "Registration updates" %}
                   </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item"
-                       href="/persons/attendings">
-                      {% trans "Registration updates" %}
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item"
-                       title="Student Roaster"
-                       href="/{{user_organization_name_slug}}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student">
-                      All participations (group)
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item"
-                       title="Leader List"
-                       href="/{{user_organization_name_slug}}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/">
-                      All attendance (date)
-                    </a>
-                  </div>
-                </li>
-              {% endif %}
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item"
+                     title="Student Roaster"
+                     href="/{{user_organization_name_slug}}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student">
+                    All participations (group)
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item"
+                     title="Leader List"
+                     href="/{{user_organization_name_slug}}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/">
+                    All attendance (date)
+                  </a>
+                </div>
+              </li>
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
                 <a class="nav-link"
