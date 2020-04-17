@@ -484,10 +484,10 @@
       "category": "main",
       "parent": null,
       "html_type": "a",
+      "urn": "#",
       "display_name": "My Info",
       "display_order": 1000,
       "infos": {
-        "href": "#",
         "role": "tab",
         "class": "nav-link dropdown-toggle",
         "data-toggle": "dropdown",
@@ -511,10 +511,10 @@
       "category": "main",
       "parent": 1,
       "html_type": "a",
+      "urn": "/{user_organization_name_slug}/occasions/coworkers/organization_attendances/",
       "display_name": "Coworkers activities",
       "display_order": 1200,
       "infos": {
-        "href": "/{user_organization_name_slug}/occasions/coworkers/organization_attendances/",
         "class": "dropdown-item",
         "title": "Coworkers Activities"
       },
@@ -535,10 +535,10 @@
       "category": "main",
       "parent": 1,
       "html_type": "a",
+      "urn": "/{user_organization_name_slug}/occasions/user/organization_attendances/",
       "display_name": "My activities",
       "display_order": 1100,
       "infos": {
-        "href": "/{user_organization_name_slug}/occasions/user/organization_attendances/",
         "class": "dropdown-item",
         "title": "My Activities"
       },
@@ -559,10 +559,10 @@
       "category": "main",
       "parent": null,
       "html_type": "a",
+      "urn": "#",
       "display_name": "Children Ministry",
       "display_order": 2000,
       "infos": {
-        "href": "#",
         "role": "tab",
         "class": "nav-link dropdown-toggle",
         "data-toggle": "dropdown",
@@ -586,10 +586,10 @@
       "category": "main",
       "parent": 4,
       "html_type": "a",
+      "urn": "#",
       "display_name": "Registration updates",
       "display_order": 2100,
       "infos": {
-        "href": "#",
         "class": "dropdown-item"
       },
       "lft": 2,
@@ -609,10 +609,10 @@
       "category": "main",
       "parent": 4,
       "html_type": "a",
+      "urn": "/{user_organization_name_slug}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student",
       "display_name": "All participations (group)",
       "display_order": 2300,
       "infos": {
-        "href": "/{user_organization_name_slug}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student",
         "class": "dropdown-item",
         "title": "Student Roaster"
       },
@@ -633,10 +633,10 @@
       "category": "main",
       "parent": 4,
       "html_type": "a",
+      "urn": "/{user_organization_name_slug}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/",
       "display_name": "All attendance (date)",
       "display_order": 2500,
       "infos": {
-        "href": "/{user_organization_name_slug}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/",
         "class": "dropdown-item",
         "title": "Leader List"
       },
@@ -657,6 +657,7 @@
       "category": "main",
       "parent": 4,
       "html_type": "div",
+      "urn": null,
       "display_name": "divider between registration&participation groups",
       "display_order": 2200,
       "infos": {
@@ -679,6 +680,7 @@
       "category": "main",
       "parent": 4,
       "html_type": "div",
+      "urn": null,
       "display_name": "divider between participation & attendance date",
       "display_order": 2400,
       "infos": {

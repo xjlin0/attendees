@@ -41,14 +41,23 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
     )
 
     html_type = models.CharField(
+        max_length=50,
+        blank=False,
+        null=False,
+        help_text="HTML tags such as div or a",
+    )
+
+    urn = models.CharField(
         max_length=255,
         blank=True,
         null=True,
-        help_text="HTML tags such as div or a",
+        help_text="use relative path (including leading & ending slash '/') such as /0_organization_name/app/division/meets/",
     )
 
     display_name = models.CharField(
         max_length=50,
+        blank=False,
+        null=False,
         help_text="description of the path, such as 'Character index page', 'divider between index and register links', etc",
     )
 
@@ -62,7 +71,7 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
         null=True,
         blank=True,
         default=dict,
-        help_text="For href, use relative path (including leading & ending slash '/') such as /0_organization_name/app/division/meets/. HTML attributes & more such as {'class': 'dropdown-item'}. Please keep {} here even no data."
+        help_text="HTML attributes & more such as {'class': 'dropdown-item'}. Please keep {} here even no data."
     )
 
     auth_groups = models.ManyToManyField(
@@ -83,11 +92,7 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
 # Todo: Raise ValueError if the instance.get_level() > 1 due to Boostrap 4 dropdown-submenu limit, or smartmenus will be needed.
 
     def __str__(self):
-        return '%s %s %s URN: ...%s' % (self.organization_slug, self.category.upper(), self.display_name, self.infos.get('href', '')[-40:])
-
-    @property
-    def urn(self):
-        return self.infos.get('href', '')
+        return '%s %s %s URN: ...%s' % (self.organization_slug, self.category.upper(), self.display_name, self.urn[-40:] if self.urn else '')
 
     @property
     def organization_slug(self):
