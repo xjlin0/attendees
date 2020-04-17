@@ -3,39 +3,5 @@
 {% load user_extras %}
 {% load i18n %}
 {% block content %}
-<ul class="root">
-    {% recursetree user_menus %}
-      {% if node.is_root_node %}
-        <li class="nav-item dropdown parent">
-      {% endif %}
-            {% if node.html_type == 'a' %}
-                <a href="{% convert_urn node.urn %}"
-                   {% for key, value in node.infos.items %}
-                     {{key}}="{{value}}"
-                   {% endfor %}
-                   data-menu-id="{{node.id}}">
-                  {% blocktrans with display_name=node.display_name %}
-                    {{ display_name }}
-                  {% endblocktrans %}
-                </a>
-            {% elif node.html_type == 'div'  %}
-                <div data-menu-id="{{node.id}}"
-                  {% for key, value in node.infos.items %}
-                    {{key}}="{{value}}"
-                  {% endfor %}
-                >
-                  DIV children --- {{ node.display_name }} ---
-                </div>
-            {% endif %}
-
-            {% if not node.is_leaf_node %}
-                <div class="dropdown-menu children">
-                    {{ children }}
-                </div>
-            {% endif %}
-      {% if node.is_root_node %}
-        </li>
-      {% endif %}
-    {% endrecursetree %}
-</ul>
+This is about
 {% endblock content %}

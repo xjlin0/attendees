@@ -1,5 +1,4 @@
-{% load static i18n %}
-{% load mptt_tags %}
+{% load static i18n mptt_tags user_extras %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -127,56 +126,37 @@
               </a>
             </li>
             {% if request.user.is_authenticated %}
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   data-toggle="dropdown"
-                   role="tab"
-                   href="#"
-                   aria-haspopup="true"
-                   aria-expanded="false">
-                  {% trans "My Info" %}
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item"
-                     title="Coworkers Activities"
-                     href="/{{user_organization_name_slug}}/occasions/coworkers/organization_attendances/">
-                    {% trans "Coworkers activities" %}
-                  </a>
-                  <a class="dropdown-item"
-                     title="My Activities"
-                     href="/{{user_organization_name_slug}}/occasions/user/organization_attendances/">
-                    {% trans "My activities" %}
-                  </a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   data-toggle="dropdown"
-                   role="tab"
-                   href="#"
-                   aria-haspopup="true"
-                   aria-expanded="false">
-                  {% trans "Children Ministry" %}
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item"
-                     href="/persons/attendings">
-                    {% trans "Registration updates" %}
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item"
-                     title="Student Roaster"
-                     href="/{{user_organization_name_slug}}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student">
-                    All participations (group)
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item"
-                     title="Leader List"
-                     href="/{{user_organization_name_slug}}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/">
-                    All attendance (date)
-                  </a>
-                </div>
-              </li>
+              {% recursetree user_menus %}
+                {% if node.is_root_node %}
+                  <li class="nav-item dropdown parent">
+                {% endif %}
+                  {% if node.html_type == 'a' %}
+                    <a href="{% convert_urn node.urn %}"
+                       {% for key, value in node.infos.items %}
+                         {{key}}="{{value}}"
+                       {% endfor %}
+                       data-menu-id="{{node.id}}">
+                      {% blocktrans with display_name=node.display_name %}
+                        {{ display_name }}
+                      {% endblocktrans %}
+                    </a>
+                  {% elif node.html_type == 'div'  %}
+                    <div data-menu-id="{{node.id}}"
+                      {% for key, value in node.infos.items %}
+                        {{key}}="{{value}}"
+                      {% endfor %}>
+                    </div>
+                  {% endif %}
+
+                  {% if not node.is_leaf_node %}
+                    <div class="dropdown-menu children">
+                      {{ children }}
+                    </div>
+                  {% endif %}
+                {% if node.is_root_node %}
+                  </li>
+                {% endif %}
+              {% endrecursetree %}
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
                 <a class="nav-link"
