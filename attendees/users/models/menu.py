@@ -80,6 +80,8 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
             models.UniqueConstraint(fields=['organization', 'category', 'urn', 'display_name'], name="organization_category_urn_display_name")
         ]
 
+# Todo: Raise ValueError if the instance.get_level() > 1 due to Boostrap 4 dropdown-submenu limit, or smartmenus will be needed.
+
     def __str__(self):
         return '%s %s %s URN: ...%s' % (self.organization_slug, self.category.upper(), self.display_name, self.urn[-40:])
 
