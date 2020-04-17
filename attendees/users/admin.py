@@ -30,7 +30,7 @@ class MenuAdmin(MPTTModelAdmin):
     mptt_level_indent = 20
     list_display = ('display_name', 'organization_slug', 'category', 'urn', 'display_order')
     inlines = (MenuAuthGroupInline,)
-    list_display_links=('display_name',)
+    list_display_links = ('display_name',)
 
 
 @admin.register(MenuAuthGroup)

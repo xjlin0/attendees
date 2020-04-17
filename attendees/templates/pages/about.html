@@ -6,7 +6,7 @@
     {% recursetree user_menus %}
         <li>
             {{ node.display_name }}
-            {% convert_urn node.urn %}
+            {% convert_urn node.infos.urn %}
             {% if not node.is_leaf_node %}
                 <ul class="children">
                     {{ children }}

@@ -415,7 +415,7 @@
     "model": "django_celery_beat.periodictasks",
     "pk": 1,
     "fields": {
-      "last_update": "2020-04-13T14:42:56.835Z"
+      "last_update": "2020-04-17T16:45:50.716Z"
     }
   },
   {
@@ -439,9 +439,9 @@
       "one_off": false,
       "start_time": null,
       "enabled": true,
-      "last_run_at": "2020-04-14T04:00:00.006Z",
-      "total_run_count": 2,
-      "date_changed": "2020-04-14T04:02:15.513Z",
+      "last_run_at": "2020-04-17T16:45:52.521Z",
+      "total_run_count": 3,
+      "date_changed": "2020-04-17T16:47:07.777Z",
       "description": ""
     }
   },
@@ -483,10 +483,11 @@
       "organization": 1,
       "category": "main",
       "parent": null,
-      "urn": "#",
+      "node_type": "a",
       "display_name": "My Info",
       "display_order": 1000,
       "infos": {
+        "urn": "#",
         "role": "tab",
         "class": "nav-link dropdown-toggle",
         "data-toggle": "dropdown",
@@ -509,10 +510,11 @@
       "organization": 1,
       "category": "main",
       "parent": 1,
-      "urn": "/{user_organization_name_slug}/occasions/coworkers/organization_attendances/",
+      "node_type": "a",
       "display_name": "Coworkers activities",
       "display_order": 1200,
       "infos": {
+        "urn": "/{user_organization_name_slug}/occasions/coworkers/organization_attendances/",
         "class": "dropdown-item",
         "title": "Coworkers Activities"
       },
@@ -532,10 +534,11 @@
       "organization": 1,
       "category": "main",
       "parent": 1,
-      "urn": "/{user_organization_name_slug}/occasions/user/organization_attendances/",
+      "node_type": "a",
       "display_name": "My activities",
       "display_order": 1100,
       "infos": {
+        "urn": "/{user_organization_name_slug}/occasions/user/organization_attendances/",
         "class": "dropdown-item",
         "title": "My Activities"
       },
@@ -555,10 +558,11 @@
       "organization": 1,
       "category": "main",
       "parent": null,
-      "urn": "#",
+      "node_type": "a",
       "display_name": "Children Ministry",
       "display_order": 2000,
       "infos": {
+        "urn": "#",
         "role": "tab",
         "class": "nav-link dropdown-toggle",
         "data-toggle": "dropdown",
@@ -566,7 +570,7 @@
         "aria-haspopup": "true"
       },
       "lft": 1,
-      "rght": 8,
+      "rght": 12,
       "tree_id": 2,
       "level": 0
     }
@@ -581,10 +585,11 @@
       "organization": 1,
       "category": "main",
       "parent": 4,
-      "urn": "#",
+      "node_type": "a",
       "display_name": "Registration updates",
       "display_order": 2100,
       "infos": {
+        "urn": "#",
         "class": "dropdown-item"
       },
       "lft": 2,
@@ -598,20 +603,21 @@
     "pk": 6,
     "fields": {
       "created": "2020-04-13T05:14:05.406Z",
-      "modified": "2020-04-13T15:15:18.112Z",
+      "modified": "2020-04-17T16:50:20.607Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 4,
-      "urn": "/{user_organization_name_slug}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student",
+      "node_type": "a",
       "display_name": "All participations (group)",
-      "display_order": 2200,
+      "display_order": 2300,
       "infos": {
+        "urn": "/{user_organization_name_slug}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student",
         "class": "dropdown-item",
         "title": "Student Roaster"
       },
-      "lft": 4,
-      "rght": 5,
+      "lft": 6,
+      "rght": 7,
       "tree_id": 2,
       "level": 1
     }
@@ -621,20 +627,65 @@
     "pk": 7,
     "fields": {
       "created": "2020-04-13T05:17:33.909Z",
-      "modified": "2020-04-15T01:34:48.017Z",
+      "modified": "2020-04-17T16:50:09.493Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 4,
-      "urn": "/{user_organization_name_slug}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/",
+      "node_type": "a",
       "display_name": "All attendance (date)",
-      "display_order": 2300,
+      "display_order": 2500,
       "infos": {
+        "urn": "/{user_organization_name_slug}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/",
         "class": "dropdown-item",
         "title": "Leader List"
       },
-      "lft": 6,
-      "rght": 7,
+      "lft": 10,
+      "rght": 11,
+      "tree_id": 2,
+      "level": 1
+    }
+  },
+  {
+    "model": "users.menu",
+    "pk": 10,
+    "fields": {
+      "created": "2020-04-17T16:56:21.296Z",
+      "modified": "2020-04-17T16:56:21.296Z",
+      "is_removed": false,
+      "organization": 1,
+      "category": "main",
+      "parent": 4,
+      "node_type": "div",
+      "display_name": "divider between registration&participation groups",
+      "display_order": 2200,
+      "infos": {
+        "class": "dropdown-divider"
+      },
+      "lft": 4,
+      "rght": 5,
+      "tree_id": 2,
+      "level": 1
+    }
+  },
+  {
+    "model": "users.menu",
+    "pk": 11,
+    "fields": {
+      "created": "2020-04-17T16:58:47.210Z",
+      "modified": "2020-04-17T16:58:47.210Z",
+      "is_removed": false,
+      "organization": 1,
+      "category": "main",
+      "parent": 4,
+      "node_type": "div",
+      "display_name": "divider between participation & attendance date",
+      "display_order": 2400,
+      "infos": {
+        "class": "dropdown-divider"
+      },
+      "lft": 8,
+      "rght": 9,
       "tree_id": 2,
       "level": 1
     }
@@ -4411,6 +4462,58 @@
       "read": true,
       "write": true,
       "menu": 7
+    }
+  },
+  {
+    "model": "users.menuauthgroup",
+    "pk": 23,
+    "fields": {
+      "created": "2020-04-17T16:56:21.304Z",
+      "modified": "2020-04-17T16:56:21.304Z",
+      "is_removed": false,
+      "auth_group": 1,
+      "read": true,
+      "write": false,
+      "menu": 10
+    }
+  },
+  {
+    "model": "users.menuauthgroup",
+    "pk": 24,
+    "fields": {
+      "created": "2020-04-17T16:56:21.304Z",
+      "modified": "2020-04-17T16:56:21.304Z",
+      "is_removed": false,
+      "auth_group": 2,
+      "read": true,
+      "write": false,
+      "menu": 10
+    }
+  },
+  {
+    "model": "users.menuauthgroup",
+    "pk": 25,
+    "fields": {
+      "created": "2020-04-17T16:58:47.219Z",
+      "modified": "2020-04-17T16:58:47.219Z",
+      "is_removed": false,
+      "auth_group": 1,
+      "read": true,
+      "write": false,
+      "menu": 11
+    }
+  },
+  {
+    "model": "users.menuauthgroup",
+    "pk": 26,
+    "fields": {
+      "created": "2020-04-17T16:58:47.219Z",
+      "modified": "2020-04-17T16:58:47.219Z",
+      "is_removed": false,
+      "auth_group": 2,
+      "read": true,
+      "write": false,
+      "menu": 11
     }
   },
   {
