@@ -5,5 +5,7 @@
   document.cookie = 'timezone=' + encodeURIComponent(timeZoneName) + '; path=/';
 
   // $('li.active').removeClass('active');
-  $('a[href="' + location.pathname + location.search + '"]').closest('li').addClass('active');
+  const $currentMenuItem = $('a[href="' + location.pathname + location.search + '"]');
+  $currentMenuItem.addClass('active');
+  $currentMenuItem.closest('li').addClass('active');
 })(window.jQuery, window.Attendees); // https://stackoverflow.com/a/18315393
