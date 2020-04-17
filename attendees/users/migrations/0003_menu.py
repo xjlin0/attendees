@@ -24,10 +24,10 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('category', models.CharField(default='main', help_text="Type of menu, such as 'main', 'side', etc", max_length=32)),
-                ('node_type', models.CharField(blank=True, help_text="HTML tags such as div or a", max_length=255, null=True)),
+                ('html_type', models.CharField(blank=True, help_text="HTML tags such as div or a", max_length=255, null=True)),
                 ('display_name', models.CharField(help_text="description of the path, such as 'Character index page', 'divider between index and register links', etc", max_length=50)),
                 ('display_order', models.SmallIntegerField(default=0)),
-                ('infos', django.contrib.postgres.fields.jsonb.JSONField(blank=True, default=dict, help_text="For urn, use relative path (including leading & ending slash '/') such as /0_organization_name/app/division/meets/. HTML attributes & more such as {'class': 'dropdown-item'}. Please keep {} here even no data.", null=True)),
+                ('infos', django.contrib.postgres.fields.jsonb.JSONField(blank=True, default=dict, help_text="For href, use relative path (including leading & ending slash '/') such as /0_organization_name/app/division/meets/. HTML attributes & more such as {'class': 'dropdown-item'}. Please keep {} here even no data.", null=True)),
                 ('lft', models.PositiveIntegerField(editable=False)),
                 ('rght', models.PositiveIntegerField(editable=False)),
                 ('tree_id', models.PositiveIntegerField(db_index=True, editable=False)),
@@ -41,6 +41,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddConstraint(
             model_name='menu',
-            constraint=models.UniqueConstraint(fields=('organization', 'category', 'node_type', 'display_name'), name='organization_category_node_type_display_name'),
+            constraint=models.UniqueConstraint(fields=('organization', 'category', 'html_type', 'display_name'), name='organization_category_html_type_display_name'),
         ),
     ]

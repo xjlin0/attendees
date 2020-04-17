@@ -40,7 +40,7 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
         related_name='children'
     )
 
-    node_type = models.CharField(
+    html_type = models.CharField(
         max_length=255,
         blank=True,
         null=True,
@@ -62,7 +62,7 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
         null=True,
         blank=True,
         default=dict,
-        help_text="For urn, use relative path (including leading & ending slash '/') such as /0_organization_name/app/division/meets/. HTML attributes & more such as {'class': 'dropdown-item'}. Please keep {} here even no data."
+        help_text="For href, use relative path (including leading & ending slash '/') such as /0_organization_name/app/division/meets/. HTML attributes & more such as {'class': 'dropdown-item'}. Please keep {} here even no data."
     )
 
     auth_groups = models.ManyToManyField(
@@ -77,17 +77,17 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
     class Meta:
         db_table = 'users_menus'
         constraints = [
-            models.UniqueConstraint(fields=['organization', 'category', 'node_type', 'display_name'], name="organization_category_node_type_display_name")
+            models.UniqueConstraint(fields=['organization', 'category', 'html_type', 'display_name'], name="organization_category_html_type_display_name")
         ]
 
 # Todo: Raise ValueError if the instance.get_level() > 1 due to Boostrap 4 dropdown-submenu limit, or smartmenus will be needed.
 
     def __str__(self):
-        return '%s %s %s URN: ...%s' % (self.organization_slug, self.category.upper(), self.display_name, self.infos.get('urn', '')[-40:])
+        return '%s %s %s URN: ...%s' % (self.organization_slug, self.category.upper(), self.display_name, self.infos.get('href', '')[-40:])
 
     @property
     def urn(self):
-        return self.infos.get('urn', '')
+        return self.infos.get('href', '')
 
     @property
     def organization_slug(self):
