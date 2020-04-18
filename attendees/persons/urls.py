@@ -35,6 +35,6 @@ urlpatterns = [
     path(
         "<slug:division_slug>/<slug:assembly_slug>/attendings/",
         view=assembly_attending_list_view,
-        name="assembly_attendances"
+        name="assembly-attendings",
     ),
 ]

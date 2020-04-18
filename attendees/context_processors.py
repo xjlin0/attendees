@@ -10,7 +10,10 @@ def common_variables(request):  # TODO move organization info to view
     tzname = request.COOKIES.get('timezone') or settings.CLIENT_DEFAULT_TIME_ZONE
     user_organization_name = settings.PROJECT_NAME
     user_organization_name_slug = '0_organization_slug'
-    user_menus = Menu.objects.filter(auth_groups__in=request.user.groups.all()).distinct()
+    main_menus = Menu.objects.filter(
+        auth_groups__in=request.user.groups.all(),
+        category='main',
+    ).distinct()
     if request.user.is_authenticated and request.user.organization:
         user_organization = request.user.organization
         user_organization_name = user_organization.display_name
@@ -19,5 +22,5 @@ def common_variables(request):  # TODO move organization info to view
         'timezone_name': datetime.now(timezone(parse.unquote(tzname))).tzname(),
         'user_organization_name': user_organization_name,
         'user_organization_name_slug': user_organization_name_slug,
-        'user_menus': user_menus,
+        'main_menus': main_menus,
     }

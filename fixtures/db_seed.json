@@ -513,7 +513,7 @@
       "parent": 1,
       "html_type": "a",
       "urn": "/{user_organization_name_slug}/occasions/coworkers/organization_attendances/",
-      "url_name": "Coworkers-activities",
+      "url_name": "coworkers_organization_attendance",
       "display_name": "Coworkers activities",
       "display_order": 1200,
       "infos": {
@@ -615,7 +615,7 @@
       "parent": 4,
       "html_type": "a",
       "urn": "/{user_organization_name_slug}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student",
-      "url_name": "All-participations-group",
+      "url_name": "assembly-attendings",
       "display_name": "All participations (group)",
       "display_order": 2300,
       "infos": {

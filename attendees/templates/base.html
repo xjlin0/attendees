@@ -126,7 +126,7 @@
               </a>
             </li>
             {% if request.user.is_authenticated %}
-              {% recursetree user_menus %}
+              {% recursetree main_menus %}
                 {% if node.is_root_node %}
                   <li class="nav-item dropdown parent">
                 {% endif %}

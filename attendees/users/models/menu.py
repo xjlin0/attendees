@@ -58,7 +58,7 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
         max_length=255,
         blank=False,
         null=False,
-        unique=True,
+        db_index=True,
         help_text="view name of the path, such as 'assembly_attendances', 'divider between index and register links', etc",
     )
 
