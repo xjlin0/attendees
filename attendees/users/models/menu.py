@@ -54,6 +54,14 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
         help_text="use relative path (including leading & ending slash '/') such as /0_organization_name/app/division/meets/",
     )
 
+    url_name = models.SlugField(
+        max_length=255,
+        blank=False,
+        null=False,
+        unique=True,
+        help_text="view name of the path, such as 'assembly_attendances', 'divider between index and register links', etc",
+    )
+
     display_name = models.CharField(
         max_length=50,
         blank=False,
@@ -86,7 +94,7 @@ class Menu(MPTTModel, TimeStampedModel, SoftDeletableModel):
     class Meta:
         db_table = 'users_menus'
         constraints = [
-            models.UniqueConstraint(fields=['organization', 'category', 'html_type', 'display_name'], name="organization_category_html_type_display_name")
+            models.UniqueConstraint(fields=['organization', 'category', 'html_type', 'url_name'], name="organization_category_html_type_url_name")
         ]
 
 # Todo: Raise ValueError if the instance.get_level() > 1 due to Boostrap 4 dropdown-submenu limit, or smartmenus will be needed.

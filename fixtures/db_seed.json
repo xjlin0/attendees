@@ -485,6 +485,7 @@
       "parent": null,
       "html_type": "a",
       "urn": "#",
+      "url_name": "My-Info",
       "display_name": "My Info",
       "display_order": 1000,
       "infos": {
@@ -512,6 +513,7 @@
       "parent": 1,
       "html_type": "a",
       "urn": "/{user_organization_name_slug}/occasions/coworkers/organization_attendances/",
+      "url_name": "Coworkers-activities",
       "display_name": "Coworkers activities",
       "display_order": 1200,
       "infos": {
@@ -536,6 +538,7 @@
       "parent": 1,
       "html_type": "a",
       "urn": "/{user_organization_name_slug}/occasions/user/organization_attendances/",
+      "url_name": "My-activities",
       "display_name": "My activities",
       "display_order": 1100,
       "infos": {
@@ -560,6 +563,7 @@
       "parent": null,
       "html_type": "a",
       "urn": "#",
+      "url_name": "Children-Ministry",
       "display_name": "Children Ministry",
       "display_order": 2000,
       "infos": {
@@ -587,6 +591,7 @@
       "parent": 4,
       "html_type": "a",
       "urn": "#",
+      "url_name": "Registration-updates",
       "display_name": "Registration updates",
       "display_order": 2100,
       "infos": {
@@ -610,6 +615,7 @@
       "parent": 4,
       "html_type": "a",
       "urn": "/{user_organization_name_slug}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student",
+      "url_name": "All-participations-group",
       "display_name": "All participations (group)",
       "display_order": 2300,
       "infos": {
@@ -634,6 +640,7 @@
       "parent": 4,
       "html_type": "a",
       "urn": "/{user_organization_name_slug}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/",
+      "url_name": "All-attendance-date",
       "display_name": "All attendance (date)",
       "display_order": 2500,
       "infos": {
@@ -658,6 +665,7 @@
       "parent": 4,
       "html_type": "div",
       "urn": null,
+      "url_name": "divider-between-registration-participations",
       "display_name": "divider between registration&participation groups",
       "display_order": 2200,
       "infos": {
@@ -681,6 +689,7 @@
       "parent": 4,
       "html_type": "div",
       "urn": null,
+      "url_name": "divider-between-participation-attendances",
       "display_name": "divider between participation & attendance date",
       "display_order": 2400,
       "infos": {

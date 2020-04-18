@@ -26,6 +26,7 @@ class Migration(migrations.Migration):
                 ('category', models.CharField(default='main', help_text="Type of menu, such as 'main', 'side', etc", max_length=32)),
                 ('html_type', models.CharField(blank=False, help_text="HTML tags such as div or a", max_length=50, null=False)),
                 ('urn', models.CharField(blank=True, help_text="use relative path (including leading & ending slash '/') such as /0_organization_name/app/division/meets/", max_length=255, null=True)),
+                ('url_name', models.SlugField(blank=False, null=False, unique=True, help_text="view name of the path, such as 'assembly_attendances', 'divider between index and register links', etc", max_length=255)),
                 ('display_name', models.CharField(blank=False, null=False, help_text="description of the path, such as 'Character index page', 'divider between index and register links', etc", max_length=50)),
                 ('display_order', models.SmallIntegerField(default=0)),
                 ('infos', django.contrib.postgres.fields.jsonb.JSONField(blank=True, default=dict, help_text="HTML attributes & more such as {'class': 'dropdown-item'}. Please keep {} here even no data.", null=True)),
@@ -42,6 +43,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddConstraint(
             model_name='menu',
-            constraint=models.UniqueConstraint(fields=('organization', 'category', 'html_type', 'display_name'), name='organization_category_html_type_display_name'),
+            constraint=models.UniqueConstraint(fields=('organization', 'category', 'html_type', 'url_name'), name='organization_category_html_type_url_name'),
         ),
     ]
