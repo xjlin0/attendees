@@ -45,7 +45,10 @@ Attendees.attendances = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.attendances').data('gatherings-endpoint'), {meets: $('select.filter-meets').val()});
+                      const $selectedMeets = $('select.filter-meets').val();
+                      if ($selectedMeets.length > 0) {
+                        return $.getJSON($('div.attendances').data('gatherings-endpoint'), {meets: $selectedMeets});
+                      }
                     },
                 }),
             },
@@ -61,7 +64,11 @@ Attendees.attendances = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.attendances').data('attendings-endpoint'), {meets: $('select.filter-meets').val(), characters: $('select.filter-characters').val()});
+                      const $selectedMeets = $('select.filter-meets').val();
+                      const $selectedCharacters = $('select.filter-characters').val();
+                      if ($selectedMeets.length > 0 && $selectedCharacters.length > 0) {
+                        return $.getJSON($('div.attendances').data('attendings-endpoint'), {meets: $selectedMeets, characters: $selectedCharacters});
+                        }
                     },
                 }),
             },
@@ -76,7 +83,10 @@ Attendees.attendances = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.attendances').data('teams-endpoint'), {meets: $('select.filter-meets').val()});
+                      const $selectedMeets = $('select.filter-meets').val();
+                      if ($selectedMeets.length > 0) {
+                        return $.getJSON($('div.attendances').data('teams-endpoint'), {meets: $selectedMeets});
+                      }
                     },
                 }),
             },
@@ -91,7 +101,10 @@ Attendees.attendances = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.attendances').data('characters-endpoint'));
+                      const $selectedMeets = $('select.filter-meets').val();
+                      if ($selectedMeets.length > 0) {
+                        return $.getJSON($('div.attendances').data('characters-endpoint'));
+                      }
                     },
                 }),
             },
