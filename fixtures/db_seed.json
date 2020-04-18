@@ -640,7 +640,7 @@
       "parent": 4,
       "html_type": "a",
       "urn": "/{user_organization_name_slug}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/",
-      "url_name": "All-attendance-date",
+      "url_name": "assembly_attendances",
       "display_name": "All attendance (date)",
       "display_order": 2500,
       "infos": {

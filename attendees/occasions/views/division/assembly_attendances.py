@@ -1,5 +1,5 @@
 import time
-
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.http import Http404
 from django.shortcuts import render
 from attendees.occasions.models import Meet, Character
+from attendees.users.models import Menu
 
 import logging
 
@@ -15,9 +16,18 @@ logger = logging.getLogger(__name__)
 
 
 @method_decorator([login_required], name='dispatch')
-class AssemblyAttendanceListView(ListView):
+class AssemblyAttendanceListView(UserPassesTestMixin, ListView):
     queryset = []
     template_name = 'occasions/division/assembly/attendances.html'
+
+    def test_func(self):
+        logger.info("hi jack 24 here is test_func")
+
+        return Menu.objects.filter(
+            auth_groups__in=self.request.user.groups.all(),
+            url_name=self.request.resolver_match.url_name,
+            menuauthgroup__read=True,
+        ).exists()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -37,6 +47,8 @@ class AssemblyAttendanceListView(ListView):
         return context
 
     def render_to_response(self, context, **kwargs):
+        logger.info("hi jack 50 here is view name")
+        logger.info(self.request.resolver_match.url_name)
         if self.request.user.belongs_to_organization_and_division(context['current_organization_slug'], context['current_division_slug']):
             if self.request.is_ajax():
                 chosen_meet_slugs = self.request.GET.getlist('meets[]', [])
