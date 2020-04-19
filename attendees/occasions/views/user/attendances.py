@@ -17,14 +17,18 @@ logger = logging.getLogger(__name__)
 
 
 @method_decorator([login_required], name='dispatch')
-class UserOrganizationAttendanceListView(ListView):
+class UserAttendanceListView(ListView):
     queryset = []
-    template_name = 'occasions/user/organization_attendances.html'
+    template_name = 'occasions/user/attendances.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         current_organization_slug = self.kwargs.get('organization_slug', None)
-        available_meets = Meet.objects.filter(assembly__division__organization__slug=self.request.user.organization.slug).order_by('display_name')
+        available_meets = Meet.objects.filter(
+            attendings__id__in=self.request.user.attendee.attendings.values_list('id', flat=True)
+        ).order_by(
+            'display_name',
+        )
         context.update({
             'current_organization_slug': current_organization_slug,
             'available_meets': available_meets,
@@ -40,11 +44,11 @@ class UserOrganizationAttendanceListView(ListView):
                 # chosen_character_slugs = self.request.GET.getlist('characters', [])
                 # context.update({'chosen_character_slugs': chosen_character_slugs})
                 context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_teams/"})
-                context.update({'attendees_endpoint': f"/{context['current_organization_slug']}/persons/api/organization_attendees/"})
-                context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_gatherings/"})
-                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_characters/"})
-                context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/organization_attendings/"})
-                context.update({'attendances_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_attendances/"})
+                # context.update({'attendees_endpoint': f"/{context['current_organization_slug']}/persons/api/user_attendees/"})
+                context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/user_gatherings/"})
+                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/user_characters/"})
+                context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/user_attendings/"})
+                context.update({'attendances_endpoint': f"/{context['current_organization_slug']}/occasions/api/user_attendances/"})
                 return render(self.request, self.get_template_names()[0], context)
         else:
             time.sleep(2)
@@ -57,4 +61,4 @@ class UserOrganizationAttendanceListView(ListView):
 #     #     return ''
 #
 #
-user_organization_attendance_list_view = UserOrganizationAttendanceListView.as_view()
+user_attendance_list_view = UserAttendanceListView.as_view()

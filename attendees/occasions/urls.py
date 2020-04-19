@@ -3,7 +3,7 @@ from rest_framework import routers
 
 from attendees.occasions.views import (
     assembly_attendance_list_view,
-    # assembly_attendance_others_list_view,
+    user_attendance_list_view,
     coworkers_organization_attendance_list_view,
     api_attendance_viewset,
     api_character_viewset,
@@ -34,4 +34,6 @@ urlpatterns = [
     path("<slug:division_slug>/<slug:assembly_slug>/attendances/", view=assembly_attendance_list_view, name="assembly_attendances"),
     # path("<slug:division_slug>/<slug:assembly_slug>/attendings/", view=assembly_attendance_others_list_view, name="assembly_attendance_others"),
     path('coworkers/organization_attendances/', view=coworkers_organization_attendance_list_view, name='coworkers_organization_attendance'),
+    path('user/attendances/', view=user_attendance_list_view, name='user-attendances'),
+
 ]
