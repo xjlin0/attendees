@@ -8,17 +8,21 @@ Attendees.organizationAttendances = {
     $('.basic-multiple').select2({
       theme: 'bootstrap4',
     });
-    $('form.organization-attendances-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.search-filters, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.organizationAttendances.fetchAttendances));
+    $('form.organization-attendances-filter, div.datetimepickers').on('change, change.datetimepicker', 'select.search-filters, div.datetimepickers', Attendees.utilities.debounce(250, Attendees.organizationAttendances.triggerFetching));
     $('div.for-select-all').on('click', 'input.select-all', e => Attendees.utilities.toggleSelect2All(e, 'select.search-filters'));
     $("div.organization-attendances").dxDataGrid(Attendees.organizationAttendances.attendancesFormats);
     Attendees.utilities.alterCheckBoxAndValidations(document.querySelector('select.filter-meets'), 'input.select-all');
   },
 
-  fetchAttendances: (event) => {
-    Attendees.utilities.alterCheckBoxAndValidations(event.currentTarget, 'input.select-all');
+  triggerFetching: (event) => {
+    Attendees.organizationAttendances.fetchAttendances(event.currentTarget, event.delegateTarget);
+  },
+
+  fetchAttendances: (currentTarget, delegateTarget) => {
+    Attendees.utilities.alterCheckBoxAndValidations(currentTarget, 'input.select-all');
 
     let finalUrl = null;
-    const $optionForm = $(event.delegateTarget);
+    const $optionForm = $(delegateTarget);
     const $meetsSelectBox = $optionForm.find('select.filter-meets');
     const meets = $meetsSelectBox.val() || [];
     const startDate = $optionForm.find('input.filter-start-date').val();
@@ -39,7 +43,7 @@ Attendees.organizationAttendances = {
   }, // Getting JSON from DRF upon user selecting meet(s)
 
   attendancesFormats: {
-    onInitialized: () => {console.log('need to call fetchAttendances()!')},
+    onInitialized: () => Attendees.organizationAttendances.fetchAttendances($('select.filter-meets'), $('form.organization-attendances-filter')),
     dataSource: null,
     filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
     searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
@@ -71,7 +75,10 @@ Attendees.organizationAttendances = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.organization-attendances').data('gatherings-endpoint'), {meets: $('select.filter-meets').val()});
+                      meets = $('select.filter-meets').val();
+                      if (meets.length > 0) {
+                        return $.getJSON($('div.organization-attendances').data('gatherings-endpoint'), {meets: meets});
+                      }
                     },
                 }),
             },
@@ -87,7 +94,10 @@ Attendees.organizationAttendances = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.organization-attendances').data('attendings-endpoint'), {meets: $('select.filter-meets').val()});
+                      meets = $('select.filter-meets').val();
+                      if (meets.length > 0) {
+                        return $.getJSON($('div.organization-attendances').data('attendings-endpoint'), {meets: meets});
+                      }
                     },
                 }),
             },
@@ -102,7 +112,10 @@ Attendees.organizationAttendances = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.organization-attendances').data('teams-endpoint'), {meets: $('select.filter-meets').val()});
+                      meets = $('select.filter-meets').val();
+                      if (meets.length > 0) {
+                        return $.getJSON($('div.organization-attendances').data('teams-endpoint'), {meets: meets});
+                      }
                     },
                 }),
             },
@@ -117,7 +130,10 @@ Attendees.organizationAttendances = {
                 store: new DevExpress.data.CustomStore({
                     key: "id",
                     load: () => {
-                      return $.getJSON($('div.organization-attendances').data('characters-endpoint'));
+                      meets = $('select.filter-meets').val();
+                      if (meets.length > 0) {
+                        return $.getJSON($('div.organization-attendances').data('characters-endpoint'));
+                      }
                     },
                 }),
             },
