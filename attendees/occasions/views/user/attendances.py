@@ -10,6 +10,7 @@ from django.utils.decorators import method_decorator
 from django.http import Http404
 from django.shortcuts import render
 from attendees.occasions.models import Meet
+from attendees.persons.models import Attendee
 
 import logging
 
@@ -28,7 +29,9 @@ class UserAttendanceListView(ListView):
         available_meets = Meet.objects.filter(
             Q(attendings__attendee=self.request.user.attendee)
             |
-            Q(attendings__attendee__in=self.request.user.attendee.relations.filter(to_attendee__relation__in=['care receiver']))
+            Q(attendings__attendee__in=self.request.user.attendee.relations.filter(
+                to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS,
+            ))
         ).order_by(
             'display_name',
         )  # get all user's and user care receivers' joined meets, no time limit on the first load

@@ -11,8 +11,9 @@ from . import GenderEnum, Note, Utility
 
 
 class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
-    RELATION_KEYWORDS = ['parent', 'mother', 'guardian', 'father', 'caregiver']
-    CATEGORY_KEYWORDS = ['notifier', 'caregiver']
+    RELATIVES_KEYWORDS = ['parent', 'mother', 'guardian', 'father', 'caregiver']
+    AS_PARENT_KEYWORDS = ['notifier', 'caregiver']  # to find attendee's parents/caregiver in cowokers view of all activities
+    BE_LISTED_KEYWORDS = ['care receiver']  # let the attendee's attendance showed in their parent/caregiver account
 
     notes = GenericRelation(Note)
     relations = models.ManyToManyField('self', through='Relationship', symmetrical=False, related_name='related_to+')
@@ -59,7 +60,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     def caregiver_addresses_for_fields_of(self, fields):
         return ', '.join(
             a.self_addresses_for_fields_of(fields) for a in
-                self.get_relatives(self.RELATION_KEYWORDS, self.CATEGORY_KEYWORDS)
+                self.get_relatives(self.RELATIVES_KEYWORDS, self.AS_PARENT_KEYWORDS)
         )
 
     def get_relatives(self, relation_keywords, category_keywords):
@@ -71,10 +72,13 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
 
     @cached_property
     def parents_notifiers_names(self):
+        """
+        :return: attendees' names of their parents/caregiviers
+        """
         return ', '.join(list(
                             self.relations.filter(
-                                to_attendee__relation__in=self.RELATION_KEYWORDS,
-                                to_attendee__category__in=self.CATEGORY_KEYWORDS,
+                                to_attendee__relation__in=self.RELATIVES_KEYWORDS,
+                                to_attendee__category__in=self.AS_PARENT_KEYWORDS,
                                 to_attendee__finish__gte=datetime.now(timezone.utc),
                             ).annotate(
                                 full_name=models.functions.Concat(
