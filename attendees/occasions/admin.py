@@ -80,7 +80,7 @@ class GatheringAdmin(admin.ModelAdmin):
     inlines = (AttendanceInline,)
     search_fields = ('meet__display_name', 'display_name')
     list_filter = ('meet',)
-    list_display = ('meet', 'start', 'display_name', 'location', 'modified')
+    list_display = ('id', 'meet', 'start', 'display_name', 'location', 'modified')
     readonly_fields = ['id', 'created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish']),

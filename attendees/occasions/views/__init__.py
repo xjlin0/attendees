@@ -3,6 +3,7 @@ from .division.assembly_attendances import assembly_attendance_list_view
 from .user.attendances import user_attendance_list_view
 from .coworkers.organization_attendances import coworkers_organization_attendance_list_view
 from .api.user_attendances import api_user_attendance_viewset
+from .api.user_characters import api_user_character_viewset
 from .api.attendances import api_attendance_viewset
 from .api.characters import api_character_viewset
 from .api.teams import api_team_viewset

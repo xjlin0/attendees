@@ -45,8 +45,8 @@ Attendees.userAttendances = {
   attendancesFormats: {
     onInitialized: () => Attendees.userAttendances.fetchAttendances($('select.filter-meets'), $('form.organization-attendances-filter')),
     dataSource: null,
-    filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
-    searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
+//    filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
+//    searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
     allowColumnReordering: true,
     columnAutoWidth: true,
     allowColumnResizing: true,

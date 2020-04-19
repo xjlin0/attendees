@@ -52,7 +52,7 @@ class UserAttendanceListView(ListView):
                 context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_teams/"})
                 # context.update({'attendees_endpoint': f"/{context['current_organization_slug']}/persons/api/user_attendees/"})
                 context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/user_gatherings/"})
-                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/user_characters/"})
+                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/user/characters/"})
                 context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/user_attendings/"})
                 context.update({'attendances_endpoint': f"/{context['current_organization_slug']}/occasions/api/user/attendances/"})
                 return render(self.request, self.get_template_names()[0], context)

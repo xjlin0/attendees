@@ -6,6 +6,7 @@ from attendees.occasions.views import (
     user_attendance_list_view,
     coworkers_organization_attendance_list_view,
     api_user_attendance_viewset,
+    api_user_character_viewset,
     api_attendance_viewset,
     api_character_viewset,
     api_team_viewset,
@@ -30,6 +31,7 @@ router.register('api/organization_gatherings', api_organization_gathering_viewse
 router.register('api/organization_characters', api_organization_character_viewset, basename='character')
 router.register('api/organization_attendances', api_organization_attendance_viewset, basename='attendance')
 router.register('api/user/attendances', api_user_attendance_viewset, basename='attendance')
+router.register('api/user/characters', api_user_character_viewset, basename='character')
 
 urlpatterns = [
     path('', include(router.urls)),
