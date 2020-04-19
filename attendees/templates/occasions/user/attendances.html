@@ -61,7 +61,7 @@
 
   <script defer
           type="text/javascript"
-          src="{% static 'js/coworkers/organization_attendances.js' %}">
+          src="{% static 'js/user/attendances.js' %}">
   </script>
 
 {% endblock extra_head %}
@@ -70,7 +70,7 @@
 
   {% if True %} <!--If user is coworker/admin of the organization-->
     <h3>
-      Personal ongoing activities
+      Ongoing activities you may interested
     </h3>
 
     <form class="d-flex flex-wrap organization-attendances-filter"

@@ -3,6 +3,7 @@ from django.utils import timezone
 import pytz
 
 import time
+from django.db.models import Q
 from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -25,10 +26,12 @@ class UserAttendanceListView(ListView):
         context = super().get_context_data(**kwargs)
         current_organization_slug = self.kwargs.get('organization_slug', None)
         available_meets = Meet.objects.filter(
-            attendings__id__in=self.request.user.attendee.attendings.values_list('id', flat=True)
+            Q(attendings__attendee=self.request.user.attendee)
+            |
+            Q(attendings__attendee__in=self.request.user.attendee.relations.filter(to_attendee__relation__in=['care receiver']))
         ).order_by(
             'display_name',
-        )
+        )  # get all user's and user care receivers' joined meets, no time limit on the first load
         context.update({
             'current_organization_slug': current_organization_slug,
             'available_meets': available_meets,

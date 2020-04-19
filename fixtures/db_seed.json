@@ -1313,6 +1313,20 @@
     }
   },
   {
+    "model": "persons.relationship",
+    "pk": 20,
+    "fields": {
+      "created": "2020-04-19T12:40:10.977Z",
+      "modified": "2020-04-19T12:40:10.977Z",
+      "is_removed": false,
+      "from_attendee": 2,
+      "to_attendee": 3,
+      "relation": "care receiver",
+      "category": "relatives",
+      "finish": "4020-10-25T12:39:50Z"
+    }
+  },
+  {
     "model": "persons.registration",
     "pk": 1,
     "fields": {
@@ -1486,6 +1500,23 @@
     }
   },
   {
+    "model": "persons.attending",
+    "pk": 7,
+    "fields": {
+      "created": "2020-04-19T13:14:25.051Z",
+      "modified": "2020-04-19T13:14:25.051Z",
+      "is_removed": false,
+      "registration": 1,
+      "attendee": 2,
+      "age": 500,
+      "category": "normal",
+      "belief": "believer",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
     "model": "persons.attendingmeet",
     "pk": 1,
     "fields": {
@@ -1574,6 +1605,19 @@
       "meet": 2,
       "character": 2,
       "category": "secondary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 8,
+    "fields": {
+      "created": "2020-04-19T13:14:25.065Z",
+      "modified": "2020-04-19T13:14:25.065Z",
+      "is_removed": false,
+      "attending": 7,
+      "meet": 3,
+      "character": 4,
+      "category": "primary"
     }
   },
   {
@@ -2205,6 +2249,25 @@
       "team": null,
       "attending": 6,
       "character": 7,
+      "free": 0,
+      "category": "scheduled",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 8,
+    "fields": {
+      "created": "2020-04-19T13:14:25.071Z",
+      "modified": "2020-04-19T13:14:25.071Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 3,
+      "team": null,
+      "attending": 7,
+      "character": 4,
       "free": 0,
       "category": "scheduled",
       "display_order": 0,
