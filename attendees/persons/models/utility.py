@@ -15,6 +15,10 @@ class Utility:
     def forever():  # 1923 years from now
         return datetime.now(timezone.utc)+timedelta(weeks=99999)
 
+    @staticmethod
+    def now_with_timezone():  # 1923 years from now
+        return datetime.now(timezone.utc)
+
     # @property
     # def notes(self):
     #     return Note.objects.filter(

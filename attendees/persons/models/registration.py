@@ -12,6 +12,8 @@ class Registration(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     assembly = models.ForeignKey('occasions.Assembly', null=True, on_delete=models.SET_NULL)
     main_attendee = models.ForeignKey(Attendee, null=True, on_delete=models.SET_NULL)
+    start = models.DateTimeField(null=False, blank=False, db_index=True, default=Utility.now_with_timezone)
+    finish = models.DateTimeField(null=True, blank=True, db_index=True)
     apply_type = models.CharField(max_length=20, null=True, help_text="online or paper")
     apply_key = models.CharField(max_length=50, null=True, help_text="E1T1F1 or #001")
     donation = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])
@@ -30,4 +32,4 @@ class Registration(TimeStampedModel, SoftDeletableModel, Utility):
 
     class Meta:
         db_table = 'persons_registrations'
-        ordering = ('main_attendee__last_name', 'main_attendee__first_name')
+        ordering = ('main_attendee__last_name', 'main_attendee__first_name', 'start')

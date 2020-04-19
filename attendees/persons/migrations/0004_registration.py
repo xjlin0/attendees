@@ -22,6 +22,8 @@ class Migration(migrations.Migration):
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
+                ('start', models.DateTimeField(blank=False, null=False, db_index=True, default=attendees.persons.models.utility.Utility.now_with_timezone)),
+                ('finish', models.DateTimeField(blank=True, null=True, db_index=True)),
                 ('apply_type', models.CharField(help_text='online or paper', max_length=20, null=True)),
                 ('apply_key', models.CharField(help_text='E1T1F1 or #001', max_length=50, null=True)),
                 ('donation', models.DecimalField(decimal_places=2, default=999999, max_digits=8, validators=[django.core.validators.MinValueValidator(0)])),
@@ -31,7 +33,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'persons_registrations',
-                'ordering': ('main_attendee__last_name', 'main_attendee__first_name'),
+                'ordering': ('main_attendee__last_name', 'main_attendee__first_name', 'start'),
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),

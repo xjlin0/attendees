@@ -17,6 +17,14 @@ class ApiOrganizationAttendanceViewSet(viewsets.ModelViewSet):
     serializer_class = AttendanceSerializer
 
     def get_queryset(self):
+        """
+        :permission: this API is only for coworker or organization.
+                     Ordinary participants should not get any info from this API.
+        :query: Find all gatherings of all Attendances of the current user, query everyone's
+                Attendances in the found gatherings, so all coworker's Attendances in the
+                current user participated gatherings will also show up.
+        :return:  Attendance
+        """
         current_user = self.request.user
         if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
             user_attended_gathering_ids = current_user.attendee.attendings.values_list('gathering__id', flat=True).distinct()
