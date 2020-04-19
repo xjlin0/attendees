@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 from django.http import Http404
 from django.shortcuts import render
 from attendees.occasions.models import Meet
-
+from attendees.users.authorization import RouteGuard
 import logging
 
 
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 @method_decorator([login_required], name='dispatch')
-class CoworkersOrganizationAttendanceListView(ListView):
+class CoworkersOrganizationAttendanceListView(RouteGuard, ListView):
     queryset = []
     template_name = 'occasions/coworkers/organization_attendances.html'
 
