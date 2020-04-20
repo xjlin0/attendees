@@ -13,7 +13,8 @@ from attendees.occasions.serializers import CharacterSerializer
 @method_decorator([login_required], name='dispatch')
 class ApiUserCharacterViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows Character to be viewed or edited.
+    API endpoint that allows Character to be viewed.  all characters in the
+    authenticated user (and kids/care receiver)'s attending meets will be shown
     """
     serializer_class = CharacterSerializer
 
