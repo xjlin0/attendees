@@ -20,16 +20,16 @@ class ApiUserCharacterViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         current_user = self.request.user
         if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
-            # user_assembly_slugs = current_user.attendee.attendings.values_list('gathering__meet__assembly__slug', flat=True)
-            # care_receiver_assembly_slugs = current_user.attendee.relations.filter(to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS).values_list('attendings__gathering__meet__assembly__slug', flat=True)
+            # user_assemblys = current_user.attendee.attendings.values_list('registration__assembly')
+            # care_receiver_assemblys = current_user.attendee.relations.filter(to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS).values_list('attendings__registration__assembly')
             return Character.objects.filter(
-                Q(assembly__slug__in=current_user.attendee.attendings.values_list('gathering__meet__assembly__slug', flat=True))
+                Q(assembly__in=current_user.attendee.attendings.values_list('gathering__meet__assembly'))
                 |
-                Q(assembly__slug__in=current_user.attendee.relations.filter(to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS).values_list('attendings__gathering__meet__assembly__slug', flat=True)),
+                Q(assembly__in=current_user.attendee.relations.filter(to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS).values_list('attendings__gathering__meet__assembly')),
                 assembly__division__organization__slug=self.kwargs['organization_slug'],
                 ).order_by(
                     'display_order',
-            )
+            )  # another way is to get assemblys from registration, but it relies on attendingmeet validations
 
         else:
             time.sleep(2)
