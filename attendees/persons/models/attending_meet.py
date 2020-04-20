@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 from . import Utility
 
@@ -9,6 +10,10 @@ class AttendingMeet(TimeStampedModel, SoftDeletableModel, Utility):
     meet = models.ForeignKey('occasions.Meet', on_delete=models.SET(0), null=False, blank=False)
     character = models.ForeignKey('occasions.Character', null=False, blank=False, on_delete=models.SET(0))
     category = models.CharField(max_length=20, default='primary', blank=False, null=False, help_text='primary, secondary, etc (primary will be displayed first)')
+
+    def clean(self):
+        if self.attending.registration.assembly != self.meet.assembly:
+            raise ValidationError("The attending meet's assembly does not belong to the registered assembly, please pick another registration or meet")
 
     class Meta:
         db_table = 'persons_attending_meets'

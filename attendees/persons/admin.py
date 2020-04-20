@@ -31,7 +31,7 @@ class AttendeeAdmin(admin.ModelAdmin):
 
 
 class RegistrationAdmin(admin.ModelAdmin):
-    list_display = ('main_attendee', 'apply_type', 'apply_key', 'assembly', 'modified')
+    list_display = ('id', 'main_attendee', 'apply_type', 'apply_key', 'assembly', 'modified')
 
 
 class AttendanceInline(admin.StackedInline):
@@ -55,8 +55,13 @@ class RelationshipAdmin(admin.ModelAdmin):
     list_display = ('id', 'from_attendee', 'relation', 'to_attendee', 'category', 'finish')
 
 
+class AttendingMeetAdmin(admin.ModelAdmin):
+    list_display_links = ('attending',)
+    list_display = ('id', 'attending', 'meet', 'character', 'category', 'modified')
+
 admin.site.register(Note, NoteAdmin)
 admin.site.register(Attendee, AttendeeAdmin)
 admin.site.register(Registration, RegistrationAdmin)
 admin.site.register(Attending, AttendingAdmin)
 admin.site.register(Relationship, RelationshipAdmin)
+admin.site.register(AttendingMeet, AttendingMeetAdmin)

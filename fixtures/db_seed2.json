@@ -4913,5 +4913,25 @@
       "calendar": 1,
       "color_event": "#000000"
     }
+  },
+  {
+    "model": "account.emailaddress",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "email": "xjlin0@gmail.com",
+      "verified": true,
+      "primary": true
+    }
+  },
+  {
+    "model": "account.emailaddress",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "email": "hagar@gmail.com",
+      "verified": true,
+      "primary": true
+    }
   }
 ]
