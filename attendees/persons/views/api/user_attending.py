@@ -27,7 +27,6 @@ class ApiUserAttendingViewSet(viewsets.ModelViewSet):
         current_user = self.request.user
         if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
             meets = self.request.query_params.getlist('meets[]', [])
-            user_attended_gathering_ids = current_user.attendee.attendings.values_list('gathering__id', flat=True).distinct()
             return Attending.objects.select_related().prefetch_related().filter(
                 Q(attendee=current_user.attendee)
                 |
@@ -36,14 +35,13 @@ class ApiUserAttendingViewSet(viewsets.ModelViewSet):
                 )),
                 #registration_start/finish within the selected time period.
                 meets__slug__in=meets,
-                gathering__id__in=user_attended_gathering_ids,
                 meets__assembly__division__organization__slug=self.kwargs['organization_slug'],
             ).annotate(
                 meet=F('attendingmeet__meet__display_name'),
                 character=F('attendingmeet__character__display_name'),
             ).order_by(
                 'attendee',
-            ).distinct()
+            )
 
         else:
             time.sleep(2)
