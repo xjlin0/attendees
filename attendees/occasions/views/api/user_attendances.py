@@ -13,7 +13,8 @@ from django.utils.decorators import method_decorator
 @method_decorator([login_required], name='dispatch')
 class ApiUserAttendanceViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows Attendances to be viewed or edited.
+    API endpoint that allows Attendances to be viewed.   All authenticated user (and
+    the users kids/care receiver)'s Attendance will be shown.
     """
     serializer_class = AttendanceSerializer
 
