@@ -6,6 +6,7 @@ from attendees.persons.views import (
     api_attendee_viewset,
     assembly_attending_list_view,
     api_organization_attending_viewset,
+    api_user_attending_viewset,
 )
 
 app_name = "persons"
@@ -24,6 +25,11 @@ router.register(
 router.register(
     'api/organization_attendings',
     api_organization_attending_viewset,
+    basename='attending',
+)
+router.register(
+    'api/user/attendings',
+    api_user_attending_viewset,
     basename='attending',
 )
 
