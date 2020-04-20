@@ -12,8 +12,8 @@ class AttendingMeet(TimeStampedModel, SoftDeletableModel, Utility):
     category = models.CharField(max_length=20, default='primary', blank=False, null=False, help_text='primary, secondary, etc (primary will be displayed first)')
 
     def clean(self):
-        if self.attending.registration.assembly != self.meet.assembly:
-            raise ValidationError("The attending meet's assembly does not belong to the registered assembly, please pick another registration or meet")
+        if not self.attending.registration.assembly == self.meet.assembly == self.character.assembly:
+            raise ValidationError("The attending meet's assembly, registered assembly and character's assembly needed to be the same, please pick another registration, character or meet")
 
     class Meta:
         db_table = 'persons_attending_meets'

@@ -50,7 +50,7 @@ class UserAttendanceListView(ListView):
                 # chosen_character_slugs = self.request.GET.getlist('characters', [])
                 # context.update({'chosen_character_slugs': chosen_character_slugs})
                 context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/organization_teams/"})
-                # context.update({'attendees_endpoint': f"/{context['current_organization_slug']}/persons/api/user_attendees/"})
+                # context.update({'meets_endpoint': f"/{context['current_organization_slug']}/persons/api/user/meets/"})
                 context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/user/gatherings/"})
                 context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/user/characters/"})
                 context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/user/attendings/"})
