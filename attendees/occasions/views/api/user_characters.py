@@ -33,7 +33,9 @@ class ApiUserCharacterViewSet(viewsets.ModelViewSet):
             return Character.objects.filter(
                 Q(assembly__in=current_user.attendee.attendings.values_list('gathering__meet__assembly'))
                 |
-                Q(assembly__in=current_user.attendee.relations.filter(to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS).values_list('attendings__gathering__meet__assembly')),
+                Q(assembly__in=current_user.attendee.relations.filter(
+                    to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS
+                ).values_list('attendings__gathering__meet__assembly')),
                 assembly__division__organization__slug=self.kwargs['organization_slug'],
                 ).order_by(
                     'display_order',
