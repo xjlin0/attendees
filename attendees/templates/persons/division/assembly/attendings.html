@@ -70,7 +70,10 @@
                 name="meets"
                 multiple="multiple">
           {% for meet in available_meets %}
-            <option value="{{meet.slug}}">{{meet.display_name}}</option>
+            <option value="{{meet.slug}}"
+                    title="{{meet.slug}}">
+              {{meet.display_name}}
+            </option>
           {% endfor %}
         </select>
         <div class="input-group-append"
@@ -98,7 +101,8 @@
                 name="meets"
                 multiple="multiple">
           {% for character in available_characters %}
-            <option value="{{character.slug}}">
+            <option value="{{character.slug}}"
+                    title="{{character.slug}}">
               {{character.display_name}}
             </option>
           {% endfor %}

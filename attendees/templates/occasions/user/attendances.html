@@ -136,6 +136,7 @@
                   multiple="multiple">
             {% for meet in available_meets %}
               <option value="{{meet.slug}}"
+                      title="{{meet.slug}}"
                       selected="selected">
                 {{meet.display_name}}
               </option>

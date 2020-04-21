@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.core.exceptions import ValidationError
 from django.utils.functional import cached_property
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields.jsonb import JSONField
@@ -20,6 +21,10 @@ class Attendance(TimeStampedModel, SoftDeletableModel, Utility):
     category = models.CharField(max_length=20, null=False, blank=False, db_index=True, default="scheduled", help_text="RSVPed, leave, remote, etc")
     display_order = models.SmallIntegerField(default=0, blank=False, null=False)
     infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"kid_points": 5}. Please keep {} here even no data')
+
+    def clean(self):
+        if self.character.assembly != self.gathering.meet.assembly or self.gathering.meet not in self.attending.meets.all():
+            raise ValidationError("The charater assembly, gathering's meet/assembly, and attendings meets needed to be matched, please pick another gathering, character or attending")
 
     @cached_property
     def attendance_info(self):

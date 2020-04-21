@@ -29,7 +29,7 @@ class Assembly(TimeStampedModel, SoftDeletableModel, Utility):
         return '%s' % self.display_name
 
     def get_addresses(self):
-        return "\n".join([a.street1 + a.city for a in self.addresses.all()])
+        return "\n".join([a.street1 or '' + a.city or '' for a in self.addresses.all()])
 
 
 # from rest_framework import serializers
