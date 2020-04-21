@@ -161,11 +161,7 @@
                 {# URL provided by django-allauth/account/urls.py #}
                 <a class="nav-link"
                    href="{% url 'users:detail' request.user.username %}">
-                  {% if request.user.username %}
-                    {{ request.user.username }}'s profile
-                  {% else %}
-                    {% trans "My Profile" %}
-                  {% endif %}
+                  {{ request.user.name|default:"User" }}{% trans "'s Profile" %}
                 </a>
               </li>
               <li class="nav-item">
