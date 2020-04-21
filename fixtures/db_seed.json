@@ -439,9 +439,9 @@
       "one_off": false,
       "start_time": null,
       "enabled": true,
-      "last_run_at": "2020-04-19T04:36:36.907Z",
-      "total_run_count": 5,
-      "date_changed": "2020-04-19T04:36:41.935Z",
+      "last_run_at": "2020-04-20T04:12:02.501Z",
+      "total_run_count": 6,
+      "date_changed": "2020-04-20T04:12:17.569Z",
       "description": ""
     }
   },
@@ -970,14 +970,36 @@
     }
   },
   {
+    "model": "whereabouts.address",
+    "pk": 10,
+    "fields": {
+      "created": "2020-04-20T16:36:06.375Z",
+      "modified": "2020-04-20T16:40:03.539Z",
+      "is_removed": false,
+      "display_name": "short mission trip address",
+      "email1": null,
+      "email2": null,
+      "phone1": null,
+      "phone2": null,
+      "address_type": "street",
+      "street1": "8 Ketagalan Boulevard",
+      "street2": null,
+      "city": "Pescadores Islands",
+      "state": "TW",
+      "zip_code": null,
+      "url": null,
+      "fields": {}
+    }
+  },
+  {
     "model": "whereabouts.campus",
     "pk": 1,
     "fields": {
       "created": "2020-04-11T18:32:56.905Z",
-      "modified": "2020-04-11T18:32:56.905Z",
+      "modified": "2020-04-20T15:51:11.200Z",
       "is_removed": false,
       "display_name": "Main",
-      "slug": "main",
+      "slug": "d7c8Fd-main",
       "address": 1
     }
   },
@@ -986,10 +1008,10 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-11T18:33:36.875Z",
-      "modified": "2020-04-11T18:33:36.875Z",
+      "modified": "2020-04-20T15:51:39.797Z",
       "is_removed": false,
       "display_name": "\u5929\u4e0a",
-      "slug": "sky",
+      "slug": "faBd6C-sky",
       "address": 9
     }
   },
@@ -1521,7 +1543,7 @@
     "pk": 7,
     "fields": {
       "created": "2020-04-19T13:14:25.051Z",
-      "modified": "2020-04-20T01:37:31.133Z",
+      "modified": "2020-04-20T16:17:15.310Z",
       "is_removed": false,
       "registration": 5,
       "attendee": 2,
@@ -1629,11 +1651,11 @@
     "pk": 8,
     "fields": {
       "created": "2020-04-19T13:14:25.065Z",
-      "modified": "2020-04-19T13:14:25.065Z",
+      "modified": "2020-04-20T16:27:20.609Z",
       "is_removed": false,
       "attending": 7,
       "meet": 3,
-      "character": 4,
+      "character": 6,
       "category": "primary"
     }
   },
@@ -1766,7 +1788,7 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T18:40:33.044Z",
-      "modified": "2020-04-11T18:41:41.984Z",
+      "modified": "2020-04-20T16:38:05.431Z",
       "is_removed": false,
       "start": null,
       "finish": null,
@@ -1818,10 +1840,10 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T18:41:41.979Z",
-      "modified": "2020-04-11T18:41:41.979Z",
+      "modified": "2020-04-20T16:36:48.153Z",
       "is_removed": false,
       "assembly": 3,
-      "address": 1,
+      "address": 10,
       "category": "normal"
     }
   },
@@ -1842,12 +1864,12 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T18:42:52.655Z",
-      "modified": "2020-04-11T18:42:52.655Z",
+      "modified": "2020-04-20T17:16:13.844Z",
       "is_removed": false,
       "assembly": 1,
       "display_name": "Student",
       "display_order": 0,
-      "slug": "cfcc-kid-student",
+      "slug": "d7c8Fd-cfcc-kid-student",
       "info": null,
       "type": "normal"
     }
@@ -1857,12 +1879,12 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-11T18:43:19.732Z",
-      "modified": "2020-04-11T18:43:19.732Z",
+      "modified": "2020-04-20T17:16:20.226Z",
       "is_removed": false,
       "assembly": 1,
       "display_name": "Teacher",
       "display_order": 0,
-      "slug": "cfcc-kid-teacher",
+      "slug": "d7c8Fd-cfcc-kid-teacher",
       "info": null,
       "type": "normal"
     }
@@ -1872,12 +1894,12 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T18:43:39.188Z",
-      "modified": "2020-04-11T18:43:39.188Z",
+      "modified": "2020-04-20T17:16:26.608Z",
       "is_removed": false,
       "assembly": 1,
       "display_name": "Leader",
       "display_order": 0,
-      "slug": "cfcc-kid-class-leader",
+      "slug": "d7c8Fd-cfcc-kid-class-leader",
       "info": null,
       "type": "normal"
     }
@@ -1887,12 +1909,12 @@
     "pk": 4,
     "fields": {
       "created": "2020-04-11T18:44:00.020Z",
-      "modified": "2020-04-11T18:44:00.020Z",
+      "modified": "2020-04-20T17:17:24.105Z",
       "is_removed": false,
       "assembly": 1,
       "display_name": "Helper",
       "display_order": 0,
-      "slug": "cfcc-kid-helper",
+      "slug": "d7c8Fd-cfcc-kid-helper",
       "info": null,
       "type": "normal"
     }
@@ -1902,12 +1924,12 @@
     "pk": 5,
     "fields": {
       "created": "2020-04-11T18:44:28.242Z",
-      "modified": "2020-04-11T18:44:28.242Z",
+      "modified": "2020-04-20T17:16:33.821Z",
       "is_removed": false,
       "assembly": 1,
       "display_name": "Food Preparer",
       "display_order": 0,
-      "slug": "cfcc-kid-food-preparer",
+      "slug": "d7c8Fd-cfcc-kid-food-preparer",
       "info": null,
       "type": "normal"
     }
@@ -1917,12 +1939,12 @@
     "pk": 6,
     "fields": {
       "created": "2020-04-11T18:44:58.405Z",
-      "modified": "2020-04-11T18:44:58.405Z",
+      "modified": "2020-04-20T17:16:45.251Z",
       "is_removed": false,
       "assembly": 2,
       "display_name": "A/V controller",
       "display_order": 0,
-      "slug": "chinese-av-controller",
+      "slug": "d7c8Fd-adult-sunday-av-controller",
       "info": null,
       "type": "normal"
     }
@@ -1932,12 +1954,12 @@
     "pk": 7,
     "fields": {
       "created": "2020-04-11T18:45:15.658Z",
-      "modified": "2020-04-11T18:45:15.658Z",
+      "modified": "2020-04-20T17:16:58.324Z",
       "is_removed": false,
       "assembly": 4,
       "display_name": "sky choir member",
       "display_order": 0,
-      "slug": "sky-choir-member",
+      "slug": "faBd6C-sky-choir-member",
       "info": null,
       "type": "normal"
     }
@@ -1947,13 +1969,13 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T18:47:42.792Z",
-      "modified": "2020-04-11T18:47:42.792Z",
+      "modified": "2020-04-20T16:47:48.886Z",
       "is_removed": false,
       "assembly": 1,
       "start": null,
       "finish": null,
       "display_name": "The Rock",
-      "slug": "the-rock",
+      "slug": "d7c8Fd-kid-regular-the-rock",
       "infos": {},
       "site_type": 32,
       "site_id": 1
@@ -1964,13 +1986,13 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-11T18:48:40.462Z",
-      "modified": "2020-04-11T18:48:40.462Z",
+      "modified": "2020-04-20T16:47:54.583Z",
       "is_removed": false,
       "assembly": 1,
       "start": null,
       "finish": null,
       "display_name": "Little foot",
-      "slug": "little-foot",
+      "slug": "d7c8Fd-kid-regular-little-foot",
       "infos": {},
       "site_type": 34,
       "site_id": 1
@@ -1981,13 +2003,13 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T18:49:26.376Z",
-      "modified": "2020-04-11T18:49:26.376Z",
+      "modified": "2020-04-20T16:48:01.451Z",
       "is_removed": false,
       "assembly": 2,
       "start": null,
       "finish": null,
       "display_name": "\u5f71\u97f3\u4e2d\u63a7",
-      "slug": "recording-av-control",
+      "slug": "d7c8Fd-cfcc-adault-sunday-recording-av-control",
       "infos": {},
       "site_type": 32,
       "site_id": 2
@@ -1998,13 +2020,13 @@
     "pk": 4,
     "fields": {
       "created": "2020-04-11T18:50:57.777Z",
-      "modified": "2020-04-11T18:50:57.777Z",
+      "modified": "2020-04-20T16:46:15.287Z",
       "is_removed": false,
       "assembly": 4,
       "start": null,
       "finish": null,
-      "display_name": "\u73bb\u7483\u6d77\u5929\u4f7f\u8a69\u73ed",
-      "slug": "sea-of-glass-angel-choir",
+      "display_name": "\u5929\u5802 \u73bb\u7483\u6d77\u5929\u4f7f\u8a69\u73ed",
+      "slug": "faBd6C-sea-of-glass-angel-choir",
       "infos": {},
       "site_type": 30,
       "site_id": 9
@@ -2015,16 +2037,33 @@
     "pk": 5,
     "fields": {
       "created": "2020-04-11T18:52:14.135Z",
-      "modified": "2020-04-11T18:52:14.135Z",
+      "modified": "2020-04-20T16:48:25.915Z",
       "is_removed": false,
       "assembly": 1,
       "start": null,
       "finish": null,
-      "display_name": "Easter Celebration",
-      "slug": "easter-celebration",
+      "display_name": "kid Christmas Celebration",
+      "slug": "d7c8Fd-kid-regular-christmas-celebration",
       "infos": {},
       "site_type": 31,
       "site_id": 1
+    }
+  },
+  {
+    "model": "occasions.meet",
+    "pk": 6,
+    "fields": {
+      "created": "2020-04-20T16:43:03.255Z",
+      "modified": "2020-04-20T16:48:15.878Z",
+      "is_removed": false,
+      "assembly": 3,
+      "start": null,
+      "finish": null,
+      "display_name": "\u9752\u5c11\u77ed\u5ba3\u82f1\u8a9e\u6559\u5b78",
+      "slug": "d7c8Fd-kid-special-english-teaching",
+      "infos": {},
+      "site_type": 30,
+      "site_id": 10
     }
   },
   {
@@ -2032,12 +2071,12 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T19:00:17.355Z",
-      "modified": "2020-04-11T19:00:17.355Z",
+      "modified": "2020-04-20T17:24:24.562Z",
       "is_removed": false,
       "meet": 1,
-      "start": "2020-02-09T18:00:00Z",
-      "finish": "2020-02-09T19:59:59Z",
-      "display_name": "02/09/2020",
+      "start": "2020-05-09T17:00:00Z",
+      "finish": "2020-05-09T18:59:59Z",
+      "display_name": "05/09/2020",
       "infos": {
         "link": null
       },
@@ -2051,12 +2090,12 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-11T19:01:45.438Z",
-      "modified": "2020-04-11T19:01:45.438Z",
+      "modified": "2020-04-20T17:24:14.087Z",
       "is_removed": false,
       "meet": 1,
-      "start": "2020-02-17T18:00:00Z",
-      "finish": "2020-02-17T19:59:59Z",
-      "display_name": "02/16/2020",
+      "start": "2020-05-17T17:00:00Z",
+      "finish": "2020-05-17T18:59:59Z",
+      "display_name": "05/17/2020",
       "infos": {},
       "occurrence": null,
       "site_type": 34,
@@ -2087,12 +2126,12 @@
     "pk": 4,
     "fields": {
       "created": "2020-04-11T19:06:59.719Z",
-      "modified": "2020-04-12T02:26:48.729Z",
+      "modified": "2020-04-20T17:24:36.054Z",
       "is_removed": false,
       "meet": 2,
-      "start": "2020-02-09T18:00:00Z",
-      "finish": "2020-02-09T20:00:00Z",
-      "display_name": "02/09/2020",
+      "start": "2020-05-09T17:00:00Z",
+      "finish": "2020-05-09T19:00:00Z",
+      "display_name": "05/09/2020",
       "infos": {
         "link": null
       },
@@ -2142,7 +2181,7 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T22:25:16.264Z",
-      "modified": "2020-04-11T22:25:16.264Z",
+      "modified": "2020-04-21T03:14:30.896Z",
       "is_removed": false,
       "start": null,
       "finish": null,
@@ -2277,14 +2316,14 @@
     "pk": 8,
     "fields": {
       "created": "2020-04-19T13:14:25.071Z",
-      "modified": "2020-04-19T13:14:25.071Z",
+      "modified": "2020-04-21T03:14:52.482Z",
       "is_removed": false,
       "start": null,
       "finish": null,
       "gathering": 3,
       "team": null,
       "attending": 7,
-      "character": 4,
+      "character": 6,
       "free": 0,
       "category": "scheduled",
       "display_order": 0,
