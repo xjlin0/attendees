@@ -43,7 +43,7 @@ Attendees.organizationAttendances = {
   }, // Getting JSON from DRF upon user selecting meet(s)
 
   attendancesFormats: {
-    onInitialized: () => Attendees.organizationAttendances.fetchAttendances($('select.filter-meets'), $('form.organization-attendances-filter')),
+    onContentReady: () => Attendees.organizationAttendances.fetchAttendances($('select.filter-meets'), $('form.organization-attendances-filter')), // onInitialized won't work since lookup columns has not loaded.
     dataSource: null,
     filterRow: { visible: true },  //filter doesn't work with fields with calculateDisplayValue yet
     searchPanel: { visible: true },   //search doesn't work with fields with calculateDisplayValue yet
