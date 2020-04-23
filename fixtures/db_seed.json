@@ -439,9 +439,9 @@
       "one_off": false,
       "start_time": null,
       "enabled": true,
-      "last_run_at": "2020-04-20T04:12:02.501Z",
-      "total_run_count": 6,
-      "date_changed": "2020-04-20T04:12:17.569Z",
+      "last_run_at": "2020-04-23T04:23:03.987Z",
+      "total_run_count": 9,
+      "date_changed": "2020-04-23T04:23:19.053Z",
       "description": ""
     }
   },
@@ -608,15 +608,15 @@
     "pk": 6,
     "fields": {
       "created": "2020-04-13T05:14:05.406Z",
-      "modified": "2020-04-17T16:50:20.607Z",
+      "modified": "2020-04-23T14:07:20.712Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 4,
       "html_type": "a",
-      "urn": "/{user_organization_name_slug}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=cfcc-kid-student",
+      "urn": "/{user_organization_name_slug}/persons/children-ministry/cfcc-regular-kid-activities/attendings/?characters=d7c8Fd-cfcc-kid-student",
       "url_name": "assembly-attendings",
-      "display_name": "All participations (group)",
+      "display_name": "regular-kid \u666e\u901a\u6d3b\u52d5 participations",
       "display_order": 2300,
       "infos": {
         "class": "dropdown-item",
@@ -633,7 +633,7 @@
     "pk": 7,
     "fields": {
       "created": "2020-04-13T05:17:33.909Z",
-      "modified": "2020-04-17T16:50:09.493Z",
+      "modified": "2020-04-23T14:07:59.851Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
@@ -641,7 +641,7 @@
       "html_type": "a",
       "urn": "/{user_organization_name_slug}/occasions/children-ministry/cfcc-regular-kid-activities/attendances/",
       "url_name": "assembly_attendances",
-      "display_name": "All attendance (date)",
+      "display_name": "regular-kid \u666e\u901a\u6d3b\u52d5 attendances",
       "display_order": 2500,
       "infos": {
         "class": "dropdown-item",
@@ -1434,6 +1434,23 @@
     }
   },
   {
+    "model": "persons.registration",
+    "pk": 6,
+    "fields": {
+      "created": "2020-04-21T05:06:35.390Z",
+      "modified": "2020-04-21T05:06:35.390Z",
+      "is_removed": false,
+      "assembly": 3,
+      "main_attendee": 11,
+      "start": "2020-07-16T05:05:56Z",
+      "finish": "2020-07-30T05:06:17Z",
+      "apply_type": "virtual",
+      "apply_key": "001",
+      "donation": "0.00",
+      "price": "0.00"
+    }
+  },
+  {
     "model": "persons.attending",
     "pk": 1,
     "fields": {
@@ -1556,6 +1573,23 @@
     }
   },
   {
+    "model": "persons.attending",
+    "pk": 8,
+    "fields": {
+      "created": "2020-04-21T05:09:24.042Z",
+      "modified": "2020-04-21T05:09:48.330Z",
+      "is_removed": false,
+      "registration": 6,
+      "attendee": 11,
+      "age": 500,
+      "category": "normal",
+      "belief": "baptized",
+      "bed_needs": 0,
+      "mobility": 500,
+      "infos": {}
+    }
+  },
+  {
     "model": "persons.attendingmeet",
     "pk": 1,
     "fields": {
@@ -1656,6 +1690,19 @@
       "attending": 7,
       "meet": 3,
       "character": 6,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 9,
+    "fields": {
+      "created": "2020-04-21T05:09:24.056Z",
+      "modified": "2020-04-21T05:09:24.056Z",
+      "is_removed": false,
+      "attending": 8,
+      "meet": 6,
+      "character": 8,
       "category": "primary"
     }
   },
@@ -1965,6 +2012,21 @@
     }
   },
   {
+    "model": "occasions.character",
+    "pk": 8,
+    "fields": {
+      "created": "2020-04-21T05:05:20.646Z",
+      "modified": "2020-04-21T05:05:20.646Z",
+      "is_removed": false,
+      "assembly": 3,
+      "display_name": "\u77ed\u5ba3\u53f8\u6a5f",
+      "display_order": 0,
+      "slug": "d7c8fd-cfcc-kid-short-mission-driver",
+      "info": null,
+      "type": "normal"
+    }
+  },
+  {
     "model": "occasions.meet",
     "pk": 1,
     "fields": {
@@ -2071,14 +2133,15 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T19:00:17.355Z",
-      "modified": "2020-04-20T17:24:24.562Z",
+      "modified": "2020-04-22T21:40:15.875Z",
       "is_removed": false,
       "meet": 1,
       "start": "2020-05-09T17:00:00Z",
       "finish": "2020-05-09T18:59:59Z",
       "display_name": "05/09/2020",
       "infos": {
-        "link": null
+        "link": null,
+        "\u9031\u5831": "https://sdasdasd.com/asdadsasd.pdf"
       },
       "occurrence": null,
       "site_type": 34,
@@ -2107,12 +2170,12 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T19:05:29.711Z",
-      "modified": "2020-04-11T19:05:29.711Z",
+      "modified": "2020-04-23T12:31:26.916Z",
       "is_removed": false,
       "meet": 3,
-      "start": "2020-01-10T18:00:00Z",
-      "finish": "2020-01-10T19:59:59Z",
-      "display_name": "01/10/2020",
+      "start": "2020-05-10T17:00:00Z",
+      "finish": "2020-05-10T18:59:59Z",
+      "display_name": "05/10/2020",
       "infos": {
         "link": null
       },
@@ -2161,6 +2224,23 @@
     }
   },
   {
+    "model": "occasions.gathering",
+    "pk": 6,
+    "fields": {
+      "created": "2020-04-21T05:02:41.218Z",
+      "modified": "2020-04-21T05:02:41.218Z",
+      "is_removed": false,
+      "meet": 6,
+      "start": "2020-07-21T05:00:00Z",
+      "finish": "2020-07-21T06:00:00Z",
+      "display_name": "07/20/2020 Basic I",
+      "infos": {},
+      "occurrence": null,
+      "site_type": 30,
+      "site_id": 10
+    }
+  },
+  {
     "model": "occasions.team",
     "pk": 1,
     "fields": {
@@ -2181,7 +2261,7 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T22:25:16.264Z",
-      "modified": "2020-04-21T03:14:30.896Z",
+      "modified": "2020-04-22T21:40:51.937Z",
       "is_removed": false,
       "start": null,
       "finish": null,
@@ -2193,7 +2273,8 @@
       "category": "scheduled",
       "display_order": 0,
       "infos": {
-        "kid_points": 5
+        "kid_points": 5,
+        "\u4e0a\u8ab2\u8868\u73fe": "\u5f88\u597d"
       }
     }
   },
@@ -2324,6 +2405,25 @@
       "team": null,
       "attending": 7,
       "character": 6,
+      "free": 0,
+      "category": "scheduled",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 9,
+    "fields": {
+      "created": "2020-04-21T05:09:48.320Z",
+      "modified": "2020-04-21T05:09:48.320Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 6,
+      "team": null,
+      "attending": 8,
+      "character": 8,
       "free": 0,
       "category": "scheduled",
       "display_order": 0,

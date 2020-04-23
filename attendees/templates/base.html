@@ -136,8 +136,8 @@
                          {{key}}="{{value}}"
                        {% endfor %}
                        data-menu-id="{{node.id}}">
-                      {% blocktrans with display_name=node.display_name %}
-                        {{ display_name }}
+                      {% blocktrans with menu_display_name=node.display_name %}
+                        {{ menu_display_name }}
                       {% endblocktrans %}
                     </a>
                   {% elif node.html_type == 'div'  %}
