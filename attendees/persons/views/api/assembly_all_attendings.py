@@ -11,7 +11,7 @@ from attendees.persons.serializers import AttendingSerializer
 
 
 @method_decorator([login_required], name='dispatch')
-class ApiAttendingViewSet(viewsets.ModelViewSet):
+class ApiAssemblyMeetAttendingsViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Attending to be viewed or edited.
     """
@@ -19,6 +19,7 @@ class ApiAttendingViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
+            # Todo: probably also need to check if the assembly belongs to the division
             meets = self.request.query_params.getlist('meets[]', [])
             characters = self.request.query_params.getlist('characters[]', [])
             return Attending.objects.select_related().prefetch_related().filter(
@@ -37,4 +38,4 @@ class ApiAttendingViewSet(viewsets.ModelViewSet):
             raise AuthenticationFailed(detail='Have you registered any events of the organization?')
 
 
-api_attending_viewset = ApiAttendingViewSet
+api_assembly_meet_attendings_viewset = ApiAssemblyMeetAttendingsViewSet

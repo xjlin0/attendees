@@ -16,9 +16,9 @@ logger = logging.getLogger(__name__)
 
 
 @method_decorator([login_required], name='dispatch')
-class AssemblyAttendanceListView(RouteGuard, ListView):
+class DatagridAssemblyAllAttendancesListView(RouteGuard, ListView):
     queryset = []
-    template_name = 'occasions/division/assembly/attendances.html'
+    template_name = 'occasions/datagrid_assembly_all_attendances.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -49,11 +49,11 @@ class AssemblyAttendanceListView(RouteGuard, ListView):
                 return render(self.request, partial_template, {'filtered_attendances': filtered_attendances})
             else:
                 context.update({'filtered_attendances': []})
-                context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/teams/"})
-                context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/gatherings/"})
-                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/characters/"})
-                context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/{context['current_division_slug']}/{context['current_assembly_slug']}/attendings/"})
-                context.update({'attendances_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/attendances/"})
+                context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_teams/"})
+                context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_gatherings/"})
+                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_characters/"})
+                context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_attendings/"})
+                context.update({'attendances_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_attendances/"})
                 return render(self.request, self.get_template_names()[0], context)
         else:
             time.sleep(2)
@@ -66,4 +66,4 @@ class AssemblyAttendanceListView(RouteGuard, ListView):
     #     return ''
 
 
-assembly_attendance_list_view = AssemblyAttendanceListView.as_view()
+datagrid_assembly_all_attendances_list_view = DatagridAssemblyAllAttendancesListView.as_view()

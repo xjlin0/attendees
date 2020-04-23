@@ -10,7 +10,7 @@ from django.utils.decorators import method_decorator
 
 
 @method_decorator([login_required], name='dispatch')
-class ApiAttendanceViewSet(viewsets.ModelViewSet):
+class ApiAssemblyMeetAttendancesViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Attendances to be viewed or edited.
     """
@@ -18,6 +18,7 @@ class ApiAttendanceViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
+            # Todo: probably need to check if the assembly belongs to the division?
             characters = self.request.query_params.getlist('characters[]', [])
             meets = self.request.query_params.getlist('meets[]', [])
             start = self.request.query_params.get('start', None)
@@ -36,4 +37,4 @@ class ApiAttendanceViewSet(viewsets.ModelViewSet):
             raise AuthenticationFailed(detail='Have you registered any events of the organization?')
 
 
-api_attendance_viewset = ApiAttendanceViewSet
+api_assembly_meet_attendances_viewset = ApiAssemblyMeetAttendancesViewSet
