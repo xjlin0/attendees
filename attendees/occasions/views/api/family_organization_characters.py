@@ -11,7 +11,7 @@ from attendees.occasions.serializers import CharacterSerializer
 
 
 @method_decorator([login_required], name='dispatch')
-class ApiUserCharacterViewSet(viewsets.ModelViewSet):
+class ApiFamilyOrganizationCharactersViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Character to be viewed.  All characters in the
     authenticated user (and kids/care receiver)'s attending meets will be shown.
@@ -46,4 +46,4 @@ class ApiUserCharacterViewSet(viewsets.ModelViewSet):
             raise AuthenticationFailed(detail='Have you registered any events of the organization?')
 
 
-api_user_character_viewset = ApiUserCharacterViewSet
+api_family_organization_characters_viewset = ApiFamilyOrganizationCharactersViewSet

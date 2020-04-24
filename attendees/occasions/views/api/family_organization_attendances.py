@@ -11,7 +11,7 @@ from django.utils.decorators import method_decorator
 
 
 @method_decorator([login_required], name='dispatch')
-class ApiUserAttendanceViewSet(viewsets.ModelViewSet):
+class ApiFamilyOrganizationAttendancesViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Attendances to be viewed.   All authenticated user (and
     the users kids/care receiver)'s Attendance will be shown.
@@ -28,6 +28,7 @@ class ApiUserAttendanceViewSet(viewsets.ModelViewSet):
         """
         # Todo 1. reorganize the view/api/js files to match urls that make sense
         #      2. extract current_user.belongs_to_organization_of ... to route guard
+        #      3. check if the meets belongs to the organization
         current_user = self.request.user
         if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
             meets = self.request.query_params.getlist('meets[]', [])
@@ -51,4 +52,4 @@ class ApiUserAttendanceViewSet(viewsets.ModelViewSet):
             raise AuthenticationFailed(detail='Have you registered any events of the organization?')
 
 
-api_user_attendance_viewset = ApiUserAttendanceViewSet
+api_family_organization_attendances_viewset = ApiFamilyOrganizationAttendancesViewSet

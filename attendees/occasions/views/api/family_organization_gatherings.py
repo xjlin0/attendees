@@ -10,7 +10,7 @@ from attendees.occasions.serializers import GatheringSerializer
 
 
 @method_decorator([login_required], name='dispatch')
-class ApiUserGatheringViewSet(viewsets.ModelViewSet):
+class ApiFamilyOrganizationGatheringsViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Team to be viewed or edited.
     """
@@ -27,6 +27,7 @@ class ApiUserGatheringViewSet(viewsets.ModelViewSet):
         """
         current_user = self.request.user
         if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
+            # Todo: probably need to check if the meets belongs to the organization?
             meets = self.request.query_params.getlist('meets[]', [])
             return Gathering.objects.filter(
                 Q(meet__in=current_user.attendee.attendings.values_list('gathering__meet'))
@@ -46,4 +47,4 @@ class ApiUserGatheringViewSet(viewsets.ModelViewSet):
             raise AuthenticationFailed(detail='Have you registered any events of the organization?')
 
 
-api_user_gathering_viewset = ApiUserGatheringViewSet
+api_family_organization_gatherings_viewset = ApiFamilyOrganizationGatheringsViewSet

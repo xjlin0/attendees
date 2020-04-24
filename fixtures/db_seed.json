@@ -531,14 +531,14 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-13T04:51:13.160Z",
-      "modified": "2020-04-19T04:42:11.774Z",
+      "modified": "2020-04-24T15:49:08.647Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 1,
       "html_type": "a",
-      "urn": "/{user_organization_name_slug}/occasions/user/attendances/",
-      "url_name": "user-attendances",
+      "urn": "/{user_organization_name_slug}/occasions/datagrid_user_organization_attendances/",
+      "url_name": "datagrid_user_organization_attendances",
       "display_name": "My activities",
       "display_order": 1100,
       "infos": {
