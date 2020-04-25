@@ -43,7 +43,7 @@ class RoomAdmin(admin.ModelAdmin):
 
 class OrganizationAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
-    list_display = ('display_name', 'slug', 'modified')
+    list_display = ('display_name', 'slug', 'hostname', 'modified')
 
 
 admin.site.register(Address, AddressAdmin)

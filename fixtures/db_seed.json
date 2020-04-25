@@ -709,7 +709,8 @@
       "modified": "2020-04-12T06:00:08.781Z",
       "is_removed": false,
       "slug": "d7c8Fd-cfcc-hayward",
-      "display_name": "Chinese for Christ Church of Hayward"
+      "display_name": "Chinese for Christ Church of Hayward",
+      "hostname": "192.168.99.100"
     }
   },
   {
@@ -720,7 +721,8 @@
       "modified": "2020-04-12T05:55:41.743Z",
       "is_removed": false,
       "slug": "faBd6C-heaven",
-      "display_name": "\u5929\u5802"
+      "display_name": "\u5929\u5802",
+      "hostname": "heaven.heaven"
     }
   },
   {

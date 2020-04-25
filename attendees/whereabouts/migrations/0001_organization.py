@@ -22,6 +22,7 @@ class Migration(migrations.Migration):
                 ('is_removed', models.BooleanField(default=False)),
                 ('slug', models.SlugField(help_text='alphanumeric only', max_length=50, unique=True)),
                 ('display_name', models.CharField(max_length=50)),
+                ('hostname', models.CharField(max_length=190, unique=True, blank=False, null=False, help_text="where the app deployed")),
             ],
             options={
                 'db_table': 'whereabouts_organizations',

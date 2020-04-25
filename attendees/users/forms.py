@@ -12,6 +12,8 @@ class UserChangeForm(forms.UserChangeForm):
 
 class UserCreationForm(forms.UserCreationForm):
 
+    """ Used in Django admin to create a new user, check admin.py """
+
     error_message = forms.UserCreationForm.error_messages.update(
         {"duplicate_username": _("This username has already been taken.")}
     )
