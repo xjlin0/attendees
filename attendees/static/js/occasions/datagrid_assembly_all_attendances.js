@@ -103,7 +103,7 @@ Attendees.attendances = {
                     load: () => {
                       const $selectedMeets = $('select.filter-meets').val();
                       if ($selectedMeets.length > 0) {
-                        return $.getJSON($('div.attendances').data('characters-endpoint'));
+                        return $.getJSON($('div.attendances').data('characters-endpoint'), {meets: $selectedMeets});
                       }
                     },
                 }),
