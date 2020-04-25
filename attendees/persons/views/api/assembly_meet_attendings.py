@@ -18,7 +18,7 @@ class ApiAssemblyMeetAttendingsViewSet(viewsets.ModelViewSet):
     serializer_class = AttendingSerializer
 
     def get_queryset(self):
-        if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
+        if self.request.user.belongs_to_divisions_of([self.kwargs['division_slug']]):
             # Todo: probably also need to check if the assembly belongs to the division
             meets = self.request.query_params.getlist('meets[]', [])
             characters = self.request.query_params.getlist('characters[]', [])
