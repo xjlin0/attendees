@@ -17,12 +17,12 @@ class ApiAssemblyMeetTeamsViewSet(viewsets.ModelViewSet):
     serializer_class = TeamSerializer
 
     def get_queryset(self):
-        if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
+        if self.request.user.belongs_to_divisions_of([self.kwargs['division_slug']]):
             # Todo: probably need to check if the assembly belongs to the division?
             meets = self.request.query_params.getlist('meets[]', [])
             return Team.objects.filter(
                 meet__slug__in=meets,
-                meet__assembly__slug=self.kwargs['assembly_slug']
+                meet__assembly__slug=self.kwargs['assembly_slug'],
             ).order_by(
                 'display_order',
             )

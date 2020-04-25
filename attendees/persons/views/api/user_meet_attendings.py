@@ -25,14 +25,14 @@ class ApiUserMeetAttendingsViewSet(viewsets.ModelViewSet):
         :return: all Attendings with participating meets(group) and character(role)
         """
         current_user = self.request.user
-        if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
+        if current_user.organization:
             meets = self.request.query_params.getlist('meets[]', [])
             user_attended_gathering_ids = current_user.attendee.attendings.values_list('gathering__id', flat=True).distinct()
             return Attending.objects.select_related().prefetch_related().filter(
                 #registration_start/finish within the selected time period.
                 meets__slug__in=meets,
                 gathering__id__in=user_attended_gathering_ids,
-                meets__assembly__division__organization__slug=self.kwargs['organization_slug'],
+                meets__assembly__division__organization__slug=current_user.organization.slug,
             ).annotate(
                 meet=F('attendingmeet__meet__display_name'),
                 character=F('attendingmeet__character__display_name'),

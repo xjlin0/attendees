@@ -26,7 +26,7 @@ class ApiFamilyOrganizationGatheringsViewSet(viewsets.ModelViewSet):
         :return:  all Gatherings of the logged in user and their kids/care receivers.
         """
         current_user = self.request.user
-        if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
+        if current_user.organization:
             # Todo: probably need to check if the meets belongs to the organization?
             meets = self.request.query_params.getlist('meets[]', [])
             return Gathering.objects.filter(
@@ -36,7 +36,7 @@ class ApiFamilyOrganizationGatheringsViewSet(viewsets.ModelViewSet):
                     to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS
                 ).values_list('attendings__gathering__meet')),
                 meet__slug__in=meets,
-                meet__assembly__division__organization__slug=self.kwargs['organization_slug']
+                meet__assembly__division__organization__slug=current_user.organization.slug,
             ).order_by(
                 'meet',
                 '-start',

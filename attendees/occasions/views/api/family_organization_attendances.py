@@ -30,7 +30,7 @@ class ApiFamilyOrganizationAttendancesViewSet(viewsets.ModelViewSet):
         #      2. extract current_user.belongs_to_organization_of ... to route guard
         #      3. check if the meets belongs to the organization
         current_user = self.request.user
-        if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
+        if current_user.organization:
             meets = self.request.query_params.getlist('meets[]', [])
             start = self.request.query_params.get('start', None)
             finish = self.request.query_params.get('finish', None)
@@ -41,7 +41,7 @@ class ApiFamilyOrganizationAttendancesViewSet(viewsets.ModelViewSet):
                     Q(attending__attendee__in=current_user.attendee.relations.filter(
                         to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS,
                     )),
-                    gathering__meet__assembly__division__organization__slug=self.kwargs['organization_slug'],
+                    gathering__meet__assembly__division__organization__slug=current_user.organization.slug,
                     gathering__meet__slug__in=meets,
                     gathering__start__gte=start,
                     gathering__finish__lte=finish,

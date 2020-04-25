@@ -52,9 +52,6 @@ class DatagridAssemblyAllAttendingsListView(RouteGuard, ListView):
                 context.update({'attendances_endpoint': f"/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_attendances/"})
                 return render(self.request, self.get_template_names()[0], context)
         else:
-            logger.info("hi jack 55 here is context['current_division_slug']")
-            logger.info(context['current_division_slug'])
-
             time.sleep(2)
             raise Http404('Have you registered any events of the organization?')
 

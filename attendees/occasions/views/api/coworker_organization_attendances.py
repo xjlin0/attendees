@@ -26,7 +26,7 @@ class ApiCoworkerOrganizationAttendancesViewSet(viewsets.ModelViewSet):
         :return:  Attendance
         """
         current_user = self.request.user
-        if current_user.belongs_to_organization_of(self.kwargs['organization_slug']):
+        if current_user.organization:
             # Todo: probably need to check if the meets belongs to the organization?
             user_attended_gathering_ids = current_user.attendee.attendings.values_list('gathering__id', flat=True).distinct()
             meets = self.request.query_params.getlist('meets[]', [])
@@ -39,7 +39,7 @@ class ApiCoworkerOrganizationAttendancesViewSet(viewsets.ModelViewSet):
                 'gathering',
                 'attending__attendee',
             ).filter(
-                gathering__meet__assembly__division__organization__slug=self.kwargs['organization_slug'],
+                gathering__meet__assembly__division__organization__slug=current_user.organization.slug,
                 gathering__id__in=user_attended_gathering_ids,
                 gathering__meet__slug__in=meets,
                 gathering__start__gte=start,

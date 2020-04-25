@@ -18,7 +18,7 @@ class ApiAssemblyMeetAttendeesSet(viewsets.ModelViewSet):
 
 
     def get_queryset(self):
-        if self.request.user.belongs_to_organization_and_division(self.kwargs['organization_slug'], self.kwargs['division_slug']):
+        if self.request.user.belongs_to_divisions_of([self.kwargs['division_slug']]):
             meets = self.request.query_params.getlist('meets[]', [])
             return Attendee.objects.filter(
                 attendings__meets__slug__in=meets,

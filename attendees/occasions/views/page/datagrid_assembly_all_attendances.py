@@ -24,12 +24,12 @@ class DatagridAssemblyAllAttendancesListView(RouteGuard, ListView):
         context = super().get_context_data(**kwargs)
         # Todo include user divisions and meets slugs in context
         current_division_slug = self.kwargs.get('division_slug', None)
-        current_organization_slug = self.kwargs.get('organization_slug', None)
+        # current_organization_slug = self.kwargs.get('organization_slug', None)
         current_assembly_slug = self.kwargs.get('assembly_slug', None)
         available_meets = Meet.objects.filter(assembly__slug=current_assembly_slug).order_by('display_name')
         available_characters = Character.objects.filter(assembly__slug=current_assembly_slug).order_by('display_order')
         context.update({
-            'current_organization_slug': current_organization_slug,
+            'current_organization_slug': self.request.user.organization.slug,
             'current_division_slug': current_division_slug,
             'current_assembly_slug': current_assembly_slug,
             'available_meets': available_meets,
@@ -38,22 +38,16 @@ class DatagridAssemblyAllAttendancesListView(RouteGuard, ListView):
         return context
 
     def render_to_response(self, context, **kwargs):
-        if self.request.user.belongs_to_organization_and_division(context['current_organization_slug'], context['current_division_slug']):
+        if self.request.user.belongs_to_divisions_of([context['current_division_slug']]):
             if self.request.is_ajax():
-                chosen_meet_slugs = self.request.GET.getlist('meets[]', [])
-                chosen_character_slugs = self.request.GET.getlist('characters[]', [])
-                chosen_start = self.request.GET.get('start', timezone.now())
-                chosen_finish = self.request.GET.get('finish', timezone.now())
-                partial_template = self.get_partial_template()
-                filtered_attendances = self.get_attendances({'current_division_slug': context['current_division_slug'], 'chosen_start': chosen_start, 'chosen_finish': chosen_finish, 'chosen_meet_slugs': chosen_meet_slugs, 'chosen_character_slugs': chosen_character_slugs})
-                return render(self.request, partial_template, {'filtered_attendances': filtered_attendances})
+                pass
             else:
                 context.update({'filtered_attendances': []})
-                context.update({'teams_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_teams/"})
-                context.update({'gatherings_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_gatherings/"})
-                context.update({'characters_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_characters/"})
-                context.update({'attendings_endpoint': f"/{context['current_organization_slug']}/persons/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_attendings/"})
-                context.update({'attendances_endpoint': f"/{context['current_organization_slug']}/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_attendances/"})
+                context.update({'teams_endpoint': f"/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_teams/"})
+                context.update({'gatherings_endpoint': f"/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_gatherings/"})
+                context.update({'characters_endpoint': f"/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_characters/"})
+                context.update({'attendings_endpoint': f"/persons/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_attendings/"})
+                context.update({'attendances_endpoint': f"/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_attendances/"})
                 return render(self.request, self.get_template_names()[0], context)
         else:
             time.sleep(2)

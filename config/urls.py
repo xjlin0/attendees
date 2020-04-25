@@ -17,7 +17,13 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path('summernote/', include('django_summernote.urls')),
-    path("<slug:organization_slug>/occasions/", include("attendees.occasions.urls", namespace="occasions")),
+    path(
+        "occasions/",
+        include(
+            "attendees.occasions.urls",
+            namespace="occasions",
+        ),
+    ),
     path("<slug:organization_slug>/whereabouts/", include("attendees.whereabouts.urls", namespace="whereabouts")),
     path(
         "persons/",

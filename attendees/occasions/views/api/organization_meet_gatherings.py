@@ -16,12 +16,12 @@ class ApiOrganizationMeetGatheringsViewSet(viewsets.ModelViewSet):
     serializer_class = GatheringSerializer
 
     def get_queryset(self):
-        if self.request.user.belongs_to_organization_of(self.kwargs['organization_slug']):
+        if self.request.user.organization:
             # Todo: probably need to check if the meets belongs to the organization?
             meets = self.request.query_params.getlist('meets[]', [])
             return Gathering.objects.filter(
                 meet__slug__in=meets,
-                meet__assembly__division__organization__slug=self.kwargs['organization_slug'],
+                meet__assembly__division__organization__slug=self.request.user.organization.slug,
             ).order_by(
                 'meet',
                 '-start',
