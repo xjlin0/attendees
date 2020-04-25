@@ -4,7 +4,7 @@ from rest_framework import routers
 from attendees.occasions.views import (
     datagrid_assembly_all_attendances_list_view,
     datagrid_user_organization_attendances_list_view,
-    coworkers_organization_attendance_list_view,
+    datagrid_coworker_organization_attendances_list_view,
     api_family_organization_attendances_viewset,
     api_family_organization_characters_viewset,
     api_family_organization_gatherings_viewset,
@@ -13,9 +13,9 @@ from attendees.occasions.views import (
     api_assembly_meet_teams_viewset,
     api_assembly_meet_gatherings_viewset,
     api_organization_meet_team_viewset,
-    api_organization_gathering_viewset,
-    api_organization_character_viewset,
-    api_organization_attendance_viewset,
+    api_organization_meet_gatherings_viewset,
+    api_user_assembly_characters_viewset,
+    api_coworker_organization_attendances_viewset,
 )
 
 
@@ -47,9 +47,21 @@ router.register(
     api_organization_meet_team_viewset,
     basename='team',
 )
-router.register('api/organization_gatherings', api_organization_gathering_viewset, basename='gathering')
-router.register('api/organization_characters', api_organization_character_viewset, basename='character')
-router.register('api/organization_attendances', api_organization_attendance_viewset, basename='attendance')
+router.register(
+    'api/organization_team_gatherings',
+    api_organization_meet_gatherings_viewset,
+    basename='gathering',
+)
+router.register(
+    'api/user_assembly_characters',
+    api_user_assembly_characters_viewset,
+    basename='character',
+)
+router.register(
+    'api/coworker_organization_attendances',
+    api_coworker_organization_attendances_viewset,
+    basename='attendance',
+)
 router.register(
     'api/family_organization_attendances',
     api_family_organization_attendances_viewset,
@@ -73,8 +85,11 @@ urlpatterns = [
         view=datagrid_assembly_all_attendances_list_view,
         name="datagrid_assembly_all_attendances",
     ),
-    # path("<slug:division_slug>/<slug:assembly_slug>/attendings/", view=assembly_attendance_others_list_view, name="assembly_attendance_others"),
-    path('coworkers/organization_attendances/', view=coworkers_organization_attendance_list_view, name='coworkers_organization_attendance'),
+    path(
+        'datagrid_coworker_organization_attendances/',
+        view=datagrid_coworker_organization_attendances_list_view,
+        name='datagrid_coworker_organization_attendances',
+    ),
     path('datagrid_user_organization_attendances/',
          view=datagrid_user_organization_attendances_list_view,
          name='datagrid_user_organization_attendances',

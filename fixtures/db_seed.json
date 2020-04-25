@@ -506,14 +506,14 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-13T04:45:48.466Z",
-      "modified": "2020-04-13T15:12:40.989Z",
+      "modified": "2020-04-24T17:13:20.495Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 1,
       "html_type": "a",
-      "urn": "/{user_organization_name_slug}/occasions/coworkers/organization_attendances/",
-      "url_name": "coworkers_organization_attendance",
+      "urn": "/{user_organization_name_slug}/occasions/datagrid_coworker_organization_attendances/",
+      "url_name": "datagrid_coworker_organization_attendances",
       "display_name": "Coworkers activities",
       "display_order": 1200,
       "infos": {

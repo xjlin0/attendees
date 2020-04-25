@@ -10,7 +10,7 @@ from attendees.occasions.serializers import CharacterSerializer
 
 
 @method_decorator([login_required], name='dispatch')
-class ApiOrganizationCharacterViewSet(viewsets.ModelViewSet):
+class ApiUserAssemblyCharactersViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Character to be viewed or edited.
     """
@@ -32,4 +32,4 @@ class ApiOrganizationCharacterViewSet(viewsets.ModelViewSet):
             raise AuthenticationFailed(detail='Have you registered any events of the organization?')
 
 
-api_organization_character_viewset = ApiOrganizationCharacterViewSet
+api_user_assembly_characters_viewset = ApiUserAssemblyCharactersViewSet
