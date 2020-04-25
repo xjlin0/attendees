@@ -25,7 +25,8 @@ class ApiFamilyOrganizationAttendingsViewSet(viewsets.ModelViewSet):
         :return: all Attendings with participating meets(group) and character(role)
         """
         current_user = self.request.user
-        if current_user.organization:
+        current_user_organization = current_user.organization
+        if current_user_organization:
             # Todo: probably need to check if the meets belongs to the organization?
             meets = self.request.query_params.getlist('meets[]', [])
             return Attending.objects.select_related().prefetch_related().filter(
@@ -36,7 +37,7 @@ class ApiFamilyOrganizationAttendingsViewSet(viewsets.ModelViewSet):
                 )),
                 #registration_start/finish within the selected time period.
                 meets__slug__in=meets,
-                meets__assembly__division__organization__slug=current_user.organization.slug,
+                meets__assembly__division__organization__slug=current_user_organization.slug,
             ).annotate(
                 meet=F('attendingmeet__meet__display_name'),
                 character=F('attendingmeet__character__display_name'),

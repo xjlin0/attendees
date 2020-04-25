@@ -17,12 +17,13 @@ class ApiOrganizationMeetTeamViewSet(viewsets.ModelViewSet):
     serializer_class = TeamSerializer
 
     def get_queryset(self):
-        if self.request.user.organization:
+        current_user_organization = self.request.user.organization
+        if current_user_organization:
             # Todo: probably need to check if the meets belongs to the organization?
             meets = self.request.query_params.getlist('meets[]', [])
             return Team.objects.filter(
                 meet__slug__in=meets,
-                meet__assembly__division__organization__slug=self.request.user.organization.slug,
+                meet__assembly__division__organization__slug=current_user_organization.slug,
             ).order_by(
                 'display_order',
             )

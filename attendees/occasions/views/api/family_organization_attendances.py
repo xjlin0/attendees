@@ -30,22 +30,32 @@ class ApiFamilyOrganizationAttendancesViewSet(viewsets.ModelViewSet):
         #      2. extract current_user.belongs_to_organization_of ... to route guard
         #      3. check if the meets belongs to the organization
         current_user = self.request.user
-        if current_user.organization:
+        current_user_organization = current_user.organization
+        if current_user_organization:
             meets = self.request.query_params.getlist('meets[]', [])
             start = self.request.query_params.get('start', None)
             finish = self.request.query_params.get('finish', None)
             return Attendance.objects.select_related(
-                'character', 'team', 'attending', 'gathering', 'attending__attendee').filter(
-                    Q(attending__attendee=current_user.attendee)
-                    |
-                    Q(attending__attendee__in=current_user.attendee.relations.filter(
-                        to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS,
-                    )),
-                    gathering__meet__assembly__division__organization__slug=current_user.organization.slug,
-                    gathering__meet__slug__in=meets,
-                    gathering__start__gte=start,
-                    gathering__finish__lte=finish,
-                ).order_by('gathering__meet', '-gathering__start', 'character__display_order')
+                'character',
+                'team',
+                'attending',
+                'gathering',
+                'attending__attendee',
+            ).filter(
+                Q(attending__attendee=current_user.attendee)
+                |
+                Q(attending__attendee__in=current_user.attendee.relations.filter(
+                    to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS,
+                )),
+                gathering__meet__assembly__division__organization__slug=current_user_organization.slug,
+                gathering__meet__slug__in=meets,
+                gathering__start__gte=start,
+                gathering__finish__lte=finish,
+            ).order_by(
+                'gathering__meet',
+                '-gathering__start',
+                'character__display_order',
+            )
 
         else:
             time.sleep(2)

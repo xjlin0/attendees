@@ -27,7 +27,8 @@ class ApiFamilyOrganizationCharactersViewSet(viewsets.ModelViewSet):
         :return:  all Characters of the logged in user and their kids/care receivers' gathering.
         """
         current_user = self.request.user
-        if current_user.organization:
+        current_user_organization = current_user.organization
+        if current_user_organization:
             # user_assemblys = current_user.attendee.attendings.values_list('registration__assembly')
             # care_receiver_assemblys = current_user.attendee.relations.filter(to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS).values_list('attendings__registration__assembly')
             return Character.objects.filter(
@@ -36,7 +37,7 @@ class ApiFamilyOrganizationCharactersViewSet(viewsets.ModelViewSet):
                 Q(assembly__in=current_user.attendee.relations.filter(
                     to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS
                 ).values_list('attendings__gathering__meet__assembly')),
-                assembly__division__organization__slug=current_user.organization.slug,
+                assembly__division__organization__slug=current_user_organization.slug,
                 ).order_by(
                     'display_order',
             )  # another way is to get assemblys from registration, but it relies on attendingmeet validations

@@ -18,10 +18,11 @@ class ApiUserAssemblyCharactersViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         current_user = self.request.user
-        if current_user.organization:
+        current_user_organization = current_user.organization
+        if current_user_organization:
             assembly__slugs = current_user.attendee.attendings.values_list('gathering__meet__assembly__slug', flat=True)
             return Character.objects.filter(
-                assembly__division__organization__slug=current_user.organization.slug,
+                assembly__division__organization__slug=current_user_organization.slug,
                 assembly__slug__in=assembly__slugs,
             ).order_by(
                 'display_order',
