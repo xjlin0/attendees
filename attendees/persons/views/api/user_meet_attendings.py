@@ -38,7 +38,7 @@ class ApiUserMeetAttendingsViewSet(viewsets.ModelViewSet):
                 character=F('attendingmeet__character__display_name'),
             ).order_by(
                 'attendee',
-            )
+            ).distinct()
 
         else:
             time.sleep(2)

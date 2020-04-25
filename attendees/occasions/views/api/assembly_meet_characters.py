@@ -25,7 +25,7 @@ class ApiAssemblyMeetCharactersViewSet(viewsets.ModelViewSet):
                 assembly__meet__slug__in=meets,
             ).order_by(
                 'display_order',
-            )
+            ).distinct()
 
         else:
             time.sleep(2)
