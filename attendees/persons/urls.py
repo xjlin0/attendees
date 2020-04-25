@@ -3,8 +3,8 @@ from rest_framework import routers
 
 from attendees.persons.views import (
     api_assembly_meet_attendings_viewset,
-    api_attendee_viewset,
-    assembly_attending_list_view,
+    api_assembly_meet_attendees_viewset,
+    datagrid_assembly_all_attendings_list_view,
     api_user_meet_attendings_viewset,
     api_family_organization_attendings_viewset,
 )
@@ -18,8 +18,8 @@ router.register(
     basename='attending',
 )
 router.register(
-    'api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/attendees',
-    api_attendee_viewset,
+    'api/(?P<division_slug>.+)/(?P<assembly_slug>.+)/assembly_meet_attendees',
+    api_assembly_meet_attendees_viewset,
     basename='attendee',
 )
 router.register(
@@ -39,8 +39,8 @@ urlpatterns = [
     ),
 
     path(
-        "<slug:division_slug>/<slug:assembly_slug>/attendings/",
-        view=assembly_attending_list_view,
-        name="assembly-attendings",
+        "<slug:division_slug>/<slug:assembly_slug>/datagrid_assembly_all_attendings/",
+        view=datagrid_assembly_all_attendings_list_view,
+        name="datagrid_assembly_all_attendings",
     ),
 ]

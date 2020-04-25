@@ -10,7 +10,7 @@ from attendees.persons.serializers import AttendeeSerializer
 
 
 @method_decorator([login_required], name='dispatch')
-class ApiAttendeeSet(viewsets.ModelViewSet):
+class ApiAssemblyMeetAttendeesSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Team to be viewed or edited.
     """
@@ -35,4 +35,4 @@ class ApiAttendeeSet(viewsets.ModelViewSet):
             raise AuthenticationFailed(detail='Have you registered any events of the organization?')
 
 
-api_attendee_viewset = ApiAttendeeSet
+api_assembly_meet_attendees_viewset = ApiAssemblyMeetAttendeesSet
