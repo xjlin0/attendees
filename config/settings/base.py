@@ -292,6 +292,9 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_ADAPTER = "attendees.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "attendees.users.adapters.SocialAccountAdapter"
+ACCOUNT_FORMS = {
+    'signup': 'attendees.users.forms.signup_forms.MyCustomSignupForm',
+}
 
 # Summernote
 # ------------------------------------------------------------------------------

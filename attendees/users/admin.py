@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from mptt.admin import MPTTModelAdmin
 from .models import Menu, MenuAuthGroup
 
-from attendees.users.forms import UserChangeForm, UserCreationForm
+from attendees.users.forms.admin_forms import UserChangeForm, UserCreationForm
 
 User = get_user_model()
 
