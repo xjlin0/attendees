@@ -415,7 +415,7 @@
     "model": "django_celery_beat.periodictasks",
     "pk": 1,
     "fields": {
-      "last_update": "2020-04-19T02:48:49.624Z"
+      "last_update": "2020-04-26T01:21:24.471Z"
     }
   },
   {
@@ -441,7 +441,7 @@
       "enabled": true,
       "last_run_at": "2020-04-25T04:00:00.003Z",
       "total_run_count": 11,
-      "date_changed": "2020-04-25T04:23:25.907Z",
+      "date_changed": "2020-04-26T01:21:24.473Z",
       "description": ""
     }
   },
@@ -608,13 +608,13 @@
     "pk": 6,
     "fields": {
       "created": "2020-04-13T05:14:05.406Z",
-      "modified": "2020-04-25T03:51:18.846Z",
+      "modified": "2020-04-26T02:25:15.627Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 4,
       "html_type": "a",
-      "urn": "/persons/children-ministry/cfcc-regular-kid-activities/datagrid_assembly_all_attendings/?characters=d7c8Fd-cfcc-kid-student",
+      "urn": "/persons/cfcc-children-ministry/cfcc-regular-kid-activities/datagrid_assembly_all_attendings/?characters=d7c8Fd-cfcc-kid-student",
       "url_name": "datagrid_assembly_all_attendings",
       "display_name": "regular-kid \u666e\u901a\u6d3b\u52d5 participations",
       "display_order": 2300,
@@ -633,13 +633,13 @@
     "pk": 7,
     "fields": {
       "created": "2020-04-13T05:17:33.909Z",
-      "modified": "2020-04-23T14:53:43.404Z",
+      "modified": "2020-04-26T02:25:24.623Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 4,
       "html_type": "a",
-      "urn": "/occasions/children-ministry/cfcc-regular-kid-activities/datagrid_assembly_all_attendances/",
+      "urn": "/occasions/cfcc-children-ministry/cfcc-regular-kid-activities/datagrid_assembly_all_attendances/",
       "url_name": "datagrid_assembly_all_attendances",
       "display_name": "regular-kid \u666e\u901a\u6d3b\u52d5 attendances",
       "display_order": 2500,
@@ -730,11 +730,11 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T18:17:41.693Z",
-      "modified": "2020-04-11T18:18:11.500Z",
+      "modified": "2020-04-26T02:24:46.054Z",
       "is_removed": false,
       "organization": 1,
       "display_name": "\u4e2d\u6587\u90e8",
-      "slug": "chinese-ministry"
+      "slug": "cfcc-chinese-ministry"
     }
   },
   {
@@ -742,11 +742,11 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-11T18:17:56.729Z",
-      "modified": "2020-04-11T18:18:16.805Z",
+      "modified": "2020-04-26T02:24:52.639Z",
       "is_removed": false,
       "organization": 1,
       "display_name": "Crossing Ministry",
-      "slug": "crossing-ministry"
+      "slug": "cfcc-crossing-ministry"
     }
   },
   {
@@ -754,11 +754,11 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T18:18:36.092Z",
-      "modified": "2020-04-11T18:18:36.092Z",
+      "modified": "2020-04-26T02:24:58.270Z",
       "is_removed": false,
       "organization": 1,
       "display_name": "Children Ministry",
-      "slug": "children-ministry"
+      "slug": "cfcc-children-ministry"
     }
   },
   {
