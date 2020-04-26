@@ -22,6 +22,7 @@ class Character(TimeStampedModel, SoftDeletableModel, Utility):
 
     class Meta:
         db_table = 'occasions_characters'
+        ordering = ['display_order']
 
     def __str__(self):
         return '%s %s %s' % (self.display_name, self.type, self.info or '')

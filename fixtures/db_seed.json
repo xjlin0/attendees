@@ -439,9 +439,9 @@
       "one_off": false,
       "start_time": null,
       "enabled": true,
-      "last_run_at": "2020-04-25T04:00:00.003Z",
-      "total_run_count": 11,
-      "date_changed": "2020-04-26T01:21:24.473Z",
+      "last_run_at": "2020-04-26T04:00:00.000Z",
+      "total_run_count": 12,
+      "date_changed": "2020-04-26T04:01:35.284Z",
       "description": ""
     }
   },
@@ -478,7 +478,7 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-13T04:34:36.681Z",
-      "modified": "2020-04-13T15:11:53.276Z",
+      "modified": "2020-04-26T18:13:41.253Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
@@ -486,7 +486,7 @@
       "html_type": "a",
       "urn": "#",
       "url_name": "My-Info",
-      "display_name": "My Info",
+      "display_name": "My Info \u76f8\u95dc\u884c\u7a0b",
       "display_order": 1000,
       "infos": {
         "role": "tab",
@@ -496,7 +496,7 @@
         "aria-haspopup": "true"
       },
       "lft": 1,
-      "rght": 6,
+      "rght": 10,
       "tree_id": 1,
       "level": 0
     }
@@ -506,7 +506,7 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-13T04:45:48.466Z",
-      "modified": "2020-04-24T17:13:20.495Z",
+      "modified": "2020-04-26T18:16:02.214Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
@@ -514,14 +514,14 @@
       "html_type": "a",
       "urn": "/occasions/datagrid_coworker_organization_attendances/",
       "url_name": "datagrid_coworker_organization_attendances",
-      "display_name": "Coworkers activities",
-      "display_order": 1200,
+      "display_name": "Coworkers activities \u540c\u5de5\u884c\u7a0b",
+      "display_order": 1400,
       "infos": {
         "class": "dropdown-item",
         "title": "Coworkers Activities"
       },
-      "lft": 4,
-      "rght": 5,
+      "lft": 8,
+      "rght": 9,
       "tree_id": 1,
       "level": 1
     }
@@ -531,7 +531,7 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-13T04:51:13.160Z",
-      "modified": "2020-04-24T15:49:08.647Z",
+      "modified": "2020-04-26T18:16:15.179Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
@@ -539,14 +539,14 @@
       "html_type": "a",
       "urn": "/occasions/datagrid_user_organization_attendances/",
       "url_name": "datagrid_user_organization_attendances",
-      "display_name": "My activities",
-      "display_order": 1100,
+      "display_name": "My activities \u500b\u4eba\u884c\u7a0b",
+      "display_order": 1300,
       "infos": {
         "class": "dropdown-item",
         "title": "My Activities"
       },
-      "lft": 2,
-      "rght": 3,
+      "lft": 6,
+      "rght": 7,
       "tree_id": 1,
       "level": 1
     }
@@ -556,7 +556,7 @@
     "pk": 4,
     "fields": {
       "created": "2020-04-13T05:09:06.273Z",
-      "modified": "2020-04-13T15:13:27.610Z",
+      "modified": "2020-04-26T18:14:42.372Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
@@ -564,7 +564,7 @@
       "html_type": "a",
       "urn": "#",
       "url_name": "Children-Ministry",
-      "display_name": "Children Ministry",
+      "display_name": "Children Ministry \u5152\u7ae5\u90e8",
       "display_order": 2000,
       "infos": {
         "role": "tab",
@@ -574,7 +574,7 @@
         "aria-haspopup": "true"
       },
       "lft": 1,
-      "rght": 12,
+      "rght": 8,
       "tree_id": 2,
       "level": 0
     }
@@ -584,18 +584,43 @@
     "pk": 5,
     "fields": {
       "created": "2020-04-13T05:12:20.438Z",
-      "modified": "2020-04-13T15:13:46.045Z",
+      "modified": "2020-04-26T18:16:36.469Z",
+      "is_removed": false,
+      "organization": 1,
+      "category": "main",
+      "parent": 1,
+      "html_type": "a",
+      "urn": "#",
+      "url_name": "Registration-updates",
+      "display_name": "Registration/updates \u8a3b\u518a/\u66f4\u65b0",
+      "display_order": 1100,
+      "infos": {
+        "class": "dropdown-item"
+      },
+      "lft": 2,
+      "rght": 3,
+      "tree_id": 1,
+      "level": 1
+    }
+  },
+  {
+    "model": "users.menu",
+    "pk": 6,
+    "fields": {
+      "created": "2020-04-13T05:14:05.406Z",
+      "modified": "2020-04-26T18:28:28.736Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 4,
       "html_type": "a",
-      "urn": "#",
-      "url_name": "Registration-updates",
-      "display_name": "Registration updates",
-      "display_order": 2100,
+      "urn": "/persons/cfcc-children-ministry/cfcc-junior-regular-activity/datagrid_assembly_all_attendings/?characters=d7c8Fd-cfcc-kid-student",
+      "url_name": "datagrid_assembly_all_attendings",
+      "display_name": "regular-kid attending \u4e00\u822c\u6d3b\u52d5\u53c3\u8207",
+      "display_order": 2300,
       "infos": {
-        "class": "dropdown-item"
+        "class": "dropdown-item",
+        "title": "Student Roaster"
       },
       "lft": 2,
       "rght": 3,
@@ -605,22 +630,22 @@
   },
   {
     "model": "users.menu",
-    "pk": 6,
+    "pk": 7,
     "fields": {
-      "created": "2020-04-13T05:14:05.406Z",
-      "modified": "2020-04-26T02:25:15.627Z",
+      "created": "2020-04-13T05:17:33.909Z",
+      "modified": "2020-04-26T18:28:43.332Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 4,
       "html_type": "a",
-      "urn": "/persons/cfcc-children-ministry/cfcc-regular-kid-activities/datagrid_assembly_all_attendings/?characters=d7c8Fd-cfcc-kid-student",
-      "url_name": "datagrid_assembly_all_attendings",
-      "display_name": "regular-kid \u666e\u901a\u6d3b\u52d5 participations",
-      "display_order": 2300,
+      "urn": "/occasions/cfcc-children-ministry/cfcc-junior-regular-activity/datagrid_assembly_all_attendances/",
+      "url_name": "datagrid_assembly_all_attendances",
+      "display_name": "regular-kid attendances \u4e00\u822c\u6d3b\u52d5\u51fa\u5e2d",
+      "display_order": 2500,
       "infos": {
         "class": "dropdown-item",
-        "title": "Student Roaster"
+        "title": "Leader List"
       },
       "lft": 6,
       "rght": 7,
@@ -630,50 +655,25 @@
   },
   {
     "model": "users.menu",
-    "pk": 7,
-    "fields": {
-      "created": "2020-04-13T05:17:33.909Z",
-      "modified": "2020-04-26T02:25:24.623Z",
-      "is_removed": false,
-      "organization": 1,
-      "category": "main",
-      "parent": 4,
-      "html_type": "a",
-      "urn": "/occasions/cfcc-children-ministry/cfcc-regular-kid-activities/datagrid_assembly_all_attendances/",
-      "url_name": "datagrid_assembly_all_attendances",
-      "display_name": "regular-kid \u666e\u901a\u6d3b\u52d5 attendances",
-      "display_order": 2500,
-      "infos": {
-        "class": "dropdown-item",
-        "title": "Leader List"
-      },
-      "lft": 10,
-      "rght": 11,
-      "tree_id": 2,
-      "level": 1
-    }
-  },
-  {
-    "model": "users.menu",
     "pk": 10,
     "fields": {
       "created": "2020-04-17T16:56:21.296Z",
-      "modified": "2020-04-17T16:56:21.296Z",
+      "modified": "2020-04-26T18:20:15.428Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
-      "parent": 4,
+      "parent": 1,
       "html_type": "div",
       "urn": null,
-      "url_name": "divider-between-registration-participations",
-      "display_name": "divider between registration&participation groups",
-      "display_order": 2200,
+      "url_name": "divider-between-registration-activities",
+      "display_name": "divider between registration&activities",
+      "display_order": 1200,
       "infos": {
         "class": "dropdown-divider"
       },
       "lft": 4,
       "rght": 5,
-      "tree_id": 2,
+      "tree_id": 1,
       "level": 1
     }
   },
@@ -695,8 +695,8 @@
       "infos": {
         "class": "dropdown-divider"
       },
-      "lft": 8,
-      "rght": 9,
+      "lft": 4,
+      "rght": 5,
       "tree_id": 2,
       "level": 1
     }
@@ -1809,12 +1809,12 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T18:39:30.685Z",
-      "modified": "2020-04-11T18:41:13.844Z",
+      "modified": "2020-04-26T18:25:47.768Z",
       "is_removed": false,
       "start": null,
       "finish": null,
-      "display_name": "CFCC\u5e38\u898f\u5152\u7ae5\u6d3b\u52d5",
-      "slug": "cfcc-regular-kid-activities",
+      "display_name": "CFCC\u5152\u5c11\u5e38\u898f\u6d3b\u52d5",
+      "slug": "cfcc-junior-regular-activity",
       "division": 3
     }
   },
@@ -1837,12 +1837,12 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T18:40:33.044Z",
-      "modified": "2020-04-20T16:38:05.431Z",
+      "modified": "2020-04-26T18:24:38.727Z",
       "is_removed": false,
       "start": null,
       "finish": null,
-      "display_name": "CFCC\u9752\u5c11\u77ed\u5ba32020",
-      "slug": "cfcc-youth-short-term-missionary-2020",
+      "display_name": "CFCC\u5152\u5c11\u7279\u5225\u6d3b\u52d5",
+      "slug": "cfcc-junior-special-activity",
       "division": 3
     }
   },
@@ -1913,14 +1913,14 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T18:42:52.655Z",
-      "modified": "2020-04-20T17:16:13.844Z",
+      "modified": "2020-04-26T17:59:00.575Z",
       "is_removed": false,
       "assembly": 1,
       "display_name": "Student",
-      "display_order": 0,
+      "display_order": 32766,
       "slug": "d7c8Fd-cfcc-kid-student",
       "info": null,
-      "type": "normal"
+      "type": "audience"
     }
   },
   {
@@ -1928,14 +1928,14 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-11T18:43:19.732Z",
-      "modified": "2020-04-20T17:16:20.226Z",
+      "modified": "2020-04-26T17:54:24.704Z",
       "is_removed": false,
       "assembly": 1,
-      "display_name": "Teacher",
-      "display_order": 0,
-      "slug": "d7c8Fd-cfcc-kid-teacher",
+      "display_name": "LG Leader 1",
+      "display_order": 1,
+      "slug": "d7c8Fd-cfcc-kid-LGleader1",
       "info": null,
-      "type": "normal"
+      "type": "coworker"
     }
   },
   {
@@ -1943,14 +1943,14 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T18:43:39.188Z",
-      "modified": "2020-04-20T17:16:26.608Z",
+      "modified": "2020-04-26T17:55:08.998Z",
       "is_removed": false,
       "assembly": 1,
-      "display_name": "Leader",
-      "display_order": 0,
-      "slug": "d7c8Fd-cfcc-kid-class-leader",
+      "display_name": "LG Leader 2",
+      "display_order": 2,
+      "slug": "d7c8Fd-cfcc-kid-LGleader2",
       "info": null,
-      "type": "normal"
+      "type": "coworker"
     }
   },
   {
@@ -1958,14 +1958,14 @@
     "pk": 4,
     "fields": {
       "created": "2020-04-11T18:44:00.020Z",
-      "modified": "2020-04-20T17:17:24.105Z",
+      "modified": "2020-04-26T18:04:03.591Z",
       "is_removed": false,
       "assembly": 1,
-      "display_name": "Helper",
-      "display_order": 0,
-      "slug": "d7c8Fd-cfcc-kid-helper",
+      "display_name": "Worship Leader 1",
+      "display_order": 3,
+      "slug": "d7c8Fd-cfcc-kid-leader-1worship",
       "info": null,
-      "type": "normal"
+      "type": "coworker"
     }
   },
   {
@@ -1973,14 +1973,14 @@
     "pk": 5,
     "fields": {
       "created": "2020-04-11T18:44:28.242Z",
-      "modified": "2020-04-20T17:16:33.821Z",
+      "modified": "2020-04-26T18:04:12.535Z",
       "is_removed": false,
       "assembly": 1,
-      "display_name": "Food Preparer",
-      "display_order": 0,
-      "slug": "d7c8Fd-cfcc-kid-food-preparer",
+      "display_name": "Worship Leader 2",
+      "display_order": 4,
+      "slug": "d7c8Fd-cfcc-kid-leader-2worship",
       "info": null,
-      "type": "normal"
+      "type": "coworker"
     }
   },
   {
@@ -1988,14 +1988,14 @@
     "pk": 6,
     "fields": {
       "created": "2020-04-11T18:44:58.405Z",
-      "modified": "2020-04-20T17:16:45.251Z",
+      "modified": "2020-04-26T17:29:55.239Z",
       "is_removed": false,
       "assembly": 2,
       "display_name": "A/V controller",
       "display_order": 0,
       "slug": "d7c8Fd-adult-sunday-av-controller",
       "info": null,
-      "type": "normal"
+      "type": "coworker"
     }
   },
   {
@@ -2003,14 +2003,14 @@
     "pk": 7,
     "fields": {
       "created": "2020-04-11T18:45:15.658Z",
-      "modified": "2020-04-20T17:16:58.324Z",
+      "modified": "2020-04-26T17:58:33.716Z",
       "is_removed": false,
       "assembly": 4,
       "display_name": "sky choir member",
-      "display_order": 0,
+      "display_order": 9999,
       "slug": "faBd6C-sky-choir-member",
       "info": null,
-      "type": "normal"
+      "type": "coworker"
     }
   },
   {
@@ -2018,14 +2018,104 @@
     "pk": 8,
     "fields": {
       "created": "2020-04-21T05:05:20.646Z",
-      "modified": "2020-04-21T05:05:20.646Z",
+      "modified": "2020-04-26T17:58:43.403Z",
       "is_removed": false,
       "assembly": 3,
       "display_name": "\u77ed\u5ba3\u53f8\u6a5f",
-      "display_order": 0,
+      "display_order": 7777,
       "slug": "d7c8fd-cfcc-kid-short-mission-driver",
       "info": null,
-      "type": "normal"
+      "type": "coworker"
+    }
+  },
+  {
+    "model": "occasions.character",
+    "pk": 9,
+    "fields": {
+      "created": "2020-04-26T18:00:16.433Z",
+      "modified": "2020-04-26T18:00:16.433Z",
+      "is_removed": false,
+      "assembly": 1,
+      "display_name": "Food Helper",
+      "display_order": 5,
+      "slug": "d7c8Fd-cfcc-kid-food-helper",
+      "info": null,
+      "type": "coworker"
+    }
+  },
+  {
+    "model": "occasions.character",
+    "pk": 10,
+    "fields": {
+      "created": "2020-04-26T18:01:26.135Z",
+      "modified": "2020-04-26T18:07:10.143Z",
+      "is_removed": false,
+      "assembly": 1,
+      "display_name": "SG Leader Kindergarten",
+      "display_order": 6,
+      "slug": "d7c8Fd-cfcc-kid-leader-SG-kindergarten",
+      "info": null,
+      "type": "coworker"
+    }
+  },
+  {
+    "model": "occasions.character",
+    "pk": 11,
+    "fields": {
+      "created": "2020-04-26T18:05:30.923Z",
+      "modified": "2020-04-26T18:07:17.430Z",
+      "is_removed": false,
+      "assembly": 1,
+      "display_name": "SG Leader 1st Grade",
+      "display_order": 7,
+      "slug": "d7c8Fd-cfcc-kid-leader-SG-1G",
+      "info": null,
+      "type": "coworker"
+    }
+  },
+  {
+    "model": "occasions.character",
+    "pk": 12,
+    "fields": {
+      "created": "2020-04-26T18:06:57.727Z",
+      "modified": "2020-04-26T18:06:57.727Z",
+      "is_removed": false,
+      "assembly": 1,
+      "display_name": "SG Leader 2nd Grade",
+      "display_order": 8,
+      "slug": "d7c8Fd-cfcc-kid-leader-SG-2G",
+      "info": null,
+      "type": "coworker"
+    }
+  },
+  {
+    "model": "occasions.character",
+    "pk": 13,
+    "fields": {
+      "created": "2020-04-26T18:07:53.146Z",
+      "modified": "2020-04-26T18:07:53.146Z",
+      "is_removed": false,
+      "assembly": 1,
+      "display_name": "SG Leader 3rd & 4th Grades",
+      "display_order": 9,
+      "slug": "d7c8Fd-cfcc-kid-leader-SG-34G",
+      "info": null,
+      "type": "coworker"
+    }
+  },
+  {
+    "model": "occasions.character",
+    "pk": 14,
+    "fields": {
+      "created": "2020-04-26T18:08:30.258Z",
+      "modified": "2020-04-26T18:08:30.258Z",
+      "is_removed": false,
+      "assembly": 1,
+      "display_name": "SG Leader 5th& 6th Grades",
+      "display_order": 10,
+      "slug": "d7c8Fd-cfcc-kid-leader-SG-56G",
+      "info": null,
+      "type": "coworker"
     }
   },
   {
@@ -2033,13 +2123,13 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T18:47:42.792Z",
-      "modified": "2020-04-20T16:47:48.886Z",
+      "modified": "2020-04-26T18:30:08.184Z",
       "is_removed": false,
       "assembly": 1,
       "start": null,
       "finish": null,
       "display_name": "The Rock",
-      "slug": "d7c8Fd-kid-regular-the-rock",
+      "slug": "d7c8Fd-junior-regular-the-rock",
       "infos": {},
       "site_type": 32,
       "site_id": 1
@@ -2050,13 +2140,13 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-11T18:48:40.462Z",
-      "modified": "2020-04-20T16:47:54.583Z",
+      "modified": "2020-04-26T18:30:17.535Z",
       "is_removed": false,
       "assembly": 1,
       "start": null,
       "finish": null,
       "display_name": "Little foot",
-      "slug": "d7c8Fd-kid-regular-little-foot",
+      "slug": "d7c8Fd-junior-regular-little-foot",
       "infos": {},
       "site_type": 34,
       "site_id": 1
@@ -2101,13 +2191,13 @@
     "pk": 5,
     "fields": {
       "created": "2020-04-11T18:52:14.135Z",
-      "modified": "2020-04-20T16:48:25.915Z",
+      "modified": "2020-04-26T18:31:40.474Z",
       "is_removed": false,
       "assembly": 1,
       "start": null,
       "finish": null,
-      "display_name": "kid Christmas Celebration",
-      "slug": "d7c8Fd-kid-regular-christmas-celebration",
+      "display_name": "kid Christmas Celebration \u5152\u5c11\u8056\u8a95\u6703",
+      "slug": "d7c8Fd-junior-regular-christmas-celebration",
       "infos": {},
       "site_type": 31,
       "site_id": 1
@@ -2118,13 +2208,13 @@
     "pk": 6,
     "fields": {
       "created": "2020-04-20T16:43:03.255Z",
-      "modified": "2020-04-20T16:48:15.878Z",
+      "modified": "2020-04-26T18:30:32.888Z",
       "is_removed": false,
       "assembly": 3,
       "start": null,
       "finish": null,
       "display_name": "\u9752\u5c11\u77ed\u5ba3\u82f1\u8a9e\u6559\u5b78",
-      "slug": "d7c8Fd-kid-special-english-teaching",
+      "slug": "d7c8Fd-junior-special-english-teaching",
       "infos": {},
       "site_type": 30,
       "site_id": 10
@@ -4200,7 +4290,7 @@
     "model": "auth.group",
     "pk": 1,
     "fields": {
-      "name": "children_organizer",
+      "name": "d7c8Fd_cfcc_children_organizer",
       "permissions": [
         25,
         26,
@@ -4337,7 +4427,7 @@
     "model": "auth.group",
     "pk": 2,
     "fields": {
-      "name": "children_coworker",
+      "name": "d7c8Fd_cfcc_children_coworker",
       "permissions": [
         69,
         70,
@@ -4430,7 +4520,7 @@
     "model": "auth.group",
     "pk": 3,
     "fields": {
-      "name": "organization_participant",
+      "name": "d7c8Fd_cfcc_organization_participant",
       "permissions": [
         25,
         26,

@@ -19,7 +19,7 @@ class AssemblyAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
     inlines = (AssemblyAddressInline,)
     list_display_links = ('display_name',)
-    list_display = ('id', 'division', 'display_name', 'get_addresses', 'modified')
+    list_display = ('id', 'division', 'display_name', 'slug', 'get_addresses')
     readonly_fields = ['id', 'created', 'modified']
 
 
@@ -55,7 +55,9 @@ class AttendanceInline(admin.StackedInline):
 
 class CharacterAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
-    list_display = ('id', 'assembly', 'display_name', 'slug', 'info', 'display_order', 'modified')
+    list_filter = ('assembly',)
+    list_display_links = ('display_name',)
+    list_display = ('id', 'assembly', 'display_name', 'slug', 'display_order', 'type')
 
 
 class TeamAdmin(admin.ModelAdmin):
@@ -66,7 +68,9 @@ class TeamAdmin(admin.ModelAdmin):
 class MeetAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
     search_fields = ('display_name',)
-    list_display = ('id', 'display_name', 'slug', 'info', 'url', 'modified')
+    list_filter = ('assembly',)
+    list_display_links = ('display_name',)
+    list_display = ('id', 'display_name', 'slug', 'assembly')
     readonly_fields = ['id', 'created', 'modified']
     fieldsets = (
         (None, {"fields": (tuple(['start', 'finish', 'slug']),
