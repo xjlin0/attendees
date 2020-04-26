@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('display_name', models.CharField(max_length=50)),
                 ('slug', models.SlugField(max_length=50, unique=True)),
                 ('organization', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Organization')),
+                ('audience_auth_group', models.ForeignKey(on_delete=models.SET(0), to='auth.Group', null=False, blank=False, help_text='which auth group does the joining general participant belong to?')),
             ],
             options={
                 'db_table': 'whereabouts_divisions',

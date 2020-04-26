@@ -12,7 +12,7 @@ class Division(TimeStampedModel, SoftDeletableModel, Utility):
     organization = models.ForeignKey(Organization, null=False, blank=False, on_delete=models.SET(0))
     display_name = models.CharField(max_length=50, blank=False, null=False)
     slug = models.SlugField(max_length=50, blank=False, null=False, unique=True)
-    # attendings = models.ManyToManyField('persons.Attending', through='persons.AttendingDivision')
+    audience_auth_group = models.ForeignKey('auth.Group', null=False, blank=False, help_text='which auth group does the joining general participant belong to?', on_delete=models.SET(0))
 
     class Meta:
         db_table = 'whereabouts_divisions'

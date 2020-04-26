@@ -733,6 +733,7 @@
       "modified": "2020-04-26T02:24:46.054Z",
       "is_removed": false,
       "organization": 1,
+      "audience_auth_group": 0,
       "display_name": "\u4e2d\u6587\u90e8",
       "slug": "cfcc-chinese-ministry"
     }
@@ -745,6 +746,7 @@
       "modified": "2020-04-26T02:24:52.639Z",
       "is_removed": false,
       "organization": 1,
+      "audience_auth_group": 0,
       "display_name": "Crossing Ministry",
       "slug": "cfcc-crossing-ministry"
     }
@@ -757,6 +759,7 @@
       "modified": "2020-04-26T02:24:58.270Z",
       "is_removed": false,
       "organization": 1,
+      "audience_auth_group": 3,
       "display_name": "Children Ministry",
       "slug": "cfcc-children-ministry"
     }
@@ -769,6 +772,7 @@
       "modified": "2020-04-11T18:19:02.081Z",
       "is_removed": false,
       "organization": 2,
+      "audience_auth_group": 0,
       "display_name": "\u6c38\u6046\u656c\u62dc",
       "slug": "ever-worship"
     }
@@ -4292,6 +4296,15 @@
       "name": "Can view attendance",
       "content_type": 49,
       "codename": "view_attendance"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 0,
+    "fields": {
+      "name": "d7c8Fd_cfcc_non_existing_group",
+      "permissions": [
+      ]
     }
   },
   {
