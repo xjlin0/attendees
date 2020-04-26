@@ -41,6 +41,7 @@ class AttendanceInline(admin.StackedInline):
 
 class AttendingAdmin(admin.ModelAdmin):
     search_fields = ('attendee__first_name', 'attendee__last_name', 'attendee__first_name2', 'attendee__last_name2')
+    list_display_links = ('attendee',)
     inlines = (AttendingMeetInline,) # add AttendanceInline when creating new Attending will fails on meet_names
     list_display = ('id', 'registration', 'attendee', 'meet_names', 'bed_needs', 'all_addresses')
 

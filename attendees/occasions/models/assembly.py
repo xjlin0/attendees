@@ -13,7 +13,7 @@ class Assembly(TimeStampedModel, SoftDeletableModel, Utility):
     start = models.DateTimeField(null=True, blank=True, help_text='optional')
     finish = models.DateTimeField(null=True, blank=True, help_text='optional')
     addresses = models.ManyToManyField('whereabouts.Address', through='AssemblyAddress')
-    # characters = models.ManyToManyField('Character', through='AssemblyCharacter')
+    category = models.CharField(max_length=20, default='normal', blank=False, null=False, db_index=True, help_text="normal, no-display, etc")
     display_name = models.CharField(max_length=50, blank=False, null=False)
     slug = models.SlugField(max_length=50, blank=False, null=False, unique=True, help_text='format: Organization_name-Assembly_name')
     division = models.ForeignKey('whereabouts.Division', null=False, blank=False, on_delete=models.SET(0))

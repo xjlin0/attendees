@@ -29,6 +29,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'occasions_characters',
+                'ordering': ['display_order'],
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),
