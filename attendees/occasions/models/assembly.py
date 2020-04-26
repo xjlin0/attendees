@@ -15,6 +15,7 @@ class Assembly(TimeStampedModel, SoftDeletableModel, Utility):
     addresses = models.ManyToManyField('whereabouts.Address', through='AssemblyAddress')
     category = models.CharField(max_length=20, default='normal', blank=False, null=False, db_index=True, help_text="normal, no-display, etc")
     display_name = models.CharField(max_length=50, blank=False, null=False)
+    display_order = models.SmallIntegerField(default=0, blank=False, null=False)
     slug = models.SlugField(max_length=50, blank=False, null=False, unique=True, help_text='format: Organization_name-Assembly_name')
     division = models.ForeignKey('whereabouts.Division', null=False, blank=False, on_delete=models.SET(0))
 
@@ -23,7 +24,7 @@ class Assembly(TimeStampedModel, SoftDeletableModel, Utility):
 
     class Meta:
         db_table = 'occasions_assemblies'
-        ordering = ('display_name',)
+        ordering = ('display_order',)
 
     def __str__(self):
         return '%s' % self.display_name
