@@ -1,7 +1,7 @@
 Attendees.attendances = {
   init: () => {
 
-    console.log("attendees/static/js/division/assembly/attendances.js");
+    console.log("attendees/static/js/occasions/datagrid_assembly_all_attendances.js");
     Attendees.attendances.setDefaults();
     Attendees.attendances.initTempusdominus();
     $('.basic-multiple').select2({

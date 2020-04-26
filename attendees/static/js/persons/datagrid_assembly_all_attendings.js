@@ -1,7 +1,7 @@
 Attendees.attendings = {
   init: () => {
 
-    console.log("attendees/static/js/division/assembly/attendings.js");
+    console.log("attendees/static/js/persons/datagrid_assembly_all_attendings.js");
 
     Attendees.attendings.setDefaults();
 

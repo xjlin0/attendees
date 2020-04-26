@@ -1,7 +1,7 @@
 Attendees.userAttendances = {
   init: () => {
 
-    console.log("attendees/static/js/coworkers/organization_attendances.js");
+    console.log("attendees/static/js/occasions/datagrid_user_organization_attendances.js");
 
     Attendees.userAttendances.setDefaults();
     Attendees.userAttendances.initTempusdominus();
