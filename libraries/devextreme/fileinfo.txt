@@ -1,1 +1,1 @@
-// DevExtreme 19.2.6
+// DevExtreme 19.2.7
