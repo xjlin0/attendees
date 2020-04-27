@@ -21,13 +21,14 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('object_id', models.BigIntegerField()),
-                ('note_type', models.CharField(blank=True, max_length=20, null=True)),
-                ('note_text', models.TextField()),
+                ('category', models.CharField(default='normal', help_text='normal, for-address, etc', max_length=20, blank=False, null=False, db_index=True)),
+                ('display_order', models.SmallIntegerField(blank=False, default=0, null=False)),
+                ('body', models.TextField()),
                 ('content_type', models.ForeignKey(on_delete=models.SET(0), to='contenttypes.ContentType')),
             ],
             options={
                 'db_table': 'persons_notes',
-                'ordering': ('-modified',),
+                'ordering': ('display_order', '-modified',),
             },
         ),
     ]

@@ -47,8 +47,8 @@ class AttendingAdmin(admin.ModelAdmin):
 
 
 class NoteAdmin(SummernoteModelAdmin):
-    summernote_fields = ('note_text',)
-    list_display = ('note_text', 'content_type', 'object_id', 'content_object', 'modified')
+    summernote_fields = ('body',)
+    list_display = ('body', 'content_type', 'object_id', 'content_object', 'display_order', 'modified')
 
 
 class RelationshipAdmin(admin.ModelAdmin):
