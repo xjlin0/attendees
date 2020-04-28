@@ -2346,7 +2346,7 @@
   },
   {
     "model": "occasions.team",
-    "pk": 1,
+    "pk": 10000,
     "fields": {
       "created": "2020-04-11T19:09:48.250Z",
       "modified": "2020-04-11T19:09:48.250Z",
@@ -2370,7 +2370,7 @@
       "start": null,
       "finish": null,
       "gathering": 1,
-      "team": 1,
+      "team": 10000,
       "attending": 1,
       "character": 1,
       "free": 0,
@@ -2411,7 +2411,7 @@
       "start": null,
       "finish": null,
       "gathering": 1,
-      "team": 1,
+      "team": 10000,
       "attending": 3,
       "character": 4,
       "free": 0,
