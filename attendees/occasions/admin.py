@@ -62,7 +62,8 @@ class CharacterAdmin(admin.ModelAdmin):
 
 class TeamAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("display_name",)}
-    list_display = ('display_name', 'slug', 'meet', 'display_order', 'modified')
+    readonly_fields = ['id', 'created', 'modified']
+    list_display = ('id', 'display_name', 'slug', 'meet', 'display_order', 'modified')
 
 
 class MeetAdmin(admin.ModelAdmin):
