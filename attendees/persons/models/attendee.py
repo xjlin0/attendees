@@ -16,7 +16,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     BE_LISTED_KEYWORDS = ['care receiver']  # let the attendee's attendance showed in their parent/caregiver account
 
     notes = GenericRelation(Note)
-    relations = models.ManyToManyField('self', through='Relationship', symmetrical=False, related_name='related_to+')
+    related_ones = models.ManyToManyField('self', through='Relationship', symmetrical=False, related_name='related_to+')
     addresses = models.ManyToManyField('whereabouts.Address', through='AttendeeAddress', related_name='addresses')
     user = models.OneToOneField('users.User', default=None, null=True, blank=True, on_delete=models.SET_NULL)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
@@ -64,7 +64,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
         )
 
     def get_relatives(self, relation_keywords, category_keywords):
-        return self.relations.filter(
+        return self.related_ones.filter(
                     to_attendee__relation__in=relation_keywords,
                     to_attendee__category__in=category_keywords,
                     to_attendee__finish__gte=datetime.now(timezone.utc),
@@ -76,7 +76,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
         :return: attendees' names of their parents/caregiviers
         """
         return ', '.join(list(
-                            self.relations.filter(
+                            self.related_ones.filter(
                                 to_attendee__relation__in=self.RELATIVES_KEYWORDS,
                                 to_attendee__category__in=self.AS_PARENT_KEYWORDS,
                                 to_attendee__finish__gte=datetime.now(timezone.utc),
@@ -106,7 +106,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     # def all_relations(self): #cannot import Relationship, probably needs native query
     #     return dict(((r.from_attendee, r.relation) if r.to_attendee == self else (r.to_attendee, r.relation) for r in Relationship.objects.filter(Q(from_attendee=self.id) | Q(to_attendee=self.id))))
     # switching to symmetrical False with Facebook model (but add relationship both ways and need add/remove_relationship methods) http://charlesleifer.com/blog/self-referencing-many-many-through/
-    # also attendee.relations will return deleted relationship, so extra filter is required (.filter(relationship__is_removed = False))
+    # also attendee.related_ones will return deleted relationship, so extra filter is required (.filter(relationship__is_removed = False))
 
     def clean(self):
         if not (self.last_name or self.last_name2):

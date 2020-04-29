@@ -9,7 +9,7 @@ import model_utils.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('persons', '0006_attending_meet_m2m'),
+        ('persons', '0009_attending_meet_m2m'),
     ]
 
     operations = [

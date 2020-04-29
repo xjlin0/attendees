@@ -29,7 +29,7 @@ class DatagridUserOrganizationAttendancesListView(ListView):
         available_meets = Meet.objects.filter(
             Q(attendings__attendee=self.request.user.attendee)
             |
-            Q(attendings__attendee__in=self.request.user.attendee.relations.filter(
+            Q(attendings__attendee__in=self.request.user.attendee.related_ones.filter(
                 to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS,
             ))
         ).order_by(

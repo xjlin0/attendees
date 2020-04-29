@@ -30,11 +30,11 @@ class ApiFamilyOrganizationCharactersViewSet(viewsets.ModelViewSet):
         current_user_organization = current_user.organization
         if current_user_organization:
             # user_assemblys = current_user.attendee.attendings.values_list('registration__assembly')
-            # care_receiver_assemblys = current_user.attendee.relations.filter(to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS).values_list('attendings__registration__assembly')
+            # care_receiver_assemblys = current_user.attendee.related_ones.filter(to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS).values_list('attendings__registration__assembly')
             return Character.objects.filter(
                 Q(assembly__in=current_user.attendee.attendings.values_list('gathering__meet__assembly'))
                 |
-                Q(assembly__in=current_user.attendee.relations.filter(
+                Q(assembly__in=current_user.attendee.related_ones.filter(
                     to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS
                 ).values_list('attendings__gathering__meet__assembly')),
                 assembly__division__organization__slug=current_user_organization.slug,

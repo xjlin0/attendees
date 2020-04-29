@@ -14,7 +14,7 @@ from attendees.persons.models.enum import GenderEnum
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('persons', '0001_note'),
+        ('persons', '0002_note'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 

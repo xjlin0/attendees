@@ -32,7 +32,7 @@ class ApiFamilyOrganizationAttendingsViewSet(viewsets.ModelViewSet):
             return Attending.objects.select_related().prefetch_related().filter(
                 Q(attendee=current_user.attendee)
                 |
-                Q(attendee__in=current_user.attendee.relations.filter(
+                Q(attendee__in=current_user.attendee.related_ones.filter(
                     to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS,
                 )),
                 #registration_start/finish within the selected time period.

@@ -44,7 +44,7 @@ class ApiFamilyOrganizationAttendancesViewSet(viewsets.ModelViewSet):
             ).filter(
                 Q(attending__attendee=current_user.attendee)
                 |
-                Q(attending__attendee__in=current_user.attendee.relations.filter(
+                Q(attending__attendee__in=current_user.attendee.related_ones.filter(
                     to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS,
                 )),
                 gathering__meet__assembly__division__organization__slug=current_user_organization.slug,

@@ -33,7 +33,7 @@ class ApiFamilyOrganizationGatheringsViewSet(viewsets.ModelViewSet):
             return Gathering.objects.filter(
                 Q(meet__in=current_user.attendee.attendings.values_list('gathering__meet'))
                 |
-                Q(meet__in=current_user.attendee.relations.filter(
+                Q(meet__in=current_user.attendee.related_ones.filter(
                     to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS
                 ).values_list('attendings__gathering__meet')),
                 meet__slug__in=meets,
