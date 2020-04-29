@@ -81,7 +81,7 @@ https://dbdiagram.io/d/5d5ff66eced98361d6dddc48
 * build and start the local machine by `docker-compose -f local.yml build && docker-compose -f local.yml up -d`
 * create migration files by `docker-compose -f local.yml run --rm django python manage.py makemigrations`
 * migrate db by `docker-compose -f local.yml run --rm django python manage.py migrate`
-* create a superuser by `docker-compose -f local.yml run --rm django python manage.py createsuperuser`
+* create 2 superusers by `docker-compose -f local.yml run --rm django python manage.py createsuperuser`
 * import the seed data by `docker-compose -f local.yml run django python manage.py loaddata fixtures/db_seed`
   (data were created by `docker-compose -f local.yml run django python manage.py dumpdata --exclude users.user --exclude admin.logentry --exclude sessions.session --exclude django_celery_beat.crontabschedule --exclude contenttypes.contenttype --exclude sites.site --exclude django_celery_beat.periodictasks --exclude django_celery_beat.periodictask  --exclude account.emailaddress --exclude account.emailconfirmation --exclude socialaccount.socialtoken --exclude auth.permission --indent 2 > fixtures/db_seed2.json`)
 * go to Django admin to add the first organization and all groups to the first user (superuser) at http://192.168.99.100:8000/admin/users/user/

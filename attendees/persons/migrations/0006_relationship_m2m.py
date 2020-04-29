@@ -9,7 +9,7 @@ import model_utils.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('persons', '0004_relation'),
+        ('persons', '0005_relationship_default_m2m'),
     ]
 
     operations = [
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='attendee',
-            name='relations',
+            name='related_ones',
             field=models.ManyToManyField(related_name='_attendee_relations_+', through='persons.Relationship', to='persons.Attendee'),
         ),
         migrations.AddConstraint(

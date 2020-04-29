@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Relation',
+            name='RelationRole',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
@@ -22,11 +22,9 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(help_text='uniq key', blank=False, null=False, unique=True)),
                 ('display_name', models.CharField(blank=True, max_length=50, null=True)),
                 ('display_order', models.SmallIntegerField(default=0, blank=False, null=False, db_index=True)),
-                ('emergency_contact', models.BooleanField(default=False, help_text='default emergency contact')),
-                ('scheduler', models.BooleanField(default=False, help_text='default scheduler')),
             ],
             options={
-                'db_table': 'persons_relations',
+                'db_table': 'persons_relation_roles',
                 'ordering': ('display_order', '-modified'),
             },
         ),
