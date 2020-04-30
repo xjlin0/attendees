@@ -3,8 +3,7 @@ from .utility import Utility
 from .category import Category
 from .note import Note
 from .attendee import Attendee
-from .relation_role import RelationRole
-from .relationship_default import RelationshipDefault
+from .relation import Relation
 from .relationship import Relationship
 from .registration import Registration
 from .attending import Attending

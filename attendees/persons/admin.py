@@ -23,29 +23,15 @@ class RelationshipInline(admin.TabularInline):
     extra = 0
 
 
-class RelationshipDefaultInline(admin.TabularInline):
-    model = RelationshipDefault
-    fk_name = 'from_relation_role'
-    extra = 0
-
-
 class CategoryAdmin(admin.ModelAdmin):
     readonly_fields = ['id', 'created', 'modified']
     prepopulated_fields = {"slug": ("display_name",)}
     list_display = ('id', 'display_name', 'slug', 'display_order', 'description', 'modified')
 
 
-class RelationRoleAdmin(admin.ModelAdmin):
+class RelationAdmin(admin.ModelAdmin):
     readonly_fields = ['id', 'created', 'modified']
-    prepopulated_fields = {"slug": ("display_name",)}
-    inlines = (RelationshipDefaultInline,)
-    list_display = ('id', 'display_name', 'reciprocal_ids', 'slug', 'display_order')
-
-
-class RelationshipDefaultAdmin(admin.ModelAdmin):
-    readonly_fields = ['id', 'created', 'modified']
-    prepopulated_fields = {"slug": ("display_name",)}
-    list_display = ('id', 'from_relation_role', 'display_name', 'to_relation_role', 'display_order', 'emergency_contact', 'scheduler')
+    list_display = ('id', 'title', 'reciprocal_ids', 'emergency_contact', 'scheduler', 'relative', 'display_order')
 
 
 class AttendeeAdmin(admin.ModelAdmin):
@@ -96,7 +82,6 @@ admin.site.register(Note, NoteAdmin)
 admin.site.register(Attendee, AttendeeAdmin)
 admin.site.register(Registration, RegistrationAdmin)
 admin.site.register(Attending, AttendingAdmin)
-admin.site.register(RelationRole, RelationRoleAdmin)
-admin.site.register(RelationshipDefault, RelationshipDefaultAdmin)
+admin.site.register(Relation, RelationAdmin)
 admin.site.register(Relationship, RelationshipAdmin)
 admin.site.register(AttendingMeet, AttendingMeetAdmin)

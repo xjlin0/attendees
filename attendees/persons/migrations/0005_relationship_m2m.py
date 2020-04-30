@@ -9,7 +9,7 @@ import model_utils.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('persons', '0005_relationship_default_m2m'),
+        ('persons', '0004_relation'),
     ]
 
     operations = [
