@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
+                ('reciprocal_ids', django.contrib.postgres.fields.ArrayField(base_field=models.BigIntegerField(), blank=True, default=list, help_text="Have to be completely empty or in the shape of '1,2,3', no brackets", null=True, size=None)),
                 ('slug', models.SlugField(help_text='uniq key', blank=False, null=False, unique=True)),
                 ('display_name', models.CharField(blank=True, max_length=50, null=True)),
                 ('display_order', models.SmallIntegerField(default=0, blank=False, null=False, db_index=True)),

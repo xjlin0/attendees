@@ -39,7 +39,7 @@ class RelationRoleAdmin(admin.ModelAdmin):
     readonly_fields = ['id', 'created', 'modified']
     prepopulated_fields = {"slug": ("display_name",)}
     inlines = (RelationshipDefaultInline,)
-    list_display = ('id', 'display_name', 'slug', 'display_order')
+    list_display = ('id', 'display_name', 'reciprocal_ids', 'slug', 'display_order')
 
 
 class RelationshipDefaultAdmin(admin.ModelAdmin):
