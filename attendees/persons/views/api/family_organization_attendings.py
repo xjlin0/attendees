@@ -1,12 +1,10 @@
 import time
 
-from django.db.models.expressions import F
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
-from django.db.models import Q
-from attendees.persons.models import Attending, Attendee
+from attendees.persons.services import AttendingService
 from attendees.persons.serializers import AttendingSerializer
 
 
@@ -25,25 +23,11 @@ class ApiFamilyOrganizationAttendingsViewSet(viewsets.ModelViewSet):
         :return: all Attendings with participating meets(group) and character(role)
         """
         current_user = self.request.user
-        current_user_organization = current_user.organization
-        if current_user_organization:
-            # Todo: probably need to check if the meets belongs to the organization?
-            meets = self.request.query_params.getlist('meets[]', [])
-            return Attending.objects.select_related().prefetch_related().filter(
-                Q(attendee=current_user.attendee)
-                |
-                Q(attendee__in=current_user.attendee.related_ones.filter(
-                    from_attendee__scheduler=True,
-                )),
-                #registration_start/finish within the selected time period.
-                meets__slug__in=meets,
-                meets__assembly__division__organization__slug=current_user.organization.slug,
-            ).annotate(
-                meet=F('attendingmeet__meet__display_name'),
-                character=F('attendingmeet__character__display_name'),
-            ).order_by(
-                'attendee',
-            )
+        if current_user.organization:
+            return AttendingService.by_family_organization_attendings(
+                current_user=current_user,
+                meet_slugs=self.request.query_params.getlist('meets[]', [])
+            )  # Todo: probably need to check if the meets belongs to the organization?
 
         else:
             time.sleep(2)

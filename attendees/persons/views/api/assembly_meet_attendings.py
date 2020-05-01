@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
 
-from attendees.persons.models import Attending
+from attendees.persons.services import AttendingService
 from attendees.persons.serializers import AttendingSerializer
 
 
@@ -20,17 +20,10 @@ class ApiAssemblyMeetAttendingsViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.belongs_to_divisions_of([self.kwargs['division_slug']]):
             # Todo: probably also need to check if the assembly belongs to the division
-            meets = self.request.query_params.getlist('meets[]', [])
-            characters = self.request.query_params.getlist('characters[]', [])
-            return Attending.objects.select_related().prefetch_related().filter(
-                meets__slug__in=meets,
-                attendingmeet__character__slug__in=characters,
-                meets__assembly__slug=self.kwargs['assembly_slug'],
-            ).annotate(
-                meet=F('attendingmeet__meet__display_name'),
-                character=F('attendingmeet__character__display_name'),
-            ).order_by(
-                'attendee',
+            return AttendingService.by_assembly_meet_characters(
+                assembly_slug=self.kwargs['assembly_slug'],
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
+                character_slugs=self.request.query_params.getlist('characters[]', []),
             )
 
         else:

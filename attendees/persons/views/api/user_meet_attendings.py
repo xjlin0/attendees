@@ -1,12 +1,11 @@
 import time
 
-from django.db.models.expressions import F
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
 
-from attendees.persons.models import Attending
+from attendees.persons.services import AttendingService
 from attendees.persons.serializers import AttendingSerializer
 
 
@@ -27,19 +26,12 @@ class ApiUserMeetAttendingsViewSet(viewsets.ModelViewSet):
         current_user = self.request.user
         current_user_organization = current_user.organization
         if current_user_organization:
-            meets = self.request.query_params.getlist('meets[]', [])
             user_attended_gathering_ids = current_user.attendee.attendings.values_list('gathering__id', flat=True).distinct()
-            return Attending.objects.select_related().prefetch_related().filter(
-                #registration_start/finish within the selected time period.
-                meets__slug__in=meets,
-                gathering__id__in=user_attended_gathering_ids,
-                meets__assembly__division__organization__slug=current_user_organization.slug,
-            ).annotate(
-                meet=F('attendingmeet__meet__display_name'),
-                character=F('attendingmeet__character__display_name'),
-            ).order_by(
-                'attendee',
-            ).distinct()
+            return AttendingService.by_organization_meets_gatherings(
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
+                user_attended_gathering_ids=user_attended_gathering_ids,
+                user_organization_slug=current_user_organization.slug,
+            )  # didn't filter by registration start/finish within the selected time period
 
         else:
             time.sleep(2)
