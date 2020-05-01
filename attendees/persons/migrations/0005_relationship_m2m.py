@@ -20,8 +20,10 @@ class Migration(migrations.Migration):
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
-                ('relation', models.CharField(max_length=32, null=False, blank=False, default="relation", db_index=True, help_text="example: father - son, husband - wife, etc")),
-                ('category', models.CharField(max_length=32, null=False, blank=False, default="relatives", db_index=True, help_text="relative/friend, notifier/caregiver, SMS_kid_class, emergency_contact, etc")),
+                ('relation', models.ForeignKey('persons.Relation', related_name='relation', null=False, blank=False, on_delete=models.SET(0), verbose_name='to_attendee is', help_text="[Title] What would from_attendee call to_attendee?")),
+                ('emergency_contact', models.BooleanField('to_attendee is the emergency contact?', default=False, null=False, blank=False, help_text="[from_attendee decide:] Notify to_attendee of from_attendee's emergency?")),
+                ('scheduler', models.BooleanField('to_attendee is the scheduler?', default=False, null=False, blank=False, help_text="[from_attendee decide:] to_attendee can view/change the schedules of the from_attendee?")),
+                ('relative', models.BooleanField('these two are relatives?', default=False, null=False, blank=False)),
                 ('from_attendee', models.ForeignKey(on_delete=models.SET(0), related_name='from_attendee', to='persons.Attendee')),
                 ('to_attendee', models.ForeignKey(on_delete=models.SET(0), related_name='to_attendee', to='persons.Attendee')),
                 ('finish', models.DateTimeField(null=False, blank=False, default=Utility.forever, help_text='The relation will be ended at when')),
@@ -38,6 +40,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddConstraint(
             model_name='relationship',
-            constraint=models.UniqueConstraint(fields=('from_attendee', 'to_attendee', 'category', 'relation'), name='attendee_category_relation'),
+            constraint=models.UniqueConstraint(fields=('from_attendee', 'to_attendee', 'relation'), name='attendee_relation'),
         ),
     ]

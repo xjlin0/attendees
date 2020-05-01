@@ -940,280 +940,208 @@
     "model": "persons.relationship",
     "pk": 1,
     "fields": {
-      "created": "2020-04-11T19:43:41.616Z",
-      "modified": "2020-04-11T19:43:41.616Z",
+      "created": "2020-04-30T16:54:19.925Z",
+      "modified": "2020-04-30T16:58:04.685Z",
       "is_removed": false,
       "from_attendee": 2,
       "to_attendee": 3,
-      "relation": "son",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "relation": 3,
+      "emergency_contact": true,
+      "scheduler": false,
+      "relative": true,
+      "finish": "3936-11-05T16:52:12Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 2,
     "fields": {
-      "created": "2020-04-11T19:44:22.618Z",
-      "modified": "2020-04-12T04:44:40.016Z",
+      "created": "2020-04-30T16:58:59.298Z",
+      "modified": "2020-04-30T16:58:59.298Z",
       "is_removed": false,
       "from_attendee": 3,
       "to_attendee": 2,
-      "relation": "mother",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "relation": 2,
+      "emergency_contact": true,
+      "scheduler": true,
+      "relative": true,
+      "finish": "3936-11-05T16:58:34Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 3,
     "fields": {
-      "created": "2020-04-11T19:44:40.851Z",
-      "modified": "2020-04-12T04:44:56.868Z",
+      "created": "2020-04-30T16:59:31.809Z",
+      "modified": "2020-04-30T16:59:31.809Z",
       "is_removed": false,
       "from_attendee": 3,
-      "to_attendee": 2,
-      "relation": "caregiver",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "to_attendee": 12,
+      "relation": 10,
+      "emergency_contact": false,
+      "scheduler": false,
+      "relative": true,
+      "finish": "3936-11-05T16:59:13Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 4,
     "fields": {
-      "created": "2020-04-11T19:45:23.668Z",
-      "modified": "2020-04-11T19:45:23.668Z",
+      "created": "2020-04-30T16:59:56.071Z",
+      "modified": "2020-04-30T16:59:56.071Z",
       "is_removed": false,
-      "from_attendee": 3,
-      "to_attendee": 12,
-      "relation": "half brother",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "from_attendee": 12,
+      "to_attendee": 3,
+      "relation": 10,
+      "emergency_contact": false,
+      "scheduler": false,
+      "relative": true,
+      "finish": "3936-11-05T16:59:44Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 5,
     "fields": {
-      "created": "2020-04-11T19:45:54.686Z",
-      "modified": "2020-04-11T19:45:54.686Z",
+      "created": "2020-04-30T17:01:07.157Z",
+      "modified": "2020-04-30T17:01:07.157Z",
       "is_removed": false,
-      "from_attendee": 12,
-      "to_attendee": 3,
-      "relation": "half brother",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "from_attendee": 13,
+      "to_attendee": 2,
+      "relation": 7,
+      "emergency_contact": true,
+      "scheduler": false,
+      "relative": true,
+      "finish": "3936-11-05T17:00:50Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 6,
     "fields": {
-      "created": "2020-04-11T19:47:18.221Z",
-      "modified": "2020-04-11T19:47:18.221Z",
+      "created": "2020-04-30T17:02:30.512Z",
+      "modified": "2020-04-30T17:02:30.512Z",
       "is_removed": false,
-      "from_attendee": 13,
-      "to_attendee": 2,
-      "relation": "concubine",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "from_attendee": 3,
+      "to_attendee": 13,
+      "relation": 1,
+      "emergency_contact": true,
+      "scheduler": true,
+      "relative": true,
+      "finish": "3936-11-05T17:02:11Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 7,
     "fields": {
-      "created": "2020-04-11T19:47:40.993Z",
-      "modified": "2020-04-11T19:47:40.993Z",
+      "created": "2020-04-30T17:03:01.768Z",
+      "modified": "2020-04-30T17:05:14.173Z",
       "is_removed": false,
-      "from_attendee": 3,
+      "from_attendee": 2,
       "to_attendee": 13,
-      "relation": "father",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "relation": 5,
+      "emergency_contact": true,
+      "scheduler": false,
+      "relative": true,
+      "finish": "3936-11-05T17:02:42Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 8,
     "fields": {
-      "created": "2020-04-11T19:48:07.554Z",
-      "modified": "2020-04-11T19:48:07.554Z",
+      "created": "2020-04-30T17:07:39.971Z",
+      "modified": "2020-04-30T17:07:39.971Z",
       "is_removed": false,
-      "from_attendee": 2,
+      "from_attendee": 14,
       "to_attendee": 13,
-      "relation": "husband",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "relation": 5,
+      "emergency_contact": true,
+      "scheduler": true,
+      "relative": true,
+      "finish": "3936-11-05T17:07:24Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 9,
     "fields": {
-      "created": "2020-04-11T19:48:32.989Z",
-      "modified": "2020-04-12T04:45:58.894Z",
+      "created": "2020-04-30T17:08:11.007Z",
+      "modified": "2020-04-30T17:08:11.007Z",
       "is_removed": false,
-      "from_attendee": 14,
-      "to_attendee": 13,
-      "relation": "husband",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "from_attendee": 13,
+      "to_attendee": 12,
+      "relation": 3,
+      "emergency_contact": true,
+      "scheduler": false,
+      "relative": true,
+      "finish": "3936-11-05T17:07:48Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 10,
     "fields": {
-      "created": "2020-04-11T19:48:53.933Z",
-      "modified": "2020-04-11T19:48:53.933Z",
+      "created": "2020-04-30T17:08:49.579Z",
+      "modified": "2020-04-30T17:08:49.579Z",
       "is_removed": false,
-      "from_attendee": 13,
-      "to_attendee": 12,
-      "relation": "son",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "from_attendee": 12,
+      "to_attendee": 14,
+      "relation": 2,
+      "emergency_contact": true,
+      "scheduler": true,
+      "relative": true,
+      "finish": "3936-11-05T17:08:29Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 11,
     "fields": {
-      "created": "2020-04-11T19:49:16.736Z",
-      "modified": "2020-04-11T19:49:16.736Z",
+      "created": "2020-04-30T17:09:50.403Z",
+      "modified": "2020-04-30T17:09:50.403Z",
       "is_removed": false,
       "from_attendee": 12,
-      "to_attendee": 14,
-      "relation": "mother",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "to_attendee": 13,
+      "relation": 1,
+      "emergency_contact": true,
+      "scheduler": true,
+      "relative": true,
+      "finish": "3936-11-05T17:09:17Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 12,
     "fields": {
-      "created": "2020-04-11T19:49:40.425Z",
-      "modified": "2020-04-11T19:49:40.425Z",
+      "created": "2020-04-30T17:12:36.196Z",
+      "modified": "2020-04-30T17:12:36.196Z",
       "is_removed": false,
-      "from_attendee": 14,
-      "to_attendee": 2,
-      "relation": "servant",
-      "category": "other",
-      "finish": "4020-04-11T19:43:41.616Z"
+      "from_attendee": 13,
+      "to_attendee": 3,
+      "relation": 3,
+      "emergency_contact": true,
+      "scheduler": false,
+      "relative": true,
+      "finish": "3936-11-05T17:12:21Z"
     }
   },
   {
     "model": "persons.relationship",
     "pk": 13,
     "fields": {
-      "created": "2020-04-11T19:50:02.992Z",
-      "modified": "2020-04-11T19:50:02.992Z",
-      "is_removed": false,
-      "from_attendee": 12,
-      "to_attendee": 13,
-      "relation": "father",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
-    }
-  },
-  {
-    "model": "persons.relationship",
-    "pk": 14,
-    "fields": {
-      "created": "2020-04-11T19:50:29.367Z",
-      "modified": "2020-04-12T22:09:03.700Z",
-      "is_removed": false,
-      "from_attendee": 3,
-      "to_attendee": 13,
-      "relation": "father",
-      "category": "notifier",
-      "finish": "4020-04-11T23:06:45Z"
-    }
-  },
-  {
-    "model": "persons.relationship",
-    "pk": 15,
-    "fields": {
-      "created": "2020-04-12T04:41:32.236Z",
-      "modified": "2020-04-12T04:41:32.236Z",
-      "is_removed": false,
-      "from_attendee": 13,
-      "to_attendee": 3,
-      "relation": "son",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
-    }
-  },
-  {
-    "model": "persons.relationship",
-    "pk": 16,
-    "fields": {
-      "created": "2020-04-12T04:47:14.554Z",
-      "modified": "2020-04-12T04:47:14.554Z",
+      "created": "2020-04-30T17:13:26.572Z",
+      "modified": "2020-04-30T17:13:26.572Z",
       "is_removed": false,
       "from_attendee": 13,
       "to_attendee": 14,
-      "relation": "wife",
-      "category": "relatives",
-      "finish": "4020-04-11T19:43:41.616Z"
-    }
-  },
-  {
-    "model": "persons.relationship",
-    "pk": 17,
-    "fields": {
-      "created": "2020-04-12T19:47:10.526Z",
-      "modified": "2020-04-12T19:47:10.526Z",
-      "is_removed": false,
-      "from_attendee": 3,
-      "to_attendee": 2,
-      "relation": "mother",
-      "category": "notifier",
-      "finish": "4020-04-11T19:43:41.616Z"
-    }
-  },
-  {
-    "model": "persons.relationship",
-    "pk": 18,
-    "fields": {
-      "created": "2020-04-12T19:51:03.425Z",
-      "modified": "2020-04-12T19:51:03.425Z",
-      "is_removed": false,
-      "from_attendee": 12,
-      "to_attendee": 14,
-      "relation": "mother",
-      "category": "notifier",
-      "finish": "4020-04-11T19:43:41.616Z"
-    }
-  },
-  {
-    "model": "persons.relationship",
-    "pk": 19,
-    "fields": {
-      "created": "2020-04-12T19:51:35.997Z",
-      "modified": "2020-04-12T19:51:35.997Z",
-      "is_removed": false,
-      "from_attendee": 12,
-      "to_attendee": 13,
-      "relation": "father",
-      "category": "notifier",
-      "finish": "4020-04-11T19:43:41.616Z"
-    }
-  },
-  {
-    "model": "persons.relationship",
-    "pk": 20,
-    "fields": {
-      "created": "2020-04-19T12:40:10.977Z",
-      "modified": "2020-04-19T12:40:10.977Z",
-      "is_removed": false,
-      "from_attendee": 2,
-      "to_attendee": 3,
-      "relation": "care receiver",
-      "category": "relatives",
-      "finish": "3936-10-25T12:39:50Z"
+      "relation": 6,
+      "emergency_contact": true,
+      "scheduler": true,
+      "relative": true,
+      "finish": "3936-11-05T17:13:12Z"
     }
   },
   {
