@@ -30,7 +30,7 @@ class DatagridUserOrganizationAttendancesListView(ListView):
             Q(attendings__attendee=self.request.user.attendee)
             |
             Q(attendings__attendee__in=self.request.user.attendee.related_ones.filter(
-                to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS,
+                from_attendee__scheduler=True,
             ))
         ).order_by(
             'display_name',

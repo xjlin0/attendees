@@ -35,9 +35,9 @@ class ApiFamilyOrganizationCharactersViewSet(viewsets.ModelViewSet):
                 Q(assembly__in=current_user.attendee.attendings.values_list('gathering__meet__assembly'))
                 |
                 Q(assembly__in=current_user.attendee.related_ones.filter(
-                    to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS
+                    from_attendee__scheduler=True
                 ).values_list('attendings__gathering__meet__assembly')),
-                assembly__division__organization__slug=current_user_organization.slug,
+                assembly__division__organization__slug=current_user.organization.slug,
                 ).order_by(
                     'display_order',
             )  # another way is to get assemblys from registration, but it relies on attendingmeet validations

@@ -33,11 +33,11 @@ class ApiFamilyOrganizationAttendingsViewSet(viewsets.ModelViewSet):
                 Q(attendee=current_user.attendee)
                 |
                 Q(attendee__in=current_user.attendee.related_ones.filter(
-                    to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS,
+                    from_attendee__scheduler=True,
                 )),
                 #registration_start/finish within the selected time period.
                 meets__slug__in=meets,
-                meets__assembly__division__organization__slug=current_user_organization.slug,
+                meets__assembly__division__organization__slug=current_user.organization.slug,
             ).annotate(
                 meet=F('attendingmeet__meet__display_name'),
                 character=F('attendingmeet__character__display_name'),

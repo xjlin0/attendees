@@ -34,10 +34,10 @@ class ApiFamilyOrganizationGatheringsViewSet(viewsets.ModelViewSet):
                 Q(meet__in=current_user.attendee.attendings.values_list('gathering__meet'))
                 |
                 Q(meet__in=current_user.attendee.related_ones.filter(
-                    to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS
+                    from_attendee__scheduler=True
                 ).values_list('attendings__gathering__meet')),
                 meet__slug__in=meets,
-                meet__assembly__division__organization__slug=current_user_organization.slug,
+                meet__assembly__division__organization__slug=current_user.organization.slug,
             ).order_by(
                 'meet',
                 '-start',

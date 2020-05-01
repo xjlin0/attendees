@@ -60,13 +60,13 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     def caregiver_addresses_for_fields_of(self, fields):
         return ', '.join(
             a.self_addresses_for_fields_of(fields) for a in
-                self.get_relatives(self.RELATIVES_KEYWORDS, self.AS_PARENT_KEYWORDS)
+                self.get_relative_emergency_contacts()
         )
 
-    def get_relatives(self, relation_keywords, category_keywords):
+    def get_relative_emergency_contacts(self):
         return self.related_ones.filter(
-                    to_attendee__relation__in=relation_keywords,
-                    to_attendee__category__in=category_keywords,
+                    to_attendee__relation__relative=True,
+                    to_attendee__relation__emergency_contact=True,
                     to_attendee__finish__gte=datetime.now(timezone.utc),
                 )
 
@@ -76,11 +76,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
         :return: attendees' names of their parents/caregiviers
         """
         return ', '.join(list(
-                            self.related_ones.filter(
-                                to_attendee__relation__in=self.RELATIVES_KEYWORDS,
-                                to_attendee__category__in=self.AS_PARENT_KEYWORDS,
-                                to_attendee__finish__gte=datetime.now(timezone.utc),
-                            ).annotate(
+                            self.get_relative_emergency_contacts().annotate(
                                 full_name=models.functions.Concat(
                                     'first_name',
                                     models.Value(' '),
@@ -91,8 +87,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
                                     'last_name2',
                                 ),
                             ).order_by(
-                                '-to_attendee__relation',
-                                '-to_attendee__category',
+                                '-to_attendee__relation__display_order',
                             ).values_list(
                                 'full_name',
                                 flat=True
