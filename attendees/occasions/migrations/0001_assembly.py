@@ -32,6 +32,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'occasions_assemblies',
+                'verbose_name_plural': 'Assemblies',
                 'ordering': ('display_order',),
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),

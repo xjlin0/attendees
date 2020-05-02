@@ -2,6 +2,7 @@ from .enum import GenderEnum
 from .utility import Utility
 from .category import Category
 from .note import Note
+from .family import Family
 from .attendee import Attendee
 from .relation import Relation
 from .relationship import Relationship

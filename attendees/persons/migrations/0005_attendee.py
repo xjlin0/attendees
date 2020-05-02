@@ -14,7 +14,7 @@ from attendees.persons.models.enum import GenderEnum
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('persons', '0002_note'),
+        ('persons', '0004_family'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -31,12 +31,10 @@ class Migration(migrations.Migration):
                 ('last_name', models.CharField(blank=True, db_index=True, max_length=25, null=True)),
                 ('first_name2', models.CharField(blank=True, db_index=True, max_length=12, null=True)),
                 ('last_name2', models.CharField(blank=True, db_index=True, max_length=8, null=True)),
-                ('other_name', models.CharField(blank=True, db_index=True, max_length=20, null=True)),
-                ('public_name', models.CharField(blank=True, max_length=20, null=True, help_text='for unlogged in pages so please use safe terms, suggestion: first born, youngest, mom, etc')),
                 ('gender', models.CharField(choices=GenderEnum.choices(), default=GenderEnum.UNSPECIFIED, max_length=11)),
                 ('actual_birthday', models.DateTimeField(blank=True, null=True)),
                 ('estimated_birthday', models.DateTimeField(blank=True, null=True)),
-                ('infos', JSONField(blank=True, default=dict, help_text='Example: {"food allergy": "peanuts"}. Please keep {} here even no data', null=True)),
+                ('infos', JSONField(blank=True, default=dict, help_text='Example: {"food allergy": "peanuts", "public_name": "John", "other_name": "Apostle"}. Please keep {} here even no data', null=True)),
             ],
             options={
                 'db_table': 'persons_attendees',

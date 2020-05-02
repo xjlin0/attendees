@@ -24,6 +24,7 @@ class Assembly(TimeStampedModel, SoftDeletableModel, Utility):
 
     class Meta:
         db_table = 'occasions_assemblies'
+        verbose_name_plural = 'Assemblies'
         ordering = ('display_order',)
 
     def __str__(self):

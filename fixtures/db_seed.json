@@ -780,7 +780,7 @@
       "is_removed": false,
       "reciprocal_ids": "[\"14\"]",
       "title": "spouse",
-      "display_order": 32767,
+      "display_order": 32766,
       "emergency_contact": true,
       "scheduler": true,
       "relative": true
@@ -934,6 +934,21 @@
       "emergency_contact": false,
       "scheduler": false,
       "relative": true
+    }
+  },
+  {
+    "model": "persons.relation",
+    "pk": 25,
+    "fields": {
+      "created": "2020-04-30T15:40:15.038Z",
+      "modified": "2020-04-30T15:41:24.959Z",
+      "is_removed": false,
+      "reciprocal_ids": null,
+      "title": "unspecified",
+      "display_order": 32767,
+      "emergency_contact": false,
+      "scheduler": false,
+      "relative": false
     }
   },
   {
@@ -2956,12 +2971,10 @@
       "last_name": "system admin1",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": "root",
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "infos": {}
+      "infos": {"public_name": "root"}
     }
   },
   {
@@ -2976,8 +2989,6 @@
       "last_name": "Hagar",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": null,
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
@@ -2996,12 +3007,11 @@
       "last_name": "Ishmael",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": "\u5927\u5bf6",
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": "2010-02-04T22:58:32Z",
       "infos": {
+        "public_name": "\u5927\u5bf6",
         "allergy": "peanuts"
       }
     }
@@ -3018,12 +3028,10 @@
       "last_name": "\u7d04\u7ff0",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": "\u4f7f\u5f92\u7d04\u7ff0",
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "infos": {}
+      "infos": {"public_name": "\u4f7f\u5f92\u7d04\u7ff0"}
     }
   },
   {
@@ -3038,12 +3046,10 @@
       "last_name": "Abigail",
       "first_name2": "\u4e9e\u6bd4\u8a72",
       "last_name2": null,
-      "other_name": null,
-      "public_name": "\u8001\u59ca",
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "infos": {}
+      "infos": {"public_name": "\u8001\u59ca"}
     }
   },
   {
@@ -3058,12 +3064,10 @@
       "last_name": "Deborah",
       "first_name2": "\u5e95\u6ce2\u62c9",
       "last_name2": null,
-      "other_name": null,
-      "public_name": "\u6230\u795e\u4e48\u4e48",
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "infos": {}
+      "infos": {"public_name": "\u6230\u795e\u4e48\u4e48"}
     }
   },
   {
@@ -3078,8 +3082,6 @@
       "last_name": "\u4ee5\u5229\u6c99\u4f2f",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": null,
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
@@ -3098,8 +3100,6 @@
       "last_name": "\u9a62\u5b50",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": null,
       "gender": "UNSPECIFIED",
       "actual_birthday": null,
       "estimated_birthday": null,
@@ -3118,12 +3118,10 @@
       "last_name": "Esther",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": "\u7687\u540e",
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "infos": {}
+      "infos": {"public_name": "\u7687\u540e"}
     }
   },
   {
@@ -3138,12 +3136,10 @@
       "last_name": "Samson",
       "first_name2": "\u53c3\u5b6b",
       "last_name2": null,
-      "other_name": null,
-      "public_name": "\u5f1f\u5144",
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "infos": {}
+      "infos": {"public_name": "\u5f1f\u5144"}
     }
   },
   {
@@ -3158,12 +3154,10 @@
       "last_name": "\u5442\u5e95\u4e9e",
       "first_name2": null,
       "last_name2": null,
-      "other_name": "\u63a8\u96c5\u63a8\u5587\u7684\u5442\u5e95\u4e9e",
-      "public_name": null,
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
-      "infos": {}
+      "infos": {"other_name": "\u63a8\u96c5\u63a8\u5587\u7684\u5442\u5e95\u4e9e"}
     }
   },
   {
@@ -3178,8 +3172,6 @@
       "last_name": "\u4ee5\u6492",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": null,
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
@@ -3198,8 +3190,6 @@
       "last_name": "\u4e9e\u4f2f\u62c9\u7f55",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": null,
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
@@ -3218,8 +3208,6 @@
       "last_name": "\u6492\u62c9",
       "first_name2": null,
       "last_name2": null,
-      "other_name": null,
-      "public_name": null,
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,

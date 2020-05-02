@@ -29,8 +29,15 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'display_name', 'slug', 'display_order', 'description', 'modified')
 
 
+class FamilyAdmin(admin.ModelAdmin):
+    readonly_fields = ['id', 'created', 'modified']
+    prepopulated_fields = {"slug": ("display_name",)}
+    list_display = ('id', 'display_name', 'slug', 'display_order', 'modified')
+
+
 class RelationAdmin(admin.ModelAdmin):
     readonly_fields = ['id', 'created', 'modified']
+    list_display_links = ('title',)
     list_display = ('id', 'title', 'reciprocal_ids', 'emergency_contact', 'scheduler', 'relative', 'display_order')
 
 
@@ -39,7 +46,7 @@ class AttendeeAdmin(admin.ModelAdmin):
     readonly_fields = ['id', 'created', 'modified']
     inlines = (AttendeeAddressInline, RelationshipInline)
     list_display_links = ('last_name',)
-    list_display = ('id', 'first_name', 'last_name', 'last_name2', 'first_name2', 'modified')
+    list_display = ('id', 'first_name', 'last_name', 'last_name2', 'first_name2', 'infos')
 
 
 class RegistrationAdmin(admin.ModelAdmin):
@@ -79,6 +86,7 @@ class AttendingMeetAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Note, NoteAdmin)
+admin.site.register(Family, FamilyAdmin)
 admin.site.register(Attendee, AttendeeAdmin)
 admin.site.register(Registration, RegistrationAdmin)
 admin.site.register(Attending, AttendingAdmin)

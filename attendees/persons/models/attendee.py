@@ -24,12 +24,10 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     last_name = models.CharField(max_length=25, db_index=True, null=True, blank=True)
     first_name2 = models.CharField(max_length=12, db_index=True, null=True, blank=True)
     last_name2 = models.CharField(max_length=8, db_index=True, null=True, blank=True)
-    other_name = models.CharField(max_length=20, db_index=True, null=True, blank=True)
-    public_name = models.CharField(max_length=20, null=True, blank=True, help_text='for unlogged in pages so please use safe terms, suggestion: first born, youngest, mom, etc')
     gender = models.CharField(max_length=11, blank=False, null=False, default=GenderEnum.UNSPECIFIED, choices=GenderEnum.choices())
     actual_birthday = models.DateTimeField(blank=True, null=True)
     estimated_birthday = models.DateTimeField(blank=True, null=True)
-    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"food allergy": "peanuts"}. Please keep {} here even no data')
+    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"food allergy": "peanuts", "public_name": "John", "other_name": "Apostle"}. Please keep {} here even no data')
 
     @property
     def display_label(self):
