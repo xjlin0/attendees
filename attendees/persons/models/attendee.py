@@ -20,6 +20,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     addresses = models.ManyToManyField('whereabouts.Address', through='AttendeeAddress', related_name='addresses')
     user = models.OneToOneField('users.User', default=None, null=True, blank=True, on_delete=models.SET_NULL)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
+    families = models.ManyToManyField('persons.Family', through='FamilyAttendee', related_name='families')
     first_name = models.CharField(max_length=25, db_index=True, null=True, blank=True)
     last_name = models.CharField(max_length=25, db_index=True, null=True, blank=True)
     first_name2 = models.CharField(max_length=12, db_index=True, null=True, blank=True)
@@ -32,6 +33,10 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     @property
     def display_label(self):
         return (self.first_name or '') + ' ' + (self.last_name or '') + (self.last_name2 or '') + ' ' + (self.first_name2 or '')
+
+    @cached_property
+    def family_members(self):
+        return self.__class__.objects.filter(families__in=self.families.all())
 
     @cached_property
     def self_phone_numbers(self):

@@ -23,6 +23,11 @@ class RelationshipInline(admin.TabularInline):
     extra = 0
 
 
+class FamilyAttendeeInline(admin.TabularInline):
+    model = FamilyAttendee
+    extra = 0
+
+
 class CategoryAdmin(admin.ModelAdmin):
     readonly_fields = ['id', 'created', 'modified']
     prepopulated_fields = {"slug": ("display_name",)}
@@ -31,8 +36,20 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class FamilyAdmin(admin.ModelAdmin):
     readonly_fields = ['id', 'created', 'modified']
+    inlines = (FamilyAttendeeInline,)
     prepopulated_fields = {"slug": ("display_name",)}
-    list_display = ('id', 'display_name', 'slug', 'display_order', 'modified')
+    list_display_links = ('display_name',)
+    list_display = ('id', 'display_name', 'display_order', 'slug')
+    fieldsets = (
+        (None, {"fields": (tuple(['display_name', 'display_order']),
+                           tuple(['slug', 'id', 'created', 'modified']),
+                           ), }),
+    )
+
+
+class FamilyAttendeeAdmin(admin.ModelAdmin):
+    readonly_fields = ['id', 'created', 'modified']
+    list_display = ('id', 'family', 'attendee', 'role', 'modified')
 
 
 class RelationAdmin(admin.ModelAdmin):
@@ -88,6 +105,7 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Note, NoteAdmin)
 admin.site.register(Family, FamilyAdmin)
 admin.site.register(Attendee, AttendeeAdmin)
+admin.site.register(FamilyAttendee, FamilyAttendeeAdmin)
 admin.site.register(Registration, RegistrationAdmin)
 admin.site.register(Attending, AttendingAdmin)
 admin.site.register(Relation, RelationAdmin)
