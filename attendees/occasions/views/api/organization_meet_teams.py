@@ -5,7 +5,7 @@ from django.utils.decorators import method_decorator
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
 
-from attendees.occasions.models import Team
+from attendees.occasions.services import TeamService
 from attendees.occasions.serializers import TeamSerializer
 
 
@@ -20,12 +20,9 @@ class ApiOrganizationMeetTeamViewSet(viewsets.ModelViewSet):
         current_user_organization = self.request.user.organization
         if current_user_organization:
             # Todo: probably need to check if the meets belongs to the organization?
-            meets = self.request.query_params.getlist('meets[]', [])
-            return Team.objects.filter(
-                meet__slug__in=meets,
-                meet__assembly__division__organization__slug=current_user_organization.slug,
-            ).order_by(
-                'display_order',
+            return TeamService.by_organization_meets(
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
+                organization_slug=current_user_organization.slug,
             )
 
         else:

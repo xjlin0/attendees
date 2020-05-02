@@ -3,7 +3,7 @@ import time
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
 
-from attendees.occasions.models import Attendance
+from attendees.occasions.services import AttendanceService
 from attendees.occasions.serializers import AttendanceSerializer
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -29,26 +29,12 @@ class ApiCoworkerOrganizationAttendancesViewSet(viewsets.ModelViewSet):
         current_user_organization = current_user.organization
         if current_user_organization:
             # Todo: probably need to check if the meets belongs to the organization?
-            user_attended_gathering_ids = current_user.attendee.attendings.values_list('gathering__id', flat=True).distinct()
-            meets = self.request.query_params.getlist('meets[]', [])
-            start = self.request.query_params.get('start', None)
-            finish = self.request.query_params.get('finish', None)
-            return Attendance.objects.select_related(
-                'character',
-                'team',
-                'attending',
-                'gathering',
-                'attending__attendee',
-            ).filter(
-                gathering__meet__assembly__division__organization__slug=current_user_organization.slug,
-                gathering__id__in=user_attended_gathering_ids,
-                gathering__meet__slug__in=meets,
-                gathering__start__gte=start,
-                gathering__finish__lte=finish,
-            ).order_by(
-                'gathering__meet',
-                '-gathering__start',
-                'character__display_order',
+            return AttendanceService.by_organization_meets_gatherings_intervals(
+                organization_slug=current_user_organization.slug,
+                gathering_ids=current_user.attendee.attendings.values_list('gathering__id', flat=True).distinct().order_by(),
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
+                gathering_start=self.request.query_params.get('start', None),
+                gathering_finish=self.request.query_params.get('finish', None),
             )
 
         else:

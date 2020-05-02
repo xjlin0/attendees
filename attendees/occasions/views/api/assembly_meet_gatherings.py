@@ -3,7 +3,7 @@ from django.utils.decorators import method_decorator
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
 import time
-from attendees.occasions.models import Gathering
+from attendees.occasions.services import GatheringService
 from attendees.occasions.serializers import GatheringSerializer
 
 
@@ -18,13 +18,9 @@ class ApiAssemblyMeetGatheringsViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.belongs_to_divisions_of([self.kwargs['division_slug']]):
             # Todo: probably need to check if the assembly belongs to the division
-            meets = self.request.query_params.getlist('meets[]', [])
-            return Gathering.objects.filter(
-                meet__slug__in=meets,
-                meet__assembly__slug=self.kwargs['assembly_slug'],
-            ).order_by(
-                'meet',
-                '-start',
+            return GatheringService.by_assembly_meets(
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
+                assembly_slug=self.kwargs['assembly_slug'],
             )
 
         else:

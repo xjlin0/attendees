@@ -5,7 +5,7 @@ from django.utils.decorators import method_decorator
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
 
-from attendees.occasions.models import Team
+from attendees.occasions.services import TeamService
 from attendees.occasions.serializers import TeamSerializer
 
 
@@ -19,12 +19,9 @@ class ApiAssemblyMeetTeamsViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.belongs_to_divisions_of([self.kwargs['division_slug']]):
             # Todo: probably need to check if the assembly belongs to the division?
-            meets = self.request.query_params.getlist('meets[]', [])
-            return Team.objects.filter(
-                meet__slug__in=meets,
-                meet__assembly__slug=self.kwargs['assembly_slug'],
-            ).order_by(
-                'display_order',
+            return TeamService.by_assembly_meets(
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
+                assembly_slug=self.kwargs['assembly_slug'],
             )
 
         else:

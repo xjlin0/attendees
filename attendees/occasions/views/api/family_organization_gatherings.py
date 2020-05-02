@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from rest_framework import viewsets
-from django.db.models import Q
+
 from rest_framework.exceptions import AuthenticationFailed
 import time
-from attendees.persons.models import Attendee
-from attendees.occasions.models import Gathering
+
+from attendees.occasions.services import GatheringService
 from attendees.occasions.serializers import GatheringSerializer
 
 
@@ -29,19 +29,10 @@ class ApiFamilyOrganizationGatheringsViewSet(viewsets.ModelViewSet):
         current_user_organization = current_user.organization
         if current_user_organization:
             # Todo: probably need to check if the meets belongs to the organization?
-            meets = self.request.query_params.getlist('meets[]', [])
-            return Gathering.objects.filter(
-                Q(meet__in=current_user.attendee.attendings.values_list('gathering__meet'))
-                |
-                Q(meet__in=current_user.attendee.related_ones.filter(
-                    from_attendee__scheduler=True
-                ).values_list('attendings__gathering__meet')),
-                meet__slug__in=meets,
-                meet__assembly__division__organization__slug=current_user.organization.slug,
-            ).order_by(
-                'meet',
-                '-start',
-            )  # another way is to get assemblys from registration, but it relies on attendingmeet validations
+            return GatheringService.by_family_meets(
+                user=current_user,
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
+            )
 
         else:
             time.sleep(2)

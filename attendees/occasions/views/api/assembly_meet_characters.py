@@ -5,7 +5,7 @@ from django.utils.decorators import method_decorator
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
 
-from attendees.occasions.models import Character
+from attendees.occasions.services import CharacterService
 from attendees.occasions.serializers import CharacterSerializer
 
 
@@ -19,13 +19,10 @@ class ApiAssemblyMeetCharactersViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.belongs_to_divisions_of([self.kwargs['division_slug']]):
             # Todo: probably need to check if the assembly belongs to the division?
-            meets = self.request.query_params.getlist('meets[]', [])
-            return Character.objects.filter(
-                assembly__slug=self.kwargs['assembly_slug'],
-                assembly__meet__slug__in=meets,
-            ).order_by(
-                'display_order',
-            ).distinct()
+            return CharacterService.by_assembly_meets(
+                assembly_slug=self.kwargs['assembly_slug'],
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
+            )
 
         else:
             time.sleep(2)

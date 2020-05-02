@@ -3,10 +3,10 @@ import time
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from rest_framework import viewsets
-from django.db.models import Q
+
 from rest_framework.exceptions import AuthenticationFailed
-from attendees.persons.models import Attendee
-from attendees.occasions.models import Character
+
+from attendees.occasions.services import CharacterService
 from attendees.occasions.serializers import CharacterSerializer
 
 
@@ -31,16 +31,9 @@ class ApiFamilyOrganizationCharactersViewSet(viewsets.ModelViewSet):
         if current_user_organization:
             # user_assemblys = current_user.attendee.attendings.values_list('registration__assembly')
             # care_receiver_assemblys = current_user.attendee.related_ones.filter(to_attendee__relation__in=Attendee.BE_LISTED_KEYWORDS).values_list('attendings__registration__assembly')
-            return Character.objects.filter(
-                Q(assembly__in=current_user.attendee.attendings.values_list('gathering__meet__assembly'))
-                |
-                Q(assembly__in=current_user.attendee.related_ones.filter(
-                    from_attendee__scheduler=True
-                ).values_list('attendings__gathering__meet__assembly')),
-                assembly__division__organization__slug=current_user.organization.slug,
-                ).order_by(
-                    'display_order',
-            )  # another way is to get assemblys from registration, but it relies on attendingmeet validations
+            return CharacterService.by_family_meets_gathering_intervals(
+                        user=current_user,
+                    )
 
         else:
             time.sleep(2)

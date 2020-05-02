@@ -2,9 +2,9 @@ import time
 
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
-from django.db.models import Q
-from attendees.occasions.models import Attendance
-from attendees.persons.models import Attendee
+
+from attendees.occasions.services import AttendanceService
+
 from attendees.occasions.serializers import AttendanceSerializer
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -32,29 +32,11 @@ class ApiFamilyOrganizationAttendancesViewSet(viewsets.ModelViewSet):
         current_user = self.request.user
         current_user_organization = current_user.organization
         if current_user_organization:
-            meets = self.request.query_params.getlist('meets[]', [])
-            start = self.request.query_params.get('start', None)
-            finish = self.request.query_params.get('finish', None)
-            return Attendance.objects.select_related(
-                'character',
-                'team',
-                'attending',
-                'gathering',
-                'attending__attendee',
-            ).filter(
-                Q(attending__attendee=current_user.attendee)
-                |
-                Q(attending__attendee__in=current_user.attendee.related_ones.filter(
-                    from_attendee__scheduler=True,
-                )),
-                gathering__meet__assembly__division__organization__slug=current_user.organization.slug,
-                gathering__meet__slug__in=meets,
-                gathering__start__gte=start,
-                gathering__finish__lte=finish,
-            ).order_by(
-                'gathering__meet',
-                '-gathering__start',
-                'character__display_order',
+            return AttendanceService.by_family_meets_gathering_intervals(
+                user=current_user,
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
+                gathering_start=self.request.query_params.get('start', None),
+                gathering_finish=self.request.query_params.get('finish', None),
             )
 
         else:

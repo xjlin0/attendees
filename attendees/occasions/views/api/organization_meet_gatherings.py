@@ -3,7 +3,7 @@ from django.utils.decorators import method_decorator
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed
 import time
-from attendees.occasions.models import Gathering
+from attendees.occasions.services import GatheringService
 from attendees.occasions.serializers import GatheringSerializer
 
 
@@ -19,13 +19,9 @@ class ApiOrganizationMeetGatheringsViewSet(viewsets.ModelViewSet):
         current_user_organization = self.request.user.organization
         if current_user_organization:
             # Todo: probably need to check if the meets belongs to the organization?
-            meets = self.request.query_params.getlist('meets[]', [])
-            return Gathering.objects.filter(
-                meet__slug__in=meets,
-                meet__assembly__division__organization__slug=current_user_organization.slug,
-            ).order_by(
-                'meet',
-                '-start',
+            return GatheringService.by_organization_meets(
+                organization_slug=current_user_organization.slug,
+                meet_slugs=self.request.query_params.getlist('meets[]', []),
             )
 
         else:
