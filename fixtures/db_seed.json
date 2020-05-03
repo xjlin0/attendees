@@ -1058,14 +1058,14 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-30T16:54:19.925Z",
-      "modified": "2020-04-30T16:58:04.685Z",
+      "modified": "2020-05-03T21:24:35.989Z",
       "is_removed": false,
       "from_attendee": 2,
       "to_attendee": 3,
       "relation": 3,
       "emergency_contact": true,
       "scheduler": false,
-      "relative": true,
+      "in_family": 10001,
       "finish": "3936-11-05T16:52:12Z"
     }
   },
@@ -1074,14 +1074,14 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-30T16:58:59.298Z",
-      "modified": "2020-04-30T16:58:59.298Z",
+      "modified": "2020-05-03T21:24:29.941Z",
       "is_removed": false,
       "from_attendee": 3,
       "to_attendee": 2,
       "relation": 2,
       "emergency_contact": true,
       "scheduler": true,
-      "relative": true,
+      "in_family": 10001,
       "finish": "3936-11-05T16:58:34Z"
     }
   },
@@ -1097,7 +1097,7 @@
       "relation": 10,
       "emergency_contact": false,
       "scheduler": false,
-      "relative": true,
+      "in_family": null,
       "finish": "3936-11-05T16:59:13Z"
     }
   },
@@ -1113,7 +1113,7 @@
       "relation": 10,
       "emergency_contact": false,
       "scheduler": false,
-      "relative": true,
+      "in_family": null,
       "finish": "3936-11-05T16:59:44Z"
     }
   },
@@ -1122,14 +1122,14 @@
     "pk": 5,
     "fields": {
       "created": "2020-04-30T17:01:07.157Z",
-      "modified": "2020-04-30T17:01:07.157Z",
+      "modified": "2020-05-03T21:24:16.653Z",
       "is_removed": false,
       "from_attendee": 13,
       "to_attendee": 2,
       "relation": 7,
       "emergency_contact": true,
       "scheduler": false,
-      "relative": true,
+      "in_family": 10001,
       "finish": "3936-11-05T17:00:50Z"
     }
   },
@@ -1138,14 +1138,14 @@
     "pk": 6,
     "fields": {
       "created": "2020-04-30T17:02:30.512Z",
-      "modified": "2020-04-30T17:02:30.512Z",
+      "modified": "2020-05-03T21:24:09.051Z",
       "is_removed": false,
       "from_attendee": 3,
       "to_attendee": 13,
       "relation": 1,
       "emergency_contact": true,
       "scheduler": true,
-      "relative": true,
+      "in_family": 10001,
       "finish": "3936-11-05T17:02:11Z"
     }
   },
@@ -1154,14 +1154,14 @@
     "pk": 7,
     "fields": {
       "created": "2020-04-30T17:03:01.768Z",
-      "modified": "2020-04-30T17:05:14.173Z",
+      "modified": "2020-05-03T21:23:58.156Z",
       "is_removed": false,
       "from_attendee": 2,
       "to_attendee": 13,
       "relation": 5,
       "emergency_contact": true,
       "scheduler": false,
-      "relative": true,
+      "in_family": 10001,
       "finish": "3936-11-05T17:02:42Z"
     }
   },
@@ -1170,14 +1170,14 @@
     "pk": 8,
     "fields": {
       "created": "2020-04-30T17:07:39.971Z",
-      "modified": "2020-04-30T17:07:39.971Z",
+      "modified": "2020-05-03T21:23:47.186Z",
       "is_removed": false,
       "from_attendee": 14,
       "to_attendee": 13,
       "relation": 5,
       "emergency_contact": true,
       "scheduler": true,
-      "relative": true,
+      "in_family": 10002,
       "finish": "3936-11-05T17:07:24Z"
     }
   },
@@ -1186,14 +1186,14 @@
     "pk": 9,
     "fields": {
       "created": "2020-04-30T17:08:11.007Z",
-      "modified": "2020-04-30T17:08:11.007Z",
+      "modified": "2020-05-03T21:23:40.983Z",
       "is_removed": false,
       "from_attendee": 13,
       "to_attendee": 12,
       "relation": 3,
       "emergency_contact": true,
       "scheduler": false,
-      "relative": true,
+      "in_family": 10002,
       "finish": "3936-11-05T17:07:48Z"
     }
   },
@@ -1202,14 +1202,14 @@
     "pk": 10,
     "fields": {
       "created": "2020-04-30T17:08:49.579Z",
-      "modified": "2020-04-30T17:08:49.579Z",
+      "modified": "2020-05-03T21:23:34.587Z",
       "is_removed": false,
       "from_attendee": 12,
       "to_attendee": 14,
       "relation": 2,
       "emergency_contact": true,
       "scheduler": true,
-      "relative": true,
+      "in_family": 10002,
       "finish": "3936-11-05T17:08:29Z"
     }
   },
@@ -1218,14 +1218,14 @@
     "pk": 11,
     "fields": {
       "created": "2020-04-30T17:09:50.403Z",
-      "modified": "2020-04-30T17:09:50.403Z",
+      "modified": "2020-05-03T21:23:26.078Z",
       "is_removed": false,
       "from_attendee": 12,
       "to_attendee": 13,
       "relation": 1,
       "emergency_contact": true,
       "scheduler": true,
-      "relative": true,
+      "in_family": 10002,
       "finish": "3936-11-05T17:09:17Z"
     }
   },
@@ -1234,14 +1234,14 @@
     "pk": 12,
     "fields": {
       "created": "2020-04-30T17:12:36.196Z",
-      "modified": "2020-04-30T17:12:36.196Z",
+      "modified": "2020-05-03T21:23:20.034Z",
       "is_removed": false,
       "from_attendee": 13,
       "to_attendee": 3,
       "relation": 3,
       "emergency_contact": true,
       "scheduler": false,
-      "relative": true,
+      "in_family": 10001,
       "finish": "3936-11-05T17:12:21Z"
     }
   },
@@ -1250,14 +1250,14 @@
     "pk": 13,
     "fields": {
       "created": "2020-04-30T17:13:26.572Z",
-      "modified": "2020-04-30T17:13:26.572Z",
+      "modified": "2020-05-03T21:23:13.641Z",
       "is_removed": false,
       "from_attendee": 13,
       "to_attendee": 14,
       "relation": 6,
       "emergency_contact": true,
       "scheduler": true,
-      "relative": true,
+      "in_family": 10002,
       "finish": "3936-11-05T17:13:12Z"
     }
   },
@@ -2277,7 +2277,7 @@
       "start": null,
       "finish": null,
       "gathering": 1,
-      "team": 10000,
+      "team": 1,
       "attending": 1,
       "character": 1,
       "free": 0,
@@ -2318,7 +2318,7 @@
       "start": null,
       "finish": null,
       "gathering": 1,
-      "team": 10000,
+      "team": 1,
       "attending": 3,
       "character": 4,
       "free": 0,

@@ -38,4 +38,10 @@ class Migration(migrations.Migration):
             model_name='familyattendee',
             constraint=models.UniqueConstraint(fields=('family', 'attendee'), name='family_attendee'),
         ),
+        migrations.AddField(
+            model_name='family',
+            name='attendees',
+            field=models.ManyToManyField(related_name='attendees', through='persons.FamilyAttendee',
+                                         to='persons.Attendee'),
+        ),
     ]

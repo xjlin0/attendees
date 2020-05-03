@@ -92,7 +92,7 @@ class NoteAdmin(SummernoteModelAdmin):
 class RelationshipAdmin(admin.ModelAdmin):
     list_display_links = ('relation',)
     readonly_fields = ['id', 'created', 'modified']
-    list_display = ('id', 'from_attendee', 'relation', 'to_attendee', 'emergency_contact', 'scheduler', 'relative','finish')
+    list_display = ('id', 'from_attendee', 'relation', 'to_attendee', 'emergency_contact', 'scheduler', 'in_family', 'finish')
 
 
 class AttendingMeetAdmin(admin.ModelAdmin):
