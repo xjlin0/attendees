@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.utils.functional import cached_property
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields.jsonb import JSONField
+from django.contrib.postgres.indexes import GinIndex
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 from attendees.persons.models import Utility, Note
 
@@ -52,6 +53,9 @@ class Attendance(TimeStampedModel, SoftDeletableModel, Utility):
 
     class Meta:
         db_table = 'occasions_attendances'
+        indexes = [
+            GinIndex(fields=['infos'], name='attendance_infos_gin', ),
+        ]
 
     def __str__(self):
         return '%s %s %s %s' % (self.gathering, self.character, self.attending, self.team or '')

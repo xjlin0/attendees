@@ -23,7 +23,6 @@ class Migration(migrations.Migration):
                 ('is_removed', models.BooleanField(default=False)),
                 ('age', models.SmallIntegerField(blank=True, null=True)),
                 ('category', models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")),
-                ('belief', models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")),
                 ('bed_needs', models.SmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")),
                 ('mobility', models.SmallIntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")),
                 ('attendee', models.ForeignKey(null=False, blank=False, on_delete=models.SET(0), to='persons.Attendee', related_name="attendings")),
@@ -35,5 +34,9 @@ class Migration(migrations.Migration):
                 'ordering': ['registration'],
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
+        ),
+        migrations.AddIndex(
+            model_name='attending',
+            index=django.contrib.postgres.indexes.GinIndex(fields=['infos'], name='attending_infos_gin'),
         ),
     ]

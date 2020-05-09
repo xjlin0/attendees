@@ -3,6 +3,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields.jsonb import JSONField
+from django.contrib.postgres.indexes import GinIndex
 from django.utils.functional import cached_property
 from datetime import datetime, timezone
 from model_utils.models import TimeStampedModel, SoftDeletableModel
@@ -11,9 +12,9 @@ from . import GenderEnum, Note, Utility
 
 
 class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
-    RELATIVES_KEYWORDS = ['parent', 'mother', 'guardian', 'father', 'caregiver']
-    AS_PARENT_KEYWORDS = ['notifier', 'caregiver']  # to find attendee's parents/caregiver in cowokers view of all activities
-    BE_LISTED_KEYWORDS = ['care receiver']  # let the attendee's attendance showed in their parent/caregiver account
+    # RELATIVES_KEYWORDS = ['parent', 'mother', 'guardian', 'father', 'caregiver']
+    # AS_PARENT_KEYWORDS = ['notifier', 'caregiver']  # to find attendee's parents/caregiver in cowokers view of all activities
+    # BE_LISTED_KEYWORDS = ['care receiver']  # let the attendee's attendance showed in their parent/caregiver account
 
     notes = GenericRelation(Note)
     related_ones = models.ManyToManyField('self', through='Relationship', symmetrical=False, related_name='related_to+')
@@ -28,6 +29,8 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     gender = models.CharField(max_length=11, blank=False, null=False, default=GenderEnum.UNSPECIFIED, choices=GenderEnum.choices())
     actual_birthday = models.DateTimeField(blank=True, null=True)
     estimated_birthday = models.DateTimeField(blank=True, null=True)
+    progressions = JSONField(null=True, blank=True, default=dict, help_text='Example: {"Christian": true, "baptized": {"time": "12/31/2020", "place":"SF"}}. Please keep {} here even no data')
+    # photo = PrivateFileField("File") #https://github.com/edoburu/django-private-storage
     infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"food allergy": "peanuts", "public_name": "John", "other_name": "Apostle"}. Please keep {} here even no data')
 
     @property
@@ -113,3 +116,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     class Meta:
         db_table = 'persons_attendees'
         ordering = ['last_name', 'first_name']
+        indexes = [
+            GinIndex(fields=['infos'], name='attendee_infos_gin', ),
+            GinIndex(fields=['progressions'], name='attendee_progressions_gin', ),
+        ]

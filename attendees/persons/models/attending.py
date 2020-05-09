@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.urls import reverse
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields.jsonb import JSONField
+from django.contrib.postgres.indexes import GinIndex
 from django.utils.functional import cached_property
 
 from model_utils.models import TimeStampedModel, SoftDeletableModel
@@ -19,7 +20,6 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     age = models.SmallIntegerField(null=True, blank=True)
     category = models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")
     meets = models.ManyToManyField('occasions.Meet', through='AttendingMeet', related_name="meets")
-    belief = models.CharField(max_length=20, null=True, blank=True, help_text="believer, baptized, catechumen, etc")
     bed_needs = models.SmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")
     mobility = models.SmallIntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")
     infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"grade": 5}. Please keep {} here even no data')
@@ -34,6 +34,9 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     class Meta:
         db_table = 'persons_attendings'
         ordering = ['registration']
+        indexes = [
+            GinIndex(fields=['infos'], name='attending_infos_gin', ),
+        ]
 
     @property
     def main_contact(self):

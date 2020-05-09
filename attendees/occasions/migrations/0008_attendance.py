@@ -38,6 +38,10 @@ class Migration(migrations.Migration):
             },
             bases=(models.Model, attendees.persons.models.utility.Utility),
         ),
+        migrations.AddIndex(
+            model_name='attendance',
+            index=django.contrib.postgres.indexes.GinIndex(fields=['infos'], name='attendance_infos_gin'),
+        ),
         migrations.AddField(
             model_name='gathering',
             name='attendings',
