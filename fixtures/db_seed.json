@@ -1772,6 +1772,22 @@
     }
   },
   {
+    "model": "occasions.assembly",
+    "pk": 5,
+    "fields": {
+      "created": "2020-05-09T22:31:18.488Z",
+      "modified": "2020-05-09T22:31:26.822Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "category": "normal",
+      "display_name": "CFCC\u6703\u54e1\u8cc7\u6599",
+      "display_order": 0,
+      "slug": "cfcc-member-data",
+      "division": 1
+    }
+  },
+  {
     "model": "occasions.assemblyaddress",
     "pk": 1,
     "fields": {
@@ -1816,6 +1832,18 @@
       "is_removed": false,
       "assembly": 4,
       "address": 9,
+      "category": "normal"
+    }
+  },
+  {
+    "model": "occasions.assemblyaddress",
+    "pk": 5,
+    "fields": {
+      "created": "2020-05-09T22:31:18.495Z",
+      "modified": "2020-05-09T22:31:18.495Z",
+      "is_removed": false,
+      "assembly": 5,
+      "address": 1,
       "category": "normal"
     }
   },
@@ -2129,6 +2157,57 @@
       "infos": {},
       "site_type": 30,
       "site_id": 10
+    }
+  },
+  {
+    "model": "occasions.meet",
+    "pk": 7,
+    "fields": {
+      "created": "2020-05-09T22:34:04.419Z",
+      "modified": "2020-05-09T22:38:25.317Z",
+      "is_removed": false,
+      "assembly": 5,
+      "start": null,
+      "finish": null,
+      "display_name": "\u65b0\u4eba",
+      "slug": "d7c8Fd-cfcc-member-new-visit",
+      "infos": {},
+      "site_type": 30,
+      "site_id": 1
+    }
+  },
+  {
+    "model": "occasions.meet",
+    "pk": 8,
+    "fields": {
+      "created": "2020-05-09T22:36:23.046Z",
+      "modified": "2020-05-09T22:36:23.046Z",
+      "is_removed": false,
+      "assembly": 5,
+      "start": null,
+      "finish": null,
+      "display_name": "\u901a\u8a0a\u9304",
+      "slug": "d7c8Fd-cfcc-member-address-book",
+      "infos": {},
+      "site_type": 30,
+      "site_id": 1
+    }
+  },
+  {
+    "model": "occasions.meet",
+    "pk": 9,
+    "fields": {
+      "created": "2020-05-09T22:37:59.744Z",
+      "modified": "2020-05-09T22:38:30.583Z",
+      "is_removed": false,
+      "assembly": 5,
+      "start": null,
+      "finish": null,
+      "display_name": "\u6703\u54e1",
+      "slug": "d7c8Fd-cfcc-member-membership",
+      "infos": {},
+      "site_type": 30,
+      "site_id": 1
     }
   },
   {
