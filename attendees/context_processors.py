@@ -13,6 +13,7 @@ def common_variables(request):  # TODO move organization info to view
     main_menus = Menu.objects.filter(
         auth_groups__in=request.user.groups.all(),
         category='main',
+        menuauthgroup__read=True,
     ).distinct()
     if request.user.is_authenticated and request.user.organization:
         user_organization = request.user.organization

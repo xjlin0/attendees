@@ -1747,6 +1747,22 @@
     }
   },
   {
+    "model": "persons.attending",
+    "pk": 17,
+    "fields": {
+      "created": "2020-05-10T21:49:09.873Z",
+      "modified": "2020-05-10T21:49:09.873Z",
+      "is_removed": false,
+      "registration": 7,
+      "attendee": 16,
+      "age": null,
+      "category": "normal",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
     "model": "persons.attendingmeet",
     "pk": 1,
     "fields": {
@@ -2043,6 +2059,19 @@
       "meet": 9,
       "character": 15,
       "category": "deleted"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 24,
+    "fields": {
+      "created": "2020-05-10T21:49:09.884Z",
+      "modified": "2020-05-10T21:49:09.884Z",
+      "is_removed": false,
+      "attending": 17,
+      "meet": 10,
+      "character": 15,
+      "category": "primary"
     }
   },
   {
@@ -2618,13 +2647,13 @@
     "pk": 7,
     "fields": {
       "created": "2020-05-09T22:34:04.419Z",
-      "modified": "2020-05-09T22:38:25.317Z",
+      "modified": "2020-05-10T05:37:35.664Z",
       "is_removed": false,
       "assembly": 5,
       "start": null,
       "finish": null,
-      "display_name": "\u65b0\u4eba",
-      "slug": "d7c8Fd-cfcc-member-new-visit",
+      "display_name": "\u9ede\u540d\u55ae",
+      "slug": "d7c8Fd-cfcc-member-roaster",
       "infos": {},
       "site_type": 30,
       "site_id": 1
@@ -2635,13 +2664,13 @@
     "pk": 8,
     "fields": {
       "created": "2020-05-09T22:36:23.046Z",
-      "modified": "2020-05-09T22:36:23.046Z",
+      "modified": "2020-05-10T05:45:52.911Z",
       "is_removed": false,
       "assembly": 5,
       "start": null,
       "finish": null,
       "display_name": "\u901a\u8a0a\u9304",
-      "slug": "d7c8Fd-cfcc-member-address-book",
+      "slug": "d7c8Fd-cfcc-member-directory",
       "infos": {},
       "site_type": 30,
       "site_id": 1
@@ -2659,6 +2688,23 @@
       "finish": null,
       "display_name": "\u6703\u54e1",
       "slug": "d7c8Fd-cfcc-member-membership",
+      "infos": {},
+      "site_type": 30,
+      "site_id": 1
+    }
+  },
+  {
+    "model": "occasions.meet",
+    "pk": 10,
+    "fields": {
+      "created": "2020-05-10T15:30:52.646Z",
+      "modified": "2020-05-10T15:30:52.646Z",
+      "is_removed": false,
+      "assembly": 5,
+      "start": null,
+      "finish": null,
+      "display_name": "\u65b0\u4eba",
+      "slug": "d7c8Fd-cfcc-member-visitor",
       "infos": {},
       "site_type": 30,
       "site_id": 1
@@ -3513,10 +3559,10 @@
     "pk": 11,
     "fields": {
       "created": "2020-04-13T15:13:27.599Z",
-      "modified": "2020-04-13T15:13:27.599Z",
+      "modified": "2020-05-10T14:28:29.510Z",
       "is_removed": false,
       "auth_group": 3,
-      "read": true,
+      "read": false,
       "write": false,
       "menu": 4
     }
@@ -3721,7 +3767,7 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T19:31:50.659Z",
-      "modified": "2020-04-12T02:35:56.322Z",
+      "modified": "2020-05-10T22:23:51.100Z",
       "is_removed": false,
       "user": 1,
       "first_name": "superuser1",
@@ -4037,11 +4083,11 @@
     "pk": 16,
     "fields": {
       "created": "2020-05-10T01:02:35.482Z",
-      "modified": "2020-05-10T01:02:35.482Z",
+      "modified": "2020-05-10T21:47:28.392Z",
       "is_removed": false,
       "user": null,
-      "first_name": "\u57fa\u5229\u62bc",
-      "last_name": "Chileab",
+      "first_name": "Chileab",
+      "last_name": "\u57fa\u5229\u62bc",
       "first_name2": null,
       "last_name2": null,
       "gender": "MALE",
