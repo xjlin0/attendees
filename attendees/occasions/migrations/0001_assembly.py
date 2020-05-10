@@ -28,6 +28,7 @@ class Migration(migrations.Migration):
                 ('display_name', models.CharField(max_length=50)),
                 ('display_order', models.SmallIntegerField(blank=False, default=0, null=False)),
                 ('slug', models.SlugField(max_length=50, unique=True, help_text='format: Organization_name-Assembly_name')),
+                ('need_age', models.BooleanField('Does registration need age info?', null=False, blank=False, default=False, help_text="Does the age info of the participants required?")),
                 ('division', models.ForeignKey(on_delete=models.SET(0), to='whereabouts.Division')),
             ],
             options={

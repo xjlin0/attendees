@@ -17,6 +17,7 @@ class Assembly(TimeStampedModel, SoftDeletableModel, Utility):
     display_name = models.CharField(max_length=50, blank=False, null=False)
     display_order = models.SmallIntegerField(default=0, blank=False, null=False)
     slug = models.SlugField(max_length=50, blank=False, null=False, unique=True, help_text='format: Organization_name-Assembly_name')
+    need_age = models.BooleanField('Does registration need age info?', null=False, blank=False, default=False, help_text="Does the age info of the participants required?")
     division = models.ForeignKey('whereabouts.Division', null=False, blank=False, on_delete=models.SET(0))
 
     def get_absolute_url(self):

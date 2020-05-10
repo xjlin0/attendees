@@ -601,6 +601,18 @@
     }
   },
   {
+    "model": "persons.family",
+    "pk": 10003,
+    "fields": {
+      "created": "2020-05-10T00:46:32.567Z",
+      "modified": "2020-05-10T00:46:32.567Z",
+      "is_removed": false,
+      "slug": "david_abigail",
+      "display_name": "David&Abigail",
+      "display_order": 0
+    }
+  },
+  {
     "model": "persons.familyattendee",
     "pk": 1,
     "fields": {
@@ -1054,6 +1066,21 @@
     }
   },
   {
+    "model": "persons.relation",
+    "pk": 26,
+    "fields": {
+      "created": "2020-05-10T00:57:52.419Z",
+      "modified": "2020-05-10T00:58:50.190Z",
+      "is_removed": false,
+      "reciprocal_ids": "[\"26\"]",
+      "title": "ex spouse",
+      "display_order": 31000,
+      "emergency_contact": false,
+      "scheduler": false,
+      "relative": false
+    }
+  },
+  {
     "model": "persons.relationship",
     "pk": 1,
     "fields": {
@@ -1262,6 +1289,86 @@
     }
   },
   {
+    "model": "persons.relationship",
+    "pk": 14,
+    "fields": {
+      "created": "2020-05-10T00:47:03.810Z",
+      "modified": "2020-05-10T00:47:03.810Z",
+      "is_removed": false,
+      "from_attendee": 5,
+      "to_attendee": 8,
+      "relation": 5,
+      "emergency_contact": true,
+      "scheduler": false,
+      "in_family": 10003,
+      "finish": "3936-11-15T00:46:42Z"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 15,
+    "fields": {
+      "created": "2020-05-10T00:47:27.139Z",
+      "modified": "2020-05-10T00:47:27.139Z",
+      "is_removed": false,
+      "from_attendee": 8,
+      "to_attendee": 5,
+      "relation": 6,
+      "emergency_contact": true,
+      "scheduler": true,
+      "in_family": 10003,
+      "finish": "3936-11-15T00:47:08Z"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 16,
+    "fields": {
+      "created": "2020-05-10T01:00:09.126Z",
+      "modified": "2020-05-10T01:00:09.126Z",
+      "is_removed": false,
+      "from_attendee": 15,
+      "to_attendee": 5,
+      "relation": 26,
+      "emergency_contact": false,
+      "scheduler": false,
+      "in_family": null,
+      "finish": "3936-11-15T00:59:22Z"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 17,
+    "fields": {
+      "created": "2020-05-10T01:02:35.490Z",
+      "modified": "2020-05-10T01:02:35.490Z",
+      "is_removed": false,
+      "from_attendee": 16,
+      "to_attendee": 5,
+      "relation": 2,
+      "emergency_contact": true,
+      "scheduler": false,
+      "in_family": 10003,
+      "finish": "3936-11-15T01:01:20Z"
+    }
+  },
+  {
+    "model": "persons.relationship",
+    "pk": 18,
+    "fields": {
+      "created": "2020-05-10T01:02:35.491Z",
+      "modified": "2020-05-10T01:02:35.491Z",
+      "is_removed": false,
+      "from_attendee": 16,
+      "to_attendee": 8,
+      "relation": 1,
+      "emergency_contact": true,
+      "scheduler": false,
+      "in_family": 10003,
+      "finish": "3936-11-15T01:01:20Z"
+    }
+  },
+  {
     "model": "persons.registration",
     "pk": 1,
     "fields": {
@@ -1300,13 +1407,13 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T19:53:25.182Z",
-      "modified": "2020-04-11T19:53:25.182Z",
+      "modified": "2020-05-09T23:39:51.769Z",
       "is_removed": false,
       "assembly": 2,
       "main_attendee": 1,
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
-      "apply_type": "system",
+      "apply_type": "worship",
       "apply_key": "001",
       "donation": "0.00",
       "price": "0.00"
@@ -1359,6 +1466,23 @@
       "finish": "2020-07-30T05:06:17Z",
       "apply_type": "virtual",
       "apply_key": "001",
+      "donation": "0.00",
+      "price": "0.00"
+    }
+  },
+  {
+    "model": "persons.registration",
+    "pk": 7,
+    "fields": {
+      "created": "2020-05-09T23:36:03.776Z",
+      "modified": "2020-05-09T23:39:33.937Z",
+      "is_removed": false,
+      "assembly": 5,
+      "main_attendee": 1,
+      "start": "2020-05-09T23:35:45Z",
+      "finish": null,
+      "apply_type": "member",
+      "apply_key": "003",
       "donation": "0.00",
       "price": "0.00"
     }
@@ -1495,6 +1619,134 @@
     }
   },
   {
+    "model": "persons.attending",
+    "pk": 9,
+    "fields": {
+      "created": "2020-05-10T00:26:30.151Z",
+      "modified": "2020-05-10T00:26:30.151Z",
+      "is_removed": false,
+      "registration": 7,
+      "attendee": 1,
+      "age": null,
+      "category": "normal",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attending",
+    "pk": 10,
+    "fields": {
+      "created": "2020-05-10T00:38:07.725Z",
+      "modified": "2020-05-10T00:38:07.725Z",
+      "is_removed": false,
+      "registration": 7,
+      "attendee": 11,
+      "age": null,
+      "category": "normal",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attending",
+    "pk": 11,
+    "fields": {
+      "created": "2020-05-10T00:40:42.362Z",
+      "modified": "2020-05-10T00:40:42.362Z",
+      "is_removed": false,
+      "registration": 7,
+      "attendee": 6,
+      "age": null,
+      "category": "normal",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attending",
+    "pk": 12,
+    "fields": {
+      "created": "2020-05-10T00:42:09.708Z",
+      "modified": "2020-05-10T00:42:09.708Z",
+      "is_removed": false,
+      "registration": 7,
+      "attendee": 10,
+      "age": null,
+      "category": "normal",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attending",
+    "pk": 13,
+    "fields": {
+      "created": "2020-05-10T00:43:59.588Z",
+      "modified": "2020-05-10T00:43:59.588Z",
+      "is_removed": false,
+      "registration": 7,
+      "attendee": 9,
+      "age": null,
+      "category": "normal",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attending",
+    "pk": 14,
+    "fields": {
+      "created": "2020-05-10T00:49:35.465Z",
+      "modified": "2020-05-10T00:49:35.465Z",
+      "is_removed": false,
+      "registration": 7,
+      "attendee": 5,
+      "age": null,
+      "category": "normal",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attending",
+    "pk": 15,
+    "fields": {
+      "created": "2020-05-10T00:50:29.566Z",
+      "modified": "2020-05-10T00:50:29.566Z",
+      "is_removed": false,
+      "registration": 7,
+      "attendee": 8,
+      "age": null,
+      "category": "normal",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attending",
+    "pk": 16,
+    "fields": {
+      "created": "2020-05-10T02:30:26.834Z",
+      "modified": "2020-05-10T02:33:35.455Z",
+      "is_removed": false,
+      "registration": 7,
+      "attendee": 15,
+      "age": null,
+      "category": "normal",
+      "bed_needs": 0,
+      "mobility": 200,
+      "infos": {}
+    }
+  },
+  {
     "model": "persons.attendingmeet",
     "pk": 1,
     "fields": {
@@ -1612,6 +1864,188 @@
     }
   },
   {
+    "model": "persons.attendingmeet",
+    "pk": 10,
+    "fields": {
+      "created": "2020-05-10T00:26:30.161Z",
+      "modified": "2020-05-10T00:26:30.161Z",
+      "is_removed": false,
+      "attending": 9,
+      "meet": 7,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 11,
+    "fields": {
+      "created": "2020-05-10T00:26:30.161Z",
+      "modified": "2020-05-10T00:26:30.161Z",
+      "is_removed": false,
+      "attending": 9,
+      "meet": 8,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 12,
+    "fields": {
+      "created": "2020-05-10T00:26:30.162Z",
+      "modified": "2020-05-10T00:26:30.162Z",
+      "is_removed": false,
+      "attending": 9,
+      "meet": 9,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 13,
+    "fields": {
+      "created": "2020-05-10T00:38:07.734Z",
+      "modified": "2020-05-10T00:38:07.734Z",
+      "is_removed": false,
+      "attending": 10,
+      "meet": 8,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 14,
+    "fields": {
+      "created": "2020-05-10T00:38:07.735Z",
+      "modified": "2020-05-10T00:38:07.735Z",
+      "is_removed": false,
+      "attending": 10,
+      "meet": 9,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 15,
+    "fields": {
+      "created": "2020-05-10T00:40:42.372Z",
+      "modified": "2020-05-10T00:40:42.372Z",
+      "is_removed": false,
+      "attending": 11,
+      "meet": 9,
+      "character": 15,
+      "category": "honor"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 16,
+    "fields": {
+      "created": "2020-05-10T00:42:09.718Z",
+      "modified": "2020-05-10T00:42:09.718Z",
+      "is_removed": false,
+      "attending": 12,
+      "meet": 7,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 17,
+    "fields": {
+      "created": "2020-05-10T00:43:59.598Z",
+      "modified": "2020-05-10T00:43:59.598Z",
+      "is_removed": false,
+      "attending": 13,
+      "meet": 7,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 18,
+    "fields": {
+      "created": "2020-05-10T00:43:59.598Z",
+      "modified": "2020-05-10T00:43:59.598Z",
+      "is_removed": false,
+      "attending": 13,
+      "meet": 8,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 19,
+    "fields": {
+      "created": "2020-05-10T00:49:35.475Z",
+      "modified": "2020-05-10T00:49:35.475Z",
+      "is_removed": false,
+      "attending": 14,
+      "meet": 8,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 20,
+    "fields": {
+      "created": "2020-05-10T00:49:35.475Z",
+      "modified": "2020-05-10T00:49:35.475Z",
+      "is_removed": false,
+      "attending": 14,
+      "meet": 9,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 21,
+    "fields": {
+      "created": "2020-05-10T00:50:29.576Z",
+      "modified": "2020-05-10T00:50:29.576Z",
+      "is_removed": false,
+      "attending": 15,
+      "meet": 8,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 22,
+    "fields": {
+      "created": "2020-05-10T00:50:29.577Z",
+      "modified": "2020-05-10T00:50:29.577Z",
+      "is_removed": false,
+      "attending": 15,
+      "meet": 7,
+      "character": 15,
+      "category": "primary"
+    }
+  },
+  {
+    "model": "persons.attendingmeet",
+    "pk": 23,
+    "fields": {
+      "created": "2020-05-10T02:30:26.843Z",
+      "modified": "2020-05-10T02:33:35.456Z",
+      "is_removed": false,
+      "attending": 16,
+      "meet": 9,
+      "character": 15,
+      "category": "deleted"
+    }
+  },
+  {
     "model": "persons.attendeeaddress",
     "pk": 1,
     "fields": {
@@ -1720,6 +2154,7 @@
       "display_name": "CFCC\u5152\u5c11\u5e38\u898f\u6d3b\u52d5",
       "display_order": 0,
       "slug": "cfcc-junior-regular-activity",
+      "need_age": true,
       "division": 3
     }
   },
@@ -1736,6 +2171,7 @@
       "display_name": "CFCC\u6210\u4eba\u4e3b\u65e5\u5d07\u62dc",
       "display_order": 0,
       "slug": "cfcc-adult-sunday-worship",
+      "need_age": false,
       "division": 1
     }
   },
@@ -1752,6 +2188,7 @@
       "display_name": "CFCC\u5152\u5c11\u7279\u5225\u6d3b\u52d5",
       "display_order": 0,
       "slug": "cfcc-junior-special-activity",
+      "need_age": true,
       "division": 3
     }
   },
@@ -1768,6 +2205,7 @@
       "display_name": "heaven\u5bf6\u5ea7\u656c\u62dc",
       "display_order": 0,
       "slug": "heaven-throne-worship",
+      "need_age": false,
       "division": 4
     }
   },
@@ -1784,6 +2222,7 @@
       "display_name": "CFCC\u6703\u54e1\u8cc7\u6599",
       "display_order": 0,
       "slug": "cfcc-member-data",
+      "need_age": false,
       "division": 1
     }
   },
@@ -2055,6 +2494,21 @@
       "slug": "d7c8Fd-cfcc-kid-leader-SG-56G",
       "info": null,
       "type": "coworker"
+    }
+  },
+  {
+    "model": "occasions.character",
+    "pk": 15,
+    "fields": {
+      "created": "2020-05-09T23:59:42.960Z",
+      "modified": "2020-05-10T00:02:37.706Z",
+      "is_removed": false,
+      "assembly": 5,
+      "display_name": "\u7d00\u9304",
+      "display_order": 0,
+      "slug": "d7c8Fd-cfcc-member-data",
+      "info": null,
+      "type": "audience"
     }
   },
   {
@@ -2795,6 +3249,136 @@
     }
   },
   {
+    "model": "auth.group",
+    "pk": 4,
+    "fields": {
+      "name": "d7c8Fd_cfcc_chinese_member_organizer",
+      "permissions": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        8,
+        4,
+        69,
+        70,
+        71,
+        72,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        209,
+        210,
+        211,
+        212,
+        193,
+        194,
+        195,
+        196,
+        201,
+        202,
+        203,
+        204,
+        197,
+        198,
+        199,
+        200,
+        189,
+        190,
+        191,
+        192,
+        205,
+        206,
+        207,
+        208,
+        153,
+        154,
+        155,
+        156,
+        173,
+        174,
+        175,
+        176,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        137,
+        138,
+        139,
+        140,
+        149,
+        150,
+        151,
+        152,
+        177,
+        178,
+        179,
+        180,
+        141,
+        142,
+        143,
+        144,
+        161,
+        162,
+        163,
+        164,
+        145,
+        146,
+        147,
+        148,
+        157,
+        158,
+        159,
+        160,
+        36,
+        104,
+        108,
+        97,
+        98,
+        99,
+        100,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        113,
+        114,
+        115,
+        116,
+        125,
+        126,
+        127,
+        128,
+        133,
+        134,
+        135,
+        136,
+        129,
+        130,
+        131,
+        132
+      ]
+    }
+  },
+  {
     "model": "users.menuauthgroup",
     "pk": 1,
     "fields": {
@@ -3230,7 +3814,7 @@
     "pk": 5,
     "fields": {
       "created": "2020-04-11T19:34:37.600Z",
-      "modified": "2020-04-11T19:34:37.600Z",
+      "modified": "2020-05-10T00:47:03.822Z",
       "is_removed": false,
       "user": null,
       "first_name": "\u4e9e\u6bd4\u8a72",
@@ -3293,14 +3877,14 @@
     "pk": 8,
     "fields": {
       "created": "2020-04-11T19:36:20.422Z",
-      "modified": "2020-04-11T19:36:20.422Z",
+      "modified": "2020-05-10T00:47:27.146Z",
       "is_removed": false,
       "user": null,
-      "first_name": null,
-      "last_name": "\u9a62\u5b50",
+      "first_name": "David",
+      "last_name": "\u5927\u885b",
       "first_name2": null,
       "last_name2": null,
-      "gender": "UNSPECIFIED",
+      "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
       "progressions": {},
@@ -3423,6 +4007,44 @@
       "first_name2": null,
       "last_name2": null,
       "gender": "FEMALE",
+      "actual_birthday": null,
+      "estimated_birthday": null,
+      "progressions": {},
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": 15,
+    "fields": {
+      "created": "2020-05-10T01:00:09.119Z",
+      "modified": "2020-05-10T01:00:09.119Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "Nabal",
+      "last_name": "\u62ff\u516b",
+      "first_name2": null,
+      "last_name2": null,
+      "gender": "MALE",
+      "actual_birthday": null,
+      "estimated_birthday": null,
+      "progressions": {},
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": 16,
+    "fields": {
+      "created": "2020-05-10T01:02:35.482Z",
+      "modified": "2020-05-10T01:02:35.482Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "\u57fa\u5229\u62bc",
+      "last_name": "Chileab",
+      "first_name2": null,
+      "last_name2": null,
+      "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
       "progressions": {},

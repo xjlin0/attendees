@@ -25,8 +25,9 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"grade": 5}. Please keep {} here even no data')
 
     def clean(self):
-        if self.bed_needs < 1 and self.age is None:
-            raise ValidationError("You must specify age for kid")
+        # fetching birthday from attendee record first
+        if self.registration.assembly.need_age and self.bed_needs < 1 and self.age is None:
+            raise ValidationError("You must specify age for the participant")
 
     def get_absolute_url(self):
         return reverse('attending_detail', args=[str(self.id)])
