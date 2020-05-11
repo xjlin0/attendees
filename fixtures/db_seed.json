@@ -256,6 +256,59 @@
     }
   },
   {
+    "model": "users.menu",
+    "pk": 12,
+    "fields": {
+      "created": "2020-05-11T01:06:34.974Z",
+      "modified": "2020-05-11T01:17:31.734Z",
+      "is_removed": false,
+      "organization": 1,
+      "category": "main",
+      "parent": null,
+      "html_type": "a",
+      "urn": "#",
+      "url_name": "congregation-data",
+      "display_name": "congregation data \u6703\u773e\u8cc7\u6599",
+      "display_order": 3000,
+      "infos": {
+        "role": "tab",
+        "class": "nav-link dropdown-toggle",
+        "data-toggle": "dropdown",
+        "aria-expanded": "false",
+        "aria-haspopup": "true"
+      },
+      "lft": 1,
+      "rght": 4,
+      "tree_id": 3,
+      "level": 0
+    }
+  },
+  {
+    "model": "users.menu",
+    "pk": 13,
+    "fields": {
+      "created": "2020-05-11T01:12:54.878Z",
+      "modified": "2020-05-11T01:13:54.533Z",
+      "is_removed": false,
+      "organization": 1,
+      "category": "main",
+      "parent": 12,
+      "html_type": "a",
+      "urn": "/occasions/cfcc-chinese-ministry/d7c8Fd-cfcc-congregation-roaster/datagrid_assembly_meet_attendances/",
+      "url_name": "datagrid_assembly_meet_attendances",
+      "display_name": "\u5d07\u62dc\u9ede\u540d\u55ae roaster",
+      "display_order": 3500,
+      "infos": {
+        "class": "dropdown-item",
+        "title": "roaster list"
+      },
+      "lft": 2,
+      "rght": 3,
+      "tree_id": 3,
+      "level": 1
+    }
+  },
+  {
     "model": "whereabouts.organization",
     "pk": 1,
     "fields": {
@@ -2243,14 +2296,14 @@
     "pk": 5,
     "fields": {
       "created": "2020-05-09T22:31:18.488Z",
-      "modified": "2020-05-09T22:31:26.822Z",
+      "modified": "2020-05-11T01:01:20.545Z",
       "is_removed": false,
       "start": null,
       "finish": null,
       "category": "normal",
-      "display_name": "CFCC\u6703\u54e1\u8cc7\u6599",
+      "display_name": "CFCC\u6703\u773e\u8cc7\u6599",
       "display_order": 0,
-      "slug": "cfcc-member-data",
+      "slug": "cfcc-congregation-data",
       "need_age": false,
       "division": 1
     }
@@ -2647,13 +2700,13 @@
     "pk": 7,
     "fields": {
       "created": "2020-05-09T22:34:04.419Z",
-      "modified": "2020-05-10T05:37:35.664Z",
+      "modified": "2020-05-11T01:01:37.377Z",
       "is_removed": false,
       "assembly": 5,
       "start": null,
       "finish": null,
       "display_name": "\u9ede\u540d\u55ae",
-      "slug": "d7c8Fd-cfcc-member-roaster",
+      "slug": "d7c8Fd-cfcc-congregation-roaster",
       "infos": {},
       "site_type": 30,
       "site_id": 1
@@ -2664,13 +2717,13 @@
     "pk": 8,
     "fields": {
       "created": "2020-05-09T22:36:23.046Z",
-      "modified": "2020-05-10T05:45:52.911Z",
+      "modified": "2020-05-11T01:01:43.256Z",
       "is_removed": false,
       "assembly": 5,
       "start": null,
       "finish": null,
       "display_name": "\u901a\u8a0a\u9304",
-      "slug": "d7c8Fd-cfcc-member-directory",
+      "slug": "d7c8Fd-cfcc-congregation-directory",
       "infos": {},
       "site_type": 30,
       "site_id": 1
@@ -2681,13 +2734,13 @@
     "pk": 9,
     "fields": {
       "created": "2020-05-09T22:37:59.744Z",
-      "modified": "2020-05-09T22:38:30.583Z",
+      "modified": "2020-05-11T01:01:57.425Z",
       "is_removed": false,
       "assembly": 5,
       "start": null,
       "finish": null,
       "display_name": "\u6703\u54e1",
-      "slug": "d7c8Fd-cfcc-member-membership",
+      "slug": "d7c8Fd-cfcc-congregation-member",
       "infos": {},
       "site_type": 30,
       "site_id": 1
@@ -2698,13 +2751,13 @@
     "pk": 10,
     "fields": {
       "created": "2020-05-10T15:30:52.646Z",
-      "modified": "2020-05-10T15:30:52.646Z",
+      "modified": "2020-05-11T01:02:03.453Z",
       "is_removed": false,
       "assembly": 5,
       "start": null,
       "finish": null,
       "display_name": "\u65b0\u4eba",
-      "slug": "d7c8Fd-cfcc-member-visitor",
+      "slug": "d7c8Fd-cfcc-congregation-visitor",
       "infos": {},
       "site_type": 30,
       "site_id": 1
@@ -2820,6 +2873,23 @@
       "occurrence": null,
       "site_type": 30,
       "site_id": 10
+    }
+  },
+  {
+    "model": "occasions.gathering",
+    "pk": 7,
+    "fields": {
+      "created": "2020-05-11T00:15:00.152Z",
+      "modified": "2020-05-11T01:04:14.671Z",
+      "is_removed": false,
+      "meet": 7,
+      "start": "2020-05-17T17:00:00Z",
+      "finish": null,
+      "display_name": "05/17/2020 \u5d07\u62dc\u9ede\u540d\u55ae",
+      "infos": {},
+      "occurrence": null,
+      "site_type": 30,
+      "site_id": 1
     }
   },
   {
@@ -3006,6 +3076,82 @@
       "team": null,
       "attending": 8,
       "character": 8,
+      "free": 0,
+      "category": "scheduled",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 10,
+    "fields": {
+      "created": "2020-05-11T00:36:23.117Z",
+      "modified": "2020-05-11T00:36:23.117Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 7,
+      "team": null,
+      "attending": 9,
+      "character": 15,
+      "free": 0,
+      "category": "scheduled",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 11,
+    "fields": {
+      "created": "2020-05-11T00:36:23.118Z",
+      "modified": "2020-05-11T00:36:23.118Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 7,
+      "team": null,
+      "attending": 12,
+      "character": 15,
+      "free": 0,
+      "category": "scheduled",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 12,
+    "fields": {
+      "created": "2020-05-11T00:36:23.120Z",
+      "modified": "2020-05-11T00:36:23.120Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 7,
+      "team": null,
+      "attending": 13,
+      "character": 15,
+      "free": 0,
+      "category": "scheduled",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 13,
+    "fields": {
+      "created": "2020-05-11T00:36:23.121Z",
+      "modified": "2020-05-11T00:36:23.121Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 7,
+      "team": null,
+      "attending": 15,
+      "character": 15,
       "free": 0,
       "category": "scheduled",
       "display_order": 0,
@@ -3298,7 +3444,7 @@
     "model": "auth.group",
     "pk": 4,
     "fields": {
-      "name": "d7c8Fd_cfcc_chinese_member_organizer",
+      "name": "d7c8Fd_cfcc_chinese_congregation_organizer",
       "permissions": [
         25,
         26,
@@ -3711,6 +3857,32 @@
     }
   },
   {
+    "model": "users.menuauthgroup",
+    "pk": 27,
+    "fields": {
+      "created": "2020-05-11T01:14:20.259Z",
+      "modified": "2020-05-11T01:14:20.259Z",
+      "is_removed": false,
+      "auth_group": 4,
+      "read": true,
+      "write": true,
+      "menu": 12
+    }
+  },
+  {
+    "model": "users.menuauthgroup",
+    "pk": 28,
+    "fields": {
+      "created": "2020-05-11T01:14:27.066Z",
+      "modified": "2020-05-11T01:14:27.066Z",
+      "is_removed": false,
+      "auth_group": 4,
+      "read": true,
+      "write": true,
+      "menu": 13
+    }
+  },
+  {
     "model": "whereabouts.division",
     "pk": 1,
     "fields": {
@@ -3769,7 +3941,7 @@
       "created": "2020-04-11T19:31:50.659Z",
       "modified": "2020-05-10T22:23:51.100Z",
       "is_removed": false,
-      "uuid": "e5b228ad-8310-6354-68cb-e7b656a608c5",
+      "uuid": "a48e4375-1a64-4c4f-beb3-8f088bf77340",
       "user": 1,
       "first_name": "superuser1",
       "last_name": "system admin1",
@@ -3797,7 +3969,7 @@
       "created": "2020-04-11T19:32:19.822Z",
       "modified": "2020-04-19T12:57:27.231Z",
       "is_removed": false,
-      "uuid": "97fca776-e2ef-0630-1d68-5610ca5032f5",
+      "uuid": "22c29cd5-a5ab-46a3-afe6-d5a600c33fc9",
       "user": 2,
       "first_name": "\u590f\u7532",
       "last_name": "Hagar",
@@ -3819,7 +3991,7 @@
       "created": "2020-04-11T19:33:26.486Z",
       "modified": "2020-04-12T02:37:31.903Z",
       "is_removed": false,
-      "uuid": "2433150e-f9ff-122c-f76a-9bbf665c1031",
+      "uuid": "80f2e82f-0a72-49ea-b3e2-3fc892c49599",
       "user": null,
       "first_name": "\u4ee5\u5be6\u746a\u5229",
       "last_name": "Ishmael",
@@ -3844,7 +4016,7 @@
       "created": "2020-04-11T19:34:03.252Z",
       "modified": "2020-04-11T19:34:03.252Z",
       "is_removed": false,
-      "uuid": "d333ddc2-fc2d-105f-26f5-2f1f46012b6d",
+      "uuid": "e8c025ec-9ea2-4d61-8df3-9daeecbfb849",
       "user": null,
       "first_name": "John",
       "last_name": "\u7d04\u7ff0",
@@ -3866,7 +4038,7 @@
       "created": "2020-04-11T19:34:37.600Z",
       "modified": "2020-05-10T00:47:03.822Z",
       "is_removed": false,
-      "uuid": "408068e5-f828-70d0-fb74-4e784c3065d4",
+      "uuid": "3833d04e-0897-45da-abf6-7d750f0baee7",
       "user": null,
       "first_name": "\u4e9e\u6bd4\u8a72",
       "last_name": "Abigail",
@@ -3888,7 +4060,7 @@
       "created": "2020-04-11T19:35:12.234Z",
       "modified": "2020-04-11T19:35:12.234Z",
       "is_removed": false,
-      "uuid": "4cb0461f-5624-4e75-4b18-092adc4ac0f3",
+      "uuid": "44e894a1-1190-4916-992a-b5eb41b35b16",
       "user": null,
       "first_name": "\u5e95\u6ce2\u62c9",
       "last_name": "Deborah",
@@ -3910,7 +4082,7 @@
       "created": "2020-04-11T19:35:34.990Z",
       "modified": "2020-04-11T19:35:34.990Z",
       "is_removed": false,
-      "uuid": "4d28163a-6faf-c533-7e8a-c302a0d467a8",
+      "uuid": "37ba5cc7-c7a7-419f-833f-915ac68e3676",
       "user": null,
       "first_name": "Elizabeth",
       "last_name": "\u4ee5\u5229\u6c99\u4f2f",
@@ -3932,7 +4104,7 @@
       "created": "2020-04-11T19:36:20.422Z",
       "modified": "2020-05-10T00:47:27.146Z",
       "is_removed": false,
-      "uuid": "174c18c2-dd17-0522-577c-323ddc30b564",
+      "uuid": "0498c414-abd3-4173-add1-5e42053760e4",
       "user": null,
       "first_name": "David",
       "last_name": "\u5927\u885b",
@@ -3952,7 +4124,7 @@
       "created": "2020-04-11T19:36:42.735Z",
       "modified": "2020-04-11T19:36:42.735Z",
       "is_removed": false,
-      "uuid": "30acb5f3-8c99-c11a-5286-72ec3265812d",
+      "uuid": "fa61941f-79a4-423e-872c-0bb9662e4351",
       "user": null,
       "first_name": "\u4ee5\u65af\u5e16",
       "last_name": "Esther",
@@ -3974,7 +4146,7 @@
       "created": "2020-04-11T19:37:15.410Z",
       "modified": "2020-04-11T19:37:15.410Z",
       "is_removed": false,
-      "uuid": "bf058edb-6db5-a9cf-bed8-6d576a48bc6c",
+      "uuid": "3566e642-3624-42e3-9644-c54b08d8c6d6",
       "user": null,
       "first_name": "\u53c3\u5b6b",
       "last_name": "Samson",
@@ -3996,7 +4168,7 @@
       "created": "2020-04-11T19:37:45.378Z",
       "modified": "2020-04-12T02:38:10.671Z",
       "is_removed": false,
-      "uuid": "ea43f020-5fd5-93ae-1c12-4a60887768be",
+      "uuid": "d7e6ec14-302e-46a3-9f32-537d1fc0256b",
       "user": null,
       "first_name": "Lydia",
       "last_name": "\u5442\u5e95\u4e9e",
@@ -4020,7 +4192,7 @@
       "created": "2020-04-11T19:38:00.844Z",
       "modified": "2020-04-12T02:39:24.365Z",
       "is_removed": false,
-      "uuid": "6c5b0909-e850-55a6-3ea9-e318e60ffaec",
+      "uuid": "f3b780ad-c736-490e-8731-58b96dfd81f8",
       "user": null,
       "first_name": "Isaac",
       "last_name": "\u4ee5\u6492",
@@ -4040,7 +4212,7 @@
       "created": "2020-04-11T19:38:16.323Z",
       "modified": "2020-04-12T02:38:37.916Z",
       "is_removed": false,
-      "uuid": "3d540cb3-f3e3-c4ac-99c8-3811a8ae4848",
+      "uuid": "aa24758f-cc70-4353-b1d7-9c616b3db425",
       "user": null,
       "first_name": "Abraham",
       "last_name": "\u4e9e\u4f2f\u62c9\u7f55",
@@ -4060,7 +4232,7 @@
       "created": "2020-04-11T19:38:35.150Z",
       "modified": "2020-04-12T02:39:02.233Z",
       "is_removed": false,
-      "uuid": "adc4ffd0-feb5-539d-ba4c-006e947ae177",
+      "uuid": "ffd3881a-7a77-437a-ba11-c90610839523",
       "user": null,
       "first_name": "Sarah",
       "last_name": "\u6492\u62c9",
@@ -4080,7 +4252,7 @@
       "created": "2020-05-10T01:00:09.119Z",
       "modified": "2020-05-10T01:00:09.119Z",
       "is_removed": false,
-      "uuid": "242024f3-dcdb-0c00-9fbf-a0dba68be214",
+      "uuid": "97922785-9025-40ad-9a5f-a9545f884644",
       "user": null,
       "first_name": "Nabal",
       "last_name": "\u62ff\u516b",
@@ -4100,7 +4272,7 @@
       "created": "2020-05-10T01:02:35.482Z",
       "modified": "2020-05-10T21:47:28.392Z",
       "is_removed": false,
-      "uuid": "04ebeb7c-04d2-dc7b-209b-ef55a8f211cf",
+      "uuid": "786a9d44-379f-4671-9004-5b3d0bd0227b",
       "user": null,
       "first_name": "Chileab",
       "last_name": "\u57fa\u5229\u62bc",

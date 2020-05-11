@@ -84,6 +84,7 @@ class MeetAdmin(admin.ModelAdmin):
 
 class GatheringAdmin(admin.ModelAdmin):
     inlines = (AttendanceInline,)
+    list_display_links = ('display_name',)
     search_fields = ('meet__display_name', 'display_name')
     list_filter = ('meet',)
     list_display = ('id', 'meet', 'start', 'display_name', 'location', 'modified')
