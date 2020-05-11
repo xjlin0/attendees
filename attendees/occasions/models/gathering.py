@@ -15,7 +15,7 @@ class Gathering(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     meet = models.ForeignKey('Meet', on_delete=models.SET(0), null=False, blank=False)
     start = models.DateTimeField(null=False, blank=False)
-    finish = models.DateTimeField(null=False, blank=False)
+    finish = models.DateTimeField(null=False, blank=False, help_text="Required for user to filter by time")
     attendings = models.ManyToManyField('persons.Attending', through='Attendance')
     display_name = models.CharField(max_length=50, blank=True, null=True, help_text="02/09/2020, etc")
     infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"LG_location": "F207", "link": "https://..."}. Please keep {} here even no data')

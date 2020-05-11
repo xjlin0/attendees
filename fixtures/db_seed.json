@@ -2583,12 +2583,12 @@
     "pk": 15,
     "fields": {
       "created": "2020-05-09T23:59:42.960Z",
-      "modified": "2020-05-10T00:02:37.706Z",
+      "modified": "2020-05-11T14:39:46.573Z",
       "is_removed": false,
       "assembly": 5,
-      "display_name": "\u7d00\u9304",
+      "display_name": "\u6703\u773e",
       "display_order": 0,
-      "slug": "d7c8Fd-cfcc-member-data",
+      "slug": "d7c8Fd-cfcc-congregation-general",
       "info": null,
       "type": "audience"
     }
@@ -2893,6 +2893,23 @@
     }
   },
   {
+    "model": "occasions.gathering",
+    "pk": 8,
+    "fields": {
+      "created": "2020-05-11T14:45:38.661Z",
+      "modified": "2020-05-11T14:45:38.661Z",
+      "is_removed": false,
+      "meet": 7,
+      "start": "2020-05-24T17:00:00Z",
+      "finish": "2020-05-24T18:59:59Z",
+      "display_name": "05/24/2020 \u5d07\u62dc\u9ede\u540d\u55ae",
+      "infos": {},
+      "occurrence": null,
+      "site_type": 28,
+      "site_id": 1
+    }
+  },
+  {
     "model": "occasions.team",
     "pk": 1,
     "fields": {
@@ -3106,11 +3123,87 @@
     "pk": 11,
     "fields": {
       "created": "2020-05-11T00:36:23.118Z",
-      "modified": "2020-05-11T00:36:23.118Z",
+      "modified": "2020-05-11T14:42:12.906Z",
       "is_removed": false,
       "start": null,
       "finish": null,
       "gathering": 7,
+      "team": null,
+      "attending": 12,
+      "character": 15,
+      "free": 0,
+      "category": "cancelled",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 12,
+    "fields": {
+      "created": "2020-05-11T00:36:23.120Z",
+      "modified": "2020-05-11T14:42:01.066Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 7,
+      "team": null,
+      "attending": 13,
+      "character": 15,
+      "free": 0,
+      "category": "comfirmed",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 13,
+    "fields": {
+      "created": "2020-05-11T00:36:23.121Z",
+      "modified": "2020-05-11T14:41:47.632Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 7,
+      "team": null,
+      "attending": 15,
+      "character": 15,
+      "free": 0,
+      "category": "attended",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 14,
+    "fields": {
+      "created": "2020-05-11T14:45:38.674Z",
+      "modified": "2020-05-11T14:45:38.674Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 8,
+      "team": null,
+      "attending": 9,
+      "character": 15,
+      "free": 0,
+      "category": "scheduled",
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "occasions.attendance",
+    "pk": 15,
+    "fields": {
+      "created": "2020-05-11T14:45:38.675Z",
+      "modified": "2020-05-11T14:45:38.675Z",
+      "is_removed": false,
+      "start": null,
+      "finish": null,
+      "gathering": 8,
       "team": null,
       "attending": 12,
       "character": 15,
@@ -3122,14 +3215,14 @@
   },
   {
     "model": "occasions.attendance",
-    "pk": 12,
+    "pk": 16,
     "fields": {
-      "created": "2020-05-11T00:36:23.120Z",
-      "modified": "2020-05-11T00:36:23.120Z",
+      "created": "2020-05-11T14:45:38.676Z",
+      "modified": "2020-05-11T14:45:38.676Z",
       "is_removed": false,
       "start": null,
       "finish": null,
-      "gathering": 7,
+      "gathering": 8,
       "team": null,
       "attending": 13,
       "character": 15,
@@ -3141,14 +3234,14 @@
   },
   {
     "model": "occasions.attendance",
-    "pk": 13,
+    "pk": 17,
     "fields": {
-      "created": "2020-05-11T00:36:23.121Z",
-      "modified": "2020-05-11T00:36:23.121Z",
+      "created": "2020-05-11T14:45:38.677Z",
+      "modified": "2020-05-11T14:45:38.677Z",
       "is_removed": false,
       "start": null,
       "finish": null,
-      "gathering": 7,
+      "gathering": 8,
       "team": null,
       "attending": 15,
       "character": 15,
