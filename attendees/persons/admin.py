@@ -60,7 +60,7 @@ class RelationAdmin(admin.ModelAdmin):
 
 class AttendeeAdmin(admin.ModelAdmin):
     search_fields = ('first_name', 'last_name', 'last_name2', 'first_name2')
-    readonly_fields = ['id', 'created', 'modified']
+    readonly_fields = ['id', 'uuid', 'created', 'modified']
     inlines = (AttendeeAddressInline, RelationshipInline)
     list_display_links = ('last_name',)
     list_display = ('id', 'first_name', 'last_name', 'last_name2', 'first_name2', 'progressions', 'infos')

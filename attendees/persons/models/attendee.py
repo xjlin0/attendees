@@ -1,5 +1,5 @@
 from django.db import models
-
+import uuid
 from django.core.exceptions import ValidationError
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields.jsonb import JSONField
@@ -17,6 +17,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     # BE_LISTED_KEYWORDS = ['care receiver']  # let the attendee's attendance showed in their parent/caregiver account
 
     notes = GenericRelation(Note)
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     related_ones = models.ManyToManyField('self', through='Relationship', symmetrical=False, related_name='related_to+')
     addresses = models.ManyToManyField('whereabouts.Address', through='AttendeeAddress', related_name='addresses')
     user = models.OneToOneField('users.User', default=None, null=True, blank=True, on_delete=models.SET_NULL)
