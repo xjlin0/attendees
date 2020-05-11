@@ -41,8 +41,8 @@ class Migration(migrations.Migration):
                 'db_table': 'users_menus',
             },
         ),
-        migrations.AddConstraint(
-            model_name='menu',
-            constraint=models.UniqueConstraint(fields=('organization', 'category', 'html_type', 'url_name'), name='organization_category_html_type_url_name'),
-        ),
+        # migrations.AddConstraint(
+        #     model_name='menu',
+        #     constraint=models.UniqueConstraint(fields=('organization', 'category', 'html_type', 'url_name'), name='organization_category_html_type_url_name'),
+        # ),
     ]

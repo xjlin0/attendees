@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
+from django.forms import TextInput
+from django.db import models
 from mptt.admin import MPTTModelAdmin
 from .models import Menu, MenuAuthGroup
 
@@ -26,7 +28,9 @@ class MenuAuthGroupInline(admin.TabularInline):
 
 @admin.register(Menu)
 class MenuAdmin(MPTTModelAdmin):
-
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'100%'})},
+    }
     mptt_level_indent = 20
     prepopulated_fields = {"url_name": ("display_name",)}
     list_display = ('display_name', 'organization_slug', 'category', 'urn', 'display_order')

@@ -28,6 +28,7 @@ class PriceAdmin(admin.ModelAdmin):
 
 
 class AttendanceAdmin(admin.ModelAdmin):
+    list_display_links = ('attending',)
     list_filter = ('gathering', 'attending', 'character', 'team')
     list_display = ('id', 'attendance_info', 'attending', 'character', 'team', 'modified')
     readonly_fields = ['id','created', 'modified']

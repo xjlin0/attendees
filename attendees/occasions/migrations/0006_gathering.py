@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('start', models.DateTimeField(blank=False, null=False)),
-                ('finish', models.DateTimeField(blank=True, null=True)),
+                ('finish', models.DateTimeField(blank=False, null=False)),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_name', models.CharField(blank=True, null=True, max_length=50, help_text="02/09/2020, etc")),
                 ('infos', JSONField(blank=True, default=dict, help_text='Example: {"LG_location": "F207", "link": "https://..."}. Please keep {} here even no data', null=True)),
