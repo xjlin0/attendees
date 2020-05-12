@@ -1,4 +1,6 @@
 from django_summernote.admin import SummernoteModelAdmin
+from django.contrib.postgres import fields
+from django_json_widget.widgets import JSONEditorWidget
 from django.contrib import admin
 from attendees.occasions.models import *
 from attendees.whereabouts.models import *
@@ -59,6 +61,9 @@ class RelationAdmin(admin.ModelAdmin):
 
 
 class AttendeeAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        fields.JSONField: {'widget': JSONEditorWidget},
+    }
     search_fields = ('first_name', 'last_name', 'last_name2', 'first_name2')
     readonly_fields = ['id', 'uuid', 'created', 'modified']
     inlines = (AttendeeAddressInline, RelationshipInline)
@@ -67,6 +72,10 @@ class AttendeeAdmin(admin.ModelAdmin):
 
 
 class RegistrationAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        fields.JSONField: {'widget': JSONEditorWidget},
+    }
+    list_display_links = ('main_attendee',)
     list_display = ('id', 'main_attendee', 'assembly', 'infos', 'modified')
 
 
@@ -76,6 +85,9 @@ class AttendanceInline(admin.StackedInline):
 
 
 class AttendingAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        fields.JSONField: {'widget': JSONEditorWidget},
+    }
     search_fields = ('attendee__first_name', 'attendee__last_name', 'attendee__first_name2', 'attendee__last_name2')
     list_display_links = ('attendee',)
     readonly_fields = ['id', 'created', 'modified']

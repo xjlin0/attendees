@@ -73,6 +73,7 @@ THIRD_PARTY_APPS = [
     "django_summernote",
     "schedule",
     "mptt",
+    "django_json_widget",
 ]
 
 LOCAL_APPS = [

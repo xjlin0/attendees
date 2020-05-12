@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.postgres import fields
+from django_json_widget.widgets import JSONEditorWidget
 from attendees.persons.models import *
 from attendees.whereabouts.models import *
 from .models import *
@@ -68,6 +70,9 @@ class TeamAdmin(admin.ModelAdmin):
 
 
 class MeetAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        fields.JSONField: {'widget': JSONEditorWidget},
+    }
     prepopulated_fields = {"slug": ("display_name",)}
     search_fields = ('display_name',)
     list_filter = ('assembly',)
@@ -84,6 +89,9 @@ class MeetAdmin(admin.ModelAdmin):
 
 
 class GatheringAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        fields.JSONField: {'widget': JSONEditorWidget},
+    }
     inlines = (AttendanceInline,)
     list_display_links = ('display_name',)
     search_fields = ('meet__display_name', 'display_name')
