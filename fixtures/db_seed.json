@@ -1431,11 +1431,11 @@
       "assembly": 1,
       "main_attendee": 2,
       "infos": {
-        "apply_type": "onsite",
-        "apply_key": "#002",
-        "donation": "0.00",
+        "grade": 2,
         "price": "0.00",
-        "grade": 2
+        "donation": "0.00",
+        "apply_key": "#002",
+        "apply_type": "onsite"
       }
     }
   },
@@ -1449,10 +1449,10 @@
       "assembly": 1,
       "main_attendee": 11,
       "infos": {
-        "apply_type": "admin",
-        "apply_key": "000",
+        "price": "0.00",
         "donation": "0.00",
-        "price": "0.00"
+        "apply_key": "000",
+        "apply_type": "admin"
       }
     }
   },
@@ -1466,10 +1466,10 @@
       "assembly": 2,
       "main_attendee": 1,
       "infos": {
-        "apply_type": "worship",
-        "apply_key": "001",
+        "price": "0.00",
         "donation": "0.00",
-        "price": "0.00"
+        "apply_key": "001",
+        "apply_type": "worship"
       }
     }
   },
@@ -1483,10 +1483,10 @@
       "assembly": 4,
       "main_attendee": 7,
       "infos": {
-        "apply_type": "sky",
-        "apply_key": "001",
+        "price": "0.00",
         "donation": "0.00",
-        "price": "0.00"
+        "apply_key": "001",
+        "apply_type": "sky"
       }
     }
   },
@@ -1500,10 +1500,10 @@
       "assembly": 2,
       "main_attendee": 2,
       "infos": {
-        "apply_type": "reality",
-        "apply_key": "002",
+        "price": "0.00",
         "donation": "0.00",
-        "price": "0.00"
+        "apply_key": "002",
+        "apply_type": "reality"
       }
     }
   },
@@ -1517,10 +1517,10 @@
       "assembly": 3,
       "main_attendee": 11,
       "infos": {
-        "apply_type": "virtual",
-        "apply_key": "001",
+        "price": "0.00",
         "donation": "0.00",
-        "price": "0.00"
+        "apply_key": "001",
+        "apply_type": "virtual"
       }
     }
   },
@@ -1534,10 +1534,10 @@
       "assembly": 5,
       "main_attendee": 1,
       "infos": {
-        "apply_type": "member",
-        "apply_key": "003",
+        "price": "0.00",
         "donation": "0.00",
-        "price": "0.00"
+        "apply_key": "003",
+        "apply_type": "member"
       }
     }
   },
@@ -1554,11 +1554,11 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "age": 500,
-        "bed_needs": 0,
-        "mobility": 300,
         "hi": 5,
-        "grade": 2
+        "age": 500,
+        "grade": 2,
+        "mobility": 300,
+        "bed_needs": 0
       }
     }
   },
@@ -1576,8 +1576,8 @@
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
         "age": 500,
-        "bed_needs": 0,
-        "mobility": 300
+        "mobility": 300,
+        "bed_needs": 0
       }
     }
   },
@@ -1594,9 +1594,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": 500,
         "mobility": 500,
-        "age": 500
+        "bed_needs": 0
       }
     }
   },
@@ -1613,9 +1613,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": 500,
         "mobility": 300,
-        "age": 500
+        "bed_needs": 0
       }
     }
   },
@@ -1632,9 +1632,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": 500,
         "mobility": 200,
-        "age": 500
+        "bed_needs": 0
       }
     }
   },
@@ -1651,9 +1651,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": 5000,
         "mobility": 2000,
-        "age": 5000
+        "bed_needs": 0
       }
     }
   },
@@ -1670,9 +1670,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": 500,
         "mobility": 200,
-        "age": 500
+        "bed_needs": 0
       }
     }
   },
@@ -1689,9 +1689,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": 500,
         "mobility": 500,
-        "age": 500
+        "bed_needs": 0
       }
     }
   },
@@ -1708,9 +1708,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": null,
         "mobility": 200,
-        "age": null
+        "bed_needs": 0
       }
     }
   },
@@ -1727,9 +1727,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": null,
         "mobility": 200,
-        "age": null
+        "bed_needs": 0
       }
     }
   },
@@ -1746,9 +1746,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": null,
         "mobility": 200,
-        "age": null
+        "bed_needs": 0
       }
     }
   },
@@ -1765,9 +1765,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": null,
         "mobility": 200,
-        "age": null
+        "bed_needs": 0
       }
     }
   },
@@ -1784,9 +1784,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": null,
         "mobility": 200,
-        "age": null
+        "bed_needs": 0
       }
     }
   },
@@ -1803,9 +1803,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": null,
         "mobility": 200,
-        "age": null
+        "bed_needs": 0
       }
     }
   },
@@ -1822,9 +1822,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": null,
         "mobility": 200,
-        "age": null
+        "bed_needs": 0
       }
     }
   },
@@ -1841,9 +1841,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": null,
         "mobility": 200,
-        "age": null
+        "bed_needs": 0
       }
     }
   },
@@ -1860,9 +1860,9 @@
       "start": "2020-01-01T18:00:00Z",
       "finish": "2030-02-17T19:59:59Z",
       "infos": {
-        "bed_needs": 0,
+        "age": null,
         "mobility": 200,
-        "age": null
+        "bed_needs": 0
       }
     }
   },
@@ -2649,11 +2649,11 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T18:47:42.792Z",
-      "modified": "2020-04-26T18:30:08.184Z",
+      "modified": "2020-05-12T14:53:51.950Z",
       "is_removed": false,
       "assembly": 1,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:53:44Z",
+      "finish": "2099-05-12T15:53:45Z",
       "display_name": "The Rock",
       "slug": "d7c8Fd-junior-regular-the-rock",
       "infos": {},
@@ -2666,11 +2666,11 @@
     "pk": 2,
     "fields": {
       "created": "2020-04-11T18:48:40.462Z",
-      "modified": "2020-04-26T18:30:17.535Z",
+      "modified": "2020-05-12T14:54:04.509Z",
       "is_removed": false,
       "assembly": 1,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:53:56Z",
+      "finish": "2099-05-12T15:53:57Z",
       "display_name": "Little foot",
       "slug": "d7c8Fd-junior-regular-little-foot",
       "infos": {},
@@ -2683,11 +2683,11 @@
     "pk": 3,
     "fields": {
       "created": "2020-04-11T18:49:26.376Z",
-      "modified": "2020-04-20T16:48:01.451Z",
+      "modified": "2020-05-12T14:55:28.124Z",
       "is_removed": false,
       "assembly": 2,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:55:20Z",
+      "finish": "2099-05-12T15:55:22Z",
       "display_name": "\u5f71\u97f3\u4e2d\u63a7",
       "slug": "d7c8Fd-cfcc-adault-sunday-recording-av-control",
       "infos": {},
@@ -2700,11 +2700,11 @@
     "pk": 4,
     "fields": {
       "created": "2020-04-11T18:50:57.777Z",
-      "modified": "2020-04-20T16:46:15.287Z",
+      "modified": "2020-05-12T14:53:38.209Z",
       "is_removed": false,
       "assembly": 4,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:53:19Z",
+      "finish": "2099-05-12T15:53:21Z",
       "display_name": "\u5929\u5802 \u73bb\u7483\u6d77\u5929\u4f7f\u8a69\u73ed",
       "slug": "faBd6C-sea-of-glass-angel-choir",
       "infos": {},
@@ -2717,11 +2717,11 @@
     "pk": 5,
     "fields": {
       "created": "2020-04-11T18:52:14.135Z",
-      "modified": "2020-04-26T18:31:40.474Z",
+      "modified": "2020-05-12T14:55:12.865Z",
       "is_removed": false,
       "assembly": 1,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:54:57Z",
+      "finish": "2099-12-31T15:54:58Z",
       "display_name": "kid Christmas Celebration \u5152\u5c11\u8056\u8a95\u6703",
       "slug": "d7c8Fd-junior-regular-christmas-celebration",
       "infos": {},
@@ -2734,11 +2734,11 @@
     "pk": 6,
     "fields": {
       "created": "2020-04-20T16:43:03.255Z",
-      "modified": "2020-04-26T18:30:32.888Z",
+      "modified": "2020-05-12T14:53:11.021Z",
       "is_removed": false,
       "assembly": 3,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:53:03Z",
+      "finish": "2030-05-12T14:53:04Z",
       "display_name": "\u9752\u5c11\u77ed\u5ba3\u82f1\u8a9e\u6559\u5b78",
       "slug": "d7c8Fd-junior-special-english-teaching",
       "infos": {},
@@ -2751,11 +2751,11 @@
     "pk": 7,
     "fields": {
       "created": "2020-05-09T22:34:04.419Z",
-      "modified": "2020-05-11T01:01:37.377Z",
+      "modified": "2020-05-12T14:54:51.136Z",
       "is_removed": false,
       "assembly": 5,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:54:44Z",
+      "finish": "2099-05-12T15:54:46Z",
       "display_name": "\u9ede\u540d\u55ae",
       "slug": "d7c8Fd-cfcc-congregation-roaster",
       "infos": {},
@@ -2768,11 +2768,11 @@
     "pk": 8,
     "fields": {
       "created": "2020-05-09T22:36:23.046Z",
-      "modified": "2020-05-11T01:01:43.256Z",
+      "modified": "2020-05-12T14:54:41.276Z",
       "is_removed": false,
       "assembly": 5,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:54:35Z",
+      "finish": "2099-05-12T15:54:36Z",
       "display_name": "\u901a\u8a0a\u9304",
       "slug": "d7c8Fd-cfcc-congregation-directory",
       "infos": {},
@@ -2785,11 +2785,11 @@
     "pk": 9,
     "fields": {
       "created": "2020-05-09T22:37:59.744Z",
-      "modified": "2020-05-11T01:01:57.425Z",
+      "modified": "2020-05-12T14:54:30.601Z",
       "is_removed": false,
       "assembly": 5,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:54:24Z",
+      "finish": "2099-05-12T15:54:26Z",
       "display_name": "\u6703\u54e1",
       "slug": "d7c8Fd-cfcc-congregation-member",
       "infos": {},
@@ -2802,11 +2802,11 @@
     "pk": 10,
     "fields": {
       "created": "2020-05-10T15:30:52.646Z",
-      "modified": "2020-05-11T01:02:03.453Z",
+      "modified": "2020-05-12T14:54:21.018Z",
       "is_removed": false,
       "assembly": 5,
-      "start": null,
-      "finish": null,
+      "start": "2020-05-12T14:54:13Z",
+      "finish": "2099-05-12T15:54:16Z",
       "display_name": "\u65b0\u4eba",
       "slug": "d7c8Fd-cfcc-congregation-visitor",
       "infos": {},
