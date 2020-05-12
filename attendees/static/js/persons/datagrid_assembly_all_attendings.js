@@ -118,8 +118,8 @@ Attendees.attendings = {
         dataHtmlTitle: "Could be real or estimated, depends on user inputs",
         dataField: "attendee",
         calculateCellValue: rowData => {
-          const date = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
-          return date ? new Date(date).toLocaleDateString() : null;
+          const birthday = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
+          return birthday ? new Date(birthday).toLocaleDateString() : null;
         },
       },
       {
@@ -129,8 +129,8 @@ Attendees.attendings = {
         dataType: "number",
         calculateCellValue: rowData => {
           const oneYear = 31557600 * 1000;
-          const date = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
-          return date ? Math.round((new Date() - new Date(date))/oneYear): rowData.age;
+          const birthday = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
+          return birthday ? Math.round((new Date() - new Date(birthday))/oneYear): rowData.infos.age;
         },
       },
       {

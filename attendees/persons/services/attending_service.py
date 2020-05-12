@@ -49,7 +49,7 @@ class AttendingService:
                     character=F('attendingmeet__character__display_name'),
                 ).order_by(
                     'attendee',
-                )  # Todo: registration_start/finish within the selected time period.
+                )  # Todo: filter by start/finish within the selected time period.
 
     @staticmethod
     def by_assembly_meet_characters(assembly_slug, meet_slugs, character_slugs):

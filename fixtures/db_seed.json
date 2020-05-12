@@ -1430,12 +1430,13 @@
       "is_removed": false,
       "assembly": 1,
       "main_attendee": 2,
-      "start": "2020-01-01T18:00:00Z",
-      "finish": "2030-02-17T19:59:59Z",
-      "apply_type": "onsite",
-      "apply_key": "#002",
-      "donation": "0.00",
-      "price": "0.00"
+      "infos": {
+        "apply_type": "onsite",
+        "apply_key": "#002",
+        "donation": "0.00",
+        "price": "0.00",
+        "grade": 2
+      }
     }
   },
   {
@@ -1447,12 +1448,12 @@
       "is_removed": false,
       "assembly": 1,
       "main_attendee": 11,
-      "start": "2020-01-01T18:00:00Z",
-      "finish": "2030-02-17T19:59:59Z",
-      "apply_type": "admin",
-      "apply_key": "000",
-      "donation": "0.00",
-      "price": "0.00"
+      "infos": {
+        "apply_type": "admin",
+        "apply_key": "000",
+        "donation": "0.00",
+        "price": "0.00"
+      }
     }
   },
   {
@@ -1464,12 +1465,12 @@
       "is_removed": false,
       "assembly": 2,
       "main_attendee": 1,
-      "start": "2020-01-01T18:00:00Z",
-      "finish": "2030-02-17T19:59:59Z",
-      "apply_type": "worship",
-      "apply_key": "001",
-      "donation": "0.00",
-      "price": "0.00"
+      "infos": {
+        "apply_type": "worship",
+        "apply_key": "001",
+        "donation": "0.00",
+        "price": "0.00"
+      }
     }
   },
   {
@@ -1481,12 +1482,12 @@
       "is_removed": false,
       "assembly": 4,
       "main_attendee": 7,
-      "start": "2020-01-01T18:00:00Z",
-      "finish": "2030-02-17T19:59:59Z",
-      "apply_type": "sky",
-      "apply_key": "001",
-      "donation": "0.00",
-      "price": "0.00"
+      "infos": {
+        "apply_type": "sky",
+        "apply_key": "001",
+        "donation": "0.00",
+        "price": "0.00"
+      }
     }
   },
   {
@@ -1498,12 +1499,12 @@
       "is_removed": false,
       "assembly": 2,
       "main_attendee": 2,
-      "start": "2020-04-20T01:05:09Z",
-      "finish": null,
-      "apply_type": "reality",
-      "apply_key": "002",
-      "donation": "0.00",
-      "price": "0.00"
+      "infos": {
+        "apply_type": "reality",
+        "apply_key": "002",
+        "donation": "0.00",
+        "price": "0.00"
+      }
     }
   },
   {
@@ -1515,12 +1516,12 @@
       "is_removed": false,
       "assembly": 3,
       "main_attendee": 11,
-      "start": "2020-07-16T05:05:56Z",
-      "finish": "2020-07-30T05:06:17Z",
-      "apply_type": "virtual",
-      "apply_key": "001",
-      "donation": "0.00",
-      "price": "0.00"
+      "infos": {
+        "apply_type": "virtual",
+        "apply_key": "001",
+        "donation": "0.00",
+        "price": "0.00"
+      }
     }
   },
   {
@@ -1532,12 +1533,12 @@
       "is_removed": false,
       "assembly": 5,
       "main_attendee": 1,
-      "start": "2020-05-09T23:35:45Z",
-      "finish": null,
-      "apply_type": "member",
-      "apply_key": "003",
-      "donation": "0.00",
-      "price": "0.00"
+      "infos": {
+        "apply_type": "member",
+        "apply_key": "003",
+        "donation": "0.00",
+        "price": "0.00"
+      }
     }
   },
   {
@@ -1549,11 +1550,13 @@
       "is_removed": false,
       "registration": 1,
       "attendee": 3,
-      "age": 500,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 300,
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
       "infos": {
+        "age": 500,
+        "bed_needs": 0,
+        "mobility": 300,
         "hi": 5,
         "grade": 2
       }
@@ -1568,11 +1571,14 @@
       "is_removed": false,
       "registration": 2,
       "attendee": 11,
-      "age": 500,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 300,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "age": 500,
+        "bed_needs": 0,
+        "mobility": 300
+      }
     }
   },
   {
@@ -1584,11 +1590,14 @@
       "is_removed": false,
       "registration": 2,
       "attendee": 1,
-      "age": 500,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 500,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 500,
+        "age": 500
+      }
     }
   },
   {
@@ -1600,11 +1609,14 @@
       "is_removed": false,
       "registration": 3,
       "attendee": 1,
-      "age": 500,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 300,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 300,
+        "age": 500
+      }
     }
   },
   {
@@ -1616,11 +1628,14 @@
       "is_removed": false,
       "registration": 2,
       "attendee": 4,
-      "age": 500,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": 500
+      }
     }
   },
   {
@@ -1632,11 +1647,14 @@
       "is_removed": false,
       "registration": 4,
       "attendee": 7,
-      "age": 5000,
       "category": "kingdom",
-      "bed_needs": 0,
-      "mobility": 2000,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 2000,
+        "age": 5000
+      }
     }
   },
   {
@@ -1648,11 +1666,14 @@
       "is_removed": false,
       "registration": 5,
       "attendee": 2,
-      "age": 500,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": 500
+      }
     }
   },
   {
@@ -1664,11 +1685,14 @@
       "is_removed": false,
       "registration": 6,
       "attendee": 11,
-      "age": 500,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 500,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 500,
+        "age": 500
+      }
     }
   },
   {
@@ -1680,11 +1704,14 @@
       "is_removed": false,
       "registration": 7,
       "attendee": 1,
-      "age": null,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": null
+      }
     }
   },
   {
@@ -1696,11 +1723,14 @@
       "is_removed": false,
       "registration": 7,
       "attendee": 11,
-      "age": null,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": null
+      }
     }
   },
   {
@@ -1712,11 +1742,14 @@
       "is_removed": false,
       "registration": 7,
       "attendee": 6,
-      "age": null,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": null
+      }
     }
   },
   {
@@ -1728,11 +1761,14 @@
       "is_removed": false,
       "registration": 7,
       "attendee": 10,
-      "age": null,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": null
+      }
     }
   },
   {
@@ -1744,11 +1780,14 @@
       "is_removed": false,
       "registration": 7,
       "attendee": 9,
-      "age": null,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": null
+      }
     }
   },
   {
@@ -1760,11 +1799,14 @@
       "is_removed": false,
       "registration": 7,
       "attendee": 5,
-      "age": null,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": null
+      }
     }
   },
   {
@@ -1776,11 +1818,14 @@
       "is_removed": false,
       "registration": 7,
       "attendee": 8,
-      "age": null,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": null
+      }
     }
   },
   {
@@ -1792,11 +1837,14 @@
       "is_removed": false,
       "registration": 7,
       "attendee": 15,
-      "age": null,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": null
+      }
     }
   },
   {
@@ -1808,11 +1856,14 @@
       "is_removed": false,
       "registration": 7,
       "attendee": 16,
-      "age": null,
       "category": "normal",
-      "bed_needs": 0,
-      "mobility": 200,
-      "infos": {}
+      "start": "2020-01-01T18:00:00Z",
+      "finish": "2030-02-17T19:59:59Z",
+      "infos": {
+        "bed_needs": 0,
+        "mobility": 200,
+        "age": null
+      }
     }
   },
   {
@@ -4092,7 +4143,7 @@
       "last_name2": null,
       "gender": "MALE",
       "actual_birthday": null,
-      "estimated_birthday": "2010-02-04T22:58:32Z",
+      "estimated_birthday": "2010-02-04",
       "progressions": {
         "belief": "not sure"
       },

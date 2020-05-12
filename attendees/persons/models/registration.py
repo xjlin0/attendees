@@ -1,5 +1,6 @@
 from django.db import models
-from django.core.validators import MinValueValidator
+from django.contrib.postgres.fields.jsonb import JSONField
+from django.contrib.postgres.indexes import GinIndex
 from django.contrib.contenttypes.fields import GenericRelation
 from model_utils.models import TimeStampedModel, SoftDeletableModel
 
@@ -12,12 +13,7 @@ class Registration(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     assembly = models.ForeignKey('occasions.Assembly', null=True, on_delete=models.SET_NULL)
     main_attendee = models.ForeignKey(Attendee, null=True, on_delete=models.SET_NULL)
-    start = models.DateTimeField(null=False, blank=False, db_index=True, default=Utility.now_with_timezone)
-    finish = models.DateTimeField(null=True, blank=True, db_index=True)
-    apply_type = models.CharField(max_length=20, null=True, help_text="online or paper")
-    apply_key = models.CharField(max_length=50, null=True, help_text="E1T1F1 or #001")
-    donation = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])
-    price = models.DecimalField(max_digits=8, decimal_places=2, default=999999, validators=[MinValueValidator(0)])
+    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"price": "150.75", "donation": "85.00", "credit": "35.50", "apply_type": "online", "apply_key": "001"}. Please keep {} here even no data')
 
     # @property
     # def price_sum(self):
@@ -28,8 +24,11 @@ class Registration(TimeStampedModel, SoftDeletableModel, Utility):
     #     return '%s %s %s' % (self.apply_type, self.main_attendee, self.price_sum)
 
     def __str__(self):
-        return '%s %s' % (self.apply_type, self.main_attendee)
+        return '%s' % (self.main_attendee,)
 
     class Meta:
         db_table = 'persons_registrations'
-        ordering = ('main_attendee__last_name', 'main_attendee__first_name', 'start')
+        ordering = ('assembly', 'main_attendee__last_name', 'main_attendee__first_name')
+        indexes = [
+            GinIndex(fields=['infos'], name='registration_infos_gin', ),
+        ]

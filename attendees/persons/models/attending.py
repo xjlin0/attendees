@@ -17,16 +17,16 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     registration = models.ForeignKey(Registration, null=True, on_delete=models.SET_NULL)
     attendee = models.ForeignKey(Attendee, null=False, blank=False, on_delete=models.SET(0), related_name="attendings")
     gatherings = models.ManyToManyField('occasions.Gathering', through='occasions.Attendance')
-    age = models.SmallIntegerField(null=True, blank=True)
     category = models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")
     meets = models.ManyToManyField('occasions.Meet', through='AttendingMeet', related_name="meets")
-    bed_needs = models.SmallIntegerField(null=False, blank=False, default=0, help_text="how many beds needed for this person?")
-    mobility = models.SmallIntegerField(null=False, blank=False, default=200, help_text="walking up 3 floors is 300")
-    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"grade": 5}. Please keep {} here even no data')
+    start = models.DateTimeField(null=False, blank=False, db_index=True, default=Utility.now_with_timezone)
+    finish = models.DateTimeField(null=False, blank=False, db_index=True, help_text="Required for user to filter by time")
+    infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"grade": 5, "age": 11, "bed_needs": 1, "mobility": 300}. Please keep {} here even no data')
+    # Todo: infos contains the following display data which are not for table join/query: age, bed_needs, mobility
 
     def clean(self):
         # fetching birthday from attendee record first
-        if self.registration.assembly.need_age and self.bed_needs < 1 and self.age is None:
+        if self.registration.assembly.need_age and self.infos.bed_needs < 1 and self.info.age is None:
             raise ValidationError("You must specify age for the participant")
 
     def get_absolute_url(self):
@@ -56,4 +56,4 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
         return ",".join([str(a) for a in self.attendee.addresses.all()])
 
     def __str__(self):
-        return '%s %s %s' % (self.attendee, self.meet_names, self.bed_needs)
+        return '%s %s' % (self.attendee, self.meet_names)

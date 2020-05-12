@@ -67,7 +67,7 @@ class AttendeeAdmin(admin.ModelAdmin):
 
 
 class RegistrationAdmin(admin.ModelAdmin):
-    list_display = ('id', 'main_attendee', 'apply_type', 'apply_key', 'assembly', 'modified')
+    list_display = ('id', 'main_attendee', 'assembly', 'infos', 'modified')
 
 
 class AttendanceInline(admin.StackedInline):
@@ -80,7 +80,7 @@ class AttendingAdmin(admin.ModelAdmin):
     list_display_links = ('attendee',)
     readonly_fields = ['id', 'created', 'modified']
     inlines = (AttendingMeetInline,) # add AttendanceInline when creating new Attending will fails on meet_names
-    list_display = ('id', 'registration', 'attendee', 'meet_names', 'infos', 'all_addresses')
+    list_display = ('id', 'registration', 'attendee', 'meet_names', 'finish', 'infos')
 
 
 class NoteAdmin(SummernoteModelAdmin):
