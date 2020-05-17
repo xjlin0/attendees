@@ -74,6 +74,8 @@ THIRD_PARTY_APPS = [
     "schedule",
     "mptt",
     "django_json_widget",
+    "private_storage",
+    # "reversion",
 ]
 
 LOCAL_APPS = [

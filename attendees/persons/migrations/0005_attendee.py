@@ -35,6 +35,7 @@ class Migration(migrations.Migration):
                 ('gender', models.CharField(choices=GenderEnum.choices(), default=GenderEnum.UNSPECIFIED, max_length=11)),
                 ('actual_birthday', models.DateField(blank=True, null=True)),
                 ('estimated_birthday', models.DateField(blank=True, null=True)),
+                ('deathday', models.DateField(blank=True, null=True)),
                 ('progressions', JSONField(blank=True, default=dict, help_text='Example: {"Christian": true, "baptized": {"time": "12/31/2020", "place":"SF"}}. Please keep {} here even no data', null=True)),
                 ('infos', JSONField(blank=True, default=dict, help_text='Example: {"food allergy": "peanuts", "public_name": "John", "other_name": "Apostle"}. Please keep {} here even no data', null=True)),
             ],

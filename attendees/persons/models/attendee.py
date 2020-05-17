@@ -30,6 +30,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     gender = models.CharField(max_length=11, blank=False, null=False, default=GenderEnum.UNSPECIFIED, choices=GenderEnum.choices())
     actual_birthday = models.DateField(blank=True, null=True)
     estimated_birthday = models.DateField(blank=True, null=True)
+    deathday = models.DateField(blank=True, null=True)
     progressions = JSONField(null=True, blank=True, default=dict, help_text='Example: {"Christian": true, "baptized": {"time": "12/31/2020", "place":"SF"}}. Please keep {} here even no data')
     # photo = PrivateFileField("File") #https://github.com/edoburu/django-private-storage
     infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"food allergy": "peanuts", "public_name": "John", "other_name": "Apostle"}. Please keep {} here even no data')
