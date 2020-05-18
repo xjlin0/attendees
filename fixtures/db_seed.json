@@ -4083,7 +4083,7 @@
     "pk": 1,
     "fields": {
       "created": "2020-04-11T19:31:50.659Z",
-      "modified": "2020-05-10T22:23:51.100Z",
+      "modified": "2020-05-18T16:28:43.947Z",
       "is_removed": false,
       "uuid": "a48e4375-1a64-4c4f-beb3-8f088bf77340",
       "user": 1,
@@ -4094,6 +4094,7 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {
         "belief": "believer",
         "baptized": {
@@ -4101,6 +4102,7 @@
           "place": "SF, CA"
         }
       },
+      "photo": null,
       "infos": {
         "public_name": "root"
       }
@@ -4122,9 +4124,11 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {
         "belief": "believer"
       },
+      "photo": null,
       "infos": {}
     }
   },
@@ -4144,9 +4148,11 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": "2010-02-04",
+      "deathday": null,
       "progressions": {
         "belief": "not sure"
       },
+      "photo": null,
       "infos": {
         "allergy": "peanuts",
         "public_name": "\u5927\u5bf6"
@@ -4169,7 +4175,9 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {
         "public_name": "\u4f7f\u5f92\u7d04\u7ff0"
       }
@@ -4191,7 +4199,9 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {
         "public_name": "\u8001\u59ca"
       }
@@ -4213,7 +4223,9 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {
         "public_name": "\u6230\u795e\u4e48\u4e48"
       }
@@ -4235,9 +4247,11 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {
         "belief": "judge"
       },
+      "photo": null,
       "infos": {}
     }
   },
@@ -4257,7 +4271,9 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {}
     }
   },
@@ -4277,7 +4293,9 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {
         "public_name": "\u7687\u540e"
       }
@@ -4299,7 +4317,9 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {
         "public_name": "\u5f1f\u5144"
       }
@@ -4321,9 +4341,11 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {
         "belief": "baptized"
       },
+      "photo": null,
       "infos": {
         "other_name": "\u63a8\u96c5\u63a8\u5587\u7684\u5442\u5e95\u4e9e"
       }
@@ -4345,7 +4367,9 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {}
     }
   },
@@ -4365,7 +4389,9 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {}
     }
   },
@@ -4385,7 +4411,9 @@
       "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {}
     }
   },
@@ -4405,7 +4433,9 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {}
     }
   },
@@ -4425,7 +4455,9 @@
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
+      "deathday": null,
       "progressions": {},
+      "photo": null,
       "infos": {}
     }
   },

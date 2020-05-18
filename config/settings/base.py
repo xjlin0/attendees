@@ -165,6 +165,9 @@ STATICFILES_FINDERS = [
 MEDIA_ROOT = str(APPS_DIR("media"))
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
+# django-private-storage
+PRIVATE_STORAGE_ROOT = '/media/private-media/'
+PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_authenticated'
 
 # TEMPLATES
 # ------------------------------------------------------------------------------

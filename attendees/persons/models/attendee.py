@@ -1,5 +1,5 @@
 from django.db import models
-import uuid
+from uuid import uuid4
 from django.core.exceptions import ValidationError
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields.jsonb import JSONField
@@ -7,7 +7,7 @@ from django.contrib.postgres.indexes import GinIndex
 from django.utils.functional import cached_property
 from datetime import datetime, timezone
 from model_utils.models import TimeStampedModel, SoftDeletableModel
-
+from private_storage.fields import PrivateFileField
 from . import GenderEnum, Note, Utility
 
 
@@ -17,7 +17,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     # BE_LISTED_KEYWORDS = ['care receiver']  # let the attendee's attendance showed in their parent/caregiver account
 
     notes = GenericRelation(Note)
-    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    uuid = models.UUIDField(default=uuid4, editable=False, unique=True)
     related_ones = models.ManyToManyField('self', through='Relationship', symmetrical=False, related_name='related_to+')
     addresses = models.ManyToManyField('whereabouts.Address', through='AttendeeAddress', related_name='addresses')
     user = models.OneToOneField('users.User', default=None, null=True, blank=True, on_delete=models.SET_NULL)
@@ -32,7 +32,7 @@ class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
     estimated_birthday = models.DateField(blank=True, null=True)
     deathday = models.DateField(blank=True, null=True)
     progressions = JSONField(null=True, blank=True, default=dict, help_text='Example: {"Christian": true, "baptized": {"time": "12/31/2020", "place":"SF"}}. Please keep {} here even no data')
-    # photo = PrivateFileField("File") #https://github.com/edoburu/django-private-storage
+    photo = PrivateFileField("Photo", blank=True, null=True, upload_to="attendees") #https://github.com/edoburu/django-private-storage
     infos = JSONField(null=True, blank=True, default=dict, help_text='Example: {"food allergy": "peanuts", "public_name": "John", "other_name": "Apostle"}. Please keep {} here even no data')
 
     @property
