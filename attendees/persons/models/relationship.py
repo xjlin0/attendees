@@ -7,8 +7,8 @@ from . import Utility, Note, Attendee
 class Relationship(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    from_attendee = models.ForeignKey(Attendee, related_name='from_attendee', on_delete=models.SET(0))
-    to_attendee = models.ForeignKey(Attendee, related_name='to_attendee', on_delete=models.SET(0))
+    from_attendee = models.ForeignKey(Attendee, related_name='from_attendee', on_delete=models.CASCADE)
+    to_attendee = models.ForeignKey(Attendee, related_name='to_attendee', on_delete=models.CASCADE)
     relation = models.ForeignKey('persons.Relation', related_name='relation', null=False, blank=False, on_delete=models.SET(0), verbose_name='to_attendee is', help_text="[Title] What would from_attendee call to_attendee?")
     emergency_contact = models.BooleanField('to_attendee is the emergency contact?', null=False, blank=False, default=False, help_text="[from_attendee decide:] Notify to_attendee of from_attendee's emergency?")
     scheduler = models.BooleanField('to_attendee is the scheduler?', null=False, blank=False, default=False, help_text="[from_attendee decide:] to_attendee can view/change the schedules of the from_attendee?")

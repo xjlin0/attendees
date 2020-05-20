@@ -6,22 +6,22 @@ from django.contrib.postgres.fields.jsonb import JSONField
 from django.contrib.postgres.indexes import GinIndex
 from django.utils.functional import cached_property
 from datetime import datetime, timezone
-from model_utils.models import TimeStampedModel, SoftDeletableModel
+from model_utils.models import TimeStampedModel, SoftDeletableModel, UUIDModel
 from private_storage.fields import PrivateFileField
 from . import GenderEnum, Note, Utility
 
 
-class Attendee(Utility, TimeStampedModel, SoftDeletableModel):
+class Attendee(UUIDModel, Utility, TimeStampedModel, SoftDeletableModel):
     # RELATIVES_KEYWORDS = ['parent', 'mother', 'guardian', 'father', 'caregiver']
     # AS_PARENT_KEYWORDS = ['notifier', 'caregiver']  # to find attendee's parents/caregiver in cowokers view of all activities
     # BE_LISTED_KEYWORDS = ['care receiver']  # let the attendee's attendance showed in their parent/caregiver account
 
     notes = GenericRelation(Note)
-    uuid = models.UUIDField(default=uuid4, editable=False, unique=True)
+    # uuid = models.UUIDField(default=uuid4, editable=False, unique=True)
     related_ones = models.ManyToManyField('self', through='Relationship', symmetrical=False, related_name='related_to+')
     addresses = models.ManyToManyField('whereabouts.Address', through='AttendeeAddress', related_name='addresses')
     user = models.OneToOneField('users.User', default=None, null=True, blank=True, on_delete=models.SET_NULL)
-    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
+    # id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     families = models.ManyToManyField('persons.Family', through='FamilyAttendee', related_name='families')
     first_name = models.CharField(max_length=25, db_index=True, null=True, blank=True)
     last_name = models.CharField(max_length=25, db_index=True, null=True, blank=True)

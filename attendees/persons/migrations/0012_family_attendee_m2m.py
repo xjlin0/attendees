@@ -20,8 +20,8 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('display_order', models.SmallIntegerField(db_index=True, default=0)),
-                ('attendee', models.ForeignKey(on_delete=models.SET(0), related_name='attendee', to='persons.Attendee')),
-                ('family', models.ForeignKey(on_delete=models.SET(0), related_name='family', to='persons.Family')),
+                ('attendee', models.ForeignKey(on_delete=models.CASCADE, related_name='attendee', to='persons.Attendee')),
+                ('family', models.ForeignKey(on_delete=models.CASCADE, related_name='family', to='persons.Family')),
                 ('role', models.ForeignKey(help_text='[Title] the family role of the attendee?', on_delete=models.SET(0), related_name='role', to='persons.Relation', verbose_name='attendee is')),
             ],
             options={

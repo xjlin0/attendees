@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('category', models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")),
-                ('attendee', models.ForeignKey(null=False, blank=False, on_delete=models.SET(0), to='persons.Attendee', related_name="attendings")),
+                ('attendee', models.ForeignKey(null=False, blank=False, on_delete=models.CASCADE, to='persons.Attendee', related_name="attendings")),
                 ('registration', models.ForeignKey(null=True, on_delete=models.deletion.SET_NULL, to='persons.Registration')),
                 ('start', models.DateTimeField(blank=False, null=False, db_index=True, default=attendees.persons.models.utility.Utility.now_with_timezone)),
                 ('finish', models.DateTimeField(blank=False, null=False, db_index=True, help_text="Required for user to filter by time")),

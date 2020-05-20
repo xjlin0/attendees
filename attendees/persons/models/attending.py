@@ -15,7 +15,7 @@ class Attending(TimeStampedModel, SoftDeletableModel, Utility):
     notes = GenericRelation(Note)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     registration = models.ForeignKey(Registration, null=True, on_delete=models.SET_NULL)
-    attendee = models.ForeignKey(Attendee, null=False, blank=False, on_delete=models.SET(0), related_name="attendings")
+    attendee = models.ForeignKey(Attendee, null=False, blank=False, on_delete=models.CASCADE, related_name="attendings")
     gatherings = models.ManyToManyField('occasions.Gathering', through='occasions.Attendance')
     category = models.CharField(max_length=20, null=False, blank=False, default="normal", help_text="normal, not_going, coworker, etc")
     meets = models.ManyToManyField('occasions.Meet', through='AttendingMeet', related_name="meets")

@@ -5,8 +5,8 @@ from . import Utility
 
 class AttendeeAddress(TimeStampedModel, SoftDeletableModel, Utility):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    attendee = models.ForeignKey('Attendee', on_delete=models.SET(0), null=False, blank=False)
-    address = models.ForeignKey('whereabouts.Address', on_delete=models.SET(0), null=False, blank=False)
+    attendee = models.ForeignKey('Attendee', on_delete=models.CASCADE, null=False, blank=False)
+    address = models.ForeignKey('whereabouts.Address', on_delete=models.CASCADE, null=False, blank=False)
     category = models.CharField(max_length=20, default='main', blank=False, null=False, help_text='main, resident, etc (main will be displayed first)')
 
     #need to validate there only one 'main' for category
