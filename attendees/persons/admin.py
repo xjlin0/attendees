@@ -39,12 +39,11 @@ class CategoryAdmin(admin.ModelAdmin):
 class FamilyAdmin(admin.ModelAdmin):
     readonly_fields = ['id', 'created', 'modified']
     inlines = (FamilyAttendeeInline,)
-    prepopulated_fields = {"slug": ("display_name",)}
     list_display_links = ('display_name',)
-    list_display = ('id', 'display_name', 'display_order', 'slug')
+    list_display = ('id', 'display_name', 'display_order', 'modified')
     fieldsets = (
         (None, {"fields": (tuple(['display_name', 'display_order']),
-                           tuple(['slug', 'id', 'created', 'modified']),
+                           tuple(['id', 'created', 'modified']),
                            ), }),
     )
 

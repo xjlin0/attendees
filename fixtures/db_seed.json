@@ -631,36 +631,36 @@
   },
   {
     "model": "persons.family",
-    "pk": 10001,
+    "pk": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
     "fields": {
       "created": "2020-05-02T21:17:26.399Z",
       "modified": "2020-05-02T21:40:25.209Z",
       "is_removed": false,
-      "slug": "hagar-ishmael",
+      "infos": {},
       "display_name": "Hagar & Ishmael",
       "display_order": 0
     }
   },
   {
     "model": "persons.family",
-    "pk": 10002,
+    "pk": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
     "fields": {
       "created": "2020-05-02T22:02:57.456Z",
       "modified": "2020-05-02T22:02:57.456Z",
       "is_removed": false,
-      "slug": "abraham-sarah",
+      "infos": {},
       "display_name": "Abraham & Sarah",
       "display_order": 0
     }
   },
   {
     "model": "persons.family",
-    "pk": 10003,
+    "pk": "249335f0-9a37-11ea-b554-dd12bf8b78b9",
     "fields": {
       "created": "2020-05-10T00:46:32.567Z",
       "modified": "2020-05-10T00:46:32.567Z",
       "is_removed": false,
-      "slug": "david_abigail",
+      "infos": {},
       "display_name": "David&Abigail",
       "display_order": 0
     }
@@ -672,7 +672,7 @@
       "created": "2020-05-02T21:17:26.404Z",
       "modified": "2020-05-02T21:17:26.404Z",
       "is_removed": false,
-      "family": 10001,
+      "family": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
       "attendee": 2,
       "role": 2,
       "display_order": 1
@@ -685,7 +685,7 @@
       "created": "2020-05-02T21:17:26.405Z",
       "modified": "2020-05-02T21:17:26.405Z",
       "is_removed": false,
-      "family": 10001,
+      "family": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
       "attendee": 3,
       "role": 3,
       "display_order": 2
@@ -698,7 +698,7 @@
       "created": "2020-05-02T21:40:25.188Z",
       "modified": "2020-05-02T21:40:25.188Z",
       "is_removed": false,
-      "family": 10001,
+      "family": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
       "attendee": 13,
       "role": 1,
       "display_order": 0
@@ -711,7 +711,7 @@
       "created": "2020-05-02T22:02:57.464Z",
       "modified": "2020-05-02T22:02:57.464Z",
       "is_removed": false,
-      "family": 10002,
+      "family": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
       "attendee": 13,
       "role": 1,
       "display_order": 0
@@ -724,7 +724,7 @@
       "created": "2020-05-02T22:02:57.465Z",
       "modified": "2020-05-02T22:02:57.465Z",
       "is_removed": false,
-      "family": 10002,
+      "family": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
       "attendee": 14,
       "role": 2,
       "display_order": 1
@@ -737,7 +737,7 @@
       "created": "2020-05-02T22:02:57.465Z",
       "modified": "2020-05-02T22:02:57.465Z",
       "is_removed": false,
-      "family": 10002,
+      "family": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
       "attendee": 12,
       "role": 3,
       "display_order": 2
@@ -1145,7 +1145,7 @@
       "relation": 3,
       "emergency_contact": true,
       "scheduler": false,
-      "in_family": 10001,
+      "in_family": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T16:52:12Z"
     }
   },
@@ -1161,7 +1161,7 @@
       "relation": 2,
       "emergency_contact": true,
       "scheduler": true,
-      "in_family": 10001,
+      "in_family": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T16:58:34Z"
     }
   },
@@ -1209,7 +1209,7 @@
       "relation": 7,
       "emergency_contact": true,
       "scheduler": false,
-      "in_family": 10001,
+      "in_family": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T17:00:50Z"
     }
   },
@@ -1225,7 +1225,7 @@
       "relation": 1,
       "emergency_contact": true,
       "scheduler": true,
-      "in_family": 10001,
+      "in_family": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T17:02:11Z"
     }
   },
@@ -1241,7 +1241,7 @@
       "relation": 5,
       "emergency_contact": true,
       "scheduler": false,
-      "in_family": 10001,
+      "in_family": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T17:02:42Z"
     }
   },
@@ -1257,7 +1257,7 @@
       "relation": 5,
       "emergency_contact": true,
       "scheduler": true,
-      "in_family": 10002,
+      "in_family": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T17:07:24Z"
     }
   },
@@ -1273,7 +1273,7 @@
       "relation": 3,
       "emergency_contact": true,
       "scheduler": false,
-      "in_family": 10002,
+      "in_family": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T17:07:48Z"
     }
   },
@@ -1289,7 +1289,7 @@
       "relation": 2,
       "emergency_contact": true,
       "scheduler": true,
-      "in_family": 10002,
+      "in_family": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T17:08:29Z"
     }
   },
@@ -1305,7 +1305,7 @@
       "relation": 1,
       "emergency_contact": true,
       "scheduler": true,
-      "in_family": 10002,
+      "in_family": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T17:09:17Z"
     }
   },
@@ -1321,7 +1321,7 @@
       "relation": 3,
       "emergency_contact": true,
       "scheduler": false,
-      "in_family": 10001,
+      "in_family": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T17:12:21Z"
     }
   },
@@ -1337,7 +1337,7 @@
       "relation": 6,
       "emergency_contact": true,
       "scheduler": true,
-      "in_family": 10002,
+      "in_family": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-05T17:13:12Z"
     }
   },
@@ -1353,7 +1353,7 @@
       "relation": 5,
       "emergency_contact": true,
       "scheduler": false,
-      "in_family": 10003,
+      "in_family": "249335f0-9a37-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-15T00:46:42Z"
     }
   },
@@ -1369,7 +1369,7 @@
       "relation": 6,
       "emergency_contact": true,
       "scheduler": true,
-      "in_family": 10003,
+      "in_family": "249335f0-9a37-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-15T00:47:08Z"
     }
   },
@@ -1401,7 +1401,7 @@
       "relation": 2,
       "emergency_contact": true,
       "scheduler": false,
-      "in_family": 10003,
+      "in_family": "249335f0-9a37-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-15T01:01:20Z"
     }
   },
@@ -1417,7 +1417,7 @@
       "relation": 1,
       "emergency_contact": true,
       "scheduler": false,
-      "in_family": 10003,
+      "in_family": "249335f0-9a37-11ea-b554-dd12bf8b78b9",
       "finish": "3936-11-15T01:01:20Z"
     }
   },

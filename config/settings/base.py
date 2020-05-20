@@ -168,6 +168,7 @@ MEDIA_URL = "/media/"
 # django-private-storage
 PRIVATE_STORAGE_ROOT = '/media/private-media/'
 PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_authenticated'
+# PRIVATE_STORAGE_SERVER = 'apache'  # add this in local causes uploaded files looks blank
 
 # TEMPLATES
 # ------------------------------------------------------------------------------

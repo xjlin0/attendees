@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('relation', models.ForeignKey('persons.Relation', related_name='relation', null=False, blank=False, on_delete=models.SET(0), verbose_name='to_attendee is', help_text="[Title] What would from_attendee call to_attendee?")),
                 ('emergency_contact', models.BooleanField('to_attendee is the emergency contact?', default=False, null=False, blank=False, help_text="[from_attendee decide:] Notify to_attendee of from_attendee's emergency?")),
                 ('scheduler', models.BooleanField('to_attendee is the scheduler?', default=False, null=False, blank=False, help_text="[from_attendee decide:] to_attendee can view/change the schedules of the from_attendee?")),
-                ('in_family', models.ForeignKey(null=True, blank=True, on_delete=models.SET(0), related_name='family', to='persons.Family')),
+                ('in_family', models.ForeignKey(blank=True, null=True, on_delete=models.SET_NULL, related_name='in_family', to='persons.Family')),
                 ('from_attendee', models.ForeignKey(on_delete=models.SET(0), related_name='from_attendee', to='persons.Attendee')),
                 ('to_attendee', models.ForeignKey(on_delete=models.SET(0), related_name='to_attendee', to='persons.Attendee')),
                 ('finish', models.DateTimeField(null=False, blank=False, default=Utility.forever, help_text='The relation will be ended at when')),
@@ -37,12 +37,6 @@ class Migration(migrations.Migration):
             model_name='attendee',
             name='related_ones',
             field=models.ManyToManyField(related_name='_attendee_relations_+', through='persons.Relationship', to='persons.Attendee'),
-        ),
-        migrations.AlterField(
-            model_name='relationship',
-            name='in_family',
-            field=models.ForeignKey(blank=True, null=True, on_delete=models.SET(0), related_name='in_family',
-                                    to='persons.Family'),
         ),
         migrations.AddConstraint(
             model_name='relationship',
