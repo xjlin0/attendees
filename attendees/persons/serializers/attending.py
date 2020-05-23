@@ -4,12 +4,11 @@ from rest_framework import serializers
 
 
 class AttendingSerializer(serializers.ModelSerializer):
-    meets_object = serializers.SerializerMethodField()
-    # character = serializers.CharField()
+    meets_info = serializers.SerializerMethodField()
     attendee = AttendeeSerializer(many=False, read_only=True)
 
-    def get_meets_object(self, obj):
-        return {m.slug: m.display_name for m in obj.meets.all()}
+    def get_meets_info(self, obj):
+        return {am.meet.slug: am.character.slug for am in obj.attendingmeet_set.all()}
 
     class Meta:
         model = Attending

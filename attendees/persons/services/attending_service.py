@@ -63,5 +63,5 @@ class AttendingService:
                 meets__slug__in=meet_slugs,
                 attendingmeet__character__slug__in=character_slugs,
                 meets__assembly__slug=assembly_slug,
-            )
+            ).distinct()
 

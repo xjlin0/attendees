@@ -83,14 +83,14 @@ console.log("running Attendees.attendings.setAttendingsFormatsColumns()");
     const availableMeets = JSON.parse(document.querySelector('div.attendings').dataset.availableMeets); // $('div.attendings').data('available-meets');
     const availableCharacters = JSON.parse(document.querySelector('div.attendings').dataset.availableCharacters);
 
-//    availableMeets.forEach(meet => {
-//
-//      meetColumns.push({
-//        caption: 'grade',
-//        calculateCellValue: rowData => rowData.infos.grade,
-//      })
-//
-//    });
+    availableMeets.forEach(meet => {
+      console.log()
+      meetColumns.push({
+        caption: meet.display_name,
+        dataField: 'meets_info.' + meet.slug,
+        calculateCellValue: rowData => rowData.meets_info[meet.slug],
+      })
+    });
 
     Attendees.attendings.attendingsFormats['columns']=[...Attendees.attendings.attendingsFormatsColumnsStart, ...meetColumns, ...Attendees.attendings.attendingsFormatsColumnsEnd]
   },
