@@ -8,7 +8,7 @@ class AttendingSerializer(serializers.ModelSerializer):
     attendee = AttendeeSerializer(many=False, read_only=True)
 
     def get_meets_info(self, obj):
-        return {am.meet.slug: am.character.slug for am in obj.attendingmeet_set.all()}
+        return {am.meet.slug: am.character.display_name for am in obj.attendingmeet_set.all()}
 
     class Meta:
         model = Attending

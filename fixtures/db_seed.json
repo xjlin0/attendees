@@ -288,13 +288,13 @@
     "pk": 13,
     "fields": {
       "created": "2020-05-11T01:12:54.878Z",
-      "modified": "2020-05-11T05:23:02.619Z",
+      "modified": "2020-05-23T15:22:12.754Z",
       "is_removed": false,
       "organization": 1,
       "category": "main",
       "parent": 12,
       "html_type": "a",
-      "urn": "/occasions/cfcc-chinese-ministry/cfcc-congregation-data/datagrid_assembly_all_attendances/",
+      "urn": "/occasions/cfcc-data-management/cfcc-congregation-data/datagrid_assembly_all_attendances/",
       "url_name": "datagrid_assembly_all_attendances",
       "display_name": "\u5d07\u62dc\u9ede\u540d\u55ae roaster",
       "display_order": 3500,
@@ -631,26 +631,14 @@
   },
   {
     "model": "persons.family",
-    "pk": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
-    "fields": {
-      "created": "2020-05-02T21:17:26.399Z",
-      "modified": "2020-05-02T21:40:25.209Z",
-      "is_removed": false,
-      "infos": {},
-      "display_name": "Hagar & Ishmael",
-      "display_order": 0
-    }
-  },
-  {
-    "model": "persons.family",
     "pk": "10ef8af8-9a37-11ea-b554-dd12bf8b78b9",
     "fields": {
       "created": "2020-05-02T22:02:57.456Z",
       "modified": "2020-05-02T22:02:57.456Z",
       "is_removed": false,
-      "infos": {},
       "display_name": "Abraham & Sarah",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {}
     }
   },
   {
@@ -660,9 +648,21 @@
       "created": "2020-05-10T00:46:32.567Z",
       "modified": "2020-05-10T00:46:32.567Z",
       "is_removed": false,
-      "infos": {},
       "display_name": "David&Abigail",
-      "display_order": 0
+      "display_order": 0,
+      "infos": {}
+    }
+  },
+  {
+    "model": "persons.family",
+    "pk": "ad4153c4-9a36-11ea-b554-dd12bf8b78b9",
+    "fields": {
+      "created": "2020-05-02T21:17:26.399Z",
+      "modified": "2020-05-02T21:40:25.209Z",
+      "is_removed": false,
+      "display_name": "Hagar & Ishmael",
+      "display_order": 0,
+      "infos": {}
     }
   },
   {
@@ -2170,10 +2170,10 @@
     "pk": 24,
     "fields": {
       "created": "2020-05-10T21:49:09.884Z",
-      "modified": "2020-05-10T21:49:09.884Z",
+      "modified": "2020-05-23T15:06:02.159Z",
       "is_removed": false,
       "attending": 17,
-      "meet": 10,
+      "meet": 7,
       "character": 15,
       "category": "primary"
     }
@@ -2347,7 +2347,7 @@
     "pk": 5,
     "fields": {
       "created": "2020-05-09T22:31:18.488Z",
-      "modified": "2020-05-11T01:01:20.545Z",
+      "modified": "2020-05-23T15:20:16.647Z",
       "is_removed": false,
       "start": null,
       "finish": null,
@@ -2356,7 +2356,7 @@
       "display_order": 0,
       "slug": "cfcc-congregation-data",
       "need_age": false,
-      "division": 1
+      "division": 5
     }
   },
   {
@@ -2751,14 +2751,16 @@
     "pk": 7,
     "fields": {
       "created": "2020-05-09T22:34:04.419Z",
-      "modified": "2020-05-12T14:54:51.136Z",
+      "modified": "2020-05-23T15:10:23.749Z",
       "is_removed": false,
       "assembly": 5,
       "start": "2020-05-12T14:54:44Z",
       "finish": "2099-05-12T15:54:46Z",
       "display_name": "\u9ede\u540d\u55ae",
       "slug": "d7c8Fd-cfcc-congregation-roaster",
-      "infos": {},
+      "infos": {
+        "extending_attending_days": 90
+      },
       "site_type": 30,
       "site_id": 1
     }
@@ -2792,23 +2794,6 @@
       "finish": "2099-05-12T15:54:26Z",
       "display_name": "\u6703\u54e1",
       "slug": "d7c8Fd-cfcc-congregation-member",
-      "infos": {},
-      "site_type": 30,
-      "site_id": 1
-    }
-  },
-  {
-    "model": "occasions.meet",
-    "pk": 10,
-    "fields": {
-      "created": "2020-05-10T15:30:52.646Z",
-      "modified": "2020-05-12T14:54:21.018Z",
-      "is_removed": false,
-      "assembly": 5,
-      "start": "2020-05-12T14:54:13Z",
-      "finish": "2099-05-12T15:54:16Z",
-      "display_name": "\u65b0\u4eba",
-      "slug": "d7c8Fd-cfcc-congregation-visitor",
       "infos": {},
       "site_type": 30,
       "site_id": 1
@@ -3588,7 +3573,7 @@
     "model": "auth.group",
     "pk": 4,
     "fields": {
-      "name": "d7c8Fd_cfcc_chinese_congregation_organizer",
+      "name": "d7c8Fd_cfcc_data_organizer",
       "permissions": [
         25,
         26,
@@ -4079,32 +4064,38 @@
     }
   },
   {
-    "model": "persons.attendee",
-    "pk": "a48e4375-1a64-4c4f-beb3-8f088bf77340",
+    "model": "whereabouts.division",
+    "pk": 5,
     "fields": {
-      "created": "2020-04-11T19:31:50.659Z",
-      "modified": "2020-05-18T16:28:43.947Z",
+      "created": "2020-05-23T15:14:19.798Z",
+      "modified": "2020-05-23T15:19:11.339Z",
       "is_removed": false,
-      "user": 1,
-      "first_name": "superuser1",
-      "last_name": "system admin1",
+      "organization": 1,
+      "display_name": "\u8cc7\u6599\u90e8",
+      "slug": "cfcc-data-management",
+      "audience_auth_group": 4
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": "0498c414-abd3-4173-add1-5e42053760e4",
+    "fields": {
+      "created": "2020-04-11T19:36:20.422Z",
+      "modified": "2020-05-10T00:47:27.146Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "David",
+      "last_name": "\u5927\u885b",
       "first_name2": null,
       "last_name2": null,
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
       "deathday": null,
-      "progressions": {
-        "belief": "believer",
-        "baptized": {
-          "time": "12/31/2099",
-          "place": "SF, CA"
-        }
-      },
-      "photo": null,
+      "progressions": {},
+      "photo": "",
       "infos": {
-        "id": 1,
-        "public_name": "root"
+        "id": 8
       }
     }
   },
@@ -4127,7 +4118,7 @@
       "progressions": {
         "belief": "believer"
       },
-      "photo": null,
+      "photo": "",
       "infos": {
         "id": 2
       }
@@ -4135,52 +4126,50 @@
   },
   {
     "model": "persons.attendee",
-    "pk": "80f2e82f-0a72-49ea-b3e2-3fc892c49599",
+    "pk": "3566e642-3624-42e3-9644-c54b08d8c6d6",
     "fields": {
-      "created": "2020-04-11T19:33:26.486Z",
-      "modified": "2020-04-12T02:37:31.903Z",
+      "created": "2020-04-11T19:37:15.410Z",
+      "modified": "2020-04-11T19:37:15.410Z",
       "is_removed": false,
       "user": null,
-      "first_name": "\u4ee5\u5be6\u746a\u5229",
-      "last_name": "Ishmael",
-      "first_name2": null,
-      "last_name2": null,
-      "gender": "MALE",
-      "actual_birthday": null,
-      "estimated_birthday": "2010-02-04",
-      "deathday": null,
-      "progressions": {
-        "belief": "not sure"
-      },
-      "photo": null,
-      "infos": {
-        "id": 3,
-        "allergy": "peanuts",
-        "public_name": "\u5927\u5bf6"
-      }
-    }
-  },
-  {
-    "model": "persons.attendee",
-    "pk": "e8c025ec-9ea2-4d61-8df3-9daeecbfb849",
-    "fields": {
-      "created": "2020-04-11T19:34:03.252Z",
-      "modified": "2020-04-11T19:34:03.252Z",
-      "is_removed": false,
-      "user": null,
-      "first_name": "John",
-      "last_name": "\u7d04\u7ff0",
-      "first_name2": null,
+      "first_name": "\u53c3\u5b6b",
+      "last_name": "Samson",
+      "first_name2": "\u53c3\u5b6b",
       "last_name2": null,
       "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
       "deathday": null,
       "progressions": {},
-      "photo": null,
+      "photo": "",
       "infos": {
-        "id": 4,
-        "public_name": "\u4f7f\u5f92\u7d04\u7ff0"
+        "id": 10,
+        "public_name": "\u5f1f\u5144"
+      }
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": "37ba5cc7-c7a7-419f-833f-915ac68e3676",
+    "fields": {
+      "created": "2020-04-11T19:35:34.990Z",
+      "modified": "2020-04-11T19:35:34.990Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "Elizabeth",
+      "last_name": "\u4ee5\u5229\u6c99\u4f2f",
+      "first_name2": null,
+      "last_name2": null,
+      "gender": "FEMALE",
+      "actual_birthday": null,
+      "estimated_birthday": null,
+      "deathday": null,
+      "progressions": {
+        "belief": "judge"
+      },
+      "photo": "",
+      "infos": {
+        "id": 7
       }
     }
   },
@@ -4201,7 +4190,7 @@
       "estimated_birthday": null,
       "deathday": null,
       "progressions": {},
-      "photo": null,
+      "photo": "",
       "infos": {
         "id": 5,
         "public_name": "\u8001\u59ca"
@@ -4225,7 +4214,7 @@
       "estimated_birthday": null,
       "deathday": null,
       "progressions": {},
-      "photo": null,
+      "photo": "",
       "infos": {
         "id": 6,
         "public_name": "\u6230\u795e\u4e48\u4e48"
@@ -4234,39 +4223,117 @@
   },
   {
     "model": "persons.attendee",
-    "pk": "37ba5cc7-c7a7-419f-833f-915ac68e3676",
+    "pk": "786a9d44-379f-4671-9004-5b3d0bd0227b",
     "fields": {
-      "created": "2020-04-11T19:35:34.990Z",
-      "modified": "2020-04-11T19:35:34.990Z",
+      "created": "2020-05-10T01:02:35.482Z",
+      "modified": "2020-05-10T21:47:28.392Z",
       "is_removed": false,
       "user": null,
-      "first_name": "Elizabeth",
-      "last_name": "\u4ee5\u5229\u6c99\u4f2f",
+      "first_name": "Chileab",
+      "last_name": "\u57fa\u5229\u62bc",
       "first_name2": null,
       "last_name2": null,
-      "gender": "FEMALE",
+      "gender": "MALE",
+      "actual_birthday": null,
+      "estimated_birthday": null,
+      "deathday": null,
+      "progressions": {},
+      "photo": "",
+      "infos": {
+        "id": 16
+      }
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": "80f2e82f-0a72-49ea-b3e2-3fc892c49599",
+    "fields": {
+      "created": "2020-04-11T19:33:26.486Z",
+      "modified": "2020-04-12T02:37:31.903Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "\u4ee5\u5be6\u746a\u5229",
+      "last_name": "Ishmael",
+      "first_name2": null,
+      "last_name2": null,
+      "gender": "MALE",
+      "actual_birthday": null,
+      "estimated_birthday": "2010-02-04",
+      "deathday": null,
+      "progressions": {
+        "belief": "not sure"
+      },
+      "photo": "",
+      "infos": {
+        "id": 3,
+        "allergy": "peanuts",
+        "public_name": "\u5927\u5bf6"
+      }
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": "97922785-9025-40ad-9a5f-a9545f884644",
+    "fields": {
+      "created": "2020-05-10T01:00:09.119Z",
+      "modified": "2020-05-10T01:00:09.119Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "Nabal",
+      "last_name": "\u62ff\u516b",
+      "first_name2": null,
+      "last_name2": null,
+      "gender": "MALE",
+      "actual_birthday": null,
+      "estimated_birthday": null,
+      "deathday": null,
+      "progressions": {},
+      "photo": "",
+      "infos": {
+        "id": 15
+      }
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": "a48e4375-1a64-4c4f-beb3-8f088bf77340",
+    "fields": {
+      "created": "2020-04-11T19:31:50.659Z",
+      "modified": "2020-05-18T16:28:43.947Z",
+      "is_removed": false,
+      "user": 1,
+      "first_name": "superuser1",
+      "last_name": "system admin1",
+      "first_name2": null,
+      "last_name2": null,
+      "gender": "MALE",
       "actual_birthday": null,
       "estimated_birthday": null,
       "deathday": null,
       "progressions": {
-        "belief": "judge"
+        "belief": "believer",
+        "baptized": {
+          "time": "12/31/2099",
+          "place": "SF, CA"
+        }
       },
-      "photo": null,
+      "photo": "",
       "infos": {
-        "id": 7
+        "id": 1,
+        "public_name": "root"
       }
     }
   },
   {
     "model": "persons.attendee",
-    "pk": "0498c414-abd3-4173-add1-5e42053760e4",
+    "pk": "aa24758f-cc70-4353-b1d7-9c616b3db425",
     "fields": {
-      "created": "2020-04-11T19:36:20.422Z",
-      "modified": "2020-05-10T00:47:27.146Z",
+      "created": "2020-04-11T19:38:16.323Z",
+      "modified": "2020-04-12T02:38:37.916Z",
       "is_removed": false,
       "user": null,
-      "first_name": "David",
-      "last_name": "\u5927\u885b",
+      "first_name": "Abraham",
+      "last_name": "\u4e9e\u4f2f\u62c9\u7f55",
       "first_name2": null,
       "last_name2": null,
       "gender": "MALE",
@@ -4274,57 +4341,9 @@
       "estimated_birthday": null,
       "deathday": null,
       "progressions": {},
-      "photo": null,
+      "photo": "",
       "infos": {
-        "id": 8
-      }
-    }
-  },
-  {
-    "model": "persons.attendee",
-    "pk": "fa61941f-79a4-423e-872c-0bb9662e4351",
-    "fields": {
-      "created": "2020-04-11T19:36:42.735Z",
-      "modified": "2020-04-11T19:36:42.735Z",
-      "is_removed": false,
-      "user": null,
-      "first_name": "\u4ee5\u65af\u5e16",
-      "last_name": "Esther",
-      "first_name2": null,
-      "last_name2": null,
-      "gender": "FEMALE",
-      "actual_birthday": null,
-      "estimated_birthday": null,
-      "deathday": null,
-      "progressions": {},
-      "photo": null,
-      "infos": {
-        "id": 9,
-        "public_name": "\u7687\u540e"
-      }
-    }
-  },
-  {
-    "model": "persons.attendee",
-    "pk": "3566e642-3624-42e3-9644-c54b08d8c6d6",
-    "fields": {
-      "created": "2020-04-11T19:37:15.410Z",
-      "modified": "2020-04-11T19:37:15.410Z",
-      "is_removed": false,
-      "user": null,
-      "first_name": "\u53c3\u5b6b",
-      "last_name": "Samson",
-      "first_name2": "\u53c3\u5b6b",
-      "last_name2": null,
-      "gender": "MALE",
-      "actual_birthday": null,
-      "estimated_birthday": null,
-      "deathday": null,
-      "progressions": {},
-      "photo": null,
-      "infos": {
-        "id": 10,
-        "public_name": "\u5f1f\u5144"
+        "id": 13
       }
     }
   },
@@ -4347,10 +4366,34 @@
       "progressions": {
         "belief": "baptized"
       },
-      "photo": null,
+      "photo": "",
       "infos": {
         "id": 11,
         "other_name": "\u63a8\u96c5\u63a8\u5587\u7684\u5442\u5e95\u4e9e"
+      }
+    }
+  },
+  {
+    "model": "persons.attendee",
+    "pk": "e8c025ec-9ea2-4d61-8df3-9daeecbfb849",
+    "fields": {
+      "created": "2020-04-11T19:34:03.252Z",
+      "modified": "2020-04-11T19:34:03.252Z",
+      "is_removed": false,
+      "user": null,
+      "first_name": "John",
+      "last_name": "\u7d04\u7ff0",
+      "first_name2": null,
+      "last_name2": null,
+      "gender": "MALE",
+      "actual_birthday": null,
+      "estimated_birthday": null,
+      "deathday": null,
+      "progressions": {},
+      "photo": "",
+      "infos": {
+        "id": 4,
+        "public_name": "\u4f7f\u5f92\u7d04\u7ff0"
       }
     }
   },
@@ -4371,7 +4414,7 @@
       "estimated_birthday": null,
       "deathday": null,
       "progressions": {},
-      "photo": null,
+      "photo": "",
       "infos": {
         "id": 12
       }
@@ -4379,24 +4422,25 @@
   },
   {
     "model": "persons.attendee",
-    "pk": "aa24758f-cc70-4353-b1d7-9c616b3db425",
+    "pk": "fa61941f-79a4-423e-872c-0bb9662e4351",
     "fields": {
-      "created": "2020-04-11T19:38:16.323Z",
-      "modified": "2020-04-12T02:38:37.916Z",
+      "created": "2020-04-11T19:36:42.735Z",
+      "modified": "2020-04-11T19:36:42.735Z",
       "is_removed": false,
       "user": null,
-      "first_name": "Abraham",
-      "last_name": "\u4e9e\u4f2f\u62c9\u7f55",
+      "first_name": "\u4ee5\u65af\u5e16",
+      "last_name": "Esther",
       "first_name2": null,
       "last_name2": null,
-      "gender": "MALE",
+      "gender": "FEMALE",
       "actual_birthday": null,
       "estimated_birthday": null,
       "deathday": null,
       "progressions": {},
-      "photo": null,
+      "photo": "",
       "infos": {
-        "id": 13
+        "id": 9,
+        "public_name": "\u7687\u540e"
       }
     }
   },
@@ -4417,55 +4461,9 @@
       "estimated_birthday": null,
       "deathday": null,
       "progressions": {},
-      "photo": null,
+      "photo": "",
       "infos": {
         "id": 14
-      }
-    }
-  },
-  {
-    "model": "persons.attendee",
-    "pk": "97922785-9025-40ad-9a5f-a9545f884644",
-    "fields": {
-      "created": "2020-05-10T01:00:09.119Z",
-      "modified": "2020-05-10T01:00:09.119Z",
-      "is_removed": false,
-      "user": null,
-      "first_name": "Nabal",
-      "last_name": "\u62ff\u516b",
-      "first_name2": null,
-      "last_name2": null,
-      "gender": "MALE",
-      "actual_birthday": null,
-      "estimated_birthday": null,
-      "deathday": null,
-      "progressions": {},
-      "photo": null,
-      "infos": {
-        "id": 15
-      }
-    }
-  },
-  {
-    "model": "persons.attendee",
-    "pk": "786a9d44-379f-4671-9004-5b3d0bd0227b",
-    "fields": {
-      "created": "2020-05-10T01:02:35.482Z",
-      "modified": "2020-05-10T21:47:28.392Z",
-      "is_removed": false,
-      "user": null,
-      "first_name": "Chileab",
-      "last_name": "\u57fa\u5229\u62bc",
-      "first_name2": null,
-      "last_name2": null,
-      "gender": "MALE",
-      "actual_birthday": null,
-      "estimated_birthday": null,
-      "deathday": null,
-      "progressions": {},
-      "photo": null,
-      "infos": {
-        "id": 16
       }
     }
   },
