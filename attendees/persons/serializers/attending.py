@@ -12,5 +12,8 @@ class AttendingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Attending
-        fields = '__all__'
-
+        fields = [f.name for f in model._meta.fields if f.name not in ['is_removed']] + [
+            'attending_label',
+            'meets_info',
+            'attendee',
+        ]
