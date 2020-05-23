@@ -27,18 +27,27 @@ Attendees.attendings = {
     const $charactersSelectBox = $optionForm.find('select.filter-characters');
     const meets = $meetsSelectBox.val() || [];
     const characters = $charactersSelectBox.val() || [];
+    const $attendingDatagrid = $("div.attendings").dxDataGrid("instance");
+    const availableMeets = JSON.parse(document.querySelector('div.attendings').dataset.availableMeets);
+
+    availableMeets.forEach( meet =>{
+      $attendingDatagrid.columnOption(meet.slug, "visible", false);
+    });
 
     if (meets.length && characters.length) {
       const url = $('div.attendings').data('attendings-endpoint');
       const searchParams = new URLSearchParams();
+
+      meets.forEach( meet=> {
+        $attendingDatagrid.columnOption(meet, "visible", true);
+      });
+
       meets.forEach(meet => { searchParams.append('meets[]', meet)});
       characters.forEach(character => { searchParams.append('characters[]', character)});
       finalUrl = `${url}?${searchParams.toString()}`
     }
 
-    $("div.attendings")
-      .dxDataGrid("instance")
-      .option("dataSource", finalUrl);
+    $attendingDatagrid.option("dataSource", finalUrl);
 
   },
 
@@ -77,17 +86,16 @@ Attendees.attendings = {
 
   setAttendingsFormatsColumns: () => {
 
-console.log("running Attendees.attendings.setAttendingsFormatsColumns()");
-
     const meetColumns=[];
     const availableMeets = JSON.parse(document.querySelector('div.attendings').dataset.availableMeets); // $('div.attendings').data('available-meets');
-    const availableCharacters = JSON.parse(document.querySelector('div.attendings').dataset.availableCharacters);
+    // const availableCharacters = JSON.parse(document.querySelector('div.attendings').dataset.availableCharacters);
 
     availableMeets.forEach(meet => {
       console.log()
       meetColumns.push({
+        visible: false,
         caption: meet.display_name,
-        dataField: 'meets_info.' + meet.slug,
+        dataField: meet.slug,  // used as the key for toggling visibility
         calculateCellValue: rowData => rowData.meets_info[meet.slug],
       })
     });
