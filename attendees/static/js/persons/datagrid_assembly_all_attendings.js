@@ -30,24 +30,24 @@ Attendees.attendings = {
     const $attendingDatagrid = $("div.attendings").dxDataGrid("instance");
     const availableMeets = JSON.parse(document.querySelector('div.attendings').dataset.availableMeets);
 
-    availableMeets.forEach( meet =>{
-      $attendingDatagrid.columnOption(meet.slug, "visible", false);
-    });
-
     if (meets.length && characters.length) {
       const url = $('div.attendings').data('attendings-endpoint');
       const searchParams = new URLSearchParams();
-
-      meets.forEach( meet=> {
-        $attendingDatagrid.columnOption(meet, "visible", true);
-      });
-
       meets.forEach(meet => { searchParams.append('meets[]', meet)});
       characters.forEach(character => { searchParams.append('characters[]', character)});
       finalUrl = `${url}?${searchParams.toString()}`
     }
 
+    meetsToHide = $(Attendees.attendings.visibleColumns).not(meets).get();
+    meetsToShow = $(meets).not(Attendees.attendings.visibleColumns).get();
+
+    $attendingDatagrid.beginUpdate();
     $attendingDatagrid.option("dataSource", finalUrl);
+    meetsToHide.forEach( meet=> $attendingDatagrid.columnOption(meet, "visible", false) );
+    meetsToShow.forEach( meet=> $attendingDatagrid.columnOption(meet, "visible", true) );
+    $attendingDatagrid.endUpdate();
+
+    Attendees.attendings.visibleColumns = meets;
 
   },
 
@@ -84,6 +84,9 @@ Attendees.attendings = {
 //    },
   },
 
+  visibleColumns: [
+  ],
+
   setAttendingsFormatsColumns: () => {
 
     const meetColumns=[];
@@ -91,7 +94,6 @@ Attendees.attendings = {
     // const availableCharacters = JSON.parse(document.querySelector('div.attendings').dataset.availableCharacters);
 
     availableMeets.forEach(meet => {
-      console.log()
       meetColumns.push({
         visible: false,
         caption: meet.display_name,
