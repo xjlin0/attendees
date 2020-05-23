@@ -26,6 +26,10 @@ class Registration(TimeStampedModel, SoftDeletableModel, Utility):
     def __str__(self):
         return '%s' % (self.main_attendee,)
 
+    @property
+    def main_attendee_name(self):
+        return self.main_attendee
+
     class Meta:
         db_table = 'persons_registrations'
         ordering = ('assembly', 'main_attendee__last_name', 'main_attendee__first_name')

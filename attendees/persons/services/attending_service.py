@@ -63,10 +63,5 @@ class AttendingService:
                 meets__slug__in=meet_slugs,
                 attendingmeet__character__slug__in=character_slugs,
                 meets__assembly__slug=assembly_slug,
-            ).annotate(
-                meet=F('attendingmeet__meet__display_name'),
-                character=F('attendingmeet__character__display_name'),
-            ).order_by(
-                'attendee',
             )
 

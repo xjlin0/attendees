@@ -4,6 +4,8 @@ from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 # from django.utils import timezone
+from json import dumps
+from django.forms.models import model_to_dict
 from django.http import Http404
 from django.shortcuts import render
 from attendees.occasions.models import Meet, Character
@@ -32,7 +34,9 @@ class DatagridAssemblyAllAttendingsListView(RouteGuard, ListView):
             'current_division_slug': current_division_slug,
             'current_assembly_slug': current_assembly_slug,
             'available_meets': available_meets,
+            'available_meets_json': dumps([model_to_dict(m, fields=('slug', 'display_name')) for m in available_meets]),
             'available_characters': available_characters,
+            'available_characters_json': dumps([model_to_dict(c, fields=('slug', 'display_name')) for c in available_characters]),
         })
         return context
 
@@ -45,7 +49,7 @@ class DatagridAssemblyAllAttendingsListView(RouteGuard, ListView):
                 # chosen_character_slugs = self.request.GET.getlist('characters', [])
                 # context.update({'chosen_character_slugs': chosen_character_slugs})
                 context.update({'teams_endpoint': f"/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_teams/"})
-                context.update({'attendees_endpoint': f"/persons/api/{context['current_assembly_slug']}/assembly_meet_attendees/"})
+                context.update({'attendees_endpoint': f"/persons/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_attendees/"})
                 context.update({'gatherings_endpoint': f"/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_gatherings/"})
                 context.update({'characters_endpoint': f"/occasions/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_characters/"})
                 context.update({'attendings_endpoint': f"/persons/api/{context['current_division_slug']}/{context['current_assembly_slug']}/assembly_meet_attendings/"})

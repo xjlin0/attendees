@@ -3,6 +3,8 @@ Attendees.attendings = {
 
     console.log("attendees/static/js/persons/datagrid_assembly_all_attendings.js");
 
+    Attendees.attendings.setAttendingsFormatsColumns();
+
     Attendees.attendings.setDefaults();
 
     $('.basic-multiple').select2({
@@ -71,101 +73,116 @@ Attendees.attendings = {
 //    scrolling: {
 //            mode: "virtual",
 //    },
-    columns: [
-      {
-        dataField: "id",
-        allowGrouping: false,
-      },
-      {
-        caption: 'Attendee',
-        allowFixing: true,
-        dataField: "attendee",
-        calculateCellValue: rowData => rowData.attendee.display_label,
-      },
-//      {
-//        caption: 'Attending (Register)',
-//        dataField: "attending",
-//        lookup: {
-//            valueExpr: "id",
-//            displayExpr: "attending_label",
-//            dataSource: {
-//                store: new DevExpress.data.CustomStore({
-//                    key: "id",
-//                    load: () => {
-//                      return $.getJSON($('div.attendances').data('attendings-endpoint'), {meets: $('select.filter-meets').val()});
-//                    },
-//                }),
-//            },
-//        }
-//      },
-      {
-        dataField: "meet",
-        dataType: "string",
-        groupIndex: 0,
-      },
-      {
-        dataField: "character",
-        caption: 'role',
-        dataType: "string",
-      },
-      {
-        caption: 'grade',
-        dataField: "infos.grade",
-        calculateCellValue: rowData => rowData.infos.grade,
-      },
-      {
-        caption: 'Birthday',
-        dataHtmlTitle: "Could be real or estimated, depends on user inputs",
-        dataField: "attendee",
-        calculateCellValue: rowData => {
-          const birthday = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
-          return birthday ? new Date(birthday).toLocaleDateString() : null;
-        },
-      },
-      {
-        caption: 'Age',
-        dataHtmlTitle: "Could be real or estimated, depends on user inputs",
-        dataField: "attendee",
-        dataType: "number",
-        calculateCellValue: rowData => {
-          const oneYear = 31557600 * 1000;
-          const birthday = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
-          return birthday ? Math.round((new Date() - new Date(birthday))/oneYear): rowData.infos.age;
-        },
-      },
-      {
-        caption: "Parents/Caregivers",
-        dataField: "attendee.parents_notifiers_names",
-        calculateCellValue: rowData => rowData.attendee.parents_notifiers_names,
-      },
-      {
-        caption: "Self emails",
-        dataField: "attendee.self_email_addresses",
-//        width: '15%',
-        calculateCellValue: rowData => rowData.attendee.self_email_addresses,
-      },
-      {
-        caption: "Parents emails",
-        dataField: "attendee.caregiver_email_addresses",
-        calculateCellValue: rowData => rowData.attendee.caregiver_email_addresses,
-      },
-      {
-        caption: "Self phones",
-        dataField: "attendee.self_phone_numbers",
-        calculateCellValue: rowData => rowData.attendee.self_phone_numbers,
-      },
-      {
-        caption: "Parents phones",
-        dataField: "attendee.caregiver_phone_numbers",
-        calculateCellValue: rowData => rowData.attendee.caregiver_phone_numbers,
-      },
-      {
-        caption: 'allergy',
-        dataField: "attendee.infos.allergy",
-        calculateCellValue: rowData => rowData.attendee.infos.allergy,
-      },
-    ],
   },
+
+  setAttendingsFormatsColumns: () => {
+
+console.log("running Attendees.attendings.setAttendingsFormatsColumns()");
+
+    const meetColumns=[];
+    const availableMeets = JSON.parse(document.querySelector('div.attendings').dataset.availableMeets); // $('div.attendings').data('available-meets');
+    const availableCharacters = JSON.parse(document.querySelector('div.attendings').dataset.availableCharacters);
+
+//    availableMeets.forEach(meet => {
+//
+//      meetColumns.push({
+//        caption: 'grade',
+//        calculateCellValue: rowData => rowData.infos.grade,
+//      })
+//
+//    });
+
+    Attendees.attendings.attendingsFormats['columns']=[...Attendees.attendings.attendingsFormatsColumnsStart, ...meetColumns, ...Attendees.attendings.attendingsFormatsColumnsEnd]
+  },
+
+
+  attendingsFormatsColumnsStart: [
+    {
+      dataField: "id",
+      allowGrouping: false,
+    },
+    {
+      caption: 'attendee',
+      dataField: "attendee.display_label",
+    },
+  ],
+
+  attendingsFormatsColumnsEnd: [
+//    {
+//      dataField: "registration",
+//      lookup: {
+//          valueExpr: "id",
+//          displayExpr: "main_attendee",
+//          dataSource: {
+//              store: new DevExpress.data.CustomStore({
+//                  key: "id",
+//                  load: () => {
+//                    const $selectedMeets = $('select.filter-meets').val();
+//                    if ($selectedMeets.length > 0) {
+//                      return $.getJSON($('div.attendings').data('characters-endpoint'), {meets: $selectedMeets});
+//                    }
+//                  },
+//              }),
+//          },
+//      }
+//    },   // template for using registration intead
+    {
+      caption: 'grade',
+      dataField: "infos.grade",
+      calculateCellValue: rowData => rowData.infos.grade,
+    },
+    {
+      caption: 'Birthday',
+      dataHtmlTitle: "Could be real or estimated, depends on user inputs",
+      dataField: "attendee",
+      calculateCellValue: rowData => {
+        const birthday = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
+        return birthday ? new Date(birthday).toLocaleDateString() : null;
+      },
+    },
+    {
+      caption: 'Age',
+      dataHtmlTitle: "Could be real or estimated, depends on user inputs",
+      dataField: "attendee",
+      dataType: "number",
+      calculateCellValue: rowData => {
+        const oneYear = 31557600 * 1000;
+        const birthday = rowData.attendee.actual_birthday ? rowData.attendee.actual_birthday : rowData.attendee.estimated_birthday;
+        return birthday ? Math.round((new Date() - new Date(birthday))/oneYear): rowData.infos.age;
+      },
+    },
+    {
+      caption: "Parents/Caregivers",
+      dataField: "attendee.parents_notifiers_names",
+      calculateCellValue: rowData => rowData.attendee.parents_notifiers_names,
+    },
+    {
+      caption: "Self emails",
+      dataField: "attendee.self_email_addresses",
+//        width: '15%',
+      calculateCellValue: rowData => rowData.attendee.self_email_addresses,
+    },
+    {
+      caption: "Parents emails",
+      dataField: "attendee.caregiver_email_addresses",
+      calculateCellValue: rowData => rowData.attendee.caregiver_email_addresses,
+    },
+    {
+      caption: "Self phones",
+      dataField: "attendee.self_phone_numbers",
+      calculateCellValue: rowData => rowData.attendee.self_phone_numbers,
+    },
+    {
+      caption: "Parents phones",
+      dataField: "attendee.caregiver_phone_numbers",
+      calculateCellValue: rowData => rowData.attendee.caregiver_phone_numbers,
+    },
+    {
+      caption: 'allergy',
+      dataField: "attendee.infos.allergy",
+      calculateCellValue: rowData => rowData.attendee.infos.allergy,
+    },
+  ],
 
   setDefaults: () => {
     const urlParams = new URLSearchParams(window.location.search);
