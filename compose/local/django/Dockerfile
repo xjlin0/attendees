@@ -1,7 +1,6 @@
 FROM python:3.8-alpine
 
 ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
 
 RUN apk update \
   # psycopg2 dependencies
@@ -15,7 +14,7 @@ RUN apk update \
   && apk add gettext \
   # https://docs.djangoproject.com/en/dev/ref/django-admin/#dbshell
   && apk add postgresql-client \
-  && apk add git file make
+  && apk add git
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
